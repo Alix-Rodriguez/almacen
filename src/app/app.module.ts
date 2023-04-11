@@ -17,6 +17,7 @@ import { PagesComponent } from './pages/pages.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http';
     Grafica1Component,
     PagesComponent,
     EmpresaComponent,
+    OrdenCompraComponent,
   ],
   imports: [
     BrowserModule,
