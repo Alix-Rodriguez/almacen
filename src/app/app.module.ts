@@ -14,7 +14,9 @@ import { HeaderComponent } from './shared/header/header.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { PagesComponent } from './pages/pages.component';
-
+import { EmpresaComponent } from './pages/empresa/empresa.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,14 @@ import { PagesComponent } from './pages/pages.component';
     ProgressComponent,
     Grafica1Component,
     PagesComponent,
+    EmpresaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   bootstrap: [AppComponent]
 })

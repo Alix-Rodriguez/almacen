@@ -8,6 +8,7 @@ import { ProgressComponent } from './pages/progress/progress.component';
 import { Grafica1Component } from './pages/grafica1/grafica1.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
 import { PagesComponent } from './pages/pages.component';
+import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 
 const routes: Routes = [
   { 
@@ -18,6 +19,7 @@ const routes: Routes = [
       { path: 'progress', component: ProgressComponent },
       { path: 'grafica1', component: Grafica1Component },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+      { path: 'crear-empresa', component: CrearEmpresaComponent },
     ]
   },
   
