@@ -10,6 +10,8 @@ import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component'
 import { PagesComponent } from './pages/pages.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
+import { CrearProductoComponent } from './pages/producto/crear-producto/crear-producto.component';
+import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 
 const routes: Routes = [
   { 
@@ -22,6 +24,9 @@ const routes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'crear-empresa', component: CrearEmpresaComponent },
       { path: 'order-compra', component: OrdenCompraComponent },
+      { path: 'crear-producto', component: CrearProductoComponent },
+      { path: 'crear-almacen', component: CrearAlmacenComponent },
+
     ]
   },
   

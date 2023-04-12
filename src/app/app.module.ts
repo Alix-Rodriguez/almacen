@@ -18,6 +18,8 @@ import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
+import { CrearProductoComponent } from './pages/producto/crear-producto/crear-producto.component';
+import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.componen
     PagesComponent,
     EmpresaComponent,
     OrdenCompraComponent,
+    CrearProductoComponent,
+    CrearAlmacenComponent,
   ],
   imports: [
     BrowserModule,
