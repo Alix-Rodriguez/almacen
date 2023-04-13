@@ -1,27 +1,28 @@
-<form  (ngSubmit)="onSubmit()"> 
+<form [formGroup]='checkoutForm'  (ngSubmit)="onSubmit()"> 
+    <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
     <div class="container">
         <div class="row">
             <div class="col-4">
                 <label class="form-label">Nombre empresa:</label>
-                <input class="form-control" type="text" name="" id="" formControlName="">
+                <input class="form-control" type="text" name="" id="" formControlName="nombre_empresa">
             </div>
             <div class="col-4">
                 <label class="form-label">Dirección empresa:</label>
-                <input class="form-control" type="text" name="" id="" formControlName="">
+                <input class="form-control" type="text" name="" id="" formControlName="direccion_empresa">
             </div>
             <div class="col-4">
                 <label class="form-label">Centro de costo:</label>
-                <input class="form-control" type="text" name="" id="" formControlName="">
+                <input class="form-control" type="text" name="" id="" formControlName="centro_costo">
             </div>
         </div>
         <div class="row">
             <div class="col-4">
                 <label class="form-label">NIF empresa:</label>
-                <input class="form-control" type="text" name="" id="" formControlName="">
+                <input class="form-control" type="text" name="" id="" formControlName="nif_empresa">
             </div>
             <div class="col-4">
                 <label class="form-label">Logo:</label>
-                <input class="form-control" type="file" name="" id="" formControlName="">
+                <input class="form-control" type="file" name="" id="" formControlName="logo_empresa">
             </div>
             <div class="col-4">
                
@@ -29,7 +30,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <button type="button" style="background: #398bf7;" class="btn btn-dark">Guardar</button>
+                <button type="submit" style="background: #398bf7;" class="btn btn-dark" [disabled]="checkoutForm.invalid">Guardar</button>
             </div>
         </div>
     </div>
