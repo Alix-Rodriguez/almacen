@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: 'order-compra', component: OrdenCompraComponent },
       { path: 'crear-producto', component: CrearProductoComponent },
       { path: 'crear-almacen', component: CrearAlmacenComponent },
-      { path: 'listar-almacen', component: ListarEmpresaComponent },
+      { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-layout', component: CrearLayoutComponent },
     ]
   },
