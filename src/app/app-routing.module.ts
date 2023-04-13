@@ -12,6 +12,8 @@ import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empre
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
 import { CrearProductoComponent } from './pages/producto/crear-producto/crear-producto.component';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
+import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
+import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 
 const routes: Routes = [
   { 
@@ -26,7 +28,8 @@ const routes: Routes = [
       { path: 'order-compra', component: OrdenCompraComponent },
       { path: 'crear-producto', component: CrearProductoComponent },
       { path: 'crear-almacen', component: CrearAlmacenComponent },
-
+      { path: 'listar-almacen', component: ListarEmpresaComponent },
+      { path: 'crear-layout', component: CrearLayoutComponent },
     ]
   },
   

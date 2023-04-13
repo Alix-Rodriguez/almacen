@@ -20,6 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
 import { CrearProductoComponent } from './pages/producto/crear-producto/crear-producto.component';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
+import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
+import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,8 @@ import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almac
     OrdenCompraComponent,
     CrearProductoComponent,
     CrearAlmacenComponent,
+    ListarEmpresaComponent,
+    CrearLayoutComponent,
   ],
   imports: [
     BrowserModule,
