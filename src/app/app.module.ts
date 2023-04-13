@@ -21,6 +21,8 @@ import { CrearProductoComponent } from './pages/producto/crear-producto/crear-pr
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
+import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     OrdenCompraComponent,
     CrearProductoComponent,
     CrearAlmacenComponent,
-    CrearEmpresaComponent
+    CrearEmpresaComponent,
+    ListarEmpresaComponent,
+    CrearLayoutComponent,
   ],
   imports: [
     BrowserModule,
