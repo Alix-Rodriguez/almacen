@@ -15,6 +15,7 @@ import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almac
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
+import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
 
 const routes: Routes = [
   { 
@@ -32,6 +33,7 @@ const routes: Routes = [
       { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-layout', component: CrearLayoutComponent },
       { path: 'crear-layout-qa', component: CrearLayoutQAComponent },
+      { path: 'crear-almacen-sig', component: CrearAlmacenSigComponent },
     ]
   },
   
