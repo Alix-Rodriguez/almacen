@@ -18,3 +18,6 @@ select{
         color: #67757c;
         min-height: 38px;
 }
+span{
+    font-weight: 500;
+}

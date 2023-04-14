@@ -24,6 +24,7 @@ import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-em
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
 import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
+import { CatalogoComponent } from './pages/producto/catalogo/catalogo.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crea
     CrearLayoutComponent,
     CrearLayoutQAComponent,
     CrearAlmacenSigComponent,
+    CatalogoComponent,
   ],
   imports: [
     BrowserModule,
