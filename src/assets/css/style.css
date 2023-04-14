@@ -790,7 +790,7 @@ sidebar navigation
     /* If using `left`, there shouldn't be a `right`. */ }
 
 .collapse.in {
-  display: block; }
+  display: block !important}
 
 .sidebar-nav {
   background: #fff;
