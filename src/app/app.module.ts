@@ -23,6 +23,7 @@ import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empre
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
+import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.
     CrearEmpresaComponent,
     ListarEmpresaComponent,
     CrearLayoutComponent,
+    CrearLayoutQAComponent,
   ],
   imports: [
     BrowserModule,
