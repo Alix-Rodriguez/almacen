@@ -1,0 +1,21 @@
+ span,   label {
+    margin-top: 1rem;
+    text-align: end;
+    font-weight: 600;
+}
+[type="radio"]:not(:checked), [type="radio"]:checked {
+    position: unset;
+    left: 0;
+    opacity: unset;
+    width: 20px;
+    height: 20px;
+    margin-left: 1rem;
+    margin-top: 4px;
+}
+.mostrar{
+    background: #cdcdcd;
+    margin-top: 2.3rem;
+    margin-left: 1.3rem;
+    padding: 5rem 1rem 1rem 1rem;
+    border-radius: 5px;
+}
