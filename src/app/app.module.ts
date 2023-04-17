@@ -24,6 +24,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
+import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
+import { CatalogoComponent } from './pages/producto/catalogo/catalogo.component';
+import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-la
     ListarEmpresaComponent,
     CrearLayoutComponent,
     CrearLayoutQAComponent,
+    CrearAlmacenSigComponent,
+    CatalogoComponent,
+    EtiquetadoComponent,
   ],
   imports: [
     BrowserModule,
