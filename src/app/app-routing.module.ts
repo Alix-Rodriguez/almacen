@@ -18,6 +18,7 @@ import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-la
 import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
 import { CatalogoComponent } from './pages/producto/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.component';
+import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-medida/catalogo-unidad-medida.component';
 
 
 const routes: Routes = [
@@ -39,7 +40,8 @@ const routes: Routes = [
       { path: 'crear-almacen-sig', component: CrearAlmacenSigComponent },
       { path: 'catalogo', component: CatalogoComponent },
       { path: 'etiquetado', component: EtiquetadoComponent },
-
+      { path: 'CatalogoUniMed', component: CatalogoUnidadMedidaComponent },
+      
     ]
   },
   

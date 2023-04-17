@@ -21,11 +21,13 @@ import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.componen
 import { CrearProductoComponent } from './pages/producto/crear-producto/crear-producto.component';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
+// import {Eliminar } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
 import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
 import { CatalogoComponent } from './pages/producto/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.component';
+import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-medida/catalogo-unidad-medida.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.comp
     CrearAlmacenSigComponent,
     CatalogoComponent,
     EtiquetadoComponent,
+    CatalogoUnidadMedidaComponent,
   ],
   imports: [
     BrowserModule,
