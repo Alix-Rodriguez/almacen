@@ -21,3 +21,10 @@ select{
 span{
     font-weight: 500;
 }
+.modal-body .row span, .modal-body .row  label {
+    margin-top: 1rem;
+    font-weight: 700;
+ }
+ .modal-body h3, .modal-title{
+    font-weight: 600;
+ }
