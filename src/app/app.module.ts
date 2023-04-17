@@ -22,7 +22,6 @@ import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almac
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
-// import {Eliminar } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
 import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
@@ -32,7 +31,7 @@ import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-
 import { ListarProveedorComponent } from './pages/producto/listar-proveedor/listar-proveedor.component';
 import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-sig/listar-proveedor-sig.component';
 import { ProveedorComponent } from './pages/producto/proveedor/proveedor.component';
-
+import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-productos/catalogo-de-productos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +59,7 @@ import { ProveedorComponent } from './pages/producto/proveedor/proveedor.compone
     ListarProveedorComponent,
     ListarProveedorSigComponent,
     ProveedorComponent,
+    CatalogoDeProductosComponent,
   ],
   imports: [
     BrowserModule,
