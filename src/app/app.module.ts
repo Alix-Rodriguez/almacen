@@ -32,6 +32,7 @@ import { ListarProveedorComponent } from './pages/producto/listar-proveedor/list
 import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-sig/listar-proveedor-sig.component';
 import { ProveedorComponent } from './pages/producto/proveedor/proveedor.component';
 import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-productos/catalogo-de-productos.component';
+import { CatalogoDeRutasComponent } from './pages/producto/catalogo-de-rutas/catalogo-de-rutas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,6 +61,7 @@ import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-produ
     ListarProveedorSigComponent,
     ProveedorComponent,
     CatalogoDeProductosComponent,
+    CatalogoDeRutasComponent,
   ],
   imports: [
     BrowserModule,

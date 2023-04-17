@@ -22,6 +22,7 @@ import { ListarProveedorComponent } from './pages/producto/listar-proveedor/list
 import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-sig/listar-proveedor-sig.component';
 import { ProveedorComponent } from './pages/producto/proveedor/proveedor.component';
 import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-productos/catalogo-de-productos.component';
+import { CatalogoDeRutasComponent } from './pages/producto/catalogo-de-rutas/catalogo-de-rutas.component';
 
 
 const routes: Routes = [
@@ -47,6 +48,8 @@ const routes: Routes = [
       { path: 'listar-prov-sig', component:ListarProveedorSigComponent},
       { path: 'proveedor', component:ProveedorComponent},
       { path: 'catalogo-productos', component:CatalogoDeProductosComponent},
+      { path: 'catalogo-rutas', component:CatalogoDeRutasComponent},
+
 
     ]
   },
