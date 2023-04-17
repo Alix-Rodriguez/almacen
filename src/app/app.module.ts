@@ -34,6 +34,7 @@ import { ProveedorComponent } from './pages/producto/proveedor/proveedor.compone
 import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-productos/catalogo-de-productos.component';
 import { CatalogoDeRutasComponent } from './pages/producto/catalogo-de-rutas/catalogo-de-rutas.component';
 import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto-sig/catalogo-producto-sig.component';
+import { CatalogoClienteComponent } from './pages/producto/catalogo-cliente/catalogo-cliente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto
     CatalogoDeProductosComponent,
     CatalogoDeRutasComponent,
     CatalogoProductoSigComponent,
+    CatalogoClienteComponent,
   ],
   imports: [
     BrowserModule,
