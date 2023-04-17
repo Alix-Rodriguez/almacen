@@ -31,6 +31,7 @@ import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.comp
 import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-medida/catalogo-unidad-medida.component';
 import { ListarProveedorComponent } from './pages/producto/listar-proveedor/listar-proveedor.component';
 import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-sig/listar-proveedor-sig.component';
+import { ProveedorComponent } from './pages/producto/proveedor/proveedor.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-s
     CatalogoUnidadMedidaComponent,
     ListarProveedorComponent,
     ListarProveedorSigComponent,
+    ProveedorComponent,
   ],
   imports: [
     BrowserModule,
