@@ -38,6 +38,7 @@ export class ListarEmpresaComponent implements OnInit {
   }
 }
 
+
 // export class Eliminar {
 //   constructor(private eliminarEmpresa:EliminarEmpresa ){
 //     this.eliminarEmpresa.getEliminar('2').subscribe(list =>{ 

@@ -28,6 +28,9 @@ import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crea
 import { CatalogoComponent } from './pages/producto/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/producto/etiquetado/etiquetado.component';
 import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-medida/catalogo-unidad-medida.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListarProveedorComponent } from './pages/producto/listar-proveedor/listar-proveedor.component';
+import { ListarProveedorSigComponent } from './pages/producto/listar-proveedor-sig/listar-proveedor-sig.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,8 @@ import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-
     CatalogoComponent,
     EtiquetadoComponent,
     CatalogoUnidadMedidaComponent,
+    ListarProveedorComponent,
+    ListarProveedorSigComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +65,7 @@ import { CatalogoUnidadMedidaComponent } from './pages/producto/catalogo-unidad-
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
   ],
   bootstrap: [AppComponent]
 })
