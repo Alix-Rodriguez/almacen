@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListarEmpresaService} from '../../../services/empresa.service'
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-// import { Subscription } from 'rxjs';
-// import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
-// import { ListarTareas } from 'src/app/interfaces/listar-tareas';
-// import { element } from 'protractor';
 
 @Component({
   selector: 'app-listar-empresa',
@@ -15,27 +11,17 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class ListarEmpresaComponent implements OnInit {
 
   listArrays: any[];
-  // suscription: Subscription;
 
   constructor(
    private listarEmpresaService: ListarEmpresaService , private modalService: NgbModal
-  ) {
+  ) {}
 
-    // this.listarEmpresaService.getAllList().subscribe(list =>{
-      
-    //   this.listArrays = Object.values(list) ;  
-    //   this.listArrays= this.listArrays[1]
-    //   console.log(this.listArrays[1])
-    // })
-     
-  }
-
-  Eliminar(id:string){
+    Eliminar(id:string){
     console.log(id) 
      this.listarEmpresaService.getEliminar(id).subscribe(list =>{ 
       console.log(list)
+      location.reload();
     })
-    
     }
 
    
