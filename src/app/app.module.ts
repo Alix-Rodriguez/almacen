@@ -36,6 +36,7 @@ import { CatalogoDeRutasComponent } from './pages/producto/catalogo-de-rutas/cat
 import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto-sig/catalogo-producto-sig.component';
 import { CatalogoClienteComponent } from './pages/producto/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/producto/catalogo-marca-producto/catalogo-marca-producto.component';
+import { CatalogoUnidadCargaComponent } from './pages/producto/catalogo-unidad-carga/catalogo-unidad-carga.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { CatalogoMarcaProductoComponent } from './pages/producto/catalogo-marca-
     CatalogoProductoSigComponent,
     CatalogoClienteComponent,
     CatalogoMarcaProductoComponent,
+    CatalogoUnidadCargaComponent,
   ],
   imports: [
     BrowserModule,
