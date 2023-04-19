@@ -1,4 +1,5 @@
 export interface ListarTareas {
+    id:string; 
     nombre_empresa:string;
     direccion_empresa:string;
     centro_costo:string;
