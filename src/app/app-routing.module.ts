@@ -25,6 +25,7 @@ import { CatalogoDeProductosComponent } from './pages/producto/catalogo-de-produ
 import { CatalogoDeRutasComponent } from './pages/producto/catalogo-de-rutas/catalogo-de-rutas.component';
 import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto-sig/catalogo-producto-sig.component';
 import { CatalogoClienteComponent } from './pages/producto/catalogo-cliente/catalogo-cliente.component';
+import { CatalogoMarcaProductoComponent } from './pages/producto/catalogo-marca-producto/catalogo-marca-producto.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,7 @@ const routes: Routes = [
       { path: 'catalogo-rutas', component:CatalogoDeRutasComponent},
       { path: 'catalogo-productos-sig', component:CatalogoProductoSigComponent},
       { path: 'catalogo-cliente', component:CatalogoClienteComponent},
+      { path: 'cata-marca-prod', component:CatalogoMarcaProductoComponent},
 
       
     ]
