@@ -37,6 +37,7 @@ import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto
 import { CatalogoClienteComponent } from './pages/producto/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/producto/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/producto/catalogo-unidad-carga/catalogo-unidad-carga.component';
+import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { CatalogoUnidadCargaComponent } from './pages/producto/catalogo-unidad-c
     CatalogoClienteComponent,
     CatalogoMarcaProductoComponent,
     CatalogoUnidadCargaComponent,
+    CatalogCentroCostoComponent,
   ],
   imports: [
     BrowserModule,

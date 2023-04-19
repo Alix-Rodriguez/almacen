@@ -27,7 +27,7 @@ import { CatalogoProductoSigComponent } from './pages/producto/catalogo-producto
 import { CatalogoClienteComponent } from './pages/producto/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/producto/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/producto/catalogo-unidad-carga/catalogo-unidad-carga.component';
-
+import {CatalogCentroCostoComponent} from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component'
 
 const routes: Routes = [
   { 
@@ -57,6 +57,7 @@ const routes: Routes = [
       { path: 'catalogo-cliente', component:CatalogoClienteComponent},
       { path: 'cata-marca-prod', component:CatalogoMarcaProductoComponent},
       { path: 'ca-uni-carga', component: CatalogoUnidadCargaComponent },
+      { path: 'ca-centro-costo', component: CatalogCentroCostoComponent },
 
       
     ]
