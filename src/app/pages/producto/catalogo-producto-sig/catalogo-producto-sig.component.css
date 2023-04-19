@@ -1,16 +1,16 @@
 .row span, .row label {
     margin-top: 1rem;
     text-align: end;
-    font-weight: 700;
 }
 
 .col-6 button{
-    width: 40%;
+    width: 30%;
      min-width: 167px;
 }
 
-.row.mt-5 button{
+.mt-5 button{
     color: #242a33;
-    padding: 19px 12px;
-    border-width: 3px;
+    /* padding: 9px 6px; */
+    border-width: 1px;
+    background: white;
 }

@@ -1,11 +1,11 @@
 <div class="container">
-    <h1>Catalogo Centro Costo</h1>
+    <h2>Catalogo Centro Costo</h2>
 
     <div class="row mt-4 mb-5">
         <div class="col">
-            <span style="color: #4f4f52;font-size: 1rem;">Empresa</span>
-            <select
-                style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 55px;">
+            <span class="d-block" >Empresa</span>
+            <select class="col mt-2 pl-2"
+                style="border: 1px solid rgba(0,0,0,.15);border-radius: 5px;min-height: 55px;">
                 <option value="" disabled selected>Make a selection</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
@@ -13,9 +13,9 @@
             </select>
         </div>
         <div class="col">
-            <span style="color: #4f4f52;font-size: 1rem;">Cliente</span>
-            <select
-                style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 55px;">
+            <span class="d-block"  >Cliente</span>
+            <select  class="col mt-2 pl-2"
+            style="border: 1px solid rgba(0,0,0,.15);border-radius: 5px;min-height: 55px;">
                 <option value="" disabled selected>Make a selection</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
@@ -24,52 +24,52 @@
         </div>
     </div>
 
-    <h2 class="mt-2 mb-3" style="font-weight: 700; border-bottom: 1px solid black;">Dirección</h2>
+    <h4 class="mt-2 mb-3" style=" border-bottom: 1px solid black;">Dirección</h4>
 
-    <div class="d-flex">
-        <div>
-            <div style="width: 40rem;" class="row ml-2">
-                <div style="width: 23rem;">
+    <div class="d-lg-flex flex-row ">
+        <div class="d-flex flex-column col mb-4">
+            <div class="d-sm-flex row  ">
+                <div class="col-8">
                     <label style="display: block;" class="form-label">ID centro costo</label>
-                    <input style="min-height: 44px;" type="text" class="form-control">
+                    <input  style="min-height: 44px;" type="text" class="form-control">
                 </div>
                 <button type="button"
-                    style="min-width: 46px; max-height: 3rem;margin-top: 1.6rem; width: 30%; background: #242a33;"
-                    class=" btn btn-dark ml-4">Buscar</button>
+                    style=" max-height: 3rem;"
+                    class="mt-4 col-2 btn btn-dark ">Buscar</button>
             </div>
-            <div class="ml-2 mt-4">
-                <span style="font-size: 1rem;">Marca</span>
-                <select
-                    style="margin-top: 10px; width: 59%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 55px;">
+            <div class="mt-4">
+                <span class="d-block">Marca</span>
+                <select class="mt-1 col-8 pl-2"
+                    style=" border: 1px solid rgba(0,0,0,.15);border-radius: 5px;min-height: 55px;">
                     <option value="" disabled selected>Make a selection</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                 </select>
             </div>
-            <div class="ml-2 mt-4">
-                <span style="font-size: 1rem;">Ubicacion alsea</span>
-                <select
-                    style="margin-top: 10px; width: 59%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 55px;">
+            <div class="mt-4">
+                <span class="d-block" >Ubicacion alsea</span>
+                <select class="mt-1 col-8 pl-2"
+                    style=" border: 1px solid rgba(0,0,0,.15);border-radius: 5px;min-height: 55px;">
                     <option value="" disabled selected>Make a selection</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
                     <option value="3">Option 3</option>
                 </select>
             </div>
-            <div class="row ml-2 mt-4">
-                <div style="width: 23rem;">
+            <div class="row mt-4">
+                <div class="col-8">
                     <label style="display: block;" class="form-label">Descripción</label>
-                    <input style="min-height: 44px;" type="text" class="form-control">
+                    <input  style="min-height: 44px;" type="text" class="form-control">
                 </div>
             </div>
         </div>
-        <div style="background: rgba(131, 128, 128, 0.534);width: 100%;padding: 6rem 6rem; ">
+        <div  class="col" style="background: rgba(131, 128, 128, 0.534);">
             <h4>Listar ID Centro de Costo</h4>
         </div>
     </div>
     <div class="d-flex justify-content-end mt-4 ml-1">
-        <button  type="button" style="width: 15%; background: #242a33;"
+        <button  type="button" 
         class=" btn btn-dark">Guardar</button>
     </div>
 </div>
