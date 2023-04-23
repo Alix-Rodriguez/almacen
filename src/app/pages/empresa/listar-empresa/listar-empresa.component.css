@@ -1,3 +1,7 @@
 .table td, .table th {
     border-color: #9c8a8a;
 }
+
+.padding {
+    margin: 0 5px;
+}

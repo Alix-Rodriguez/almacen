@@ -1267,9 +1267,10 @@ Notify
  Breadcrumb and page title
 *******************/
 .page-titles {
-  background: #f4f6f9;
-  margin-bottom: 20px;
-  padding: 0px; }
+  background: white;
+  margin-bottom: 30px;
+  padding: 0px;
+  border-bottom: 1px dotted #e3e3e3; }
   .page-titles h3 {
     margin-bottom: 0px;
     margin-top: 0px; }

@@ -1,3 +1,4 @@
+<app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
 <form [formGroup]='checkoutForm'  (ngSubmit)="onSubmit()"> 
     <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
     <div class="container">
@@ -28,10 +29,12 @@
                
             </div>
         </div>
+        <br>
         <div class="row">
-            <div class="col">
-                <button type="submit" style="background: #398bf7;" class="btn btn-dark" [disabled]="checkoutForm.invalid">Guardar</button>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-dark" [disabled]="checkoutForm.invalid">Guardar</button>
             </div>
         </div>
     </div>
 </form>
+
