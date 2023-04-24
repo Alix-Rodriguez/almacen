@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-catalogo-unidad-medida',
@@ -7,10 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoUnidadMedidaComponent implements OnInit {
   miga: any = 'Unidad Medida';
-
-  constructor() { }
+  checkoutForm!: FormGroup;
+  
+  constructor(private readonly fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.checkoutForm = this.initForm();
   }
+
+  initForm(): FormGroup {
+    return this.fb.group({
+      frm_medida:['',[Validators.required]],
+      frm_buscar:['', [Validators.required]],
+    })
+ }
+ 
+ onSubmit(){
+      
+ }
+
 
 }
