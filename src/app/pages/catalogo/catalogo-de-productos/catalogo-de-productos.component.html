@@ -1,93 +1,193 @@
-<div class="container">
-    <h2 class="mt-5" style="border-bottom: 1px solid black;padding-left: 3rem; ">Catalogo Producto</h2>
-    <div class="mt-5 mb-3 ml-5 d-flex align-items-center">
-        <span class="mr-1">Empresa: </span>
-        <select
-            style="width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
-            <option value="" disabled selected>Make a selection</option>
-            <option value="1">Option 1</option>
-            <option value="2">Option 2</option>
-            <option value="3">Option 3</option>
-        </select>
-    </div>
-    <h4 class="mt-2" style=" border-bottom: 1px solid black;padding-left: 3rem; ">Producto Infomación General</h4>
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<form action="">
 
-    <!-- GRID -->
-    <div class=" container mt-4">
-        <form>
+    <div class="container" *ngIf="siguiente">
+        <div class="mt-5 mb-3 ml-5 row">
+            <label class="text-start col-3 form-label mr-1">Empresa: </label>
+            <select class="w-25 form-select">
+                <option value="" disabled selected>Make a selection</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </div>
+        <h4 class="mt-2 pl-3 border-bottom border-dark">Producto Infomación General</h4>
+
+        <!-- GRID -->
+        <div class=" container mt-4">
             <div class="row">
                 <label class="col-2 form-label">SKU</label>
-                <input type="text" class="col-3 form-control">
-                <span class="col-3" style="color: #4f4f52;font-size: 1rem;">Caducidad</span>
-                <input type="text" class="mr-1 col-1 form-control">
-                <input type="text" class="col-1 form-control">
-                <span  class="col-1" style="text-align: start; color: #4f4f52;font-size: 1rem;">Dias</span>
-                
+                <div class="col-3">
+                    <input type="text" class=" form-control ">
+                </div>
+                <label class="col-3 form-label">Caducidad</label>
+                <div class="col-1">
+                    <input type="text" class=" mr-1 form-control">
+                </div>
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
+                <label class="col text-start form-label">Dias</label>
+
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Descripcion</label>
-                <input type="text" class="col-3 form-control">
+                <div class="col-3">
+                    <input type="text" class=" form-control">
+                </div>
                 <label class="col-5 form-label">Requiere inspeccion de Calidad</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Modelo</label>
-                <input type="text" class="col-3 form-control">
+                <div class="col-3">
+                    <input type="text" class=" form-control">
+                </div>
                 <label class="col-5 form-label">Requiere fecha caducidad</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Linea Producto</label>
-                <select class="col-3"
-                    style="margin-top: 3px;width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 48px;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
+                <div class="col-3">
+                    <select class=" form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
                 <label class="col-5 form-label">Numero Parte</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
+
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Marca</label>
-                <select class="col-3"
-                    style="margin-top: 3px;width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 48px;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
+                <div class="col-3">
+                    <select class="form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
                 <label class="col-5 form-label">Requiere lote</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Serializado</label>
-                <input type="text" class="col-1 form-control">
-                <label class="col-7 form-label">Contacto</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
+                <label class="col-7 form-label">Lote Compuesto</label>
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Sobreo Bajo Surtimiento</label>
-                <input type="text" class="col-1 form-control">
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
                 <label class="col-5 mt-2 form-label">Configuración lote</label>
-                <select class="col-3"
-                    style="margin-top: 3px;width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;height: 3rem;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
+                <div class="col-3">
+                    <select class="form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
             </div>
             <div class="row mt-2">
-                <span class="col-2">Direcciones Adicionales</span>
-                <input type="text" class="col-1 form-control">
-                 </div>
+                <label class="col-2 form-label">Serializado al Sutir</label>
+                <div class="col-1">
+                    <input type="text" class=" form-control">
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-4 ml-1">
+                <button (click)="siguientePagina()" type="button" class=" col-2 btn btn-dark">Siguiente</button>
+            </div>
 
-        </form>
-        <div class="d-flex justify-content-end mt-4 ml-1">
-            <button  [routerLink]="['/catalogo-productos-sig']" type="button" style="width: 15%; background: #242a33;"
-            class=" btn btn-dark">Siguiente</button>
         </div>
-
     </div>
-</div>
+
+
+    <div *ngIf="!siguiente">
+        <div class="container">
+            <h4 class="mt-2 border-bottom border-dark">Producto Configuración</h4>
+        </div>
+        <!-- SELECCION -->
+        <div class="container-fluid ml-5">
+            <div class="row">
+                <label class="col-3 form-label">Unidad Medidad</label>
+                <div class="col-3">
+                    <select class="form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <label class="col-3 form-label">Peso</label>
+                <div class="col-3">
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <label class="col-3">Fecha descontinuo</label>
+                <div class="col-1 mr-1">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-3">
+                    <select class="form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <label class="col-3">Status</label>
+                <div class="col-3">
+                    <select class="form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+
+            </div>
+            <div class="row mt-2">
+                <label class="col-3">SKU Compuesto</label>
+                <div class="col-1 mr-1">
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col-6">
+                    <button type="button" class="d-block col-2 btn btn-dark">SKU COMPUESTO</button>
+                    <button type="button" class="mt-1 btn btn-dark col-2">SKU PROVEEDORES</button>
+                </div>
+            </div>
+            <div class="d-sm-flex flex-row justify-content-center mr-5 mt-5">
+                <button type="button" class=" btn btn-dark col-2">SKU COMPUESTO</button>
+                <button type="button" class="ml-1 mr-1 btn col-2 btn-dark">SKU PROVEEDORES</button>
+                <button type="button" class=" btn btn-dark col-2">SKU PROVEEDORES</button>
+            </div>
+        </div>
+        <div class="d-flex justify-content-end mt-4 ml-1">
+            <button (click)="Volver()" type="button" class="btn btn-dark mr-2 col-2">Volver</button>
+            <button type="button" class=" btn btn-dark col-2">Guardar</button>
+        </div>
+    </div>
+</form>
