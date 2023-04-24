@@ -13,7 +13,8 @@ export class ListarEmpresaComponent implements OnInit {
   input_2: string;
   input_3: string;
   input_4: string;
-
+  miga: any = 'Listar empresa';
+  
   listArrays: any[];
 
   constructor(
@@ -25,7 +26,7 @@ export class ListarEmpresaComponent implements OnInit {
     console.log(id);
     this.listarEmpresaService.getEliminar(id).subscribe((list) => {
       console.log(list);
-      location.reload();
+      this.ngOnInit();
     });
   }
 
@@ -52,10 +53,10 @@ export class ListarEmpresaComponent implements OnInit {
       logo_empresa: "prueba",
     };
     this.listarEmpresaService.updateEmpresa(task).subscribe((list) => {
-      console.log(list);
-      location.reload();
+      this.ngOnInit();
     });
   }
+
   closeResult: string = "";
 
   open(content: any) {

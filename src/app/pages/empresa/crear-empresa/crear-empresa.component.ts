@@ -17,6 +17,9 @@ export class CrearEmpresaComponent implements OnInit {
   checkoutForm!: FormGroup;
   respuesta:any;
   type:any;
+  show:boolean = false;
+  
+  miga: any = 'Crear empresa';
 
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
 	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
