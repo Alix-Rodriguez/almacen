@@ -13,4 +13,16 @@ export class DataserviceService {
     return this.http.post(this.url + 'save-empresa', value)
   }
 
+  getListDelegaciones(){
+    return this.http.get(this.url + 'listar-delegaciones')
+  }
+
+  getListColonia(value){
+    return this.http.get(this.url + 'listar-colonia/' + value)
+  }
+
+  getListEmpresa(){
+    return this.http.get(this.url + 'listar-empresa')
+  }
+
 }

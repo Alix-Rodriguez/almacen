@@ -1,88 +1,271 @@
-<div class="container ">
-    <h3>Crear Almacen</h3>
-    <form>
-        <!-- PRIMERA SELECCION -->
+<app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
+<form [formGroup]='checkoutForm'  (ngSubmit)="onSubmit()">
+    <div class="container" *ngIf="siguiente">
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Empresa:</label>
-                <input type="text" class="form-control">
+                <select formControlName="frm_empresa"  name="frm_empresa" id="frm_empresa" style="margin-top: 0px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;"> 
+                    <option value="-">Seleccione</option>
+                    <option value={{emd.id}} *ngFor="let emd of empresa"> {{emd.nombre_empresa}} </option>
+                </select>
             </div>
             <div class="col">
                 <label class="form-label">Titulo:</label>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="frm_titulo" name="frm_titulo" id="frm_titulo">
             </div>
             <div class="col">
                 <span style="color: #4f4f52;font-size: 1rem;">Tipo:</span>
-                <select
+                <select  formControlName="frm_tipo"
                     style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="-" selected>Seleccione</option>
+                    <option value="1">Virtual</option>
+                    <option value="2">Física</option>
                 </select>
             </div>
         </div>
         <h4 class="mt-3" style="border-bottom: 1px solid rgba(0, 0, 0, 0.459);">Almacen</h4>
-        <!-- SEGUNDA SELECCION -->
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Calle:</label>
-                <input type="text" class="form-control">
+                <input formControlName="frm_calle" name="frm_calle" id="frm_calle" type="text" class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Exterior:</label>
-                <input type="text" class="form-control">
+                <input formControlName="frm_numeroe" name="frm_numeroe" id="frm_numeroe" type="text" class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Interno:</label>
-                <input type="text" class="form-control">
+                <input formControlName="frm_numeroi" name="frm_numeroi" id="frm_numeroi" type="text" class="form-control">
             </div>
         </div>
-        <!-- TERCERA SELECCION -->
-        <div class="row mt-4">
-            <div class="col">
-                <span style="color: #4f4f52;font-size: 1rem;">Delegación:</span>
-                <select
-                    style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
+            <!-- TERCERA SELECCION -->
+            <div class="row mt-4">
+                <div class="col">
+                    <span style="color: #4f4f52;font-size: 1rem;">Delegación:</span>
+                    <select formControlName="frm_delegacion" name="frm_delegacion" id="frm_delegacion" (change)="onChange($event.target.value)"
+                        style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
+                        <option value="." selected>Selecciones</option>
+                        <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <span style="color: #4f4f52;font-size: 1rem;">Colonía:</span>
+                    <select formControlName="frm_colonia" name="frm_colonia" id="frm_colonia"
+                        style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
+                        <option value="-"  selected>Seleccione</option>
+                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Codigo Postal</label>
+                    <input type="text" formControlName="frm_codigo" name="frm_codigo" id="frm_codigo" class="form-control">
+                </div>
             </div>
-            <div class="col">
-                <span style="color: #4f4f52;font-size: 1rem;">Colonía:</span>
-                <select
-                    style="margin-top: 10px;width: 100%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Telefono:</label>
+                    <input type="text" formControlName="frm_telefono" name="frm_telefono" id="frm_telefono" class="form-control">
+                </div>
+                <div class="col">
+                    <label class="form-label">Email:</label>
+                    <input type="text" formControlName="frm_email" name="frm_email" id="frm_email" class="form-control">
+                </div>
             </div>
-            <div class="col">
-                <label class="form-label">Codigo Postal</label>
-                <input type="text" class="form-control">
+            <div class="row">
+                <div class="col">
+                    <label class="form-label">Usar misma dirección de empresa</label>
+                    <input type="checkbox" formControlName="frm_uso" class="form-check-input" name="frm_uso" id="frm_uso">
+
+                </div>
             </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col">
-                <label class="form-label">Telefono:</label>
-                <input type="text" class="form-control">
-            </div>
-            <div class="col">
-                <label class="form-label">Email:</label>
-                <input type="text" class="form-control">
-            </div>
-        </div>
-        <div class="mt-3">
-            <span style="color: #4f4f52;font-size: 1rem;">Usar misma dirección de empresa:</span>
-            <input type="checkbox" cla name="" id="">
-        </div>
-    </form>
-    <div class="d-flex justify-content-end mt-4 ml-1">
         
-        <button [routerLink]="['/crear-almacen-sig']" type="button" style="width: 15%; background: #242a33;"
-            class=" btn btn-dark">Siguiente</button>
+        <div class="d-flex justify-content-end mt-4 ml-1">
+            
+            <button (click)="siguientePagina()" type="button" style="width: 15%; background: #242a33;"
+                class=" btn btn-dark">Siguiente</button>
+        </div>
     </div>
-</div>
+    <!-- Siguiente pagina -->
+    <div class="container" *ngIf="!siguiente">
+        <h4 class="mt-3">Almacen Configuración</h4>
+        <div class="d-flex align-items-center mt-4">
+            <span class="mr-1" style="color: #4f4f52;font-size: 1rem;">Sistema</span>
+            <select
+                style="width: 30%; padding-left: 1rem; display: flex;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 38px;">
+                <option value=""  selected>Seleccione</option>
+                <option value="1">PEPS</option>
+            </select>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <label>Usar etiqueta de entrada:</label>
+            </div>
+            <div class="col-1">
+                <input type="checkbox" name="" id="">
+            </div>
+            <div class="col-3">
+                <button type="button" class=" btn btn-dark">Etiqueta</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-3">
+                <label>Inventario fisico automatico:</label>
+            </div>
+            <div class="col-1">
+                <input type="checkbox" name="" id="">
+            </div>
+            <div class="col-2">
+                <button type="button" class="btn btn-dark">Configurar</button>
+            </div>
+            <div class="col-2">
+                <button (click)="open(mymodal)" type="button" class=" btn btn-dark">Remitente</button>
+            </div>
+            <div class="col-2">
+                <button type="button" class=" btn btn-dark">LPN</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label>Usar Ubicacion automatica: </label>
+            </div>
+            <div class="col-1">
+                <input type="checkbox" name="" id="">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label>Usar folios de remisión automáticos</label>
+            </div>
+            <div class="col-1">
+                <input type="checkbox" name="" id="">
+            </div>
+        </div>
+    
+        <h4 class="mt-5">Ubicación</h4>
+        <div class="row">
+            <div class="col-3">
+                <label>Zona:</label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label>Rack:</label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+    
+            <div class="col-3">
+                <label>Nivel:</label>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label>Localidad:</label>
+                <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>
+
+        
+        <div style="background-color: #f4f6f9;height: 6rem;padding-top: 2rem; " class="mt-5">
+            <h1 style="text-align: center;font-weight: 700;">Mostrar la configuración</h1>
+        </div>
+    
+        <div class="d-flex justify-content-end mt-4 ml-1">
+            <button [routerLink]="['/crear-almacen']" type="button" style="background: #ffffff;color:#67757c;width: 15%;"
+                class="btn btn-dark mr-2">Volver</button>
+            <button type="button" style="width: 15%; background: #242a33;" class=" btn btn-dark">Guardar</button>
+        </div>
+    
+        <!-- MODAL DEL REMITENTE -->
+        <ng-template #mymodal let-modal>
+            <div class="modal-header">
+                <div class="column">
+                    <h2 class="modal-title" id="modal-basic-title">Remitente De Almacen</h2>
+                    <h5 class="mt-4">Empresa:</h5>
+                    <h5 class="mt-4">Almacen:</h5>
+                </div>
+            </div>
+            <div class="modal-body column container-fluid">
+                <h3>Dirección Remitente</h3>
+                <div class="row">
+                    <label class="col-5 form-label">Calle:</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Numero Exterior:</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Numero Interno:</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Colonia:</label>
+                    <select class="col-6"
+                        style="margin-top: 3px;width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 48px;">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Delegación:</label>
+                    <select class="col-6"
+                        style="margin-top: 3px;width: 30%; padding-left: 1rem;  border: 1px solid rgba(0,0,0,.15);border-radius: 5px;color: #67757c;min-height: 48px;">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Codigo Postal</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Telefono</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">Email</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+                <div class="row mt-1">
+                    <label class="col-5 form-label">RFC</label>
+                    <input type="text" class="col-6 form-control">
+                </div>
+    
+            </div>
+            <div class="d-flex justify-content-end mt-4 ml-1 mr-2">
+                <button (click)="modal.close('Save click')" type="button"
+                    style="background: #ffffff;color:#67757c;width: 15%;" class="btn btn-dark mr-2">Cancelar</button>
+                <button (click)="modal.close('Save click')" type="button" style="width: 15%; background: #242a33;"
+                    class=" btn btn-dark">Guardar</button>
+            </div>
+        </ng-template>
+    </div>
+</form>
