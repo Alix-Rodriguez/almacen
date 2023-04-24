@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+// MODULOS
 
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
-import { ProgressComponent } from './pages/progress/progress.component';
 import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component';
-import { PagesComponent } from './pages/pages.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ProgressComponent } from './pages/progress/progress.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
 import { CrearProductoComponent } from './pages/catalogo/crear-producto/crear-producto.component';
@@ -27,7 +29,13 @@ import { CatalogoProductoSigComponent } from './pages/catalogo/catalogo-producto
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
+<<<<<<< HEAD
 import {CatalogCentroCostoComponent} from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component'
+=======
+import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
+import { PagesComponent } from './pages/pages.component';
+
+>>>>>>> b443312e9c3f9f9f8001a5d94a18b89063b00dc0
 
 const routes: Routes = [
   { 
@@ -56,12 +64,13 @@ const routes: Routes = [
       { path: 'catalogo-productos-sig', component:CatalogoProductoSigComponent},
       { path: 'catalogo-cliente', component:CatalogoClienteComponent},
       { path: 'cata-marca-prod', component:CatalogoMarcaProductoComponent},
-      { path: 'ca-uni-carga', component: CatalogoUnidadCargaComponent },
-      { path: 'ca-centro-costo', component: CatalogCentroCostoComponent },
+      { path: 'ca-uni-carga', component: CatalogoUnidadCargaComponent},
+      { path: 'ca-centro-costo', component: CatalogCentroCostoComponent},
 
       
     ]
   },
+
   
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
@@ -74,7 +83,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
   ],
   exports: [ RouterModule ]
 })

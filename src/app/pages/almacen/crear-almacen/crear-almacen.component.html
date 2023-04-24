@@ -102,10 +102,10 @@
                 <label>Usar etiqueta de entrada:</label>
             </div>
             <div class="col-1">
-                <input type="checkbox" name="" id="">
+                <input   type="checkbox" (click)="Bool()" name="" id="">
             </div>
             <div class="col-3">
-                <button type="button" class=" btn btn-dark">Etiqueta</button>
+                <button [disabled]=bool type="button" class=" btn btn-dark">Etiqueta</button>
             </div>
         </div>
         <br>
@@ -114,16 +114,16 @@
                 <label>Inventario fisico automatico:</label>
             </div>
             <div class="col-1">
-                <input type="checkbox" name="" id="">
+                <input  type="checkbox" (click)="Bool2()" name="" id="">
             </div>
             <div class="col-2">
-                <button type="button" class="btn btn-dark">Configurar</button>
+                <button  [disabled]=bool2  type="button" class="btn btn-dark">Configurar</button>
             </div>
             <div class="col-2">
-                <button (click)="open(mymodal)" type="button" class=" btn btn-dark">Remitente</button>
+                <button [disabled]=bool2  (click)="open(mymodal)" type="button" class=" btn btn-dark">Remitente</button>
             </div>
             <div class="col-2">
-                <button type="button" class=" btn btn-dark">LPN</button>
+                <button [disabled]=bool2 type="button" class=" btn btn-dark">LPN</button>
             </div>
         </div>
         <div class="row">
@@ -194,7 +194,7 @@
         </div>
     
         <div class="d-flex justify-content-end mt-4 ml-1">
-            <button [routerLink]="['/crear-almacen']" type="button" style="background: #ffffff;color:#67757c;width: 15%;"
+            <button (click)="Volver()"    [routerLink]="['/crear-almacen']" type="button" style="background: #ffffff;color:#67757c;width: 15%;"
                 class="btn btn-dark mr-2">Volver</button>
             <button type="button" style="width: 15%; background: #242a33;" class=" btn btn-dark">Guardar</button>
         </div>

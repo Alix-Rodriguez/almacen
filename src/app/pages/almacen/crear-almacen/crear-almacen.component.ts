@@ -16,7 +16,8 @@ export class CrearAlmacenComponent implements OnInit {
   checkoutForm!: FormGroup;
   siguiente:boolean = true;
   closeResult: string = '';
-
+  bool: boolean = true
+  bool2: boolean = true
 
   constructor(
     private readonly fb: FormBuilder,
@@ -70,6 +71,25 @@ export class CrearAlmacenComponent implements OnInit {
 
  siguientePagina(){
   this.siguiente = false;
+ }
+
+ Volver(){
+  this.siguiente = true;
+ }
+
+ Bool(){
+  if(this.bool===true){
+    this.bool=false
+  }else{
+    this.bool=true
+  }
+ }
+ Bool2(){
+  if(this.bool2===true){
+    this.bool2=false
+  }else{
+    this.bool2=true;
+  }
  }
 
  open(content:any) {
