@@ -29,13 +29,9 @@ import { CatalogoProductoSigComponent } from './pages/catalogo/catalogo-producto
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
-<<<<<<< HEAD
-import {CatalogCentroCostoComponent} from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component'
-=======
 import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
 import { PagesComponent } from './pages/pages.component';
 
->>>>>>> b443312e9c3f9f9f8001a5d94a18b89063b00dc0
 
 const routes: Routes = [
   { 
