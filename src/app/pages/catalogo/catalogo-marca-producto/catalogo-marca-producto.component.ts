@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoMarcaProductoComponent implements OnInit {
 
+  miga: any = 'Catalogo Marca Producto';
+
   constructor() { }
 
   ngOnInit(): void {
