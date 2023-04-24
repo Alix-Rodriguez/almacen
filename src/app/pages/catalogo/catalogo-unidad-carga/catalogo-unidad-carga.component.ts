@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalogo-unidad-carga.component.css']
 })
 export class CatalogoUnidadCargaComponent implements OnInit {
+  miga: any = 'Catalogo Unidad de Carga';
 
   constructor() { }
 

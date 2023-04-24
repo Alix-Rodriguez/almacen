@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./proveedor.component.css']
 })
 export class ProveedorComponent implements OnInit {
+  miga: any = 'Proveedor';
 
   constructor() { }
 

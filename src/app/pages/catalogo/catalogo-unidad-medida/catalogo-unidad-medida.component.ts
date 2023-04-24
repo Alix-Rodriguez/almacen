@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalogo-unidad-medida.component.css']
 })
 export class CatalogoUnidadMedidaComponent implements OnInit {
+  miga: any = 'Unidad Medida';
 
   constructor() { }
 

@@ -1,21 +1,17 @@
-<div class="container-fluid">
-    <h4 style="border-bottom:1px solid black ; padding-bottom: 1.1rem;">Datos Generales</h4>
-        <div class="d-sm-flex bd-highlight">
-            <div style="flex-basis:55%;" class="p-2 flex-grow-1 bd-highlight">Descripción unidad de medida</div>
-            <input placeholder="Your name" style="width: 30%;" class="form-control mr-2 p-2 bd-highlight" type="text" name="" id="" formControlName="">
-            <button  type="button" style="width: 15%; background: #242a33;"
-            class=" btn btn-dark p-2 bd-highlight">Guardar</button>
-          </div>
-    <h4 class="mt-5" style="border-bottom:1px solid black ; padding-bottom: 1.1rem;">Listar Medidas</h4>
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<div class="container">
+  <h4 class="border-bottom border-dark pb-3">Datos Generales</h4>
+  <div class="row">
+    <label class="col-5" for="">Descripción unidad de medida</label>
+    <input placeholder="Your name"  class="w-25 form-control mr-2 " type="text" name=""
+      id="" formControlName="">
+    <button type="button" class=" btn btn-dark col-2 ">Guardar</button>
+  </div>
+  <h4 class="mt-5 border-bottom border-dark pb-3">Listar Medidas</h4>
 
-    <div class="d-sm-flex bd-highlight justify-content-end">
-        <input placeholder="Your name" style="width: 30%;" class="form-control mr-2 p-2 bd-highlight" type="text" name="" id="" formControlName="">
-        <button  type="button" style="width: 15%; background: #242a33;"
-        class=" btn btn-dark p-2 bd-highlight">Buscar</button>
-      </div>
-
-      <div style="color: white; margin-top: 3rem; background-color: rgb(0, 0, 0);margin: auto 40%;">
-        tabla que muestre los datos y colocar boton de modificar y eliminar
-
-      </div>
+  <div class="row justify-content-end">
+    <input placeholder="Your name" class="form-control w-25 mr-2 " type="text" name="" id=""
+      formControlName="">
+    <button type="button" class="col-2 btn btn-dark ">Buscar</button>
+  </div>
 </div>

@@ -73,9 +73,8 @@
             </div>
             <div class="row">
                 <div class="col">
+                    <input style="margin-left: 0" type="checkbox" formControlName="frm_uso" class="form-check-input" name="frm_uso" id="frm_uso">
                     <label class="form-label">Usar misma dirección de empresa</label>
-                    <input type="checkbox" formControlName="frm_uso" class="form-check-input" name="frm_uso" id="frm_uso">
-
                 </div>
             </div>
         
@@ -102,7 +101,7 @@
                 <label>Usar etiqueta de entrada:</label>
             </div>
             <div class="col-1">
-                <input   type="checkbox" (click)="Bool()" name="" id="">
+                <input  type="checkbox" formControlName="frm_uso1" name="frm_uso1" id="frm_uso1" (click)="Bool()" >
             </div>
             <div class="col-3">
                 <button [disabled]=bool type="button" class=" btn btn-dark">Etiqueta</button>
@@ -114,7 +113,7 @@
                 <label>Inventario fisico automatico:</label>
             </div>
             <div class="col-1">
-                <input  type="checkbox" (click)="Bool2()" name="" id="">
+                <input  type="checkbox" (click)="Bool2()" formControlName="frm_uso2" name="frm_uso2" id="frm_uso2">
             </div>
             <div class="col-2">
                 <button  [disabled]=bool2  type="button" class="btn btn-dark">Configurar</button>
@@ -148,7 +147,7 @@
             <div class="col-3">
                 <label>Zona:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
-                <select class="form-select">
+                <select  class="form-select" formControlName="frm_Ubi" name="frm_Ubi" id="frm_Ubi">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -158,7 +157,7 @@
             <div class="col-3">
                 <label>Rack:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
-                <select class="form-select">
+                <select class="form-select" formControlName="frm_Rack" name="frm_Rack" id="frm_Rack">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -169,7 +168,7 @@
             <div class="col-3">
                 <label>Nivel:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
-                <select class="form-select">
+                <select class="form-select" formControlName="frm_Rack" name="frm_Rack" id="frm_Rack">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -179,7 +178,7 @@
             <div class="col-3">
                 <label>Localidad:</label>
                 <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
-                <select class="form-select">
+                <select class="form-select" formControlName="frm_localidad" name="frm_localidad" id="frm_localidad">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -194,7 +193,7 @@
         </div>
     
         <div class="d-flex justify-content-end mt-4 ml-1">
-            <button (click)="Volver()"    [routerLink]="['/crear-almacen']" type="button" style="background: #ffffff;color:#67757c;width: 15%;"
+            <button (click)="Volver()"   type="button" style="background: #ffffff;color:#67757c;width: 15%;"
                 class="btn btn-dark mr-2">Volver</button>
             <button type="button" style="width: 15%; background: #242a33;" class=" btn btn-dark">Guardar</button>
         </div>
@@ -263,7 +262,7 @@
             <div class="d-flex justify-content-end mt-4 ml-1 mr-2">
                 <button (click)="modal.close('Save click')" type="button"
                     style="background: #ffffff;color:#67757c;width: 15%;" class="btn btn-dark mr-2">Cancelar</button>
-                <button (click)="modal.close('Save click')" type="button" style="width: 15%; background: #242a33;"
+                <button (click)="modal.close('Save click')"  type="button" style="width: 15%; background: #242a33;"
                     class=" btn btn-dark">Guardar</button>
             </div>
         </ng-template>

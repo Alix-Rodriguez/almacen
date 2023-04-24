@@ -66,6 +66,11 @@ export class CrearAlmacenComponent implements OnInit {
       frm_telefono:['',[Validators.required]],
       frm_email:['',[Validators.required]],
       frm_uso:['',[Validators.required]],
+      frm_uso1:['',[Validators.required]],
+      frm_uso2:['',[Validators.required]],
+      frm_Ubi:['',[Validators.required]],
+      frm_Rack:['',[Validators.required]],
+      frm_localidad:['',[Validators.required]],
     })
  }
 
