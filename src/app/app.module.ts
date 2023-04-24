@@ -25,7 +25,7 @@ import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-em
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
 import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
-import { CatalogoComponent } from './pages/catalogo/catalogo/catalogo.component';
+// import { CatalogoComponent } from './pages/catalogo/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/catalogo/etiquetado/etiquetado.component';
 import { CatalogoUnidadMedidaComponent } from './pages/catalogo/catalogo-unidad-medida/catalogo-unidad-medida.component';
 import { ListarProveedorComponent } from './pages/catalogo/listar-proveedor/listar-proveedor.component';
@@ -59,7 +59,7 @@ import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro
     CrearLayoutComponent,
     CrearLayoutQAComponent,
     CrearAlmacenSigComponent,
-    CatalogoComponent,
+    // CatalogoComponent,
     EtiquetadoComponent,
     CatalogoUnidadMedidaComponent,
     ListarProveedorComponent,
