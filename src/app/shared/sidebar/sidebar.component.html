@@ -1,11 +1,12 @@
-
 <aside class="left-sidebar">
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
                 <li class="user-profile">
                     <!-- iconos http://www.rotobaisa.com/mdi-icons.html -->
-                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="./assets/images/users/1.jpg" alt="user" /><span class="hide-menu">Daniel Mejía</span></a>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img
+                            src="./assets/images/users/1.jpg" alt="user" /><span class="hide-menu">Daniel
+                            Mejía</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void()">Mi perfil </a></li>
                         <li><a href="javascript:void()">Logout</a></li>
@@ -13,16 +14,22 @@
                 </li>
                 <li class="nav-devider"></li>
                 <!-- <li class="nav-small-cap">PERSONAL</li> -->
-                <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-gauge"></i>Dashboard</a></li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-rocket"></i><span class="hide-menu">Catalogo <span class="label label-rouded label-themecolor pull-right">11</span></span></a>
-                    <ul  aria-expanded="false" class="collapse">
+                <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-gauge"></i>Dashboard</a></li>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-rocket"></i><span class="hide-menu">Catalogo <span
+                                class="label label-rouded label-themecolor pull-right">11</span></span></a>
+                    <ul aria-expanded="false" class="collapse">
                         <li><a class="link" [routerLink]="['/crear-empresa']">Crear Empresa </a></li>
                         <li><a class="link" [routerLink]="['/listar-empresa']">Listar Empresa </a></li>
-                        <li><a class="link" [routerLink]="['/crear-almacen']" >Crear Almacen</a></li>
+                        <li><a class="link" [routerLink]="['/crear-almacen']">Crear Almacen</a></li>
 
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-basket-fill"></i><span class="hide-menu">Layout<span class="label label-rouded label-themecolor pull-right">6</span></span></a>
+                        <!-- layout -->
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-basket-fill"></i><span class="hide-menu">Layout<span
+                                        class="label label-rouded label-themecolor pull-right">6</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a class="link" [routerLink]="['/crear-layout']" >Crear Layout</a></li>
+                                <li><a class="link" [routerLink]="['/crear-layout']">Crear Layout</a></li>
                                 <li><a class="link" [routerLink]="['/crear-layout-qa']">Crear Layout QA</a></li>
                                 <li><a class="link" [routerLink]="['/zona']">Zona</a></li>
                                 <li><a class="link" [routerLink]="['/rack']">Rack</a></li>
@@ -31,53 +38,80 @@
                             </ul>
                         </li>
 
-                        <li><a class="link" [routerLink]="['/listar-prov']" >Listar Proveedores</a></li>
-                        <li><a class="link" [routerLink]="['/ca-uni-carga']" >Catalogo Unidad De Carga</a></li>
-                        <li><a class="link" [routerLink]="['/ca-centro-costo']" >Catalogo Centro De Costo</a></li>
-                        <li><a class="link" [routerLink]="['/catalogo-cliente']" >Catalogo De Clientes</a></li>
-                        <li><a class="link" [routerLink]="['/crear-producto']" >Producto</a></li>
+
+                        <!-- catalogo -->
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                                    class="mdi mdi-basket-fill"></i><span class="hide-menu">Catalogo<span
+                                        class="label label-rouded label-themecolor pull-right">6</span></span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li><a class="link" [routerLink]="['/ca-uni-carga']">Catalogo Unidad De Carga</a></li>
+                                <li><a class="link" [routerLink]="['/linea-producto']">Linea de Producto</a></li>
+
+                                <li><a class="link" [routerLink]="['/ca-centro-costo']">Catalogo Centro De Costo</a>
+                                </li>
+                                <li><a class="link" [routerLink]="['/catalogo-cliente']">Catalogo De Clientes</a></li>
+
+                                <li><a class="link" [routerLink]="['/CatalogoUniMed']">Unidad Medida</a></li>
+                                <li><a class="link" [routerLink]="['/cata-marca-prod']">Catalogo Marca De Productos </a>
+                                </li>
+                                <li><a class="link" [routerLink]="['/catalogo-productos']">Catalogo De Productos</a>
+                                </li>
+                                <li><a class="link" [routerLink]="['/catalogo-rutas']">Catalogo De Rutas</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a class="link" [routerLink]="['/listar-prov']">Listar Proveedores</a></li>
+                        <li><a class="link" [routerLink]="['/crear-producto']">Producto</a></li>
                         <!-- <li><a class="link" [routerLink]="['/catalogo']" >Catalogo</a></li> -->
-                        <li><a class="link" [routerLink]="['/etiquetado']" >Etiquetado</a></li>
-                        <li><a class="link" [routerLink]="['/CatalogoUniMed']" >Unidad Medida</a></li>
-                        <li><a class="link" [routerLink]="['/order-compra']" >Crear orden de compra </a></li>
-                        <li><a class="link" [routerLink]="['/cata-marca-prod']" >Catalogo Marca De Productos </a></li>
-                        <li><a class="link" [routerLink]="['/proveedor']" >Proveedores</a></li>
-                        <li><a class="link" [routerLink]="['/catalogo-productos']" >Catalogo De Productos</a></li>
-                        <li><a class="link" [routerLink]="['/catalogo-rutas']" >Catalogo De Rutas</a></li>
-                        
-                        
-                        
-                        
-                        
+                        <li><a class="link" [routerLink]="['/etiquetado']">Etiquetado</a></li>
+                        <li><a class="link" [routerLink]="['/order-compra']">Crear orden de compra </a></li>
+                        <li><a class="link" [routerLink]="['/proveedor']">Proveedores</a></li>
+
+
+
+
+
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-basket-fill"></i><span class="hide-menu">Recepcion <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-basket-fill"></i><span class="hide-menu">Recepcion <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-shopping"></i><span class="hide-menu">Etiquetas <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-shopping"></i><span class="hide-menu">Etiquetas <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        
+
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Movimientos <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Movimientos <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        
+
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Reporte <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Reporte <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        
+
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Salida <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Salida <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        
+
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Inventario <span class="label label-rouded label-themecolor pull-right">0</span></span></a>
+                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Inventario <span
+                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
                     <ul aria-expanded="false" class="collapse">
-                        
+
                     </ul>
                 </li>
             </ul>

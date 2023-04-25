@@ -40,6 +40,7 @@ import { ZonaComponent } from './pages/almacen/zona/zona.component';
 import { RackComponent } from './pages/almacen/rack/rack.component';
 import { NivelComponent } from './pages/almacen/nivel/nivel.component';
 import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
+import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-producto.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +77,7 @@ import { LocalidadComponent } from './pages/almacen/localidad/localidad.componen
     RackComponent,
     NivelComponent,
     LocalidadComponent,
+    LineaProductoComponent,
   ],
   imports: [
     BrowserModule,

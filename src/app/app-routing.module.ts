@@ -33,6 +33,7 @@ import { ZonaComponent } from './pages/almacen/zona/zona.component';
 import { RackComponent } from './pages/almacen/rack/rack.component';
 import { NivelComponent } from './pages/almacen/nivel/nivel.component';
 import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
+import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-producto.component';
 
 
 const routes: Routes = [
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'rack', component: RackComponent},
       { path: 'nivel', component: NivelComponent},
       { path: 'localidad', component: LocalidadComponent},
+      { path: 'linea-producto', component: LineaProductoComponent},
 
 
 
