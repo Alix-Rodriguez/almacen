@@ -1,0 +1,82 @@
+<app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
+<form >
+    <label class="form-label" for="">Rack</label>
+    <div class="row">
+        <div class="col-3">
+            <input type="text" class="form-control">
+        </div>
+        <button type="button" class="ml-2 col-2 btn btn-dark">Guardar</button>
+    </div>
+    <table class="table table-striped w-50 table-hover mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Rack</th>
+            <th scope="col">Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nro </td>
+            <td>PRUEBA</td>
+            <td>
+              <button class=" btn btn-warning padding" ></button>
+              <button class="btn btn-danger padding"  ></button>
+              <!-- (click)="open(mymodalMODI)" (click)="LlenarDatos(list)" -->
+              <!-- (click)="open(mymodal)" -->
+    
+              <!-- <ng-template #mymodal let-modal>
+                <div style="margin:auto 12%;" class="modal-header">
+                  <h4  class="modal-title" id="modal-basic-title">Seguro que desea
+                    eliminar la empresa?</h4>
+                </div>
+                <div class="d-flex justify-content-center ml-5 modal-body">
+                  <button  type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                  <button  type="button" (click)="Eliminar(list.id)"
+                    class="btn btn-outline-dark" (click)="modal.close('Save click')">Aceptar</button>
+                </div>
+              </ng-template> -->
+    
+              <!--MODAL DE MODIFICAR -->
+              <!-- <ng-template #mymodalMODI let-modal>
+                <div class="modal-header">
+                  <h4 id="modal-basic-title">Modificar Datos</h4>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-6">
+                      <label class="form-label">Nombre</label>
+                      <input [(ngModel)]="input_1" type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label class="form-label">Dirección</label>
+                      <input [(ngModel)]="input_2" type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <label class="form-label">Centro de costo</label>
+                      <input [(ngModel)]="input_3" type="text" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label class="form-label">Nif</label>
+                      <input [(ngModel)]="input_4" type="text" class="form-control">
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-center ml-5 modal-body">
+                  <button type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                  <button type="button" (click)="updateEmpresa()"
+                    class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+                </div>
+              </ng-template> -->
+    
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+</form>
+

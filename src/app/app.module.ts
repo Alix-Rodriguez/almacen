@@ -36,6 +36,10 @@ import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/cata
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
 import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
+import { ZonaComponent } from './pages/almacen/zona/zona.component';
+import { RackComponent } from './pages/almacen/rack/rack.component';
+import { NivelComponent } from './pages/almacen/nivel/nivel.component';
+import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +72,10 @@ import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro
     CatalogoMarcaProductoComponent,
     CatalogoUnidadCargaComponent,
     CatalogCentroCostoComponent,
+    ZonaComponent,
+    RackComponent,
+    NivelComponent,
+    LocalidadComponent,
   ],
   imports: [
     BrowserModule,

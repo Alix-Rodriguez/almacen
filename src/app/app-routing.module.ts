@@ -29,6 +29,10 @@ import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
 import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
 import { PagesComponent } from './pages/pages.component';
+import { ZonaComponent } from './pages/almacen/zona/zona.component';
+import { RackComponent } from './pages/almacen/rack/rack.component';
+import { NivelComponent } from './pages/almacen/nivel/nivel.component';
+import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
 
 
 const routes: Routes = [
@@ -58,6 +62,13 @@ const routes: Routes = [
       { path: 'cata-marca-prod', component:CatalogoMarcaProductoComponent},
       { path: 'ca-uni-carga', component: CatalogoUnidadCargaComponent},
       { path: 'ca-centro-costo', component: CatalogCentroCostoComponent},
+      { path: 'zona', component: ZonaComponent},
+      { path: 'rack', component: RackComponent},
+      { path: 'nivel', component: NivelComponent},
+      { path: 'localidad', component: LocalidadComponent},
+
+
+
 
       
     ]
