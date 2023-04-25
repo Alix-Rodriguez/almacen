@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./etiquetado.component.css']
 })
 export class EtiquetadoComponent implements OnInit {
+  miga:string = "Etiquetado";
 
   constructor() { }
 
