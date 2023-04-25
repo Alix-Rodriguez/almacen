@@ -1,13 +1,11 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<div class="container">
-    <form action="">
+<form  >
+<div  class="container">
         <div class="mt-3 ml-5 d-flex align-items-center">
             <label class="form-label mr-1" for="">Empresa:</label>
-            <select class="col-3 form-select" aria-label="Default select example">
+            <select name="" id="" class="col-3 form-select" aria-label="Default select example">
                 <option value="" disabled selected>Make a selection</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
             </select>
         </div>
         <h4 class="mt-5 pl-2 border-bottom border-dark" >Dirección fiscal del proveedor</h4>
@@ -16,9 +14,9 @@
         <div class=" container mt-4">
             <div class="row">
                 <label class="text-end col form-label">Clave Cliente</label>
-                <input type="text" class="col form-control">
+                <input name="" id="" type="text" class="col form-control">
                 <label class="col text-end form-label">Pais</label>
-                <select class="col form-select">
+                <select name="" id=""  class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -27,43 +25,51 @@
             </div>
             <div class="row mt-2">
                 <label class="text-end col form-label">Empresa</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
                 <label class="text-end col form-label">Codigo Postal</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">RFN</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
                 <label class="col text-end form-label">Telefono 1</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""   type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Calle</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
                 <label class="col text-end form-label">Telefono 2</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""   type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Exterior</label>
-                <input type="text" class="col  form-control">
+                <input name="" id=""  type="text" class="col  form-control">
                 <label class="col  text-end form-label">Telefono 3</label>
-                <input type="text" class="col  form-control">
+                <input name="" id=""  type="text" class="col  form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Interior</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
                 <label class="col text-end form-label">Contacto</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Colonia</label>
-                <input type="text" class="col form-control">
+                <select name="" id=""  class="col form-select">
+                    <option value="" disabled selected>Make a selection</option>
+                    <option value="1">Option 1</option>
+                </select>
                 <label class="col text-end form-label">Email</label>
-                <input type="text" class="col form-control">
+                <input name="" id=""  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col-3 text-end form-label">Delegación</label>
-                <input type="text" class="w-25 form-control">
+                <div class="col-3 w-30">
+                    <select name="" id=""  class=" form-select">
+                        <option value="" disabled selected>Make a selection</option>
+                        <option value="1">Option 1</option>
+                    </select>
+                </div>
             </div>
             <div class="row mt-2">
                 <label class="col-3 text-end form-label">Ubicaciones</label>
@@ -75,8 +81,8 @@
             </div>
 
         </div>
-    </form>
-</div>
+    </div>
+</form>
 
 
 
