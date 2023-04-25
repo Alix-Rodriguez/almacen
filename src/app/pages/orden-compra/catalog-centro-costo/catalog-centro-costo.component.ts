@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataserviceService } from "../../../services/dataservice.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-catalog-centro-costo',
@@ -7,10 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogCentroCostoComponent implements OnInit {
   miga: any = 'Catalogo Centro Costo';
+    checkoutForm!: FormGroup;
+    empresa: any;
 
-  constructor() { }
+    
+    constructor(
+      private readonly fb: FormBuilder, 
+      private dataService: DataserviceService
+    ) {}
 
-  ngOnInit(): void {
-  }
 
+  
+    ListarEmpresa(){
+      this.dataService.getListEmpresa()
+      .subscribe(resp=>{
+        this.empresa = resp['data'];
+        console.log(this.empresa)
+      })
+      }
+
+    ngOnInit(): void {
+      this.ListarEmpresa()
+    }
 }

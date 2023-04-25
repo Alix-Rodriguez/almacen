@@ -57,7 +57,7 @@
                 <label class="col text-end form-label">Colonia</label>
                 <select name="" id=""  class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
+                    <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
                 </select>
                 <label class="col text-end form-label">Email</label>
                 <input name="" id=""  type="text" class="col form-control">
@@ -67,7 +67,8 @@
                 <div class="col-3 w-30">
                     <select name="" id=""  class=" form-select">
                         <option value="" disabled selected>Make a selection</option>
-                        <option value="1">Option 1</option>
+                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+
                     </select>
                 </div>
             </div>

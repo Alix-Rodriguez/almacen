@@ -5,9 +5,7 @@
             <label class="form-label mr-1" for="">Empresa:</label>
             <select class="col-3 form-select" aria-label="Default select example">
                 <option value="" disabled selected>Make a selection</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
             </select>
         </div>
         <h4 class="mt-5 pl-2 border-bottom border-dark" >Dirección fiscal del proveedor</h4>
@@ -53,7 +51,7 @@
                 <label class="col text-end form-label">Colonia</label>
                 <select class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
+                    <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
                 </select>
                 <label class="col text-end form-label">Contacto</label>
                 <input type="text" class="col form-control">
@@ -62,7 +60,7 @@
                 <label class="col text-end form-label">Delegacion</label>
                 <select class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
+                    <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
                 </select>
                 <label class="col text-end form-label">Email</label>
                 <input type="text" class="col form-control">

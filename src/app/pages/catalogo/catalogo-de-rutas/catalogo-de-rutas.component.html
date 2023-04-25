@@ -5,9 +5,7 @@
             <label class="d-block">Empresa</label>
             <select class="col mt-2 pl-2 form-select">
                 <option value="" disabled selected>Make a selection</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
             </select>
         </div>
         <div class="col">

@@ -8,10 +8,13 @@ import { DataserviceService } from "../../../services/dataservice.service";
   templateUrl: "./catalogo-cliente.component.html",
   styleUrls: ["./catalogo-cliente.component.css"],
 })
+
 export class CatalogoClienteComponent implements OnInit {
   miga: any = "Catalogo De Clientes";
   checkoutForm!: FormGroup;
   empresa: any;
+  delegaciones:any;
+  colonias:any;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -26,8 +29,24 @@ export class CatalogoClienteComponent implements OnInit {
       console.log(this.empresa)
     })
     }
+    
+
+  getDelegacion(){
+    this.dataService.getListDelegaciones()
+    .subscribe(resp=>{
+      this.delegaciones = resp['data'];
+    })
+  }
+
+  onChange(value){
+    this.dataService.getListColonia(value)
+    .subscribe(resp=>{
+      this.colonias = resp['data'];
+    })
+  }
 
   ngOnInit(): void {
     this.ListarEmpresa()
+    this.getDelegacion();
   }
 }

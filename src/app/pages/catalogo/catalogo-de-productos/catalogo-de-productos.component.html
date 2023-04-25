@@ -3,13 +3,14 @@
 
     <div class="container" *ngIf="siguiente">
         <div class="mt-5 mb-3 ml-5 row">
-            <label class="text-start col-3 form-label mr-1">Empresa: </label>
-            <select class="w-25 form-select">
+            <label class="text-end col-3 form-label mr-1">Empresa: </label>
+            <div class="col-3">
+                <select class=" form-select">
                 <option value="" disabled selected>Make a selection</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
+                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
             </select>
+            </div>
+            
         </div>
         <h4 class="mt-2 pl-3 border-bottom border-dark">Producto Infomación General</h4>
 

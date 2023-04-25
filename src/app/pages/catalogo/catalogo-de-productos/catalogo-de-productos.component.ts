@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { DataserviceService } from "../../../services/dataservice.service";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
 
 @Component({
   selector: "app-catalogo-de-productos",
@@ -8,8 +11,28 @@ import { Component, OnInit } from "@angular/core";
 export class CatalogoDeProductosComponent implements OnInit {
   miga: any = "Catalogo De Producto";
   siguiente: boolean = true;
+  checkoutForm!: FormGroup;
+  empresa: any;
 
-  constructor() {}
+  
+  constructor(
+    private readonly fb: FormBuilder, 
+    private dataService: DataserviceService
+  ) {}
+
+
+ 
+  ListarEmpresa(){
+    this.dataService.getListEmpresa()
+    .subscribe(resp=>{
+      this.empresa = resp['data'];
+      console.log(this.empresa)
+    })
+    }
+
+  ngOnInit(): void {
+    this.ListarEmpresa()
+  }
 
   siguientePagina() {
     this.siguiente = false;
@@ -18,5 +41,4 @@ export class CatalogoDeProductosComponent implements OnInit {
     this.siguiente = true;
    }
 
-  ngOnInit(): void {}
 }
