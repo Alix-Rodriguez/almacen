@@ -16,12 +16,10 @@ import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almac
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
-import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
 // import { CatalogoComponent } from './pages/catalogo/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/catalogo/etiquetado/etiquetado.component';
 import { CatalogoUnidadMedidaComponent } from './pages/catalogo/catalogo-unidad-medida/catalogo-unidad-medida.component';
 import { ListarProveedorComponent } from './pages/catalogo/listar-proveedor/listar-proveedor.component';
-import { ListarProveedorSigComponent } from './pages/catalogo/listar-proveedor-sig/listar-proveedor-sig.component';
 import { ProveedorComponent } from './pages/catalogo/proveedor/proveedor.component';
 import { CatalogoDeProductosComponent } from './pages/catalogo/catalogo-de-productos/catalogo-de-productos.component';
 import { CatalogoDeRutasComponent } from './pages/catalogo/catalogo-de-rutas/catalogo-de-rutas.component';
@@ -48,12 +46,10 @@ const routes: Routes = [
       { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-layout', component: CrearLayoutComponent },
       { path: 'crear-layout-qa', component: CrearLayoutQAComponent },
-      { path: 'crear-almacen-sig', component: CrearAlmacenSigComponent },
       // { path: 'catalogo', component: CatalogoComponent },
       { path: 'etiquetado', component: EtiquetadoComponent },
       { path: 'CatalogoUniMed', component: CatalogoUnidadMedidaComponent },
       { path: 'listar-prov', component:ListarProveedorComponent},
-      { path: 'listar-prov-sig', component:ListarProveedorSigComponent},
       { path: 'proveedor', component:ProveedorComponent},
       { path: 'catalogo-productos', component:CatalogoDeProductosComponent},
       { path: 'catalogo-rutas', component:CatalogoDeRutasComponent},

@@ -24,12 +24,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
 import { CrearLayoutQAComponent } from './pages/almacen/crear-layout-qa/crear-layout-qa.component';
-import { CrearAlmacenSigComponent } from './pages/almacen/crear-almacen-sig/crear-almacen-sig.component';
 // import { CatalogoComponent } from './pages/catalogo/catalogo/catalogo.component';
 import { EtiquetadoComponent } from './pages/catalogo/etiquetado/etiquetado.component';
 import { CatalogoUnidadMedidaComponent } from './pages/catalogo/catalogo-unidad-medida/catalogo-unidad-medida.component';
 import { ListarProveedorComponent } from './pages/catalogo/listar-proveedor/listar-proveedor.component';
-import { ListarProveedorSigComponent } from './pages/catalogo/listar-proveedor-sig/listar-proveedor-sig.component';
 import { ProveedorComponent } from './pages/catalogo/proveedor/proveedor.component';
 import { CatalogoDeProductosComponent } from './pages/catalogo/catalogo-de-productos/catalogo-de-productos.component';
 import { CatalogoDeRutasComponent } from './pages/catalogo/catalogo-de-rutas/catalogo-de-rutas.component';
@@ -58,12 +56,10 @@ import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro
     ListarEmpresaComponent,
     CrearLayoutComponent,
     CrearLayoutQAComponent,
-    CrearAlmacenSigComponent,
     // CatalogoComponent,
     EtiquetadoComponent,
     CatalogoUnidadMedidaComponent,
     ListarProveedorComponent,
-    ListarProveedorSigComponent,
     ProveedorComponent,
     CatalogoDeProductosComponent,
     CatalogoDeRutasComponent,
