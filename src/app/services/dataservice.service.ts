@@ -39,4 +39,20 @@ export class DataserviceService {
     return this.http.post(this.url + 'save-localidad',value);
   }
 
+  ListarZona(){
+    return this.http.get(this.url + 'listar-zona')
+  }
+  
+  ListarRack(){
+    return this.http.get(this.url + 'listar-rack')
+  }
+  
+  ListarNivel(){
+    return this.http.get(this.url + 'listar-nivel')
+  }
+  
+  ListarLocalidad(){
+    return this.http.get(this.url + 'listar-localidad')
+  }
+
 }

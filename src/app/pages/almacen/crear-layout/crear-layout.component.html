@@ -4,33 +4,29 @@
       <div class="col-3">
         <select class="form-select">
         <option value="" disabled selected>Zona</option>
-        <option value="1">Option 1</option>
-        <option value="2">Option 2</option>
-        <option value="3">Option 3</option>
+        <option  *ngFor="let dl of zona" >{{dl.descripcion}}</option>
+
     </select>
       </div>
       <div class="col-3">
         <select class="form-select">
           <option value="" disabled selected>Rack</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <option  *ngFor="let dl of rack" >{{dl.descripcion}}</option>
+
       </select>
       </div>
       <div class="col-3">
         <select class="form-select">
           <option value="" disabled selected>Nivel</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <option  *ngFor="let dl of nivel" >{{dl.descripcion}}</option>
+
       </select>
       </div>
       <div class="col-3">
         <select class="form-select">
           <option value="" disabled selected>Localidad</option>
-          <option value="1">Option 1</option>
-          <option value="2">Option 2</option>
-          <option value="3">Option 3</option>
+          <option  *ngFor="let dl of localidad" >{{dl.descripcion}}</option>
+
       </select>
       </div>
       <div class="d-flex justify-content-center mt-4">
