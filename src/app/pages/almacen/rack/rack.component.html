@@ -1,11 +1,11 @@
 <app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
-<form >
+<form [formGroup]='checkoutForm'>
     <label class="form-label" for="">Rack</label>
     <div class="row">
         <div class="col-3">
-            <input type="text" class="form-control">
+            <input formControlName="descripcion"  name="descripcion" id="descripcion" type="text" class="form-control">
         </div>
-        <button type="button" class="ml-2 col-2 btn btn-dark">Guardar</button>
+        <button (click)="onSubmit()" type="button" class="ml-2 col-2 btn btn-dark">Guardar</button>
     </div>
     <table class="table table-striped w-50 table-hover mt-5">
         <thead>

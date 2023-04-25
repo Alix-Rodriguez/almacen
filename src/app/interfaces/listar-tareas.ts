@@ -6,3 +6,5 @@ export interface ListarTareas {
     logo_empresa:string;
     nif_empresa:string;
 }
+
+
