@@ -18,6 +18,6 @@ export class ListarEmpresaService {
 
   updateEmpresa(task: ListarTareas) {
     const path = `http://127.0.0.1:8000/api/actualizar-empresa/${task.id}`;
-    return this.http.put<ListarTareas>(path, task);
+    return this.http.put<ListarTareas>(path, task)
   }
 }

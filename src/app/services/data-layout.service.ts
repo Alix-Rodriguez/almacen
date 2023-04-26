@@ -15,12 +15,16 @@ export class DataLayoutService {
     return this.http.post(this.url + 'save-layout', value)
   }
   
-  listLayout(value){
-    return this.http.post(this.url + 'list-layout', value)
+  listLayout(){
+    return this.http.get(this.url + 'listar-layout')
   }
 
   eliminarLayout(value){
-    return this.http.post(this.url + 'save-layout', value)
+    return this.http.delete(this.url + 'eliminar-layout/'+value)
+  }
+
+  ActualizarLayout(value,id){
+    return this.http.put(this.url + 'actualizar-layout/'+id, value)
   }
 
 
