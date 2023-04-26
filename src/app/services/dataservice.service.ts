@@ -9,6 +9,11 @@ export class DataserviceService {
 
   constructor(private http:HttpClient) { }
 
+  saveAlmacen(value){
+    return this.http.post(this.url + 'save-almacen', value)
+  }
+
+
   saveEmpresa(value){
     return this.http.post(this.url + 'save-empresa', value)
   }

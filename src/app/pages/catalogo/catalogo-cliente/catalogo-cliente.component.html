@@ -1,11 +1,11 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<form  >
+<form [formGroup]='checkoutForm'  >
 <div  class="container">
         <div class="mt-3 ml-5 d-flex align-items-center">
             <label class="form-label mr-1" for="">Empresa:</label>
-            <select name="" id="" class="col-3 form-select" aria-label="Default select example">
+            <select formControlName="id_empresa"  name="id_empresa" id="id_empresa" class="col-3 form-select" aria-label="Default select example">
                 <option value="" disabled selected>Make a selection</option>
-                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
+                <option value={{id.id}} *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
             </select>
         </div>
         <h4 class="mt-5 pl-2 border-bottom border-dark" >Dirección fiscal del proveedor</h4>
@@ -14,9 +14,9 @@
         <div class=" container mt-4">
             <div class="row">
                 <label class="text-end col form-label">Clave Cliente</label>
-                <input name="" id="" type="text" class="col form-control">
+                <input formControlName="clave_cliente"  name="clave_cliente" id="clave_cliente" type="text" class="col form-control">
                 <label class="col text-end form-label">Pais</label>
-                <select name="" id=""  class="col form-select">
+                <select formControlName="pais"  name="pais" id="pais"  class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -25,61 +25,62 @@
             </div>
             <div class="row mt-2">
                 <label class="text-end col form-label">Empresa</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="nombre"  name="nombre" id="nombre"  type="text" class="col form-control">
                 <label class="text-end col form-label">Codigo Postal</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="codigoPostal"  name="codigoPostal" id="codigoPostal"  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">RFN</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="nif"  name="nif" id="nif"  type="text" class="col form-control">
                 <label class="col text-end form-label">Telefono 1</label>
-                <input name="" id=""   type="text" class="col form-control">
+                <input formControlName="telefono"  name="telefono" id="telefono"   type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Calle</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="calle"  name="calle" id="calle"  type="text" class="col form-control">
                 <label class="col text-end form-label">Telefono 2</label>
-                <input name="" id=""   type="text" class="col form-control">
+                <input formControlName="telefono_opcional"  name="telefono_opcional" id="telefono_opcional"   type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Exterior</label>
-                <input name="" id=""  type="text" class="col  form-control">
+                <input formControlName="numero_exterior"  name="numero_exterior" id="numero_exterior"  type="text" class="col  form-control">
                 <label class="col  text-end form-label">Telefono 3</label>
-                <input name="" id=""  type="text" class="col  form-control">
+                <input formControlName="telefono_opcional2"  name="telefono_opcional2" id="telefono_opcional2"  type="text" class="col  form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Interior</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="numero_interior"  name="numero_interior" id="numero_interior"  type="text" class="col form-control">
                 <label class="col text-end form-label">Contacto</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="contacto"  name="contacto" id="contacto"  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Colonia</label>
-                <select name="" id=""  class="col form-select">
+                <select formControlName="colonia"  name="colonia" id="colonia"  class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
-                </select>
+                    <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                    <option>prueba</option>
+                    </select>
                 <label class="col text-end form-label">Email</label>
-                <input name="" id=""  type="text" class="col form-control">
+                <input formControlName="email"  name="email" id="email"  type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col-3 text-end form-label">Delegación</label>
                 <div class="col-3 w-30">
-                    <select name="" id=""  class=" form-select">
+                    <select formControlName="delegacion"  name="delegacion" id="delegacion"  class=" form-select">
                         <option value="" disabled selected>Make a selection</option>
-                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
-
+                        <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
                     </select>
                 </div>
             </div>
-            <div class="row mt-2">
+            <!-- <div class="row mt-2">
                 <label class="col-3 text-end form-label">Ubicaciones</label>
                 <button  type="button" class="col-1 btn btn-dark">Buscar</button>
-            </div>
+            </div> -->
 
             <div class="d-flex justify-content-end mt-4 ml-1">
-                <button type="button" class="col-2 btn btn-dark">Guardar</button>
-            </div>
+                <button [disabled]="checkoutForm.invalid" type="button" (click)="onSubmit()"  class="col-2 btn btn-dark">Guardar</button>
+            </div> 
+            
 
         </div>
     </div>

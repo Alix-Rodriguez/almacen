@@ -1,21 +1,21 @@
 <app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
-<form [formGroup]='checkoutForm'  (ngSubmit)="onSubmit()">
+<form [formGroup]='checkoutForm'  >
     <div class="container" *ngIf="siguiente">
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Empresa:</label>
-                <select formControlName="frm_empresa"  name="frm_empresa" id="frm_empresa" class="form-select"> 
+                <select formControlName="descuento_almacen"  name="descuento_almacen" id="descuento_almacen" class="form-select"> 
                     <option value="-">Seleccione</option>
                     <option value={{emd.id}} *ngFor="let emd of empresa"> {{emd.nombre_empresa}} </option>
                 </select>
             </div>
             <div class="col">
-                <label class="form-label">Titulo:</label>
-                <input type="text" class="form-control" formControlName="frm_titulo" name="frm_titulo" id="frm_titulo">
+                <label class="form-label">Nombre:</label>
+                <input type="text" class="form-control" formControlName="nombre" name="nombre" id="nombre">
             </div>
             <div class="col">
                 <label >Tipo:</label>
-                <select  formControlName="frm_tipo" class="form-select">
+                <select  formControlName="tipo" name="tipo" id="tipo" class="form-select">
                     <option value="-" selected>Seleccione</option>
                     <option value="1">Virtual</option>
                     <option value="2">Física</option>
@@ -26,22 +26,22 @@
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Calle:</label>
-                <input formControlName="frm_calle" name="frm_calle" id="frm_calle" type="text" class="form-control">
+                <input formControlName="calle" name="calle" id="calle" type="text" class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Exterior:</label>
-                <input formControlName="frm_numeroe" name="frm_numeroe" id="frm_numeroe" type="text" class="form-control">
+                <input formControlName="numero_exterior" name="numero_exterior" id="numero_exterior" type="text" class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Interno:</label>
-                <input formControlName="frm_numeroi" name="frm_numeroi" id="frm_numeroi" type="text" class="form-control">
+                <input formControlName="numero_interno" name="numero_interno" id="numero_interno" type="text" class="form-control">
             </div>
         </div>
             <!-- TERCERA SELECCION -->
             <div class="row mt-4">
                 <div class="col">
                     <span style="color: #4f4f52;font-size: 1rem;">Delegación:</span>
-                    <select formControlName="frm_delegacion" name="frm_delegacion" id="frm_delegacion" (change)="onChange($event.target.value)"
+                    <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio" (change)="onChange($event.target.value)"
                         class="form-select">
                         <option value="." selected>Selecciones</option>
                         <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
@@ -49,30 +49,31 @@
                 </div>
                 <div class="col">
                     <span style="color: #4f4f52;font-size: 1rem;">Colonía:</span>
-                    <select formControlName="frm_colonia" name="frm_colonia" id="frm_colonia"
+                    <select formControlName="colonia" name="colonia" id="colonia"
                     class="form-select">
                         <option value="-"  selected>Seleccione</option>
-                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                        <option value="1"> prueba </option>
+                        <!-- <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option> -->
                     </select>
                 </div>
                 <div class="col">
                     <label class="form-label">Codigo Postal</label>
-                    <input type="text" formControlName="frm_codigo" name="frm_codigo" id="frm_codigo" class="form-control">
+                    <input type="text" formControlName="cp" name="cp" id="cp" class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <label class="form-label">Telefono:</label>
-                    <input type="text" formControlName="frm_telefono" name="frm_telefono" id="frm_telefono" class="form-control">
+                    <input type="text" formControlName="telefono" name="telefono" id="telefono" class="form-control">
                 </div>
                 <div class="col">
                     <label class="form-label">Email:</label>
-                    <input type="text" formControlName="frm_email" name="frm_email" id="frm_email" class="form-control">
+                    <input type="text" formControlName="email" name="email" id="email" class="form-control">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <input style="margin-left: 0" type="checkbox" formControlName="frm_uso" class="form-check-input" name="frm_uso" id="frm_uso">
+                    <input style="margin-left: 0" type="checkbox" formControlName="picking" class="form-check-input" name="picking" id="picking">
                     <label class="form-label">Usar misma dirección de empresa</label>
                 </div>
             </div>
@@ -99,7 +100,7 @@
                 <label>Usar etiqueta de entrada:</label>
             </div>
             <div class="col-1">
-                <input  type="checkbox" formControlName="frm_uso1" name="frm_uso1" id="frm_uso1" (click)="Bool()" >
+                <input  type="checkbox"  (click)="Bool()" >
             </div>
             <div class="col-3">
                 <button [disabled]=bool type="button" class=" btn btn-dark">Etiqueta</button>
@@ -111,7 +112,7 @@
                 <label>Inventario fisico automatico:</label>
             </div>
             <div class="col-1">
-                <input  type="checkbox" (click)="Bool2()" formControlName="frm_uso2" name="frm_uso2" id="frm_uso2">
+                <input  type="checkbox" (click)="Bool2()" >
             </div>
             <div class="col-2">
                 <button  [disabled]=bool2  type="button" class="btn btn-dark">Configurar</button>
@@ -145,7 +146,7 @@
             <div class="col-3">
                 <label>Zona:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
-                <select  class="form-select" formControlName="frm_Ubi" name="frm_Ubi" id="frm_Ubi">
+                <select  class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -155,7 +156,7 @@
             <div class="col-3">
                 <label>Rack:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
-                <select class="form-select" formControlName="frm_Rack" name="frm_Rack" id="frm_Rack">
+                <select class="form-select" formControlName="usa_rack" name="usa_rack" id="usa_rack">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -166,7 +167,7 @@
             <div class="col-3">
                 <label>Nivel:</label>
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
-                <select class="form-select" formControlName="frm_Rack" name="frm_Rack" id="frm_Rack">
+                <select class="form-select" formControlName="usa_nivel" name="usa_nivel" id="usa_nivel">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -176,7 +177,7 @@
             <div class="col-3">
                 <label>Localidad:</label>
                 <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
-                <select class="form-select" formControlName="frm_localidad" name="frm_localidad" id="frm_localidad">
+                <select class="form-select" formControlName="usa_localidad" name="usa_localidad" id="usa_localidad">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -193,7 +194,7 @@
         <div class="d-flex justify-content-end mt-4 ml-1">
             <button (click)="Volver()"   type="button" 
                 class="btn text-dark col-2 border-dark mr-2">Volver</button>
-            <button type="button"  class="col-2 btn btn-dark">Guardar</button>
+            <button type="button" (click)="onSubmit()" class="col-2 btn btn-dark">Guardar</button>
         </div>
     
         <!-- MODAL DEL REMITENTE -->
