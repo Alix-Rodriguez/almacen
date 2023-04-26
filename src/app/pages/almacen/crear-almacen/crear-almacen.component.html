@@ -40,7 +40,7 @@
             <!-- TERCERA SELECCION -->
             <div class="row mt-4">
                 <div class="col">
-                    <span style="color: #4f4f52;font-size: 1rem;">Delegación:</span>
+                    <label class="form-label">Delegación:</label>
                     <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio" (change)="onChange($event.target.value)"
                         class="form-select">
                         <option value="." selected>Selecciones</option>
@@ -48,7 +48,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    <span style="color: #4f4f52;font-size: 1rem;">Colonía:</span>
+                    <label class="form-label">Colonía:</label>
                     <select formControlName="colonia" name="colonia" id="colonia"
                     class="form-select">
                         <option value="-"  selected>Seleccione</option>
@@ -194,8 +194,8 @@
         <div class="d-flex justify-content-end mt-4 ml-1">
             <button (click)="Volver()"   type="button" 
                 class="btn text-dark col-2 border-dark mr-2">Volver</button>
-            <button type="button" (click)="onSubmit()" class="col-2 btn btn-dark">Guardar</button>
-        </div>
+            <button [disabled]="checkoutForm.invalid" type="button" (click)="onSubmit()" class="col-2 btn btn-dark">Guardar</button>
+        </div>  
     
         <!-- MODAL DEL REMITENTE -->
         <ng-template #mymodal let-modal>
