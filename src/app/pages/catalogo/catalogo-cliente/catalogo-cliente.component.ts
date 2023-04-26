@@ -70,13 +70,8 @@ export class CatalogoClienteComponent implements OnInit {
       numero_interior:['',[Validators.required]],
       numero_exterior:['',[Validators.required]],
       pais:['',[Validators.required]],
-      contribuyente:12,
-      ciudad:"sasa",
-      direccion:"dasdas"
     })
-    // "ciudad":"mexico df",
-    // "direccion":"prueba1",
-    //contribuyente
+
 
  }
  onSubmit(){
