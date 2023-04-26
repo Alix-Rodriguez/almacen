@@ -25,7 +25,6 @@ export class CrearLayoutComponent implements OnInit {
   rack:any;
   nivel:any;
   localidad:any;
-  // id: string;
   listarLayout: any;
   
 

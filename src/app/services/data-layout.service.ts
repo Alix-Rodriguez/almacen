@@ -10,7 +10,7 @@ export class DataLayoutService {
 
   constructor(private http:HttpClient) { }
 
-  
+  // COMPONENTE Layout
   saveLayout(value){
     return this.http.post(this.url + 'save-layout', value)
   }
@@ -26,6 +26,26 @@ export class DataLayoutService {
   ActualizarLayout(value,id){
     return this.http.put(this.url + 'actualizar-layout/'+id, value)
   }
+
+  // COMPONENTE Layout QA
+  saveLayoutQA(value){
+    return this.http.post(this.url + 'save-layoutQA', value)
+  }
+  
+  listLayoutQA(){
+    return this.http.get(this.url + 'listar-layoutQA')
+  }
+
+  eliminarLayoutQA(value){
+    return this.http.delete(this.url + 'eliminar-layoutQA/'+value)
+  }
+
+  ActualizarLayoutQA(value,id){
+    return this.http.put(this.url + 'actualizar-layoutQA/'+id, value)
+  }
+
+
+
 
 
 }
