@@ -17,7 +17,6 @@ import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
-import { CrearProductoComponent } from './pages/catalogo/crear-producto/crear-producto.component';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -55,7 +54,6 @@ import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-pr
     PagesComponent,
     EmpresaComponent,
     OrdenCompraComponent,
-    CrearProductoComponent,
     CrearAlmacenComponent,
     CrearEmpresaComponent,
     ListarEmpresaComponent,
