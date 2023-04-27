@@ -20,4 +20,12 @@ export class DataCatalogoService {
     return this.http.get(this.url + 'listar-paises')
   }
 
+  SaveProvedor(value){
+    return this.http.post(this.url + '', value)
+  }
+  ListarProvedor(){
+    return this.http.get(this.url + '')
+  }
+
+
 }

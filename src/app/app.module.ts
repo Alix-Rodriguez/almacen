@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -44,6 +43,7 @@ import { ZonQAComponent } from './pages/almacen/zona-qa/zon-qa.component';
 import { RackQAComponent } from './pages/almacen/rack-qa/rack-qa.component';
 import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
 import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -85,6 +85,7 @@ import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.
     RackQAComponent,
     NivelQAComponent,
     LocalidadQAComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

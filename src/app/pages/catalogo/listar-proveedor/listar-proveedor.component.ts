@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { DataCatalogoService } from "src/app/services/datacatalogo.service";
+
 
 @Component({
   selector: 'app-listar-proveedor',
@@ -7,10 +10,54 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarProveedorComponent implements OnInit {
   miga: any = 'Listar Proveedores';
+  siguiente: boolean = true;
+  filterPost: ' '
+  proveedor:any
 
-  constructor() { }
+  constructor(
+    private modalService: NgbModal,
+    private dataService: DataCatalogoService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  listarProveedor(){
+    this.dataService.ListarProvedor().subscribe(resp=>{
+      this.proveedor=resp['data'];
+    })
+  }
+  siguientePagina() {
+    this.siguiente = false;
+  }
+
+  Volver() {
+    this.siguiente = true;
+  }
+
+  closeResult: string = "";
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: "modal-basic-title" })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
 }
