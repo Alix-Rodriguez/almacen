@@ -4,7 +4,7 @@
   <form [formGroup]='checkoutForm'  >
     <div class="row">
       <div class="col-3">
-        <select formControlName="id_zona" name="id_zona" id="id_zona"  class="form-select">
+        <select formControlName="id_zonaqa" name="id_zonaqa" id="id_zonaqa"  class="form-select">
         <option value="" disabled selected>Zona</option>
         <option value={{dl.id}} *ngFor="let dl of zona" >{{dl.descripcion}}</option>
 
@@ -12,21 +12,21 @@
     </select>
       </div>
       <div class="col-3">
-        <select formControlName="id_rack" name="id_rack" id="id_rack"  class="form-select">
+        <select formControlName="id_rackqa" name="id_rackqa" id="id_rackqa"  class="form-select">
           <option value="" disabled selected>Rack</option>
           <option value={{dl.id}} *ngFor="let dl of rack" >{{dl.descripcion}}</option>
 
       </select>
       </div>
       <div class="col-3">
-        <select  formControlName="id_nivel" name="id_nivel" id="id_nivel" class="form-select">
+        <select  formControlName="id_nivelqa" name="id_nivelqa" id="id_nivelqa" class="form-select">
           <option value="" disabled selected>Nivel</option>
           <option value={{dl.id}} *ngFor="let dl of nivel" >{{dl.descripcion}}</option>
 
       </select>
       </div>
       <div class="col-3">
-        <select  formControlName="id_localidad" name="id_localidad" id="id_localidad" class="form-select">
+        <select  formControlName="id_localidadqa" name="id_localidadqa" id="id_localidadqa" class="form-select">
           <option value="" disabled selected>Localidad</option>
           <option value={{dl.id}} *ngFor="let dl of localidad" >{{dl.descripcion}}</option>
 
@@ -47,10 +47,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let li of listarLayout">
-          <td> {{li.id_zona}} </td>
-          <td> {{li.id_rack}} </td>
-          <td>{{li.id_nivel}} </td>
-          <td>{{li.id_localidad}}</td>
+          <td> {{li.id_zonaqa}} </td>
+          <td> {{li.id_rackqa}} </td>
+          <td>{{li.id_nivelqa}} </td>
+          <td>{{li.id_localidadqa}}</td>
           <td>
             <button (click)="open(mymodalMODI)"  class=" btn btn-warning padding" ></button>
             <button (click)="open(mymodal)" class="btn btn-danger padding"  ></button>
@@ -109,7 +109,8 @@
               <div class="d-flex justify-content-center ml-5 modal-body">
                 <button type="button" class="mr-3 btn btn-outline-dark"
                   (click)="modal.close('Save click')">Cancelar</button>
-                <button type="button" (click)="Actualizarlayout(li.id)"class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+                <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
+                <!-- (click)="Actualizarlayout(li.id)" -->
               </div>
             </ng-template>
 

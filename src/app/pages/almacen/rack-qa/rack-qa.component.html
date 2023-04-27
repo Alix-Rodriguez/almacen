@@ -1,4 +1,5 @@
 <app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
 <form [formGroup]='checkoutForm' >
     <label class="form-label" for="">Rack QA</label>
     <div class="row">
