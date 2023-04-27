@@ -15,6 +15,7 @@ export class CatalogoClienteComponent implements OnInit {
   empresa: any;
   delegaciones:any;
   colonias:any;
+  pais:any;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -22,9 +23,14 @@ export class CatalogoClienteComponent implements OnInit {
     private dataService: DataserviceService
   ) {}
 
+  listarPais(){
+    this.dataCatalogo.ListarPais().subscribe(resp=>{
+      this.pais=resp['data']
+    })
+  }
     ListarEmpresa(){
     this.dataService.getListEmpresa()
-    .subscribe(resp=>{
+    .subscribe(resp=> {
       this.empresa = resp['data'];
       console.log(this.empresa)
     })
@@ -50,6 +56,7 @@ export class CatalogoClienteComponent implements OnInit {
     this.getDelegacion();
     this.checkoutForm = this.initForm();
   console.log(this.checkoutForm.value)
+  this.listarPais()
   }
   
   initForm(): FormGroup {

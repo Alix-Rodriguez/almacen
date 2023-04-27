@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataserviceService } from "../../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { DataCatalogoService } from 'src/app/services/datacatalogo.service';
 
 
 
@@ -15,10 +16,12 @@ export class ProveedorComponent implements OnInit {
   empresa: any;
   delegaciones:any;
   colonias:any;
-  
+  pais:any
+
   constructor(
     private readonly fb: FormBuilder, 
-    private dataService: DataserviceService
+    private dataService: DataserviceService,
+    private dataCatalogo: DataCatalogoService
   ) {}
 
 
@@ -44,10 +47,16 @@ export class ProveedorComponent implements OnInit {
         this.colonias = resp['data'];
       })
     }
-  
+    listarPais(){
+      this.dataCatalogo.ListarPais().subscribe(resp=>{
+        this.pais=resp['data']
+      })
+    }
+
     ngOnInit(): void {
       this.ListarEmpresa()
       this.getDelegacion();
+      this.listarPais()
     }
   
 }

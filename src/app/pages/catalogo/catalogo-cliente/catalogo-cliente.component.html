@@ -18,9 +18,7 @@
                 <label class="col text-end form-label">Pais</label>
                 <select formControlName="pais"  name="pais" id="pais"  class="col form-select">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option *ngFor="let li of pais" value={{li.id}} >{{li.pais}} </option>
                 </select>
             </div>
             <div class="row mt-2">
