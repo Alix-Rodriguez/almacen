@@ -6,6 +6,8 @@ import { NgbAlert, NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: "app-crear-layout-qa",
@@ -32,7 +34,9 @@ export class CrearLayoutQAComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder,
     private dataLayout: DataLayoutService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    public _router: Router,
+    public _location: Location
   ) {}
 
   ngOnInit(): void {
@@ -98,13 +102,18 @@ export class CrearLayoutQAComponent implements OnInit {
 
     //setTimeout(() => this.staticAlert.close(), 20000);
 
+    this.ngOnInit();
     this._success.subscribe((message) => (this.successMessage = message));
     this._success.pipe(debounceTime(5000)).subscribe(() => {
       if (this.selfClosingAlert) {
         this.selfClosingAlert.close();
       }
     });
-    this.ngOnInit();
+    setTimeout(() => {
+      this._router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
+        this._router.navigate([decodeURI(this._location.path())]);
+        });
+    }, 5000);
   }
 
   Eliminar(id: string) {

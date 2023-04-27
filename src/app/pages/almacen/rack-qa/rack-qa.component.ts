@@ -85,7 +85,7 @@ export class RackQAComponent implements OnInit {
 			}
 		});
     setTimeout(() => {
-      this._router.navigateByUrl("/refresh", { skipLocationChange: true }).then(() => {
+      this._router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
         this._router.navigate([decodeURI(this._location.path())]);
         });
     }, 5000);
