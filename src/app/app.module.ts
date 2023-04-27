@@ -40,6 +40,11 @@ import { RackComponent } from './pages/almacen/rack/rack.component';
 import { NivelComponent } from './pages/almacen/nivel/nivel.component';
 import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
 import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-producto.component';
+import { ZonQAComponent } from './pages/almacen/zona-qa/zon-qa.component';
+import { RackQAComponent } from './pages/almacen/rack-qa/rack-qa.component';
+import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
+import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,6 +81,10 @@ import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-pr
     NivelComponent,
     LocalidadComponent,
     LineaProductoComponent,
+    ZonQAComponent,
+    RackQAComponent,
+    NivelQAComponent,
+    LocalidadQAComponent,
   ],
   imports: [
     BrowserModule,

@@ -33,6 +33,10 @@ import { RackComponent } from './pages/almacen/rack/rack.component';
 import { NivelComponent } from './pages/almacen/nivel/nivel.component';
 import { LocalidadComponent } from './pages/almacen/localidad/localidad.component';
 import { LineaProductoComponent } from './pages/catalogo/linea-producto/linea-producto.component';
+import { ZonQAComponent } from './pages/almacen/zona-qa/zon-qa.component';
+import { RackQAComponent } from './pages/almacen/rack-qa/rack-qa.component';
+import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
+import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
 
 
 const routes: Routes = [
@@ -66,6 +70,10 @@ const routes: Routes = [
       { path: 'nivel', component: NivelComponent},
       { path: 'localidad', component: LocalidadComponent},
       { path: 'linea-producto', component: LineaProductoComponent},
+      { path: 'zonaQA', component: ZonQAComponent},
+      { path: 'rackQA', component: RackQAComponent},
+      { path: 'nivelQA', component: NivelQAComponent},
+      { path: 'LocalidadQA', component: LocalidadQAComponent},
 
 
 

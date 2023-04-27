@@ -9,7 +9,7 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 })
 export class NivelComponent implements OnInit {
   miga:string = "Nivel";
-
+  nivel:any
   checkoutForm!: FormGroup;
 
   constructor(
@@ -20,8 +20,14 @@ export class NivelComponent implements OnInit {
   
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
+    this.ListNivel()
   }
-  
+  ListNivel(){
+    this.dataService.ListarNivel()
+    .subscribe(resp=>{
+      this.nivel = resp['data'];
+    })
+   }
   initForm(): FormGroup {
     return this.fb.group({
       descripcion: ["", [Validators.required]],

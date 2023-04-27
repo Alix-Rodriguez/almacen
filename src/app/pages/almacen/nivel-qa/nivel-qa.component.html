@@ -1,9 +1,9 @@
 <app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
-<form [formGroup]='checkoutForm'>
-    <label class="form-label" for="">Nivel</label>
+<form [formGroup]='checkoutForm' >
+    <label class="form-label" for="">Nivel QA</label>
     <div class="row">
         <div class="col-3">
-            <input formControlName="descripcion"  name="descripcion" id="descripcion" type="text" class="form-control">
+            <input  formControlName="descripcion"  name="descripcion" id="descripcion" type="text" class="form-control">
         </div>
         <button (click)="onSubmit()" type="button" class="ml-2 col-2 btn btn-dark">Guardar</button>
     </div>
@@ -11,14 +11,14 @@
         <thead>
           <tr>
             <th scope="col">Id</th>
-            <th scope="col">Nivel</th>
+            <th scope="col">Nivel QA</th>
             <th scope="col">Acción</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let li of nivel">
-            <td>{{li.id}}  </td>
-            <td>{{li.descripcion}} </td>
+          <tr *ngFor="let li of nivelQA">
+            <td>{{li.id}} </td>
+            <td>{{li.descripcion}}</td>
             <td>
               <button class=" btn btn-warning padding" ></button>
               <button class="btn btn-danger padding"  ></button>

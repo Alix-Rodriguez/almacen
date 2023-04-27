@@ -10,7 +10,7 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 export class ZonaComponent implements OnInit {
   miga: string = "Zona";
   checkoutForm!: FormGroup;
-  
+  zona:any  
 
 
 
@@ -21,6 +21,13 @@ export class ZonaComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
+    this.ListZona()
+  }
+  ListZona(){
+    this.dataService.ListarZona()
+    .subscribe(resp=>{
+      this.zona = resp['data'];
+    })
   }
   
   initForm(): FormGroup {
@@ -34,5 +41,6 @@ export class ZonaComponent implements OnInit {
     this.dataService.SaveZona(this.checkoutForm.value).subscribe((list) => {
       console.log(list)
     });
+    this.ngOnInit
   }
 }

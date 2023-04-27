@@ -10,9 +10,8 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 })
 export class LocalidadComponent implements OnInit {
   miga:string = "Localidad";
-
   checkoutForm!: FormGroup;
-
+  localidad:any
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService
@@ -21,12 +20,19 @@ export class LocalidadComponent implements OnInit {
   
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
+    this.ListLocalidad()
   }
   
   initForm(): FormGroup {
     return this.fb.group({
       descripcion: ["", [Validators.required]],
     });
+  }
+  ListLocalidad(){
+    this.dataService.ListarLocalidad()
+    .subscribe(resp=>{
+      this.localidad = resp['data'];
+    })
   }
   
   onSubmit() {

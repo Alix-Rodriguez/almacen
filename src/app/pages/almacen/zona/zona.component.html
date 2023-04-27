@@ -16,9 +16,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Nro </td>
-            <td>PRUEBA</td>
+          <tr *ngFor="let li of zona">
+            <td>{{li.id}} </td>
+            <td>{{li.descripcion}}</td>
             <td>
               <button class=" btn btn-warning padding" ></button>
               <button class="btn btn-danger padding"  ></button>

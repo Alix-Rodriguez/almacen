@@ -10,7 +10,7 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 export class RackComponent implements OnInit {
   miga:string = "Rack";
   checkoutForm!: FormGroup;
-
+  rack:any
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService
@@ -19,6 +19,13 @@ export class RackComponent implements OnInit {
   
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
+    this.ListRack()
+  }
+  
+  ListRack(){
+    this.dataService.ListarRack().subscribe(resp=>{
+      this.rack = resp['data'];
+    })
   }
   
   initForm(): FormGroup {
