@@ -12,6 +12,10 @@ export class DataCatalogoService {
   SaveCliente(value){
     return this.http.post(this.url + 'save-cliente', value)
   }
+  ListarCliente(){
+    return this.http.get(this.url + 'listar-cliente')
+  }
+  
   ListarPais(){
     return this.http.get(this.url + 'listar-paises')
   }
