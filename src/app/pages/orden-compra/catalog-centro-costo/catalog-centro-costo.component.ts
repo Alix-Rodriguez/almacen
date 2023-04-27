@@ -13,6 +13,8 @@ export class CatalogCentroCostoComponent implements OnInit {
     checkoutForm!: FormGroup;
     empresa: any;
     cliente:any
+    marca: any
+    ubicacionAlsea:any
     
     constructor(
       private readonly fb: FormBuilder, 
@@ -29,9 +31,23 @@ export class CatalogCentroCostoComponent implements OnInit {
       })
       }
 
+      listarMarca(){
+        this.dataService.ListarMarca()
+        .subscribe(resp=>{
+          this.marca = resp['data'];
+        })
+      }
+      listarUbicacionAlsea(){
+        this.dataService.ListarUbicacionAlsea()
+        .subscribe(resp=>{
+          this.ubicacionAlsea = resp['data'];
+        })
+      }
     ngOnInit(): void {
       this.ListarEmpresa()
       this.listarCliente()
+      this.listarMarca()
+      this.listarUbicacionAlsea
     }
     listarCliente(){
       this.dataCatalogo.ListarCliente().subscribe(resp=>{

@@ -33,18 +33,14 @@
                     <span class="d-block">Marca</span>
                     <select class="mt-1 col-8 pl-2 form-select">
                         <option value="" disabled selected>Make a selection</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option *ngFor="let li of marca" value={{li.id}}>{{li.descripcion}}</option>
                     </select>
                 </div>
                 <div class="mt-4">
                     <span class="d-block">Ubicacion alsea</span>
                     <select class="mt-1 col-8 pl-2 form-select">
                         <option value="" disabled selected>Make a selection</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option *ngFor="let li of ubicacionAlsea" value={{li.id}}>{{li.descripcion}}</option>
                     </select>
                 </div>
                 <div class="row mt-4">
