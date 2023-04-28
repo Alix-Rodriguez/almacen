@@ -69,8 +69,8 @@ export class CrearLayoutComponent implements OnInit {
   ListarLayout(){
     this.dataLayout.listLayout()
     .subscribe(resp=>{
-      // console.log(resp['msn'])
-     this.listarLayout = resp['data']
+      this.listarLayout = resp['data']
+       console.log(this.listarLayout)
 
     }) 
   }

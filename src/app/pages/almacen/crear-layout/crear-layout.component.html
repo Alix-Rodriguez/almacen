@@ -47,10 +47,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let li of listarLayout">
-          <td> {{li.id_zona}} </td>
-          <td> {{li.id_rack}} </td>
-          <td>{{li.id_nivel}} </td>
-          <td>{{li.id_localidad}}</td>
+          <td> {{li.descripcion_zona}} </td>
+          <td> {{li.descripcion_racks}} </td>
+          <td>{{li.descripcion_nivels}} </td>
+          <td>{{li.descripcion_localidads}}</td>
           <td>
             <button (click)="open(mymodalMODI)"  class=" btn btn-warning padding" ></button>
             <button (click)="open(mymodal)" class="btn btn-danger padding"  ></button>

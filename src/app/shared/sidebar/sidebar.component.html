@@ -21,9 +21,18 @@
                                 class="label label-rouded label-themecolor pull-right">11</span></span></a>
                     <ul aria-expanded="false" class="collapse">
                        
-                        <li><a class="link" [routerLink]="['/crear-almacen']">Crear Almacen</a></li>
+                        
+                        <!-- ALMACEN -->
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-basket-fill"></i><span class="hide-menu">Almacen<span
+                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                <li><a class="link" [routerLink]="['/crear-almacen']">Crear Almacen</a></li>
+                                <li><a class="link" [routerLink]="['/']">Listar almacen </a></li>
+                            </ul>
+                        </li>
 
-                          <!-- layout -->
+                          <!-- Empresa -->
                           <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
                             class="mdi mdi-basket-fill"></i><span class="hide-menu">Empresa<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
@@ -31,6 +40,16 @@
                                 <li><a class="link" [routerLink]="['/crear-empresa']">Crear Empresa </a></li>
                                 <li><a class="link" [routerLink]="['/listar-empresa']">Listar Empresa </a></li>
                             </ul>
+                        </li>
+
+                        <!-- Cliente -->
+                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                            class="mdi mdi-basket-fill"></i><span class="hide-menu">Cliente<span
+                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                                <ul aria-expanded="false" class="collapse">
+                                    <li><a class="link" [routerLink]="['/catalogo-cliente']">Clientes</a></li>
+                                    <li><a class="link" [routerLink]="['/catalogo-cliente']">Listar clientes</a></li>
+                                </ul>
                         </li>
                         <!-- layout -->
                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
@@ -87,9 +106,9 @@
                                 </ul>
                         </li>
 
+                         
                     
                         <li><a class="link" [routerLink]="['/ca-centro-costo']">Centro De Costo</a></li>
-                        <li><a class="link" [routerLink]="['/catalogo-cliente']">Clientes</a></li>
                         <li><a class="link" [routerLink]="['/catalogo-rutas']">Rutas</a></li>
                         <li><a class="link" [routerLink]="['/etiquetado']">Etiquetado</a></li>
                         <li><a class="link" [routerLink]="['/order-compra']">Crear orden de compra </a></li>
