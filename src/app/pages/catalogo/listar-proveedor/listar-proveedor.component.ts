@@ -11,7 +11,6 @@ import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 export class ListarProveedorComponent implements OnInit {
   miga: any = 'Listar Proveedores';
   siguiente: boolean = true;
-  filterPost: ' '
   proveedor:any
 
   constructor(
@@ -19,12 +18,16 @@ export class ListarProveedorComponent implements OnInit {
     private dataService: DataCatalogoService
     ) { }
 
+  filterPost = '';
   ngOnInit(): void {
+    this.listarProveedor()
   }
+
 
   listarProveedor(){
     this.dataService.ListarProvedor().subscribe(resp=>{
       this.proveedor=resp['data'];
+      console.log(this.proveedor)
     })
   }
   siguientePagina() {

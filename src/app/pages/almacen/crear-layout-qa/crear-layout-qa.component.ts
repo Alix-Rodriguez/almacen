@@ -6,8 +6,6 @@ import { NgbAlert, NgbAlertModule } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
 
 @Component({
   selector: "app-crear-layout-qa",
@@ -35,8 +33,6 @@ export class CrearLayoutQAComponent implements OnInit {
     private readonly fb: FormBuilder,
     private dataLayout: DataLayoutService,
     private modalService: NgbModal,
-    public _router: Router,
-    public _location: Location
   ) {}
 
   ngOnInit(): void {
@@ -71,7 +67,6 @@ export class CrearLayoutQAComponent implements OnInit {
 
   ListarLayout() {
     this.dataLayout.listLayoutQA().subscribe((resp) => {
-      // console.log(resp['msn'])
       this.listarLayout = resp["data"];
       console.log("entro listar")
     });
@@ -93,6 +88,7 @@ export class CrearLayoutQAComponent implements OnInit {
         this.respuesta = resp;
         this.type = "success";
         this.changeSuccessMessage(this.respuesta.msn);
+        this.ngOnInit();
       },
       (error) => {
         this.type = "danger";
@@ -102,18 +98,13 @@ export class CrearLayoutQAComponent implements OnInit {
 
     //setTimeout(() => this.staticAlert.close(), 20000);
 
-    this.ngOnInit();
     this._success.subscribe((message) => (this.successMessage = message));
     this._success.pipe(debounceTime(5000)).subscribe(() => {
       if (this.selfClosingAlert) {
         this.selfClosingAlert.close();
       }
     });
-    setTimeout(() => {
-      this._router.navigateByUrl("/", { skipLocationChange: true }).then(() => {
-        this._router.navigate([decodeURI(this._location.path())]);
-        });
-    }, 5000);
+    
   }
 
   Eliminar(id: string) {

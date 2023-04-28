@@ -5,14 +5,14 @@
             <div class="col">
                 <span class="d-block">Empresa</span>
                 <select class="col mt-2 pl-2 form-select">
-                    <option value="" disabled selected>Make a selection</option>
+                    <option value="" disabled selected>Selecciones</option>
                 <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
                 </select>
             </div>
             <div class="col">
                 <span class="d-block">Cliente</span>
                 <select class="col mt-2 pl-2 form-select">
-                    <option value="" disabled selected>Make a selection</option>
+                    <option value="" disabled selected>Selecciones</option>
                     <option *ngFor="let li of cliente">{{li.clave_cliente}} </option>
                 </select>
             </div>
@@ -32,14 +32,14 @@
                 <div class="mt-4">
                     <span class="d-block">Marca</span>
                     <select class="mt-1 col-8 pl-2 form-select">
-                        <option value="" disabled selected>Make a selection</option>
-                        <option *ngFor="let li of marca" value={{li.id}}>{{li.descripcion}}</option>
+                        <option value="" disabled selected>Selecciones</option>
+                        <option *ngFor="let li of marca" value={{li.id}}>{{li.marca}}</option>
                     </select>
                 </div>
                 <div class="mt-4">
                     <span class="d-block">Ubicacion alsea</span>
                     <select class="mt-1 col-8 pl-2 form-select">
-                        <option value="" disabled selected>Make a selection</option>
+                        <option value="" disabled selected>Selecciones</option>
                         <option *ngFor="let li of ubicacionAlsea" value={{li.id}}>{{li.descripcion}}</option>
                     </select>
                 </div>

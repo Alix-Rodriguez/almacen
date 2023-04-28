@@ -1,7 +1,7 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
 <div class="container-fluid">
     <div class="d-sm-flex bd-highlight mb-5">
-        <input placeholder="Buscar"  class="col-4 form-control mr-2 p-2 bd-highlight" type="text" [(ngModel)]="filterPost">
+        <input placeholder="Buscar" name="filterPost"  class="col-4 form-control mr-2 p-2 bd-highlight" type="text" [(ngModel)]="filterPost">
         <button type="button" class=" btn btn-dark col-2 p-2 bd-highlight">Buscar</button>
     </div>
 
@@ -22,15 +22,16 @@
                 </tr>
             </thead>
             <tbody> 
-                <!-- *ngFor="let item of items | filter:filterPost" -->
-                <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                <!--  -->
+                <tr *ngFor="let post of proveedor | filter:filterPost">
+                    
+                     <td>{{post.nombre_proveedor}}</td>
+                    <td>{{post.pais}} </td>
+                    <td>{{post.rfn}} </td> 
+                    <td>{{post.codigo_postal}} </td>
+                    <td>{{post.calle}} </td>
+                    <td>{{post.telefono1}} </td>
+                    <td>{{post.numero_exterior}} </td> 
                     <td>
                         <button class=" btn btn-warning padding" (click)="open(mymodalMODI)"></button>
                         <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
@@ -96,8 +97,8 @@
         </div>
     </div>
 
-
-    <!-- TABLA SIGUIENTE -->
+ 
+     <!-- TABLA SIGUIENTE  -->
     <div *ngIf="!siguiente">
 
         <table class="table table-bordered table-striped table-hover ">
@@ -115,14 +116,14 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
-                    <td>prueba</td>
+                <tr  *ngFor="let post of proveedor | filter:filterPost">
+                    <td>{{post.telefono2}}</td>
+                    <td>{{post.numero_interior}} </td>
+                    <td>{{post.telefono3}} </td>
+                    <td>{{post.colonia}} </td>
+                    <td>{{post.contacto}} </td>
+                    <td>{{post.delegacion}} </td>
+                    <td>{{post.email}} </td>
                     <td>
                         <button class=" btn btn-warning padding" (click)="open(mymodalMODI2)"></button>
                         <button class="btn btn-danger padding" (click)="open(mymodal2)"></button>
@@ -139,9 +140,9 @@
                                     (click)="modal.close('Save click')">Aceptar</button>
                             </div>
                         </ng-template>
-                        <!-- (click)="Eliminar(list.id)" -->
+                         <!-- (click)="Eliminar(list.id)"  -->
 
-                        <!--MODAL DE MODIFICAR -->
+                        <!-- MODAL DE MODIFICAR  -->
                         <ng-template #mymodalMODI2 let-modal>
                             <div class="modal-header">
                                 <h4 id="modal-basic-title">Modificar Datos</h4>
@@ -175,7 +176,7 @@
                                     (click)="modal.close('Save click')">Guardar</button>
                             </div>
                         </ng-template>
-                        <!-- (click)="updateEmpresa()" -->
+                         <!-- (click)="updateEmpresa()"  -->
 
                     </td>
                 </tr>
@@ -186,5 +187,5 @@
 
             <button (click)="Volver()" type="button" class=" btn btn-dark col-2">Volver</button>
         </div>
-    </div>
+    </div> 
 </div>

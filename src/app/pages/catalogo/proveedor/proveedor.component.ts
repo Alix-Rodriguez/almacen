@@ -37,22 +37,22 @@ export class ProveedorComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      id_empresa: ["", [Validators.required]],
+      empresa: ["", [Validators.required]],
       nombre_proveedor: ["", [Validators.required]],
       pais: ["", [Validators.required]],
-      codigoPostal: ["", [Validators.required]],
+      codigo_postal: ["", [Validators.required]],
       rfn: ["", [Validators.required]],
       calle: ["", [Validators.required]],
-      telefono: ["", [Validators.required]],
+      telefono1: ["", [Validators.required]],
       numero_exterior: ["", [Validators.required]],
-      telefono_opcional: ["", [Validators.required]],
+      telefono2: ["", [Validators.required]],
       numero_interior: ["", [Validators.required]],
-      telefono_opcional2: ["", [Validators.required]],
+      telefono3: ["", [Validators.required]],
       colonia: ["", [Validators.required]],
       contacto: ["", [Validators.required]],
       delegacion: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-    });
+    });  
   }
 
   ListarEmpresa() {
@@ -87,9 +87,7 @@ export class ProveedorComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.checkoutForm.value.codigoPostal = Number(
-    //   this.checkoutForm.value.codigoPostal
-    // );
+    
     
     console.log(this.checkoutForm.value);
     this.dataCatalogo.SaveProvedor(this.checkoutForm.value).subscribe((resp) => {

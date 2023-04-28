@@ -61,10 +61,10 @@ export class DataserviceService {
   }
 
   ListarMarca(){
-    return this.http.get(this.url + '')
+    return this.http.get(this.url + 'listar-marca')
   }
   
   ListarUbicacionAlsea(){
-    return this.http.get(this.url + '')
+    return this.http.get(this.url + 'listar-localidadAlse')
   }
 }

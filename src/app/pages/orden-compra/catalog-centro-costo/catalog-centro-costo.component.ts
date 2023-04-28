@@ -47,7 +47,7 @@ export class CatalogCentroCostoComponent implements OnInit {
       this.ListarEmpresa()
       this.listarCliente()
       this.listarMarca()
-      this.listarUbicacionAlsea
+      this.listarUbicacionAlsea()
     }
     listarCliente(){
       this.dataCatalogo.ListarCliente().subscribe(resp=>{

@@ -70,7 +70,7 @@ export class CrearLayoutComponent implements OnInit {
     this.dataLayout.listLayout()
     .subscribe(resp=>{
       // console.log(resp['msn'])
-     this.listarLayout = resp['msn']
+     this.listarLayout = resp['data']
 
     }) 
   }
@@ -92,30 +92,27 @@ export class CrearLayoutComponent implements OnInit {
       this.respuesta = resp;
       this.type = "success";
       this.changeSuccessMessage(this.respuesta.msn)
-      
+      this.ngOnInit();
     },
     error => {
       this.type = "danger";
       this.changeSuccessMessage('Error no se ha guardado correctamente')
     })
 
-
      //setTimeout(() => this.staticAlert.close(), 20000);
-
 		this._success.subscribe((message) => (this.successMessage = message));
 		this._success.pipe(debounceTime(5000)).subscribe(() => {
-			if (this.selfClosingAlert) {
+  			if (this.selfClosingAlert) {
 				this.selfClosingAlert.close();
 			}
 		});
-    this.ngOnInit();
   }
 
   Eliminar(id: string) {
     console.log(id);
     this.dataLayout.eliminarLayout(id)
     .subscribe(resp => {
-      // this.ngOnInit();
+      this.ngOnInit();
       this.respuesta = resp;
       this.type = "success";
       this.changeSuccessMessage(this.respuesta.data)
@@ -131,7 +128,6 @@ export class CrearLayoutComponent implements OnInit {
         this.selfClosingAlert.close();
       }
     });
-    this.ngOnInit();
   }
 
   changeSuccessMessage(value) {
@@ -139,11 +135,11 @@ export class CrearLayoutComponent implements OnInit {
   }
 
   
-   Actualizarlayout(id) {
-    this.dataLayout.ActualizarLayout(this.checkoutForm,id).subscribe(resp => {
-      this.ngOnInit();
-    });
-  }
+    Actualizarlayout(id) {
+     this.dataLayout.ActualizarLayout(this.checkoutForm,id).subscribe(resp => {
+       this.ngOnInit();
+     });
+   }
 
 
   closeResult: string = "";

@@ -1,7 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "../../../services/datacatalogo.service";
 import { DataserviceService } from "../../../services/dataservice.service";
+import { Subject } from "rxjs";
+import { debounceTime } from "rxjs/operators";
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-catalogo-cliente",
@@ -16,6 +20,14 @@ export class CatalogoClienteComponent implements OnInit {
   delegaciones:any;
   colonias:any;
   pais:any;
+  private _success = new Subject<string>();
+  staticAlertClosed = false;
+	successMessage = '';
+  type:any;
+  respuesta:any;
+
+  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
+	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
 
   constructor(
     private readonly fb: FormBuilder,
@@ -48,6 +60,7 @@ export class CatalogoClienteComponent implements OnInit {
     this.dataService.getListColonia(value)
     .subscribe(resp=>{
       this.colonias = resp['data'];
+      console.log(this.colonias)
     })
   }
 
@@ -81,14 +94,41 @@ export class CatalogoClienteComponent implements OnInit {
 
 
  }
- onSubmit(){
+//  onSubmit(){
 
-   this.checkoutForm.value.codigoPostal= Number(this.checkoutForm.value.codigoPostal)
-   console.log(this.checkoutForm.value)
+//    this.checkoutForm.value.codigoPostal= Number(this.checkoutForm.value.codigoPostal)
+//    console.log(this.checkoutForm.value)
 
-  this.dataCatalogo.SaveCliente(this.checkoutForm.value).subscribe(resp=>{  
-       console.log(resp)  
-   })
+//   this.dataCatalogo.SaveCliente(this.checkoutForm.value).subscribe(resp=>{  
+//        console.log(resp)  
+//    })
+//   }
+
+  onSubmit() {
+    
+    this.checkoutForm.value.codigoPostal= Number(this.checkoutForm.value.codigoPostal)
+    console.log(this.checkoutForm.value)
+    console.log(this.checkoutForm.value);
+    this.dataCatalogo.SaveCliente(this.checkoutForm.value).subscribe((resp) => {
+        console.log(resp);
+        this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+      },
+      error => {
+        this.type = "danger";
+        this.changeSuccessMessage('Error no se ha guardado correctamente')
+      });
+
+      
+		this._success.subscribe((message) => (this.successMessage = message));
+		this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
   }
-
+  changeSuccessMessage(value) {
+    this._success.next(value);
+  }
 }

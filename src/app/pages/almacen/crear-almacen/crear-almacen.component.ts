@@ -1,7 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { DataserviceService } from "src/app/services/dataservice.service";
+import { Subject } from 'rxjs';
+import { debounceTime } from 'rxjs/operators';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: "app-crear-almacen",
@@ -18,7 +21,17 @@ export class CrearAlmacenComponent implements OnInit {
   closeResult: string = "";
   bool: boolean = true;
   bool2: boolean = true;
-
+  zona: any;
+  rack: any;
+  nivel: any;
+  localidad: any;
+  private _success = new Subject<string>();
+  staticAlertClosed = false;
+	successMessage = '';
+  respuesta:any;
+  type:any;
+  show:boolean = false;
+  
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
@@ -29,8 +42,16 @@ export class CrearAlmacenComponent implements OnInit {
     this.getDelegacion();
     this.getListEmpresa();
     this.checkoutForm = this.initForm();
-    console.log(this.checkoutForm.value)
+    console.log(this.checkoutForm.value);
+    this.Listnivel()
+    this.Listzona()
+    this.Listrack()
+    this.Listlocalidad()
   }
+
+  
+  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
+	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
 
   getDelegacion() {
     this.dataService.getListDelegaciones().subscribe((resp) => {
@@ -49,6 +70,28 @@ export class CrearAlmacenComponent implements OnInit {
       this.empresa = resp["data"];
     });
   }
+  
+  Listzona() {
+    this.dataService.ListarZona().subscribe((resp) => {
+      this.zona = resp["data"];
+    });
+  }
+  
+  Listrack() {
+    this.dataService.ListarRack().subscribe((resp) => {
+      this.rack = resp["data"];
+    });
+  }
+  Listnivel() {
+    this.dataService.ListarNivel().subscribe((resp) => {
+      this.nivel = resp["data"];
+    });
+  }
+  Listlocalidad() {
+    this.dataService.ListarLocalidad().subscribe((resp) => {
+      this.localidad = resp["data"];
+    });
+  }
 
   initForm(): FormGroup {
     return this.fb.group({
@@ -63,7 +106,7 @@ export class CrearAlmacenComponent implements OnInit {
       cp: ["", [Validators.required]],
       telefono: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
-      picking: ["", [Validators.required]],
+      picking: [""],
       usa_zona: ["", [Validators.required]],
       usa_rack: ["", [Validators.required]],
       usa_nivel: ["", [Validators.required]],
@@ -110,14 +153,36 @@ export class CrearAlmacenComponent implements OnInit {
     // "localidad_qa":1 MEDIO
   }
 
-  onSubmit() {
-    // this.checkoutForm.value.codigoPostal= Number(this.checkoutForm.value.codigoPostal)
+  
+  onSubmit(){
     console.log(this.checkoutForm.value)
- 
-   this.dataService.saveAlmacen(this.checkoutForm.value).subscribe(resp=>{  
-        console.log(resp)  
+    this.dataService.saveAlmacen(this.checkoutForm.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = "Datos guardados correctamente ";
+      this.changeSuccessMessage(this.respuesta)
+      this.type = "success";
+      
+    },
+    error => {
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+      this.type = "danger";
     })
+
+
+    setTimeout(() => this.staticAlert.close(), 20000);
+
+		this._success.subscribe((message) => (this.successMessage = message));
+		this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
   }
+  changeSuccessMessage(value) {
+  this._success.next(value);
+ }
+
 
   siguientePagina() {
     this.siguiente = false;

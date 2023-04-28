@@ -21,10 +21,10 @@ export class DataCatalogoService {
   }
 
   SaveProvedor(value){
-    return this.http.post(this.url + '', value)
+    return this.http.post(this.url + 'save-proveedor', value)
   }
   ListarProvedor(){
-    return this.http.get(this.url + '')
+    return this.http.get(this.url + 'listar-proveedor')
   }
 
 

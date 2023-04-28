@@ -56,6 +56,9 @@ export class CrearEmpresaComponent implements OnInit {
 			}
 		});
   }
+  changeSuccessMessage(value) {
+  this._success.next(value);
+ }
 
   initForm(): FormGroup {
     return this.fb.group({
@@ -68,7 +71,4 @@ export class CrearEmpresaComponent implements OnInit {
     })
  }
 
-    changeSuccessMessage(value) {
-    this._success.next(value);
-  }
 }
