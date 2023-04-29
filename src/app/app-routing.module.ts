@@ -37,6 +37,7 @@ import { ZonQAComponent } from './pages/almacen/zona-qa/zon-qa.component';
 import { RackQAComponent } from './pages/almacen/rack-qa/rack-qa.component';
 import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
 import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
+import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
       { path: 'rackQA', component: RackQAComponent},
       { path: 'nivelQA', component: NivelQAComponent},
       { path: 'LocalidadQA', component: LocalidadQAComponent},
+      { path: 'listar-cliente', component: ListarClienteComponent},
 
 
 

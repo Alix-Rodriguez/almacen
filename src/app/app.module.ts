@@ -44,6 +44,8 @@ import { RackQAComponent } from './pages/almacen/rack-qa/rack-qa.component';
 import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
 import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
 import { FilterPipe } from './pipes/filter.pipe';
+import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
+import { FilterClientePipe } from './pipes/filter-cliente.pipe';
 
 @NgModule({
   declarations: [
@@ -86,6 +88,9 @@ import { FilterPipe } from './pipes/filter.pipe';
     NivelQAComponent,
     LocalidadQAComponent,
     FilterPipe,
+    ListarClienteComponent,
+    FilterClientePipe,
+  
   ],
   imports: [
     BrowserModule,

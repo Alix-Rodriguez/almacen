@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 
-
 @Component({
-  selector: 'app-listar-proveedor',
-  templateUrl: './listar-proveedor.component.html',
-  styleUrls: ['./listar-proveedor.component.css']
+  selector: 'app-listar-cliente',
+  templateUrl: './listar-cliente.component.html',
+  styleUrls: ['./listar-cliente.component.css']
 })
-export class ListarProveedorComponent implements OnInit {
-  miga: any = 'Listar Proveedores';
+export class ListarClienteComponent implements OnInit {
+
+  miga: any = 'Listar Cliente';
   siguiente: boolean = true;
-  proveedor:any
-  filterPost = '';
+  filterCliente = '';
+  Cliente:any
 
   constructor(
     private modalService: NgbModal,
@@ -20,14 +20,14 @@ export class ListarProveedorComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.listarProveedor()
+    this.listarCliente()
   }
 
 
-  listarProveedor(){
-    this.dataService.ListarProvedor().subscribe(resp=>{
-      this.proveedor=resp['data'];
-      console.log(this.proveedor)
+  listarCliente(){
+    this.dataService.ListarCliente().subscribe(resp=>{
+      this.Cliente=resp['data'];
+      console.log(this.Cliente)
     })
   }
   siguientePagina() {
