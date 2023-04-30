@@ -1,7 +1,10 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage
+    }}</ngb-alert>
 <div class="container-fluid">
     <div class="d-sm-flex bd-highlight mb-5">
-        <input placeholder="Buscar" name="filterCliente"  class="col-4 form-control mr-2 p-2 bd-highlight" type="text" [(ngModel)]="filterCliente">
+        <input placeholder="Buscar" name="filterCliente" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+            [(ngModel)]="filterCliente">
         <button type="button" class=" btn btn-dark col-2 p-2 bd-highlight">Buscar</button>
     </div>
 
@@ -17,76 +20,22 @@
                     <th scope="col">RFN</th>
                     <th scope="col">Telefonia 1</th>
                     <th scope="col">Calle</th>
-                    <th scope="col">Acciones</th>
+                    <!-- <th scope="col">Acciones</th> -->
 
                 </tr>
             </thead>
-            <tbody> 
+            <tbody>
                 <!--  -->
                 <tr *ngFor="let pos of Cliente | filterCliente:filterCliente">
-                    
+
                     <td>{{pos.clave_cliente}}</td>
                     <td>{{pos.pais}} </td>
-                    <td>{{pos.nombre}} </td> 
+                    <td>{{pos.nombre}} </td>
                     <td>{{pos.codigoPostal}} </td>
                     <td>{{pos.nif}} </td>
                     <td>{{pos.telefono}} </td>
-                    <td>{{pos.calle}} </td> 
-                    <td>
-                        <button class=" btn btn-warning padding" (click)="open(mymodalMODI)"></button>
-                        <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+                    <td>{{pos.calle}} </td>
 
-                        <ng-template #mymodal let-modal>
-                            <div style="margin:auto 12%;" class="modal-header">
-                                <h4 class="modal-title" id="modal-basic-title">Seguro que desea
-                                    eliminar la empresa?</h4>
-                            </div>
-                            <div class="d-flex justify-content-center ml-5 modal-body">
-                                <button type="button" class="mr-3 btn btn-outline-dark"
-                                    (click)="modal.close('Save click')">Cancelar</button>
-                                <button type="button" class="btn btn-outline-dark"
-                                    (click)="modal.close('Save click')">Aceptar</button>
-                            </div>
-                        </ng-template>
-
-                        <!-- (click)="Eliminar(list.id)" -->
-                        <!--MODAL DE MODIFICAR -->
-                        <ng-template #mymodalMODI let-modal>
-                            <div class="modal-header">
-                                <h4 id="modal-basic-title">Modificar Datos</h4>
-                            </div>
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label class="form-label">Nombre</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Dirección</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <label class="form-label">Centro de costo</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="form-label">Nif</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-center ml-5 modal-body">
-                                <button type="button" class="mr-3 btn btn-outline-dark"
-                                    (click)="modal.close('Save click')">Cancelar</button>
-                                <button type="button" class="btn btn-outline-dark"
-                                    (click)="modal.close('Save click')">Guardar</button>
-                            </div>
-                        </ng-template>
-                        <!-- (click)="updateEmpresa()" -->
-
-                    </td>
                 </tr>
             </tbody>
         </table>
@@ -97,8 +46,8 @@
         </div>
     </div>
 
- 
-     <!-- TABLA SIGUIENTE  -->
+
+    <!-- TABLA SIGUIENTE  -->
     <div *ngIf="!siguiente">
 
         <table class="table table-bordered table-striped table-hover ">
@@ -110,24 +59,165 @@
                     <th scope="col">Numero Interior</th>
                     <th scope="col">Contacto</th>
                     <th scope="col">Delegacion</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Colonia</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Acciones</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr  *ngFor="let pos of Cliente | filterCliente:filterCliente">
+                <tr *ngFor="let pos of Cliente | filterCliente:filterCliente">
                     <td>{{pos.telefono_opcional}}</td>
                     <td>{{pos.numero_exterior}} </td>
                     <td>{{pos.telefono_opcional2}} </td>
                     <td>{{pos.numero_interior}} </td>
                     <td>{{pos.contacto}} </td>
                     <td>{{pos.delegacion}} </td>
+                    <td>{{pos.colonia}}</td>
                     <td>{{pos.email}} </td>
-                    <td>{{pos.colonia}}</td> 
                     <td>
-                        <button class=" btn btn-warning padding" (click)="open(mymodalMODI2)"></button>
+                        <button class=" btn btn-warning padding" (click)="ListarForm(pos.id)" (click)="open(mymodalMODI)"></button>
+                        <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+                        <ng-template #mymodal let-modal>
+                            <div style="margin:auto 12%;" class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+                                    eliminar la empresa?</h4>
+                            </div>
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button type="button" class="btn btn-outline-dark" (click)="Eliminar(pos.id)"
+                                    (click)="modal.close('Save click')">Aceptar</button>
+                            </div>
+                        </ng-template>
+
+                        <!-- (click)="Eliminar(list.id)" -->
+                        <!--MODAL DE MODIFICAR -->
+                        <ng-template #mymodalMODI let-modal>
+                            <div class="modal-header">
+                                <h4 id="modal-basic-title">Modificar Datos Clientes</h4>
+                            </div>
+                            <div class="container">
+                                <form class="container-fluid pr-5" [formGroup]='checkoutForm'>
+                                    <!-- GRID -->
+                                    <div class="row">
+                                        <label class="text-end col form-label">Clave Cliente</label>
+                                        <div class="col-4">
+                                            <input  formControlName="clave_cliente" name="clave_cliente"
+                                                id="clave_cliente" type="text" class="form-control">
+                                        </div>
+                                        <label class="col text-end form-label">Pais</label>
+                                        <div class="col-4">
+                                            <select  formControlName="pais" name="pais" id="pais" class="form-select">
+                                                <option value="" disabled selected>Selecciones</option>
+                                                <option *ngFor="let pos of pais" value={{pos.id}}>{{pos.pais}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="text-end col form-label">Empresa</label>
+                                        <div class="col-4">
+                                            <input formControlName="nombre" name="nombre" id="nombre" type="text"
+                                                class="form-control">
+                                        </div>
+                                        <label class="text-end col form-label">Codigo Postal</label>
+                                        <div class="col-4">
+                                            <input formControlName="codigoPostal" name="codigoPostal" id="codigoPostal"
+                                                type="text" class=" form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col text-end form-label">RFN</label>
+                                        <div class="col-4">
+                                            <input formControlName="nif" name="nif" id="nif" type="text"
+                                                class=" form-control">
+                                        </div>
+                                        <label class="col text-end form-label">Telefono 1</label>
+                                        <div class="col-4">
+                                            <input formControlName="telefono" name="telefono" id="telefono" type="text"
+                                                class=" form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col text-end form-label">Calle</label>
+                                        <div class="col-4">
+                                            <input formControlName="calle" name="calle" id="calle" type="text"
+                                                class=" form-control">
+                                        </div>
+                                        <label class="col text-end form-label">Telefono 2</label>
+                                        <div class="col-4">
+                                            <input formControlName="telefono_opcional" name="telefono_opcional"
+                                                id="telefono_opcional" type="text" class=" form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col text-end form-label">Numero Exterior</label>
+                                        <div class="col-4">
+                                            <input formControlName="numero_exterior" name="numero_exterior"
+                                                id="numero_exterior" type="text" class="  form-control">
+
+                                        </div>
+                                        <label class="col  text-end form-label">Telefono 3</label>
+                                        <div class="col-4">
+
+                                            <input formControlName="telefono_opcional2" name="telefono_opcional2"
+                                                id="telefono_opcional2" type="text" class="  form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col text-end form-label">Numero Interior</label>
+                                        <div class="col-4">
+                                            <input formControlName="numero_interior" name="numero_interior"
+                                                id="numero_interior" type="text" class=" form-control">
+                                        </div>
+                                        <label class="col text-end form-label">Contacto</label>
+                                        <div class="col-4">
+                                            <input  formControlName="contacto" name="contacto" id="contacto" type="text"
+                                                class=" form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col text-end form-label">Delegación</label>
+                                        <div class="col-4">
+                                            <select placeholder="hola" formControlName="delegacion" name="delegacion" id="delegacion"
+                                                class=" form-select" (change)="onChange($event.target.value)">
+                                                <option value="" disabled selected>Selecciones</option>
+                                                <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones">
+                                                    {{dl.descripcion}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <label class="col text-end form-label">Email</label>
+                                        <div class="col-4">
+                                            <input formControlName="email" name="email" id="email" type="text"
+                                                class="col form-control">
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <label class="col-2 text-end form-label">Colonia</label>
+                                        <div class="col-4">
+                                            <select formControlName="colonia" name="colonia" id="colonia"
+                                                class="col form-select">
+                                                <option value="" disabled selected>Selecciones</option>
+                                                <option value={{cl.code_colonia}} *ngFor="let cl of colonias">
+                                                    {{cl.descripcion}} </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button type="button" class="btn btn-outline-dark" (click)="update(pos.id)"
+                                    (click)="modal.close('Save click')">Guardar</button>
+                            </div>
+                        </ng-template>
+
+                        <!-- (click)="updateEmpresa()" -->
+                        <!-- <button class=" btn btn-warning padding" (click)="open(mymodalMODI2)"></button>
                         <button class="btn btn-danger padding" (click)="open(mymodal2)"></button>
 
                         <ng-template #mymodal2 let-modal>
@@ -139,13 +229,13 @@
                                 <button type="button" class="mr-3 btn btn-outline-dark"
                                     (click)="modal.close('Save click')">Cancelar</button>
                                 <button type="button" class="btn btn-outline-dark"
-                                    (click)="modal.close('Save click')">Aceptar</button>
+                                (click)="Eliminar(pos.id)" (click)="modal.close('Save click')">Aceptar</button>
                             </div>
-                        </ng-template>
-                         <!-- (click)="Eliminar(list.id)"  -->
+                        </ng-template> -->
+                        <!-- (click)="Eliminar(list.id)"  -->
 
                         <!-- MODAL DE MODIFICAR  -->
-                        <ng-template #mymodalMODI2 let-modal>
+                        <!-- <ng-template #mymodalMODI2 let-modal>
                             <div class="modal-header">
                                 <h4 id="modal-basic-title">Modificar Datos</h4>
                             </div>
@@ -177,8 +267,8 @@
                                 <button type="button" class="btn btn-outline-dark"
                                     (click)="modal.close('Save click')">Guardar</button>
                             </div>
-                        </ng-template>
-                         <!-- (click)="updateEmpresa()"  -->
+                        </ng-template> -->
+                        <!-- (click)="updateEmpresa()"  -->
 
                     </td>
                 </tr>
@@ -189,5 +279,5 @@
 
             <button (click)="Volver()" type="button" class=" btn btn-dark col-2">Volver</button>
         </div>
-    </div> 
+    </div>
 </div>

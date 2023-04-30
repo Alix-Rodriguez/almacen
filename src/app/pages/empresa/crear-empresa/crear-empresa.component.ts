@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DataserviceService } from 'src/app/services/dataservice.service';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
-import { NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-crear-empresa',
@@ -11,10 +11,10 @@ import { NgbAlert, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./crear-empresa.component.css']
 })
 export class CrearEmpresaComponent implements OnInit {
+  checkoutForm!: FormGroup;
 	private _success = new Subject<string>();
   staticAlertClosed = false;
 	successMessage = '';
-  checkoutForm!: FormGroup;
   respuesta:any;
   type:any;
   show:boolean = false;

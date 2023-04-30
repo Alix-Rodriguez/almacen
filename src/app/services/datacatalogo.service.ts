@@ -15,6 +15,12 @@ export class DataCatalogoService {
   ListarCliente(){
     return this.http.get(this.url + 'listar-cliente')
   }
+  EliminarClIente(id:string){
+    return this.http.delete(this.url + 'eliminar-cliente/'+id)
+  }
+  ActualizarCliente(id:string, value){
+    return this.http.put(this.url + 'actualizar-cliente/'+id,value)
+  }
   
   ListarPais(){
     return this.http.get(this.url + 'listar-paises')
@@ -26,6 +32,7 @@ export class DataCatalogoService {
   ListarProvedor(){
     return this.http.get(this.url + 'listar-proveedor')
   }
+
 
 
 }
