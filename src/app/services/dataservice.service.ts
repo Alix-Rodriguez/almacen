@@ -67,4 +67,12 @@ export class DataserviceService {
   ListarUbicacionAlsea(){
     return this.http.get(this.url + 'listar-localidadAlse')
   }
+
+  // ELIMINAR ZONA,RACK,NIVEL,LOCALIDAD
+  EliminarZona(id){
+    return this.http.delete(this.url + 'delete-zona/'+id)
+  }
+  ActualizarZona(value,id){
+    return this.http.put(this.url + 'actualizar-zona/'+id,value)
+  }
 }

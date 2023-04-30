@@ -34,6 +34,7 @@ export class ZonaComponent implements OnInit {
     this.checkoutForm = this.initForm();
     this.ListZona()
   }
+ 
   ListZona(){
     this.dataService.ListarZona()
     .subscribe(resp=>{
@@ -46,7 +47,16 @@ export class ZonaComponent implements OnInit {
       descripcion: ["", [Validators.required]],
     });
   }
-  
+  ListarForm(id) {
+    console.log("entro")
+    for (let i = 0; i < this.zona.length; i++) {
+      if (this.zona[i].id === id) {
+        this.checkoutForm.setValue({
+          descripcion: this.zona[i].descripcion
+        });
+      }
+    }
+  }
   
   onSubmit(){
     console.log(this.checkoutForm.value)
@@ -72,7 +82,68 @@ export class ZonaComponent implements OnInit {
 		});
 
   }
+  
+  Eliminar(id){
+    this.dataService.EliminarZona(id).subscribe(resp=> {
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.data)
+      this.ngOnInit();
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+    this._success.subscribe((message) => (this.successMessage = message));
+    this._success.pipe(debounceTime(5000)).subscribe(() => {
+     if (this.selfClosingAlert) {
+       this.selfClosingAlert.close();
+     }
+   });
+  }
+  Update(id){
+     this.dataService.ActualizarZona(this.checkoutForm.value,id).subscribe(resp=> {
+       this.respuesta = resp;
+       this.type = "success";
+       this.changeSuccessMessage(this.respuesta.msn)
+       this.ngOnInit();
+     },
+     error => {
+       this.type = "danger";
+       this.changeSuccessMessage('Error no se ha guardado correctamente')
+     })
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
+  }
   changeSuccessMessage(value) {
     this._success.next(value);
+  }
+  closeResult: string = "";
+
+  open(content: any) {
+    this.modalService
+      .open(content, { ariaLabelledBy: "modal-basic-title" })
+      .result.then(
+        (result) => {
+          this.closeResult = `Closed with: ${result}`;
+        },
+        (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        }
+      );
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return "by pressing ESC";
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return "by clicking on a backdrop";
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

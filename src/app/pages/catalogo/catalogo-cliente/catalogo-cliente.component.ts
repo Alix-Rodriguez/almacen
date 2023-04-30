@@ -94,15 +94,6 @@ export class CatalogoClienteComponent implements OnInit {
 
 
  }
-//  onSubmit(){
-
-//    this.checkoutForm.value.codigoPostal= Number(this.checkoutForm.value.codigoPostal)
-//    console.log(this.checkoutForm.value)
-
-//   this.dataCatalogo.SaveCliente(this.checkoutForm.value).subscribe(resp=>{  
-//        console.log(resp)  
-//    })
-//   }
 
   onSubmit() {
     
