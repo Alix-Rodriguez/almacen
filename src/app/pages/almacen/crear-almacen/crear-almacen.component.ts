@@ -159,8 +159,8 @@ export class CrearAlmacenComponent implements OnInit {
     this.dataService.saveAlmacen(this.checkoutForm.value)
     .subscribe(resp=>{
       console.log(resp)
-      this.respuesta = "Datos guardados correctamente ";
-      this.changeSuccessMessage(this.respuesta)
+      this.respuesta = resp;
+      this.changeSuccessMessage(this.respuesta.msn)
       this.type = "success";
       
     },
@@ -168,9 +168,6 @@ export class CrearAlmacenComponent implements OnInit {
       this.changeSuccessMessage('Error no se ha guardado correctamente')
       this.type = "danger";
     })
-
-
-    setTimeout(() => this.staticAlert.close(), 20000);
 
 		this._success.subscribe((message) => (this.successMessage = message));
 		this._success.pipe(debounceTime(5000)).subscribe(() => {
