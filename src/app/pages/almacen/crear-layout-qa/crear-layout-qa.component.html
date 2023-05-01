@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-3">
         <select formControlName="id_zonaqa" name="id_zonaqa" id="id_zonaqa"  class="form-select">
-        <option value="" disabled selected>Zona QA</option>
+        <option value="" disabled selected>Seleccione</option>
         <option value={{dl.id}} *ngFor="let dl of zona" >{{dl.descripcion}}</option>
 
 
@@ -13,21 +13,21 @@
       </div>
       <div class="col-3">
         <select formControlName="id_rackqa" name="id_rackqa" id="id_rackqa"  class="form-select">
-          <option value="" disabled selected>Rack QA</option>
+          <option value="" disabled selected>Seleccione</option>
           <option value={{dl.id}} *ngFor="let dl of rack" >{{dl.descripcion}}</option>
 
       </select>
       </div>
       <div class="col-3">
         <select  formControlName="id_nivelqa" name="id_nivelqa" id="id_nivelqa" class="form-select">
-          <option value="" disabled selected>Nivel QA</option>
+          <option value="" disabled selected>Seleccione</option>
           <option value={{dl.id}} *ngFor="let dl of nivel" >{{dl.descripcion}}</option>
 
       </select>
       </div>
       <div class="col-3">
         <select  formControlName="id_localidadqa" name="id_localidadqa" id="id_localidadqa" class="form-select">
-          <option value="" disabled selected>Localidad QA</option>
+          <option value="" disabled selected>Seleccione</option>
           <option value={{dl.id}} *ngFor="let dl of localidad" >{{dl.descripcion}}</option>
 
       </select>

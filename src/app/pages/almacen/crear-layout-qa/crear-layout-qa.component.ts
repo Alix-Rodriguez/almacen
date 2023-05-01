@@ -68,7 +68,7 @@ export class CrearLayoutQAComponent implements OnInit {
   ListarLayout() {
     this.dataLayout.listLayoutQA().subscribe((resp) => {
       this.listarLayout = resp["data"];
-      console.log("entro listar")
+      console.log(this.listarLayout)
     });
   }
 
