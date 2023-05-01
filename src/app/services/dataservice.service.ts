@@ -72,7 +72,27 @@ export class DataserviceService {
   EliminarZona(id){
     return this.http.delete(this.url + 'delete-zona/'+id)
   }
+  EliminarRack(id){
+    return this.http.delete(this.url + 'delete-rack/'+id)
+  }
+  EliminarNivel(id){
+    return this.http.delete(this.url + 'delete-nivel/'+id)
+  }
+  EliminarLocalidad(id){
+    return this.http.delete(this.url + 'delete-localidad/'+id)
+  }
+  // ACTUALIZAR ZONA,RACK,NIVEL,LOCALIDAD
+
   ActualizarZona(value,id){
     return this.http.put(this.url + 'actualizar-zona/'+id,value)
+  }
+  ActualizarRack(value,id){
+    return this.http.put(this.url + 'actualizar-rack/'+id,value)
+  }
+  ActualizarNivel(value,id){
+    return this.http.put(this.url + 'actualizar-nivel/'+id,value)
+  }
+  ActualizarLocalidad(value,id){
+    return this.http.put(this.url + 'actualizar-localidad/'+id,value)
   }
 }
