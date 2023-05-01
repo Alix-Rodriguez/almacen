@@ -32,6 +32,12 @@ export class DataCatalogoService {
   ListarProvedor(){
     return this.http.get(this.url + 'listar-proveedor')
   }
+  EliminarProveedor(id:string){
+    return this.http.delete(this.url + 'delete-proveedor/'+id)
+  }
+  ActualizarProveedor(id:string, value){
+    return this.http.put(this.url + 'actualizar-proveedor/'+id,value)
+  }
 
 
 
