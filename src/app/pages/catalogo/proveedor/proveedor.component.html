@@ -15,7 +15,7 @@
         <div class=" container mt-4">
             <div class="row">
                 <label class="text-end col form-label">Nombre</label>
-                <input formControlName="nombre_proveedor"  name="nombre_proveedor" id="nombre_proveedor" type="text" class="col form-control">
+                <input placeholder="Ingrese Nombre" formControlName="nombre_proveedor"  name="nombre_proveedor" id="nombre_proveedor" type="text" class="col form-control">
                 <label class="col text-end form-label">Pais</label>
                 <select formControlName="pais"  name="pais" id="pais" class="col form-select">
                     <option value="" disabled selected>Selecciones</option>
@@ -24,27 +24,27 @@
             </div>
             <div class="row mt-2">
                 <label class="text-end col form-label">RFN</label>
-                <input formControlName="rfn"  name="rfn" id="rfn" type="text" class="col form-control">
+                <input formControlName="rfn" placeholder="Ingrese RFN" name="rfn" id="rfn" type="text" class="col form-control">
                 <label  class="text-end col form-label">Codigo Postal</label>
-                <input formControlName="codigo_postal"  name="codigo_postal" id="codigo_postal" type="text" class="col form-control">
+                <input formControlName="codigo_postal"  name="codigo_postal" placeholder="Ingrese Codigo Postal" id="codigo_postal" type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Calle</label>
-                <input formControlName="calle"  name="calle" id="calle" type="text" class="col form-control">
+                <input formControlName="calle"  name="calle" id="calle" placeholder="Ingrese Calle" type="text" class="col form-control">
                 <label  class="col text-end form-label">Telefono 1</label>
-                <input formControlName="telefono1"  name="telefono1" id="telefono1" type="text" class="col form-control">
+                <input formControlName="telefono1"  name="telefono1" id="telefono1" type="text" placeholder="Ingrese Primer Telefono" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Exterior</label>
-                <input formControlName="numero_exterior"  name="numero_exterior" id="numero_exterior" type="text" class="col form-control">
+                <input formControlName="numero_exterior" placeholder="Ingrese Número Exterior"  name="numero_exterior" id="numero_exterior" type="text" class="col form-control">
                 <label class="col text-end form-label">Telefono 2</label>
-                <input formControlName="telefono2"  name="telefono2" id="telefono2" type="text" class="col form-control">
+                <input formControlName="telefono2"  name="telefono2" id="telefono2" placeholder="Ingrese Segundo Telefono" type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Numero Interior</label>
-                <input formControlName="numero_interior"  name="numero_interior" id="numero_interior" type="text" class="col  form-control">
+                <input formControlName="numero_interior"  name="numero_interior" placeholder="Ingrese Numero Interior" id="numero_interior" type="text" class="col  form-control">
                 <label class="col  text-end form-label">Telefono 3</label>
-                <input formControlName="telefono3"  name="telefono3" id="telefono3" type="text" class="col  form-control">
+                <input formControlName="telefono3"  name="telefono3" id="telefono3" type="text" placeholder="Ingrese Tercer Telefono" class="col  form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Delegacion</label>
@@ -53,7 +53,7 @@
                     <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
                 </select>
                 <label  class="col text-end form-label">Email</label>
-                <input formControlName="email"  name="email" id="email" type="text" class="col form-control">
+                <input placeholder="Ingrese Email" formControlName="email"  name="email" id="email" type="text" class="col form-control">
             </div>
             <div class="row mt-2">
                 <label class="col text-end form-label">Colonia</label>
@@ -63,7 +63,7 @@
 
                 </select>
                 <label class="col text-end form-label">Contacto</label>
-                <input formControlName="contacto"  name="contacto" id="contacto" type="text" class="col form-control">
+                <input formControlName="contacto" placeholder="Ingrese Contacto"  name="contacto" id="contacto" type="text" class="col form-control">
             </div>
             <!-- <div class="row mt-2">
                 <label class="col-3 text-end form-label">Direcciones Adicionales</label>

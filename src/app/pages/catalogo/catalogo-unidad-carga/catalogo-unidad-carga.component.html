@@ -1,14 +1,15 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<div class="container-fluid">
-    <h4 class="mt-5 pl-2 pb-2 border-bottom border-dark" >Datos Generales</h4>
+<div class="container">
+    <h4 class="pl-2 pb-2 border-bottom border-dark" >Datos Generales</h4>
     <div class="row mt-4">
         <label class="col-3 text-center form-label">Descripción Unidad De Carga</label>
-        <input placeholder="Your name"  type="text" class="pl-3 w-25 form-control">
+        <div class="col-3">
+            <input placeholder="Ingresar Descripción"  type="text" class="pl-3 form-control">
+        </div>
         <button  type="button" class="ml-1 col-2 btn btn-dark">GUARDAR</button>
     </div>
-    <h4 class="mt-5 pl-2 pb-2 border-bottom border-dark">Listar Medidas</h4>
-    <div class="mt-5 d-flex justify-content-end ml-1">
-        <input placeholder="Nombre de carga" type="text" class="h-30 col-3 mr-1 form-control">
-        <button  type="button" class=" btn btn-dark col-2 h-30 ">Buscar</button>
+    <h4 class="mt-5 pl-2 pb-2 border-bottom border-dark">Listar Unidad De Carga</h4>
+    <div class="mt-5 d-flex ml-1 col-3 mr-1">
+        <input placeholder="Buscar" type="text" class="form-control">
     </div>
 </div>

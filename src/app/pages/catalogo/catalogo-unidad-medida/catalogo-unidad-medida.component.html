@@ -1,19 +1,21 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
 <form [formGroup]='checkoutForm'  (ngSubmit)="onSubmit()">
   <div class="container">
-    <h4 class="border-bottom border-dark pb-3">Datos Generales</h4>
-    <div class="row">
-      <label class="col-5" for="">Descripción unidad de medida</label>
-      <input  class="w-25 form-control mr-2 " type="text" name=""
-        id="" formControlName="frm_medida">
+    <!-- <h4 class="border-bottom border-dark pb-3">Datos Generales</h4> -->
+    <h4 class="pl-2 pb-2 border-bottom border-dark" >Datos Generales</h4>
+
+    <div class="row mt-4">
+      <label class="col-3 text-center form-label" for="">Descripción unidad de medida</label>
+      <div class="col-3 mr-2">
+        <input  placeholder="Ingresar Descripción" class="pl-3 form-control" type="text" name=""
+          id="" formControlName="frm_medida">
+      </div>
       <button type="button" class=" btn btn-dark col-2 ">Guardar</button>
     </div>
-    <h4 class="mt-5 border-bottom border-dark pb-3">Listar Medidas</h4>
-  
-    <div class="row justify-content-end">
-      <input class="form-control w-25 mr-2 " type="text" name="" id=""
-        formControlName="frm_buscar">
-      <button type="button" class="col-2 btn btn-dark ">Buscar</button>
-    </div>
+    <h4 class="mt-5 pl-2 pb-2 border-bottom border-dark">Listar Medidas</h4>
+      <div class="mt-5 d-flex ml-1 col-3 mr-1">
+        <input placeholder="Buscar" class="form-control " type="text" name="" id=""
+          formControlName="frm_buscar">
+      </div>
   </div>
 </form>
