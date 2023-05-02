@@ -39,6 +39,7 @@ export class DataCatalogoService {
     return this.http.put(this.url + 'actualizar-proveedor/'+id,value)
   }
 
+  
 
 
 }

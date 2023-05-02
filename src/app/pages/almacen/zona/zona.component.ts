@@ -102,7 +102,7 @@ export class ZonaComponent implements OnInit {
    });
   }
   Update(id){
-     this.dataService.ActualizarZona(this.checkoutForm.value,id).subscribe(resp=> {
+     this.dataService.ActualizarMarca(this.checkoutForm.value,id).subscribe(resp=> {
        this.respuesta = resp;
        this.type = "success";
        this.changeSuccessMessage(this.respuesta.msn)

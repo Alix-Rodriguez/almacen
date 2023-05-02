@@ -60,9 +60,40 @@ export class DataserviceService {
     return this.http.get(this.url + 'listar-localidad')
   }
 
-  ListarMarca(){
-    return this.http.get(this.url + 'listar-marca')
+  // MARCA 
+
+   SaveMarca(value){
+     return this.http.post(this.url + 'save-marca', value)
+   }
+   ListarMarca(){
+     return this.http.get(this.url + 'listar-marca')
+   }
+   EliminarMarca(id:string){
+     return this.http.delete(this.url + 'delete-marca/'+id)
+   }
+   ActualizarMarca(value,id:string){
+     return this.http.put(this.url + 'actualizar-marca/'+id,value)
+   }
+
+  // LINEA PRODUCTO
+
+  SaveLineaP(value){
+    return this.http.post(this.url + 'save-lineaproducto', value)
   }
+  ListarLineaP(){
+    return this.http.get(this.url + 'listar-lineaproducto')
+  }
+  EliminarLineaP(id:string){
+    return this.http.delete(this.url + 'delete-lineaproducto/'+id)
+  }
+  ActualizarLineaP(value,id:string){
+    return this.http.put(this.url + 'actualizar-lineaproducto/'+id,value)
+  }
+
+
+
+
+
   
   ListarUbicacionAlsea(){
     return this.http.get(this.url + 'listar-localidadAlse')

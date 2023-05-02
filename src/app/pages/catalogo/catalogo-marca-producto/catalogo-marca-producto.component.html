@@ -1,87 +1,80 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<div class="container-fluid">
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage
+  }}</ngb-alert>
+<form [formGroup]='checkoutForm'>
+  <div class="container-fluid">
     <h4 class="pb-2 border-bottom border-dark">Datos Generales</h4>
     <div class="row mt-4">
-        <label class="col-3 text-center form-label">Marca De Producto</label>
-        <input type="text" class="w-25 form-control">
-        <button type="button" class="col-2 ml-1 btn btn-dark">Guardar</button>
+      <label class="col-3 text-center form-label">Marca De Producto</label>
+      <div class="col-3">
+        <input formControlName="marca" placeholder="Ingrese marca" name="marca" id="marca" type="text" class="form-control">
+      </div>
+      <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button"
+        class="col-2 ml-1 btn btn-dark">Guardar</button>
     </div>
-    <div class="mt-5 d-flex justify-content-end ml-1">
-        <input type="text" class="col-3 mr-1 form-control">
-        <button type="button" class="col-2 btn btn-dark">Buscar</button>
-    </div>
-    <table class="mt-4 table table-striped table-hover ">
-        <thead>
-          <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Nif</th>
-            <th scope="col">Centro de costo</th>
-            <th scope="col">Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr >
-            <td>PRUEBA </td>
-            <td>PRUEBA </td>
-            <td>PRUEBA </td>
-            <td>PRUEBA</td>
-            <td>
-              <button class=" btn btn-warning padding" (click)="open(mymodalMODI)" ></button>
-              <button class="btn btn-danger padding"  (click)="open(mymodal)"></button>
-    
-              <ng-template #mymodal let-modal>
-                <div style="margin:auto 12%;" class="modal-header">
-                  <h4  class="modal-title" id="modal-basic-title">Seguro que desea
-                    eliminar la empresa?</h4>
-                </div>
-                <div class="d-flex justify-content-center ml-5 modal-body">
-                  <button  type="button" class="mr-3 btn btn-outline-dark"
-                    (click)="modal.close('Save click')">Cancelar</button>
-                  <button  type="button" 
-                    class="btn btn-outline-dark" (click)="modal.close('Save click')">Aceptar</button>
-                </div>
-              </ng-template>
-    
-              <!--MODAL DE MODIFICAR -->
-              <ng-template #mymodalMODI let-modal>
-                <div class="modal-header">
-                  <h4 id="modal-basic-title">Modificar Datos</h4>
-                </div>
-                <div class="container">
-                  <div class="row">
-                    <div class="col-6">
-                      <label class="form-label">Nombre</label>
-                      <input  type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                      <label class="form-label">Dirección</label>
-                      <input  type="text" class="form-control">
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-6">
-                      <label class="form-label">Centro de costo</label>
-                      <input  type="text" class="form-control">
-                    </div>
-                    <div class="col-6">
-                      <label class="form-label">Nif</label>
-                      <input  type="text" class="form-control">
-                    </div>
-                  </div>
-                </div>
-                <div class="d-flex justify-content-center ml-5 modal-body">
-                  <button type="button" class="mr-3 btn btn-outline-dark"
-                    (click)="modal.close('Save click')">Cancelar</button>
-                  <button type="button" 
-                    class="btn btn-outline-dark" (click)="modal.close('Save click')">Guardar</button>
-                </div>
-              </ng-template>
-    
-    
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    
+  </div>
+</form>
+
+<div class="mt-5 d-flex  ml-1">
+  <div class="col-3">
+    <input type="text"  placeholder="Buscar" name="filterMarca" [(ngModel)]="filterMarca" class="mr-1 form-control">
+  </div>
 </div>
+<table class="mt-4 table w-50 table-striped table-hover ">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let li of marca | filterMarca:filterMarca">
+      <td>{{li.id}} </td>
+      <td>{{li.marca}} </td>
+      <td>
+        <button (click)="ListarForm(li.id)" class=" btn btn-warning padding" (click)="open(mymodalMODI)"></button>
+        <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+        <ng-template #mymodal let-modal>
+          <div style="margin:auto 12%;" class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+              eliminar la marca?</h4>
+          </div>
+          <div class="d-flex justify-content-center ml-5 modal-body">
+            <button type="button" class="mr-3 btn btn-outline-dark"
+              (click)="modal.close('Save click')">Cancelar</button>
+            <button type="button" (click)="Eliminar(li.id)" class="btn btn-outline-dark"
+              (click)="modal.close('Save click')">Aceptar</button>
+          </div>
+        </ng-template>
+
+        <!--MODAL DE MODIFICAR -->
+        <ng-template #mymodalMODI let-modal>
+          <div class="modal-header">
+            <h4 id="modal-basic-title">Modificar Datos</h4>
+          </div>
+          <form [formGroup]='checkoutForm'>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <label class="form-label">Nombre</label>
+                  <input formControlName="marca" name="marca" id="marca" type="text" class="form-control">
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div class="d-flex justify-content-center ml-5 modal-body">
+            <button type="button" class="mr-3 btn btn-outline-dark"
+              (click)="modal.close('Save click')">Cancelar</button>
+            <button (click)="Update(li.id)" type="button" class="btn btn-outline-dark"
+              (click)="modal.close('Save click')">Guardar</button>
+          </div>
+        </ng-template>
+
+
+      </td>
+    </tr>
+  </tbody>
+</table>

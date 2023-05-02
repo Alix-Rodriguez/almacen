@@ -46,6 +46,8 @@ import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.
 import { FilterPipe } from './pipes/filter.pipe';
 import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
 import { FilterClientePipe } from './pipes/filter-cliente.pipe';
+import { FilterMarcaPipe } from './pipes/filter-marca.pipe';
+import { FilterLineaPPipe } from './pipes/filter-linea-p.pipe';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,8 @@ import { FilterClientePipe } from './pipes/filter-cliente.pipe';
     FilterPipe,
     ListarClienteComponent,
     FilterClientePipe,
+    FilterMarcaPipe,
+    FilterLineaPPipe,
   
   ],
   imports: [
