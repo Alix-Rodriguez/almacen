@@ -50,6 +50,7 @@ import { FilterMarcaPipe } from './pipes/filter-marca.pipe';
 import { FilterLineaPPipe } from './pipes/filter-linea-p.pipe';
 import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
 import { FilterAlmacenPipe } from './pipes/filter-almacen.pipe';
+import { FilterUDCPipe } from './pipes/filter-udc.pipe';
 
 @NgModule({
   declarations: [
@@ -98,6 +99,7 @@ import { FilterAlmacenPipe } from './pipes/filter-almacen.pipe';
     FilterLineaPPipe,
     ListarAlmacenComponent,
     FilterAlmacenPipe,
+    FilterUDCPipe,
   
   ],
   imports: [

@@ -39,7 +39,21 @@ export class DataCatalogoService {
     return this.http.put(this.url + 'actualizar-proveedor/'+id,value)
   }
 
-  
+  // UNIDAD DE CARGA
+
+  SaveUDC(value){
+    return this.http.post(this.url + 'save-unidadcarga', value)
+  }
+  ListarUDC(){
+    return this.http.get(this.url + 'listar-unidadcarga')
+  }
+  EliminarUDC(id:string){
+    return this.http.delete(this.url + 'delete-unidadcarga/'+id)
+  }
+  ActualizarUDC(id:string, value){
+    return this.http.put(this.url + 'actualizar-unidadcarga/'+id,value)
+  }
+
 
 
 }
