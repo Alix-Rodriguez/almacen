@@ -48,6 +48,8 @@ import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-c
 import { FilterClientePipe } from './pipes/filter-cliente.pipe';
 import { FilterMarcaPipe } from './pipes/filter-marca.pipe';
 import { FilterLineaPPipe } from './pipes/filter-linea-p.pipe';
+import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
+import { FilterAlmacenPipe } from './pipes/filter-almacen.pipe';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,8 @@ import { FilterLineaPPipe } from './pipes/filter-linea-p.pipe';
     FilterClientePipe,
     FilterMarcaPipe,
     FilterLineaPPipe,
+    ListarAlmacenComponent,
+    FilterAlmacenPipe,
   
   ],
   imports: [

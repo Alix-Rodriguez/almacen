@@ -12,6 +12,15 @@ export class DataserviceService {
   saveAlmacen(value){
     return this.http.post(this.url + 'save-almacen', value)
   }
+  ListarALmacen(){
+    return this.http.get(this.url + 'listar-almacen')
+  }
+  EliminarALmacen(id:string){
+    return this.http.delete(this.url + 'eliminar-almacen/'+id)
+  }
+  ActualizarALmacen(id:string,value){
+    return this.http.put(this.url + 'actualizar-almacen/'+id,value)
+  }
 
 
   saveEmpresa(value){
