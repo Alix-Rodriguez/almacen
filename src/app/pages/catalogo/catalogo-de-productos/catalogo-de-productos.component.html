@@ -56,9 +56,8 @@
                 <div class="col-3">
                     <select class=" form-select">
                         <option value="" disabled selected>Seleccione</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option *ngFor="let li of lineaP" value={{li.id}}>{{li.descripcion}} </option>
+
                     </select>
                 </div>
                 <label class="col-5 form-label">Numero Parte</label>
@@ -72,9 +71,8 @@
                 <div class="col-3">
                     <select class="form-select">
                         <option value="" disabled selected>Seleccione</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option *ngFor="let li of marca" value={{li.id}}>{{li.marca}} </option>
+
                     </select>
                 </div>
                 <label class="col-5 form-label">Requiere lote</label>
@@ -101,9 +99,7 @@
                 <div class="col-3">
                     <select class="form-select">
                         <option value="" disabled selected>Seleccione</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option *ngFor="let li of config" value={{li.id}}>{{li.descripcion}} </option>
                     </select>
                 </div>
             </div>
