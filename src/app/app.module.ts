@@ -51,6 +51,8 @@ import { FilterLineaPPipe } from './pipes/filter-linea-p.pipe';
 import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
 import { FilterAlmacenPipe } from './pipes/filter-almacen.pipe';
 import { FilterUDCPipe } from './pipes/filter-udc.pipe';
+import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
+import { FilterConfPipe } from './pipes/filter-conf.pipe';
 
 @NgModule({
   declarations: [
@@ -100,6 +102,8 @@ import { FilterUDCPipe } from './pipes/filter-udc.pipe';
     ListarAlmacenComponent,
     FilterAlmacenPipe,
     FilterUDCPipe,
+    ConfiguracionLoteComponent,
+    FilterConfPipe,
   
   ],
   imports: [

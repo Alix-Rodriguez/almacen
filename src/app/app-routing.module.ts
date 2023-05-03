@@ -39,6 +39,7 @@ import { NivelQAComponent } from './pages/almacen/nivel-qa/nivel-qa.component';
 import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.component';
 import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
 import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
+import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
 
 
 const routes: Routes = [
@@ -78,6 +79,7 @@ const routes: Routes = [
       { path: 'LocalidadQA', component: LocalidadQAComponent},
       { path: 'listar-cliente', component: ListarClienteComponent},
       { path: 'listar-almacen', component: ListarAlmacenComponent},
+      { path: 'config-lote', component: ConfiguracionLoteComponent},
 
 
 

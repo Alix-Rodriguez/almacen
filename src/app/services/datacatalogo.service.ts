@@ -54,6 +54,18 @@ export class DataCatalogoService {
     return this.http.put(this.url + 'actualizar-unidadcarga/'+id,value)
   }
 
+  SaveConf(value){
+    return this.http.post(this.url + 'save-configlote', value)
+  }
+  ListarConf(){
+    return this.http.get(this.url + 'listar-configlote')
+  }
+  EliminarConf(id:string){
+    return this.http.delete(this.url + 'delete-configlote/'+id)
+  }
+  ActualizarConf(id:string, value){
+    return this.http.put(this.url + 'actualizar-configlote/'+id,value)
+  }
 
 
 }
