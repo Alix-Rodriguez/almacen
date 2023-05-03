@@ -12,8 +12,8 @@ import { DataCatalogoService } from 'src/app/services/datacatalogo.service';
 })
 export class CatalogoUnidadCargaComponent implements OnInit {
   miga: any = 'Catalogo Unidad de Carga';
-
   checkoutForm!: FormGroup;
+
   UDC:any  
   private _success = new Subject<string>();
   staticAlertClosed = false;

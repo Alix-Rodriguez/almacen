@@ -54,6 +54,19 @@ export class DataCatalogoService {
     return this.http.put(this.url + 'actualizar-unidadcarga/'+id,value)
   }
 
+  SaveUM(value){
+    return this.http.post(this.url + 'save-unidadmedida', value)
+  }
+  ListarUM(){
+    return this.http.get(this.url + 'listar-unidadmedida')
+  }
+  EliminarUM(id:string){
+    return this.http.delete(this.url + 'delete-unidadmedida/'+id)
+  }
+  ActualizarUM(id:string, value){
+    return this.http.put(this.url + 'actualizar-unidadmedida/'+id,value)
+  }
+
   SaveConf(value){
     return this.http.post(this.url + 'save-configlote', value)
   }
