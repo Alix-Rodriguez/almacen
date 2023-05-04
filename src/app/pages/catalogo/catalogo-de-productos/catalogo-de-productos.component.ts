@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { DataserviceService } from "../../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
+import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 
 @Component({
@@ -22,7 +23,8 @@ export class CatalogoDeProductosComponent implements OnInit {
   constructor(
     private readonly fb: FormBuilder, 
     private dataService: DataserviceService,
-    private DateCatalogo: DataCatalogoService
+    private DateCatalogo: DataCatalogoService,
+    private modalService: NgbModal
   ) {}
 
 
@@ -57,5 +59,33 @@ export class CatalogoDeProductosComponent implements OnInit {
   Volver(){
     this.siguiente = true;
    }
+
+   closeResult: string = "";
+
+   open(content: any) {
+     this.modalService
+       .open(content, { ariaLabelledBy: "modal-basic-title" })
+       .result.then(
+         (result) => {
+           this.closeResult = `Closed with: ${result}`;
+         },
+         (reason) => {
+           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+         }
+       );
+   }
+ 
+   private getDismissReason(reason: any): string {
+     if (reason === ModalDismissReasons.ESC) {
+       return "by pressing ESC";
+     } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+       return "by clicking on a backdrop";
+     } else {
+       return `with: ${reason}`;
+     }
+   }
+
+
+
 
 }

@@ -122,6 +122,7 @@ export class ZonaComponent implements OnInit {
   changeSuccessMessage(value) {
     this._success.next(value);
   }
+
   closeResult: string = "";
 
   open(content: any) {
