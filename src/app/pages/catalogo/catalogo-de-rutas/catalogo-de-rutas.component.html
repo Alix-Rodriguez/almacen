@@ -1,56 +1,187 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<div class="container">
-    <div class="row mt-4 mb-5">
-        <div class="col">
-            <label class="d-block">Empresa</label>
-            <select class="col mt-2 pl-2 form-select">
-                <option value="" disabled selected>Make a selection</option>
-                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
-            </select>
-        </div>
-        <div class="col">
-            <label class="d-block">Almacen</label>
-            <select class="col form-select mt-2 pl-2">
-                <option value="" disabled selected>Make a selection</option>
-                <option value="1">Option 1</option>
-                <option value="2">Option 2</option>
-                <option value="3">Option 3</option>
-            </select>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
+    successMessage}}</ngb-alert>
+<form [formGroup]='checkoutForm'>
+    <div class="container">
+        <div class="row mt-4 mb-5">
+            <div class="col">
+                <label class="d-block">Empresa</label>
+                <select formControlName="empresa" name="empresa" id="empresa" class="col mt-2 pl-2 form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}} </option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="d-block">Almacen</label>
+                <select class="col form-select mt-2 pl-2" formControlName="almacen" name="almacen" id="almacen">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
+
+                </select>
+            </div>
         </div>
     </div>
+</form>
 
-    <h4 class="mt-2 border-bottom border-dark" >Producto Infomación
-        General</h4>
+<h4 class="mt-2 border-bottom border-dark">Ruta</h4>
 
-    <div class="d-lg-flex flex-row ">
-        <div class="d-flex flex-column col mb-4">
+<div class="d-lg-flex flex-row ">
+    <!-- <div class="container"> -->
+
+
+    <div class="d-flex flex-column col-5 mb-4">
+        <form [formGroup]='checkoutForm'>
             <div class="d-sm-flex row  ">
                 <div class="col-8">
-                    <label  class="d-block form-label">Nombre de Ruta</label>
-                    <input placeholder="Ingrese Nombre De Ruta" type="text" class="form-control">
-                </div>
-                <button type="button"  class="mt-4 col-2 btn btn-dark ">Guardar</button>
-            </div>
-            <div class="row mt-4">
-                <div class="col-8">
                     <label class="d-block form-label">Nombre de Ruta</label>
-                    <input placeholder="Ingrese Nombre De Ruta"  type="text" class="form-control">
+                    <input formControlName="nombre_ruta" name="nombre_ruta" id="nombre_ruta"
+                        placeholder="Ingrese Nombre De Ruta" type="text" class="form-control">
+                </div>
+                <!-- <button type="button"  class="mt-4 col-2 btn btn-dark ">Guardar</button> -->
+            </div>
+            <div class="row mt-4">
+                <div class="col-8">
+                    <label class="d-block form-label">Codigo Postal Inicio</label>
+                    <input formControlName="codigo_postal_inicio" name="codigo_postal_inicio" id="codigo_postal_inicio"
+                        placeholder="Ingrese Codigo Postal Inicio" type="text" class="form-control">
                 </div>
             </div>
             <div class="row mt-4">
                 <div class="col-8">
-                    <label  class="d-block form-label">Nombre de Ruta</label>
-                    <input placeholder="Ingrese Nombre De Ruta"  type="text" class="form-control">
+                    <label class="d-block form-label">Codigo Postal Fin</label>
+                    <input formControlName="codigo_postal_fin" name="codigo_postal_fin" id="codigo_postal_fin"
+                        placeholder="Ingrese Codigo Postal Fin" type="text" class="form-control">
                 </div>
             </div>
-        </div>
-        <div class="col bg-light" >
-            <h4>Listar ID Centro de Costo</h4>
-        </div>
+        </form>
     </div>
 
+    <div class="col bg-light pt-4">
+        <div class="mt-5 d-flex  ml-1">
+            <div class="col-6">
+                <input type="text" placeholder="Buscar" name="filterUDC" [(ngModel)]="filterRutas"
+                    class="mr-1 form-control">
+            </div>
+        </div>
+        <table class="mt-4 table w-100 table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Almacen</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">CP Inicio</th>
+                    <th scope="col">CP Fin</th>
 
-    <div class="d-flex justify-content-end mt-4 ml-1">
-        <button type="button" class="col-2 btn btn-dark">Guardar</button>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let li of ruta">
+                    <td>{{li.id}} </td>
+                    <td>{{li.empresa}} </td>
+                    <td>{{li.almacen}} </td>
+                    <td>{{li.nombre_ruta}} </td>
+                    <td>{{li.codigo_postal_inicio}} </td>
+                    <td>{{li.codigo_postal_fin}} </td>
+                    <td>
+                        <button (click)="ListarForm(li.id)" class=" btn btn-warning padding"
+                            (click)="open(mymodalMODI)"></button>
+                        <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+                        <ng-template #mymodal let-modal>
+                            <div style="margin:auto 12%;" class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+                                    eliminar la marca?</h4>
+                            </div>
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button type="button" (click)="Eliminar(li.id)" class="btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Aceptar</button>
+                            </div>
+                        </ng-template>
+
+                        <!--MODAL DE MODIFICAR -->
+                        <ng-template #mymodalMODI let-modal>
+                            <div class="modal-header">
+                                <h4 id="modal-basic-title">Modificar Datos</h4>
+                            </div>
+                            <div class="container">
+                                <form class="container-fluid pr-5" [formGroup]='checkoutForm'>
+                                    <div class="row">
+                                        <label class="text-end  col form-label">Empresa</label>
+                                        <div class="col-4">
+                                            <select formControlName="empresa" name="empresa" id="empresa"
+                                                class="  pl-2 form-select">
+                                                <option value="" disabled selected>Seleccione</option>
+                                                <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}}
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                        <label class="text-end col  form-label">Almacen</label>
+                                        <div class="col-4">
+                                            <select class=" form-select  pl-2" formControlName="almacen" name="almacen"
+                                                id="almacen">
+                                                <option value="" disabled selected>Seleccione</option>
+                                                <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                        <div class="row mt-3">
+                                            <label class="text-end col form-label">Nombre</label>
+                                            <div class="col-4">
+                                                <input formControlName="nombre_ruta" name="nombre_ruta" id="nombre_ruta"
+                                                    placeholder="Ingrese Nombre De Ruta" type="text"
+                                                    class="form-control ">
+                                            </div>
+                                            <label class="text-end col  form-label">CP Inicio</label>
+                                            <div class="col-4">
+                                                <input formControlName="codigo_postal_inicio"
+                                                    name="codigo_postal_inicio" id="codigo_postal_inicio"
+                                                    placeholder="Ingrese Codigo Postal Inicio" type="text"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <label class="text-end col form-label">CP Fin</label>
+                                            <div class="col-4">
+                                                <input formControlName="codigo_postal_fin" name="codigo_postal_fin"
+                                                    id="codigo_postal_fin" placeholder="Ingrese Codigo Postal Fin"
+                                                    type="text" class="form-control">
+                                            </div>
+                                        </div>
+
+
+                                </form>
+                            </div>
+
+
+
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button (click)="Update(li.id)" type="button" class="btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Guardar</button>
+                            </div>
+                        </ng-template>
+
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 </div>
+
+
+<div class="d-flex  mt-4 ml-1">
+    <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button"
+        class="col-2 btn btn-dark">Guardar</button>
+</div>
+<!-- </div> -->
+<!-- </form> -->

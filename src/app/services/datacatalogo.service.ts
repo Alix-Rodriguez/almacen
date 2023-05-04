@@ -1,84 +1,97 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class DataCatalogoService {
   url = "http://127.0.0.1:8000/api/";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  SaveCliente(value){
-    return this.http.post(this.url + 'save-cliente', value)
+  SaveCliente(value) {
+    return this.http.post(this.url + "save-cliente", value);
   }
-  ListarCliente(){
-    return this.http.get(this.url + 'listar-cliente')
+  ListarCliente() {
+    return this.http.get(this.url + "listar-cliente");
   }
-  EliminarClIente(id:string){
-    return this.http.delete(this.url + 'eliminar-cliente/'+id)
+  EliminarClIente(id: string) {
+    return this.http.delete(this.url + "eliminar-cliente/" + id);
   }
-  ActualizarCliente(id:string, value){
-    return this.http.put(this.url + 'actualizar-cliente/'+id,value)
-  }
-  
-  ListarPais(){
-    return this.http.get(this.url + 'listar-paises')
+  ActualizarCliente(id: string, value) {
+    return this.http.put(this.url + "actualizar-cliente/" + id, value);
   }
 
-  SaveProvedor(value){
-    return this.http.post(this.url + 'save-proveedor', value)
+  ListarPais() {
+    return this.http.get(this.url + "listar-paises");
   }
-  ListarProvedor(){
-    return this.http.get(this.url + 'listar-proveedor')
+
+  SaveProvedor(value) {
+    return this.http.post(this.url + "save-proveedor", value);
   }
-  EliminarProveedor(id:string){
-    return this.http.delete(this.url + 'delete-proveedor/'+id)
+  ListarProvedor() {
+    return this.http.get(this.url + "listar-proveedor");
   }
-  ActualizarProveedor(id:string, value){
-    return this.http.put(this.url + 'actualizar-proveedor/'+id,value)
+  EliminarProveedor(id: string) {
+    return this.http.delete(this.url + "delete-proveedor/" + id);
+  }
+  ActualizarProveedor(id: string, value) {
+    return this.http.put(this.url + "actualizar-proveedor/" + id, value);
   }
 
   // UNIDAD DE CARGA
 
-  SaveUDC(value){
-    return this.http.post(this.url + 'save-unidadcarga', value)
+  SaveUDC(value) {
+    return this.http.post(this.url + "save-unidadcarga", value);
   }
-  ListarUDC(){
-    return this.http.get(this.url + 'listar-unidadcarga')
+  ListarUDC() {
+    return this.http.get(this.url + "listar-unidadcarga");
   }
-  EliminarUDC(id:string){
-    return this.http.delete(this.url + 'delete-unidadcarga/'+id)
+  EliminarUDC(id: string) {
+    return this.http.delete(this.url + "delete-unidadcarga/" + id);
   }
-  ActualizarUDC(id:string, value){
-    return this.http.put(this.url + 'actualizar-unidadcarga/'+id,value)
+  ActualizarUDC(id: string, value) {
+    return this.http.put(this.url + "actualizar-unidadcarga/" + id, value);
   }
-
-  SaveUM(value){
-    return this.http.post(this.url + 'save-unidadmedida', value)
+  // UNIDAD MEDIDA
+  SaveUM(value) {
+    return this.http.post(this.url + "save-unidadmedida", value);
   }
-  ListarUM(){
-    return this.http.get(this.url + 'listar-unidadmedida')
+  ListarUM() {
+    return this.http.get(this.url + "listar-unidadmedida");
   }
-  EliminarUM(id:string){
-    return this.http.delete(this.url + 'delete-unidadmedida/'+id)
+  EliminarUM(id: string) {
+    return this.http.delete(this.url + "delete-unidadmedida/" + id);
   }
-  ActualizarUM(id:string, value){
-    return this.http.put(this.url + 'actualizar-unidadmedida/'+id,value)
-  }
-
-  SaveConf(value){
-    return this.http.post(this.url + 'save-configlote', value)
-  }
-  ListarConf(){
-    return this.http.get(this.url + 'listar-configlote')
-  }
-  EliminarConf(id:string){
-    return this.http.delete(this.url + 'delete-configlote/'+id)
-  }
-  ActualizarConf(id:string, value){
-    return this.http.put(this.url + 'actualizar-configlote/'+id,value)
+  ActualizarUM(id: string, value) {
+    return this.http.put(this.url + "actualizar-unidadmedida/" + id, value);
   }
 
+  // RUTAS
 
+  SaveRUTAS(value) {
+    return this.http.post(this.url + "save-ruta", value);
+  }
+  ListarRUTAS() {
+    return this.http.get(this.url + "listar-ruta");
+  }
+  EliminarRUTAS(id: string) {
+    return this.http.delete(this.url + "delete-ruta/" + id);
+  }
+  ActualizarRUTAS(id: string, value) {
+    return this.http.put(this.url + "actualizar-ruta/" + id, value);
+  }
+
+  SaveConf(value) {
+    return this.http.post(this.url + "save-configlote", value);
+  }
+  ListarConf() {
+    return this.http.get(this.url + "listar-configlote");
+  }
+  EliminarConf(id: string) {
+    return this.http.delete(this.url + "delete-configlote/" + id);
+  }
+  ActualizarConf(id: string, value) {
+    return this.http.put(this.url + "actualizar-configlote/" + id, value);
+  }
 }
