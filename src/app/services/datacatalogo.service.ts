@@ -82,6 +82,25 @@ export class DataCatalogoService {
     return this.http.put(this.url + "actualizar-ruta/" + id, value);
   }
 
+
+  //CENTRO DE COSTO
+
+  SaveCentroCosto(value) {
+    return this.http.post(this.url + "save-centrocosto", value);
+  }
+  ListarCentroCosto() {
+    return this.http.get(this.url + "listar-centrocosto");
+  }
+  EliminarCentroCosto(id: string) {
+    return this.http.delete(this.url + "delete-centrocosto/" + id);
+  }
+  ActualizarCentroCosto(id: string, value) {
+    return this.http.put(this.url + "actualizar-centrocosto/" + id, value);
+  }
+
+
+  // CONFIGURACION LOTE
+
   SaveConf(value) {
     return this.http.post(this.url + "save-configlote", value);
   }

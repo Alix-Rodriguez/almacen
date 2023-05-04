@@ -135,4 +135,7 @@ export class DataserviceService {
   ActualizarLocalidad(value,id){
     return this.http.put(this.url + 'actualizar-localidad/'+id,value)
   }
+
+
+
 }

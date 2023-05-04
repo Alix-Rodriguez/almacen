@@ -1,61 +1,196 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<form action="">
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="{{ type }}" (closed)="successMessage = ''">{{ successMessage
+    }}</ngb-alert>
+<form [formGroup]="checkoutForm">
     <div class="container">
         <div class="row mt-4 mb-5">
             <div class="col">
                 <span class="d-block">Empresa</span>
-                <select class="col mt-2 pl-2 form-select">
+                <select formControlName="id_empresa" name="id_empresa" id="id_empresa"
+                    class="col mt-2 pl-2 form-select">
                     <option value="" disabled selected>Selecciones</option>
-                <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
+                    <option *ngFor="let li of empresa" value={{li.id}}>{{ li.nombre_empresa }}</option>
                 </select>
             </div>
             <div class="col">
                 <span class="d-block">Cliente</span>
-                <select class="col mt-2 pl-2 form-select">
+                <select formControlName="id_cliente" name="id_cliente" id="id_cliente"
+                    class="col mt-2 pl-2 form-select">
                     <option value="" disabled selected>Selecciones</option>
-                    <option *ngFor="let li of cliente">{{li.clave_cliente}} </option>
+                    <option *ngFor="let li of cliente" value={{li.id}}>{{ li.clave_cliente }}</option>
                 </select>
             </div>
         </div>
+    </div>
+</form>
 
-        <h4 class="mt-2 mb-3 border-bottom border-dark">Dirección</h4>
+<div class="container">
+    <h4 class="mt-2 mb-3 border-bottom border-dark">Dirección</h4>
 
-        <div class="d-lg-flex flex-row ">
-            <div class="d-flex flex-column col mb-4">
-                <div class="d-sm-flex row  ">
-                    <div class="col-8">
-                        <label style="display: block;" class="form-label">ID Centro Costo</label>
-                        <input type="text" placeholder="Ingrese ID Centro Costo" class="form-control">
-                    </div>
-                    <button type="button" class="mt-4 col-2 btn btn-dark ">Buscar</button>
-                </div>
+    <div class="d-lg-flex flex-row">
+        <div class="d-flex flex-column col mb-4">
+            <form [formGroup]="checkoutForm">
+                <div class="d-sm-flex row"></div>
                 <div class="mt-4">
                     <span class="d-block">Marca</span>
-                    <select class="mt-1 col-8 pl-2 form-select">
+                    <select formControlName="id_marca" name="id_marca" id="id_marca"
+                        class="mt-1 col-8 pl-2 form-select">
                         <option value="" disabled selected>Selecciones</option>
-                        <option *ngFor="let li of marca" value={{li.id}}>{{li.marca}}</option>
+                        <option *ngFor="let li of marca" value="{{ li.id }}">
+                            {{ li.marca }}
+                        </option>
                     </select>
                 </div>
                 <div class="mt-4">
                     <span class="d-block">Ubicacion alsea</span>
-                    <select class="mt-1 col-8 pl-2 form-select">
+                    <select formControlName="id_ubicacion_elsea" name="id_ubicacion_elsea" id="id_ubicacion_elsea"
+                        class="mt-1 col-8 pl-2 form-select">
                         <option value="" disabled selected>Selecciones</option>
-                        <option *ngFor="let li of ubicacionAlsea" value={{li.id}}>{{li.descripcion}}</option>
+                        <option *ngFor="let li of ubicacionAlsea" value="{{ li.id }}">
+                            {{ li.descripcion }}
+                        </option>
                     </select>
                 </div>
                 <div class="row mt-4">
                     <div class="col-8">
                         <label class="form-label">Descripción</label>
-                        <input type="text" placeholder="Ingrese Descripción" class="form-control">
+                        <input formControlName="descripcion" name="descripcion" id="descripcion" type="text"
+                            placeholder="Ingrese Descripción" class="form-control" />
                     </div>
                 </div>
-            </div>
-            <div class="col badge-light">
-                <h4>Listar ID Centro de Costo</h4>
-            </div>
+                <div class="d-flex mt-4 ml-1">
+                    <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button"
+                        class="col-3 btn btn-dark">
+                        Guardar
+                    </button>
+                </div>
+            </form>
         </div>
-        <div class="d-flex justify-content-end mt-4 ml-1">
-            <button type="button" class=" btn btn-dark">Guardar</button>
+        <div class="col">
+            <input type="text" placeholder="Buscar" class="col-9 form-control" />
+            <div class="badge-light">
+                <table class="mt-4 table w-100 table-striped table-hover ">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Empresa</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Ubi. Alsea</th>
+                            <th scope="col">Descripcion</th>
+
+                            <th scope="col">Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let li of CC">
+                            <td>{{li.id}} </td>
+                            <td>{{li.id_empresa}} </td>
+                            <td>{{li.id_cliente}} </td>
+                            <td>{{li.id_marca}} </td>
+                            <td>{{li.id_ubicacion_elsea}} </td>
+                            <td>{{li.descripcion}} </td>
+                            <td>
+                                <button (click)="ListarForm(li.id)" class=" btn btn-warning padding"
+                                    (click)="open(mymodalMODI)"></button>
+                                <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+                                <ng-template #mymodal let-modal>
+                                    <div style="margin:auto 12%;" class="modal-header">
+                                        <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+                                            eliminar la marca?</h4>
+                                    </div>
+                                    <div class="d-flex justify-content-center ml-5 modal-body">
+                                        <button type="button" class="mr-3 btn btn-outline-dark"
+                                            (click)="modal.close('Save click')">Cancelar</button>
+                                        <button type="button" (click)="Eliminar(li.id)" class="btn btn-outline-dark"
+                                            (click)="modal.close('Save click')">Aceptar</button>
+                                    </div>
+                                </ng-template>
+
+                                <!--MODAL DE MODIFICAR -->
+                                <ng-template #mymodalMODI let-modal>
+                                    <div class="modal-header">
+                                        <h4 id="modal-basic-title">Modificar Datos</h4>
+                                    </div>
+                                    <div class="container">
+                                        <form class="container-fluid pr-5" [formGroup]='checkoutForm'>
+                                            <div class="row">
+                                                <label class="text-end  col form-label">Empresa</label>
+                                                <div class="col-4">
+                                                    <select formControlName="id_empresa" name="id_empresa"
+                                                        id="id_empresa" class="  pl-2 form-select">
+                                                        <option value="" disabled selected>Seleccione</option>
+                                                        <option *ngFor="let li of empresa" value={{li.id}}>
+                                                            {{li.nombre_empresa}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+
+                                                <label class="text-end col  form-label">Cliente</label>
+                                                <div class="col-4">
+                                                    <select class=" form-select  pl-2" formControlName="id_cliente"
+                                                        name="id_cliente" id="id_cliente">
+                                                        <option value="" disabled selected>Seleccione</option>
+                                                        <option *ngFor="let li of cliente" value={{li.id}}>{{li.nombre}}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <label class="text-end col form-label">Marca</label>
+                                                <div class="col-4">
+                                                    <select formControlName="id_marca" name="id_marca" id="id_marca"
+                                                        class="mt-1 col-8 pl-2 form-select">
+                                                        <option value="" disabled selected>Selecciones</option>
+                                                        <option *ngFor="let li of marca" value="{{ li.id }}">
+                                                            {{ li.marca }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                                <label class="text-end col  form-label">UBi. Alsea</label>
+                                                <div class="col-4">
+                                                    <select formControlName="id_ubicacion_elsea"
+                                                        name="id_ubicacion_elsea" id="id_ubicacion_elsea"
+                                                        class="mt-1 col-8 pl-2 form-select">
+                                                        <option value="" disabled selected>Selecciones</option>
+                                                        <option *ngFor="let li of ubicacionAlsea" value="{{ li.id }}">
+                                                            {{ li.descripcion }}
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <label class="text-end col form-label">Descripcion</label>
+                                                <div class="col-4">
+                                                    <input formControlName="descripcion" name="descripcion"
+                                                        id="descripcion" placeholder="Ingrese Descripcion" type="text"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+
+
+                                        </form>
+                                    </div>
+
+
+
+                                    <div class="d-flex justify-content-center ml-5 modal-body">
+                                        <button type="button" class="mr-3 btn btn-outline-dark"
+                                            (click)="modal.close('Save click')">Cancelar</button>
+                                        <button (click)="Update(li.id)" type="button" class="btn btn-outline-dark"
+                                            (click)="modal.close('Save click')">Guardar</button>
+                                    </div>
+                                </ng-template>
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</form>
+
+</div>
