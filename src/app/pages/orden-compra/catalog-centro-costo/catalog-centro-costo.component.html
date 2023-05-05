@@ -67,7 +67,7 @@
             </form>
         </div>
         <div class="col">
-            <input type="text" placeholder="Buscar" class="col-9 form-control" />
+            <input name="filterCC" [(ngModel)]="filterCC" type="text" placeholder="Buscar" class="col-9 form-control" />
             <div class="badge-light">
                 <table class="mt-4 table w-100 table-striped table-hover ">
                     <thead>
@@ -83,7 +83,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let li of CC">
+                        <tr *ngFor="let li of CC  | pipeCC:filterCC">
                             <td>{{li.id}} </td>
                             <td>{{li.id_empresa}} </td>
                             <td>{{li.id_cliente}} </td>

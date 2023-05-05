@@ -54,6 +54,7 @@ import { FilterUDCPipe } from './pipes/filter-udc.pipe';
 import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
 import { FilterConfPipe } from './pipes/filter-conf.pipe';
 import { FilterUMPipe } from './pipes/filter-um.pipe';
+import { PipeCCPipe } from './pages/pipe-cc.pipe';
 
 @NgModule({
   declarations: [
@@ -106,6 +107,7 @@ import { FilterUMPipe } from './pipes/filter-um.pipe';
     ConfiguracionLoteComponent,
     FilterConfPipe,
     FilterUMPipe,
+    PipeCCPipe,
   
   ],
   imports: [

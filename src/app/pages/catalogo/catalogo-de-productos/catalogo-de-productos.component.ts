@@ -1,8 +1,10 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
 import { DataserviceService } from "../../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
-import { ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { ModalDismissReasons, NgbAlert, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import { Subject } from "rxjs";
+import { debounceTime } from "rxjs/operators";
 
 
 @Component({
@@ -18,7 +20,11 @@ export class CatalogoDeProductosComponent implements OnInit {
   config:any
   marca:any
   lineaP:any
-
+  private _success = new Subject<string>();
+  staticAlertClosed = false;
+	successMessage = '';
+  type:any;
+  respuesta:any;
 
   constructor(
     private readonly fb: FormBuilder, 
@@ -26,6 +32,9 @@ export class CatalogoDeProductosComponent implements OnInit {
     private DateCatalogo: DataCatalogoService,
     private modalService: NgbModal
   ) {}
+
+  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
+	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
 
 
  
@@ -51,6 +60,33 @@ export class CatalogoDeProductosComponent implements OnInit {
 
   ngOnInit(): void {
     this.Listar()
+    this.checkoutForm = this.initForm();
+
+  }
+  initForm(): FormGroup {
+    return this.fb.group({
+      id_empresa: ["", [Validators.required]],
+      sku: ["", [Validators.required]],
+      descripcion: ["", [Validators.required]],
+      modelo: ["", [Validators.required]],
+      id_linea_producto:["", [Validators.required]],
+      id_marca:["", [Validators.required]],
+      serialisable:["", [Validators.required]],
+      caducidad:["", [Validators.required]],
+      sobresurtimiento:["", [Validators.required]],
+      serialisable_surtir:["", [Validators.required]],
+      requiere_inspeccion_calidad:["", [Validators.required]],
+      requiere_fecha_cadu:["", [Validators.required]],
+      numero_parte:["", [Validators.required]],
+      requiere_lote:["", [Validators.required]],
+      lote_compuesto:["", [Validators.required]],
+      id_config_lote:["", [Validators.required]],
+      id_unidad_de_medida:["", [Validators.required]],
+      peso:["", [Validators.required]],
+      fecha_descontinuo:["", [Validators.required]],
+      status:["", [Validators.required]],
+      caducidad1:["", [Validators.required]],
+    });
   }
 
   siguientePagina() {
@@ -59,6 +95,46 @@ export class CatalogoDeProductosComponent implements OnInit {
   Volver(){
     this.siguiente = true;
    }
+
+
+   onSubmit(){
+    let año= this.checkoutForm.value.fecha_descontinuo.year
+    let dia=this.checkoutForm.value.fecha_descontinuo.day
+     let mes=this.checkoutForm.value.fecha_descontinuo.month 
+      this.checkoutForm.value.fecha_descontinuo=`${dia} / ${mes} / ${año} `
+
+    console.log(this.checkoutForm.value)
+    console.log(this.checkoutForm.value.fecha_descontinuo)
+    // this.checkoutForm.value.fecha_descontinuo=
+
+
+
+    this.DateCatalogo.SaveProducto(this.checkoutForm.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+     this.ngOnInit();
+      
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
+
+  }
+
+  changeSuccessMessage(value) {
+    this._success.next(value);
+  }
 
    closeResult: string = "";
 

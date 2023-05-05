@@ -113,4 +113,20 @@ export class DataCatalogoService {
   ActualizarConf(id: string, value) {
     return this.http.put(this.url + "actualizar-configlote/" + id, value);
   }
+
+  // PRODUCTO
+  // CONFIGURACION LOTE
+
+  SaveProducto(value) {
+    return this.http.post(this.url + "save-producto", value);
+  }
+  ListarProducto() {
+    return this.http.get(this.url + "listar-producto");
+  }
+  EliminarProducto(id: string) {
+    return this.http.delete(this.url + "delete-producto/" + id);
+  }
+  ActualizarProducto(id: string, value) {
+    return this.http.put(this.url + "actualizar-producto/" + id, value);
+  }
 }

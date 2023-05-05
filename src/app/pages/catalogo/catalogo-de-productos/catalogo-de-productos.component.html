@@ -1,11 +1,13 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<form action="">
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
+    successMessage}}</ngb-alert>
+<form [formGroup]='checkoutForm'>
 
     <div class="container" *ngIf="siguiente">
         <div class="mt-5 mb-3 ml-5 row">
             <label class="text-end col-3 form-label mr-1">Empresa: </label>
             <div class="col-3">
-                <select class=" form-select">
+                <select formControlName="id_empresa" name="id_empresa" id="id_empresa" class=" form-select">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
                 </select>
@@ -19,14 +21,14 @@
             <div class="row">
                 <label class="col-2 form-label">SKU</label>
                 <div class="col-3">
-                    <input placeholder="Ingrese SKU" type="text" class=" form-control ">
+                    <input formControlName="sku" name="sku" id="sku" placeholder="Ingrese SKU" type="text" class=" form-control ">
                 </div>
                 <label class="col-3 form-label">Caducidad</label>
                 <div class="col-1">
-                    <input type="text" class=" mr-1 form-control">
+                    <input formControlName="caducidad" name="caducidad" id="caducidad" type="text" class=" mr-1 form-control">
                 </div>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="caducidad1" name="caducidad1" id="caducidad1" type="text" class=" form-control">
                 </div>
                 <label class="col text-start form-label">Dias</label>
 
@@ -34,27 +36,27 @@
             <div class="row mt-2">
                 <label class="col-2 form-label">Descripcion</label>
                 <div class="col-3">
-                    <input type="text" placeholder="Ingrese Descripcion" class=" form-control">
+                    <input formControlName="descripcion" name="descripcion" id="descripcion" type="text" placeholder="Ingrese Descripcion" class=" form-control">
                 </div>
                 <label class="col-5 form-label">Requiere inspeccion de Calidad</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="requiere_inspeccion_calidad" name="requiere_inspeccion_calidad" id="requiere_inspeccion_calidad" type="text" class=" form-control">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Modelo</label>
                 <div class="col-3">
-                    <input type="text" placeholder="Ingrese Modelo" class=" form-control">
+                    <input formControlName="modelo" name="modelo" id="modelo" type="text" placeholder="Ingrese Modelo" class=" form-control">
                 </div>
                 <label class="col-5 form-label">Requiere fecha caducidad</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="requiere_fecha_cadu" name="requiere_fecha_cadu" id="requiere_fecha_cadu" type="text" class=" form-control">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Linea Producto</label>
                 <div class="col-3">
-                    <select class=" form-select">
+                    <select formControlName="id_linea_producto" name="id_linea_producto" id="id_linea_producto" class=" form-select">
                         <option value="" disabled selected>Seleccione</option>
                         <option *ngFor="let li of lineaP" value={{li.id}}>{{li.descripcion}} </option>
 
@@ -62,14 +64,14 @@
                 </div>
                 <label class="col-5 form-label">Numero Parte</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="numero_parte" name="numero_parte" id="numero_parte" type="text" class=" form-control">
                 </div>
 
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Marca</label>
                 <div class="col-3">
-                    <select class="form-select">
+                    <select formControlName="id_marca" name="id_marca" id="id_marca"  class="form-select">
                         <option value="" disabled selected>Seleccione</option>
                         <option *ngFor="let li of marca" value={{li.id}}>{{li.marca}} </option>
 
@@ -77,27 +79,27 @@
                 </div>
                 <label class="col-5 form-label">Requiere lote</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="requiere_lote" name="requiere_lote" id="requiere_lote" type="text" class=" form-control">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Serializado</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="serialisable" name="serialisable" id="serialisable" type="text" class=" form-control">
                 </div>
                 <label class="col-7 text-center   form-label">Lote Compuesto</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="lote_compuesto" name="lote_compuesto" id="lote_compuesto" type="text" class=" form-control">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Sobreo Bajo Surtimiento</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="sobresurtimiento" name="sobresurtimiento" id="sobresurtimiento" type="text" class=" form-control">
                 </div>
                 <label class="col-5 mt-2 text-end pr-5 form-label">Configuración lote</label>
                 <div class="col-3">
-                    <select class="form-select">
+                    <select formControlName="id_config_lote" name="id_config_lote" id="id_config_lote" class="form-select">
                         <option value="" disabled selected>Seleccione</option>
                         <option *ngFor="let li of config" value={{li.id}}>{{li.descripcion}} </option>
                     </select>
@@ -106,7 +108,7 @@
             <div class="row mt-2">
                 <label class="col-2 form-label">Serializado al Sutir</label>
                 <div class="col-1">
-                    <input type="text" class=" form-control">
+                    <input formControlName="serialisable_surtir" name="serialisable_surtir" id="serialisable_surtir" type="text" class=" form-control">
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-4 ml-1">
@@ -126,7 +128,7 @@
             <div class="row">
                 <label class="col-3 form-label">Unidad Medidad</label>
                 <div class="col-3">
-                    <select class="form-select">
+                    <select formControlName="id_unidad_de_medida" name="id_unidad_de_medida" id="id_unidad_de_medida" class="form-select">
                         <option value="" disabled selected>Seleccione</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
@@ -137,17 +139,17 @@
             <div class="row mt-2">
                 <label class="col-3 form-label">Peso</label>
                 <div class="col-3">
-                    <input type="text" placeholder="Ingrese Peso" class="form-control">
+                    <input formControlName="peso" name="peso" id="peso" type="text" placeholder="Ingrese Peso" class="form-control">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2">Fecha descontinuo</label>
                 <div class="col-1 text-end">
-                    <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+                    <input  class="form-check-input" type="checkbox" id="flexCheckDefault">
                 </div>
                 <div class="col-3">
                     <div class="input-group">
-                        <input class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+                        <input formControlName="fecha_descontinuo" name="fecha_descontinuo" id="fecha_descontinuo" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
                             #d="ngbDatepicker" />
                         <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -163,7 +165,7 @@
             <div class="row mt-2">
                 <label class="col-3">Status</label>
                 <div class="col-3">
-                    <select class="form-select">
+                    <select formControlName="status" name="status" id="status" class="form-select">
                         <option value="" disabled selected>Seleccione</option>
                         <option value="1">Activo</option>
                         <option value="2">Inactivo</option>
@@ -224,7 +226,7 @@
         </div>
         <div class="d-flex justify-content-end mt-4 ml-1">
             <button (click)="Volver()" type="button" class="btn btn-dark mr-2 col-2">Volver</button>
-            <button type="button" class=" btn btn-dark col-2">Guardar</button>
+            <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button" class=" btn btn-dark col-2">Guardar</button>
         </div>
     </div>
 </form>
