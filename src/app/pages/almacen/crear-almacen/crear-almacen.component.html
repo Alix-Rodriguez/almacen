@@ -1,96 +1,104 @@
-<app-breadcrumbs  [miga]="miga"></app-breadcrumbs>
-<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
-<form [formGroup]='checkoutForm'  >
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage
+    }}</ngb-alert>
+<form [formGroup]='checkoutForm'>
     <div class="container" *ngIf="siguiente">
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Empresa:</label>
-                <select formControlName="descuento_almacen"  name="descuento_almacen" id="descuento_almacen" class="form-select"> 
+                <select formControlName="descuento_almacen" name="descuento_almacen" id="descuento_almacen"
+                    class="form-select">
                     <option value="-">Seleccione</option>
                     <option value={{emd.id}} *ngFor="let emd of empresa"> {{emd.nombre_empresa}} </option>
                 </select>
             </div>
             <div class="col">
                 <label class="form-label">Nombre:</label>
-                <input type="text" placeholder="Ingrese Nombre" class="form-control" formControlName="nombre" name="nombre" id="nombre">
+                <input type="text" placeholder="Ingrese Nombre" class="form-control" formControlName="nombre"
+                    name="nombre" id="nombre">
             </div>
             <div class="col">
-                <label >Tipo:</label>
-                <select  formControlName="tipo" name="tipo" id="tipo" class="form-select">
+                <label>Tipo:</label>
+                <select formControlName="tipo" name="tipo" id="tipo" class="form-select">
                     <option value="-" selected>Seleccione</option>
                     <option value="1">Virtual</option>
                     <option value="2">Física</option>
                 </select>
             </div>
         </div>
-        <h4 class="mt-3 border-bottom border-dark"  >Almacen</h4>
+        <h4 class="mt-3 border-bottom border-dark">Almacen</h4>
         <div class="row mt-4">
             <div class="col">
                 <label class="form-label">Calle:</label>
-                <input formControlName="calle" placeholder="Ingrese La Calle" name="calle" id="calle" type="text" class="form-control">
+                <input formControlName="calle" placeholder="Ingrese La Calle" name="calle" id="calle" type="text"
+                    class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Exterior:</label>
-                <input placeholder="Ingrese Número Exterior" formControlName="numero_exterior" name="numero_exterior" id="numero_exterior" type="text" class="form-control">
+                <input placeholder="Ingrese Número Exterior" formControlName="numero_exterior" name="numero_exterior"
+                    id="numero_exterior" type="text" class="form-control">
             </div>
             <div class="col">
                 <label class="form-label">Número Interno:</label>
-                <input formControlName="numero_interno" placeholder="Ingrese Número Interno" name="numero_interno" id="numero_interno" type="text" class="form-control">
+                <input formControlName="numero_interno" placeholder="Ingrese Número Interno" name="numero_interno"
+                    id="numero_interno" type="text" class="form-control">
             </div>
         </div>
-            <!-- TERCERA SELECCION -->
-            <div class="row mt-4">
-                <div class="col">
-                    <label class="form-label">Delegación:</label>
-                    <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio" (change)="onChange($event.target.value)"
-                        class="form-select">
-                        <option value="." selected>Selecciones</option>
-                        <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label class="form-label">Colonía:</label>
-                    <select formControlName="colonia" name="colonia" id="colonia"
-                    class="form-select">
-                        <option value="-"  selected>Selecciones</option>
-                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label class="form-label">Codigo Postal</label>
-                    <input type="text" formControlName="cp" placeholder="Ingrese Codigo Postal" name="cp" id="cp" class="form-control">
-                </div>
+        <!-- TERCERA SELECCION -->
+        <div class="row mt-4">
+            <div class="col">
+                <label class="form-label">Delegación:</label>
+                <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio"
+                    (change)="onChange($event.target.value)" class="form-select">
+                    <option value="." selected>Selecciones</option>
+                    <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
+                </select>
             </div>
-            <div class="row">
-                <div class="col">
-                    <label class="form-label">Telefono:</label>
-                    <input type="text" formControlName="telefono" name="telefono" placeholder="Ingrese Número Telefonico" id="telefono" class="form-control">
-                </div>
-                <div class="col">
-                    <label class="form-label">Email:</label>
-                    <input type="text" formControlName="email" name="email" placeholder="Ingrese Email" id="email" class="form-control">
-                </div>
+            <div class="col">
+                <label class="form-label">Colonía:</label>
+                <select formControlName="colonia" name="colonia" id="colonia" class="form-select">
+                    <option value="-" selected>Selecciones</option>
+                    <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                </select>
             </div>
-            <div class="row">
-                <div class="col">
-                    <input style="margin-left: 0" type="checkbox" formControlName="picking" class="form-check-input" name="picking" id="picking">
-                    <label class="form-label">Usar misma dirección de empresa</label>
-                </div>
+            <div class="col">
+                <label class="form-label">Codigo Postal</label>
+                <input type="text" formControlName="cp" placeholder="Ingrese Codigo Postal" name="cp" id="cp"
+                    class="form-control">
             </div>
-        
+        </div>
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Telefono:</label>
+                <input type="text" formControlName="telefono" name="telefono" placeholder="Ingrese Número Telefonico"
+                    id="telefono" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">Email:</label>
+                <input type="text" formControlName="email" name="email" placeholder="Ingrese Email" id="email"
+                    class="form-control">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input style="margin-left: 0" type="checkbox" formControlName="picking" class="form-check-input"
+                    name="picking" id="picking">
+                <label class="form-label">Usar misma dirección de empresa</label>
+            </div>
+        </div>
+
         <div class="d-flex justify-content-end mt-4 ml-1">
-            
-            <button (click)="siguientePagina()" type="button" 
-                class="col-2 btn btn-dark">Siguiente</button>
+
+            <button (click)="siguientePagina()" type="button" class="col-2 btn btn-dark">Siguiente</button>
         </div>
     </div>
     <!-- Siguiente pagina -->
     <div class="container" *ngIf="!siguiente">
         <h4 class="mt-3">Almacen Configuración</h4>
         <div class="d-flex align-items-center mt-4">
-            <label class="mr-2 form-label" >Sistema</label>
+            <label class="mr-2 form-label">Sistema</label>
             <select class="form-select col-3">
-                <option value=""  selected>Seleccione</option>
+                <option value="" selected>Seleccione</option>
                 <option value="1">PEPS</option>
             </select>
         </div>
@@ -100,7 +108,7 @@
                 <label>Usar etiqueta de entrada:</label>
             </div>
             <div class="col-1">
-                <input  type="checkbox"  (click)="Bool()" >
+                <input type="checkbox" (click)="Bool()">
             </div>
             <div class="col-3">
                 <button [disabled]=bool type="button" class=" btn btn-dark">Etiqueta</button>
@@ -112,13 +120,14 @@
                 <label>Inventario fisico automatico:</label>
             </div>
             <div class="col-1">
-                <input  type="checkbox" (click)="Bool2()" >
+                <input type="checkbox" (click)="Bool2()">
             </div>
             <div class="col-2">
-                <button  [disabled]=bool2  type="button" class="btn btn-dark">Configurar</button>
+                <button [disabled]=bool2 type="button" class="btn btn-dark">Configurar</button>
             </div>
             <div class="col-2">
-                <button [disabled]=bool2  (click)="open(mymodal)" type="button" class=" btn btn-dark">Remitente</button>
+                <button [disabled]=bool2 (click)="open(remitente)" type="button"
+                    class=" btn btn-dark">Remitente</button>
             </div>
             <div class="col-2">
                 <button [disabled]=bool2 type="button" class=" btn btn-dark">LPN</button>
@@ -140,60 +149,147 @@
                 <input type="checkbox" name="" id="">
             </div>
         </div>
-    
+
         <h4 class="mt-5">Ubicación</h4>
         <div class="row">
             <div class="col-3">
                 <label>Zona:</label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
-                <select  class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
+                <svg (click)="open(ZONA)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="svg bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                </svg>
+                <select class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let li of zona" value={{li.id}} >{{li.descripcion}} </option>
+                    <option *ngFor="let li of zona" value={{li.id}}>{{li.descripcion}} </option>
                 </select>
             </div>
             <div class="col-3">
                 <label>Rack:</label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" /></svg>
+                <svg (click)="open(RACK)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="svg  bi bi-dash-circle-fill" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                </svg>
                 <select class="form-select" formControlName="usa_rack" name="usa_rack" id="usa_rack">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let li of rack" value={{li.id}} >{{li.descripcion}} </option>
+                    <option *ngFor="let li of rack" value={{li.id}}>{{li.descripcion}} </option>
 
                 </select>
             </div>
-    
+
             <div class="col-3">
                 <label>Nivel:</label>
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
+                <svg (click)="open(NIVEL)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="svg bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                </svg>
                 <select class="form-select" formControlName="usa_nivel" name="usa_nivel" id="usa_nivel">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let li of nivel" value={{li.id}} >{{li.descripcion}} </option>
+                    <option *ngFor="let li of nivel" value={{li.id}}>{{li.descripcion}} </option>
 
                 </select>
             </div>
             <div class="col-3">
                 <label>Localidad:</label>
-                <svg  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16"><path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" /></svg>
+                <svg (click)="open(LOCALIDAD)" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                    fill="currentColor" class="svg bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+                </svg>
                 <select class="form-select" formControlName="usa_localidad" name="usa_localidad" id="usa_localidad">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let li of localidad" value={{li.id}} >{{li.descripcion}} </option>
+                    <option *ngFor="let li of localidad" value={{li.id}}>{{li.descripcion}} </option>
 
                 </select>
             </div>
         </div>
 
-        
-        <div style="background-color: #f4f6f9;height: 6rem;padding-top: 2rem; " class="mt-5">
-            <h1 style="text-align: center;font-weight: 700;">Mostrar la configuración</h1>
+
+        <div class="mt-5 bg-light">
+            <ul>
+                <li><i (click)="Onzona()" *ngIf="zonaB" class="btn btn-primary" data-toggle="collapse" href="#zona"
+                        role="button" aria-expanded="false" aria-controls="collapseExample"
+                        class="bi bi-plus-circle-fill"></i>
+                    <i *ngIf="!zonaB" (click)="Onzona()" class="btn btn-primary" type="button" data-toggle="collapse"
+                        data-target="#zona" aria-expanded="false" aria-controls="collapseExample"
+                        class="bi bi-dash-circle-fill"></i>
+                    Layout
+                </li>
+
+                <ul class="collapse" id="zona">
+                    <li> <i (click)="Onrack()" *ngIf="rackB" class="btn btn-primary" data-toggle="collapse" href="#rack"
+                            role="button" aria-expanded="false" aria-controls="collapseExample"
+                            class="bi bi-plus-circle-fill"></i>
+                        <i *ngIf="!rackB" (click)="Onrack()" class="btn btn-primary" type="button"
+                            data-toggle="collapse" data-target="#rack" aria-expanded="false"
+                            aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                        Zona
+                    </li>
+                    <li *ngFor="let li of zona" class="pl-5">
+                        {{li.descripcion}}
+                    </li>
+
+                    <ul class="collapse" id="rack">
+                        <li> <i (click)="Onnivel()" *ngIf="nivelB" class="btn btn-primary" data-toggle="collapse"
+                                href="#nivel" role="button" aria-expanded="false" aria-controls="collapseExample"
+                                class="bi bi-plus-circle-fill"></i>
+                            <i *ngIf="!nivelB" (click)="Onnivel()" class="btn btn-primary" type="button"
+                                data-toggle="collapse" data-target="#nivel" aria-expanded="false"
+                                aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                            Rack
+                        </li>
+                        <li *ngFor="let li of rack" class="pl-5">
+                            {{li.descripcion}}
+                        </li>
+
+                        <ul class="collapse" id="nivel">
+                            <li> <i (click)="Onlocalidad()" *ngIf="localidadB" class="btn btn-primary"
+                                    data-toggle="collapse" href="#localidad" role="button" aria-expanded="false"
+                                    aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
+                                <i *ngIf="!localidadB" (click)="Onlocalidad()" class="btn btn-primary" type="button"
+                                    data-toggle="collapse" data-target="#localidad" aria-expanded="false"
+                                    aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                                Nivel
+                            </li>
+                            <li *ngFor="let li of nivel" class="pl-5">
+                                {{li.descripcion}}
+                            </li>
+
+                            <ul class="collapse" id="localidad">
+                                <li> <i (click)="Onlocal()" *ngIf="localB" class="btn btn-primary"
+                                        data-toggle="collapse" href="#local" role="button" aria-expanded="false"
+                                        aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
+                                    <i *ngIf="!localB" (click)="Onlocal()" class="btn btn-primary" type="button"
+                                        data-toggle="collapse" data-target="#local" aria-expanded="false"
+                                        aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                                    Localidad
+                                </li>
+                                <ul class="collapse" id="local">
+                                    <li *ngFor="let li of localidad" class="pl-5">
+                                        {{li.descripcion}}
+                                    </li>
+                                </ul>
+
+
+                            </ul>
+                        </ul>
+                    </ul>
+                </ul>
+            </ul>
         </div>
-    
+
+
         <div class="d-flex justify-content-end mt-4 ml-1">
-            <button (click)="Volver()"   type="button" 
-                class="btn text-dark col-2 border-dark mr-2">Volver</button>
-            <button [disabled]="checkoutForm.invalid" type="button" (click)="onSubmit()" class="col-2 btn btn-dark">Guardar</button>
-        </div>  
-    
+            <button type="button" (click)="open(LAYOUT)" class="mr-auto btn text-dark col-2 border-dark">Crear
+                Layout</button>
+            <button (click)="Volver()" type="button" class="btn text-dark col-2 border-dark mr-2">Volver</button>
+            <button [disabled]="checkoutForm.invalid" type="button" (click)="onSubmit()"
+                class="col-2 btn btn-dark">Guardar</button>
+        </div>
+
+
         <!-- MODAL DEL REMITENTE -->
-        <ng-template #mymodal let-modal>
+        <ng-template #remitente let-modal>
             <div class="modal-header">
                 <div class="column">
                     <h2 class="modal-title" id="modal-basic-title">Remitente De Almacen</h2>
@@ -217,7 +313,7 @@
                 </div>
                 <div class="row mt-1">
                     <label class="col-5 form-label">Colonia:</label>
-                    <select class="col-6 form-select" >
+                    <select class="col-6 form-select">
                         <option value="" disabled selected>Make a selection</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
@@ -226,7 +322,7 @@
                 </div>
                 <div class="row mt-1">
                     <label class="col-5 form-label">Delegación:</label>
-                    <select class="col-6 form-select" >
+                    <select class="col-6 form-select">
                         <option value="" disabled selected>Make a selection</option>
                         <option value="1">Option 1</option>
                         <option value="2">Option 2</option>
@@ -249,13 +345,141 @@
                     <label class="col-5 form-label">RFC</label>
                     <input type="text" class="col-6 form-control">
                 </div>
-    
+
             </div>
             <div class="d-flex justify-content-end mt-4 ml-1 mr-2">
-                <button (click)="modal.close('Save click')" type="button" class=" btn text-dark col-2 border-dark mr-2 ">Cancelar</button>
-                <button (click)="modal.close('Save click')"  type="button" 
-                    class="col btn btn-dark">Guardar</button>
+                <button (click)="modal.close('Save click')" type="button"
+                    class=" btn text-dark col-2 border-dark mr-2 ">Cancelar</button>
+                <button (click)="modal.close('Save click')" type="button" class="col btn btn-dark">Guardar</button>
+            </div>
+        </ng-template>
+
+        <!-- MODAL ZONA -->
+        <ng-template #ZONA let-modal>
+            <div class="mt-3 border-bottom border-dark">
+                <h4 class="text-center" id="modal-basic-title">Crear Zona</h4>
+            </div>
+            <form [formGroup]='formZona'>
+                <div class="mt-3 d-flex justify-content-center">
+                    <input class="col-5 text-center form-control" formControlName="descripcion" name="descripcion"
+                        type="text">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center ml-5 modal-body">
+                <button type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-outline-dark" (click)="onSubmitZ()" [disabled]="formZona.invalid"
+                    (click)="modal.close('Save click')">Guardar</button>
+            </div>
+        </ng-template>
+
+
+        <!-- MODAL RACK -->
+        <ng-template #RACK let-modal>
+            <div class="mt-3 border-bottom border-dark">
+                <h4 class="text-center" id="modal-basic-title">Crear Rack</h4>
+            </div>
+            <form [formGroup]='formRack'>
+                <div class="mt-3 d-flex justify-content-center">
+                    <input class="col-5 text-center form-control" formControlName="descripcion" name="descripcion"
+                        type="text">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center ml-5 modal-body">
+                <button type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-outline-dark" (click)="onSubmitR()" [disabled]="formRack.invalid"
+                    (click)="modal.close('Save click')">Guardar</button>
+            </div>
+        </ng-template>
+
+        <!-- MODAL NIVEL -->
+        <ng-template #NIVEL let-modal>
+            <div class="mt-3 border-bottom border-dark">
+                <h4 class="text-center" id="modal-basic-title">Crear Nivel</h4>
+            </div>
+            <form [formGroup]='formNivel'>
+                <div class="mt-3 d-flex justify-content-center">
+                    <input class="col-5 text-center form-control" formControlName="descripcion" name="descripcion"
+                        type="text">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center ml-5 modal-body">
+                <button type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-outline-dark" (click)="onSubmitN()" [disabled]="formNivel.invalid"
+                    (click)="modal.close('Save click')">Guardar</button>
+            </div>
+        </ng-template>
+
+
+        <!-- MODAL LOCALIDAD -->
+        <ng-template #LOCALIDAD let-modal>
+            <div class="mt-3 border-bottom border-dark">
+                <h4 class="text-center" id="modal-basic-title">Crear Localidad</h4>
+            </div>
+            <form [formGroup]='formLocalidad'>
+                <div class="mt-3 d-flex justify-content-center">
+                    <input class="col-5 text-center form-control" formControlName="descripcion" name="descripcion"
+                        type="text">
+                </div>
+            </form>
+            <div class="d-flex justify-content-center ml-5 modal-body">
+                <button type="button" class="mr-3 btn btn-outline-dark"
+                    (click)="modal.close('Save click')">Cancelar</button>
+                <button type="button" class="btn btn-outline-dark" (click)="onSubmitL()"
+                    [disabled]="formLocalidad.invalid" (click)="modal.close('Save click')">Guardar</button>
             </div>
         </ng-template>
     </div>
+
+    <!-- CREAR LAYOUT -->
+    <ng-template #LAYOUT let-modal>
+        <div class="mt-3 border-bottom border-dark">
+            <h4 class="text-center" id="modal-basic-title">Crear Layout</h4>
+        </div>
+        <form [formGroup]='FormLayout'>
+            <div class="row mt-3">
+                
+
+                <div class="col-3">
+                    <select formControlName="id_zona" name="id_zona" id="id_zona" class="form-select">
+                        <option value="" disabled selected>Seleccione Z</option>
+                        <option value={{dl.id}} *ngFor="let dl of zona">{{dl.descripcion}}</option>
+
+
+                    </select>
+                </div>
+
+                <div class="col-3">
+                    <select formControlName="id_rack" name="id_rack" id="id_rack" class="form-select">
+                        <option value="" disabled selected>Seleccione R</option>
+                        <option value={{dl.id}} *ngFor="let dl of rack">{{dl.descripcion}}</option>
+
+                    </select>
+                </div>
+                <div class="col-3">
+                    <select formControlName="id_nivel" name="id_nivel" id="id_nivel" class="form-select">
+                        <option value="" disabled selected>Seleccione N</option>
+                        <option value={{dl.id}} *ngFor="let dl of nivel">{{dl.descripcion}}</option>
+
+                    </select>
+                </div>
+                <div class="col-3">
+                    <select formControlName="id_localidad" name="id_localidad" id="id_localidad" class="form-select">
+                        <option value="" disabled selected>Seleccione L</option>
+                        <option value={{dl.id}} *ngFor="let dl of localidad">{{dl.descripcion}}</option>
+
+                    </select>
+                </div>
+                
+            </div>
+        </form>
+        <div class="d-flex justify-content-center ml-5 modal-body">
+            <button type="button" class="mr-3 btn btn-outline-dark"
+                (click)="modal.close('Save click')">Cancelar</button>
+            <button type="button" class="btn btn-outline-dark" (click)="onSubmitLayout()" 
+                (click)="modal.close('Save click')">Guardar</button>
+        </div>
+    </ng-template>
 </form>

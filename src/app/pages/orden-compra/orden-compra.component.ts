@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./orden-compra.component.css']
 })
 export class OrdenCompraComponent {
-  miga: any = 'Catalogo Marca Producto';
+  miga: any = 'Orden De Compra';
+
+
 
 }

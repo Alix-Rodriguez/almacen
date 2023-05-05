@@ -5,6 +5,7 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
+import { DataLayoutService} from '../../../services/data-layout.service'
 
 @Component({
   selector: "app-crear-almacen",
@@ -17,6 +18,11 @@ export class CrearAlmacenComponent implements OnInit {
   colonias: any;
   empresa: any;
   checkoutForm!: FormGroup;
+  formZona: FormGroup;
+  formRack: FormGroup;
+  formNivel: FormGroup;
+  formLocalidad: FormGroup;
+  FormLayout:FormGroup;
   siguiente: boolean = true;
   closeResult: string = "";
   bool: boolean = true;
@@ -31,17 +37,45 @@ export class CrearAlmacenComponent implements OnInit {
   respuesta:any;
   type:any;
   show:boolean = false;
+  zonaB: Boolean=true
+  rackB: Boolean=true
+  nivelB: Boolean=true
+  localidadB: Boolean=true
+  localB: Boolean=true
   
+  Onzona(){
+    this.zonaB= !this.zonaB;
+  }
+  Onrack(){
+    this.rackB= !this.rackB;
+  }
+  Onnivel(){
+    this.nivelB= !this.nivelB;
+  }
+  Onlocalidad(){
+    this.localidadB= !this.localidadB;
+  }
+  Onlocal(){
+    this.localB= !this.localB;
+  }
+
+
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
+    private dataLayout: DataLayoutService,
     private modalService: NgbModal
   ) {}
 
   ngOnInit(): void {
     this.getDelegacion();
     this.getListEmpresa();
+    this.formZona = this.initFormZ();
     this.checkoutForm = this.initForm();
+    this.formNivel=this.initFormN()
+    this.formRack=this.initFormR()
+    this.formLocalidad=this.initFormL()
+    this.FormLayout=this.initFormLayout()
     console.log(this.checkoutForm.value);
     this.Listnivel()
     this.Listzona()
@@ -153,6 +187,157 @@ export class CrearAlmacenComponent implements OnInit {
     // "localidad_qa":1 MEDIO
   }
 
+   onSubmitZ(){
+    console.log(this.formZona.value)
+    this.dataService.SaveZona(this.formZona.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+     this.ngOnInit();
+      
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+   } 
+  initFormZ(): FormGroup {
+    return this.fb.group({
+      descripcion: ["", [Validators.required]],
+    });
+  
+  }
+
+  onSubmitR(){
+    console.log(this.formZona.value)
+    this.dataService.SaveRack(this.formRack.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+     this.ngOnInit();
+      
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+   } 
+  initFormR(): FormGroup {
+    return this.fb.group({
+      descripcion: ["", [Validators.required]],
+    });
+  
+  }
+
+  onSubmitN(){
+    console.log(this.formZona.value)
+    this.dataService.SaveNivel(this.formNivel.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+     this.ngOnInit();
+      
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+   } 
+  initFormN(): FormGroup {
+    return this.fb.group({
+      descripcion: ["", [Validators.required]],
+    });
+  
+  }
+
+  onSubmitL(){
+    console.log(this.formZona.value)
+    this.dataService.SaveLocalidad(this.formLocalidad.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+     this.ngOnInit();
+      
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+     this._success.subscribe((message) => (this.successMessage = message));
+     this._success.pipe(debounceTime(5000)).subscribe(() => {
+			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+   } 
+  initFormL(): FormGroup {
+    return this.fb.group({
+      descripcion: ["", [Validators.required]],
+    });
+  
+  }
+
+
+  initFormLayout(): FormGroup {
+    return this.fb.group({
+      id_zona:['',[Validators.required]],
+      id_rack:['', [Validators.required]],
+      id_nivel:['', [Validators.required]],
+      id_localidad:['',[Validators.required]],
+    })
+ }
+  onSubmitLayout(){
+    console.log(this.checkoutForm.value)
+    this.dataLayout.saveLayout(this.FormLayout.value)
+    .subscribe(resp=>{
+      console.log(resp)
+      this.respuesta = resp;
+      this.type = "success";
+      this.changeSuccessMessage(this.respuesta.msn)
+      this.ngOnInit();
+    },
+    error => {
+      this.type = "danger";
+      this.changeSuccessMessage('Error no se ha guardado correctamente')
+    })
+
+		this._success.subscribe((message) => (this.successMessage = message));
+		this._success.pipe(debounceTime(5000)).subscribe(() => {
+  			if (this.selfClosingAlert) {
+				this.selfClosingAlert.close();
+			}
+		});
+  }
   
   onSubmit(){
     console.log(this.checkoutForm.value)
@@ -203,6 +388,11 @@ export class CrearAlmacenComponent implements OnInit {
       this.bool2 = true;
     }
   }
+
+
+
+
+
 
   open(content: any) {
     this.modalService
