@@ -22,6 +22,20 @@ export class DataserviceService {
     return this.http.put(this.url + 'actualizar-almacen/'+id,value)
   }
 
+    // REMITENTE
+  saveRemitente(value){
+    return this.http.post(this.url + 'save-remitente', value)
+  }
+  ListarRemitente(){
+    return this.http.get(this.url + 'listar-remitente')
+  }
+  EliminarRemitente(id:string){
+    return this.http.delete(this.url + 'delete-remitente/'+id)
+  }
+  ActualizarRemitente(id:string,value){
+    return this.http.put(this.url + 'actualizar-remitente/'+id,value)
+  }
+
 
   saveEmpresa(value){
     return this.http.post(this.url + 'save-empresa', value)

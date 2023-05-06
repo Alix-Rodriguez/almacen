@@ -40,6 +40,8 @@ import { LocalidadQAComponent } from './pages/almacen/localidad-qa/localidad-qa.
 import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
 import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
 import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
+import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
+import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
 
 
 const routes: Routes = [
@@ -80,7 +82,8 @@ const routes: Routes = [
       { path: 'listar-cliente', component: ListarClienteComponent},
       { path: 'listar-almacen', component: ListarAlmacenComponent},
       { path: 'config-lote', component: ConfiguracionLoteComponent},
-
+      { path: 'remitente', component: RemitenteComponent},
+      { path: 'listar-remitente', component: ListarRemitenteComponent},
 
 
 

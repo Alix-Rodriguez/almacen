@@ -1,0 +1,214 @@
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type="{{ type }}" (closed)="successMessage = ''">{{ successMessage
+    }}</ngb-alert>
+<div class="container-fluid">
+    <div class="d-sm-flex bd-highlight mb-5">
+        <input placeholder="Buscar" name="filterR" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+            [(ngModel)]="filterR">
+        <!-- <button type="button" class=" btn btn-dark col-2 p-2 bd-highlight">Buscar</button> -->
+    </div>
+
+    <div *ngIf="siguiente">
+
+        <table class="table table-bordered table-striped  table-hover ">
+            <thead>
+                <tr>
+                    <th scope="col">Empresa</th>
+                    <th scope="col">Almacen</th>
+                    <th scope="col">Calle</th>
+                    <th scope="col">Número Exterior</th>
+                    <th scope="col">Telefono</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <!--  -->
+                <tr *ngFor="let pos of remitente | filterR:filterR">
+
+                    <td>{{pos.empresa}} </td>
+                    <td>{{pos.almacen}} </td>
+                    <td>{{pos.calle}} </td>
+                    <td>{{pos.numero_externo}} </td>
+                    <td>{{pos.telefono}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end mt-4 ml-1">
+
+            <button (click)="siguientePagina()" type="button" class=" btn btn-dark col-2">Siguiente</button>
+        </div>
+    </div>
+
+
+    <!-- TABLA SIGUIENTE  -->
+    <div *ngIf="!siguiente">
+
+        <table class="table table-bordered table-striped table-hover ">
+            <thead>
+                <tr>
+                    <th scope="col">Número Interno</th>
+                    <th scope="col">Delegación</th>
+                    <th scope="col">Colonía</th>
+                    <th scope="col">Codigo Postal</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">RFC</th>
+                    <th scope="col">Acciones</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pos of remitente | filterR:filterR">
+                    <td>{{pos.numero_interno}} </td>
+                    <td>{{pos.delegacion}} </td>
+                    <td>{{pos.colonia}} </td>
+                    <td>{{pos.codigo_postal}} </td>
+                    <td>{{pos.email}} </td>
+                    <td>{{pos.rfc}}</td>
+                    <td>
+                        <button class=" btn btn-warning padding" (click)="ListarForm(pos.id)"
+                            (click)="open(mymodalMODI)"></button>
+                        <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+                        <ng-template #mymodal let-modal>
+                            <div style="margin:auto 12%;" class="modal-header">
+                                <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+                                    eliminar el cliente?</h4>
+                            </div>
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button type="button" class="btn btn-outline-dark" (click)="Eliminar(pos.id)"
+                                    (click)="modal.close('Save click')">Aceptar</button>
+                            </div>
+                        </ng-template>
+
+                        <!-- (click)="Eliminar(list.id)" -->
+                        <!--MODAL DE MODIFICAR -->
+                        <ng-template #mymodalMODI let-modal>
+                            <div class="modal-header">
+                                <h4 id="modal-basic-title">Modificar Datos Clientes</h4>
+                            </div>
+                            <div class="container">
+                                <form class="container-fluid pr-5" [formGroup]='checkoutForm'>
+                                    <!-- GRID -->
+                                    <div class="row mt-4 mb-5">
+                                        <div class="col">
+                                            <label class="d-block">Empresa</label>
+                                            <select formControlName="empresa" name="empresa" id="empresa"
+                                                class="col mt-2 pl-2 form-select">
+                                                <option value="" disabled selected>Seleccione</option>
+                                                <option *ngFor="let li of empresa">{{li.nombre_empresa}} </option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label class="d-block">Almacen</label>
+                                            <select class="col form-select mt-2 pl-2" formControlName="almacen"
+                                                name="almacen" id="almacen">
+                                                <option value="" disabled selected>Seleccione</option>
+                                                <option *ngFor="let li of almacen">{{li.nombre}} </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="container mt-5">
+                                        <h4 class="border-bottom border-dark  mb-5">Dirección Remitente</h4>
+                                        <div class="row">
+                                            <label class="col-2 text-end form-label">Calle:</label>
+                                            <div class="col-4">
+                                                <input formControlName="calle" name="calle" id="calle"
+                                                    placeholder="Ingrese Calle" type="text" class="form-control">
+                                            </div>
+                                            <label class="col-2  text-center form-label">Nro.E:</label>
+                                            <div class="col-4">
+                                                <input id="numero_exterior" formControlName="numero_externo"
+                                                    name="numero_externo" placeholder="Ingrese Nro.Exterior" type="text"
+                                                    class=" form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <label class="col-2 text-end  form-label">Nro.I:</label>
+                                            <div class="col-4">
+                                                <input id="numero_interno" formControlName="numero_interno"
+                                                    name="numero_interno" placeholder="Ingrese Nro.Interno" type="text"
+                                                    class="form-control">
+                                            </div>
+                                            <label class="col-2 text-end form-label">Delegación:</label>
+                                            <div class="col-4">
+                                                <select id="delegacion" (change)="onChange($event.target.value)"
+                                                    formControlName="delegacion" name="delegacion" class="form-select">
+                                                    <option value="" disabled selected>Seleccione</option>
+                                                    <option value={{dl.code_delegacion}}
+                                                        *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <label class="col-2 text-center form-label">Colonia:</label>
+                                            <div class="col-4">
+                                                <select formControlName="colonia" id="colonia" name="colonia"
+                                                    class="form-select">
+                                                    <option value="" disabled selected>Seleccione</option>
+                                                    <option *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                                                </select>
+                                            </div>
+                                            <label class="col-2 text-center form-label">C.P:</label>
+                                            <div class="col-4">
+                                                <input formControlName="codigo_postal" id="codigo_postal"
+                                                    name="codigo_postal" placeholder="Ingrese Codigo Postal" type="text"
+                                                    class=" form-control">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row mt-3">
+                                            <label class="col-2 text-end form-label">Telefono:</label>
+                                            <div class="col-4">
+                                                <input formControlName="telefono" id="telefono"
+                                                    name="telefono placeholder=" placeholder="Ingrese Telefono"
+                                                    type="text" class="form-control">
+                                            </div>
+                                            <label class="col-2  text-center form-label">Email:</label>
+                                            <div class="col-4">
+                                                <input formControlName="email" name="email" id="email" type="text"
+                                                    placeholder="Ingrese Email" class=" form-control">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <label class="col-2  text-end  form-label">RFC</label>
+                                            <div class="col-4">
+                                                <input formControlName="rfc" name="rfc" id="rfc" type="text"
+                                                    placeholder="Ingrese RFC" class=" form-control">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="d-flex justify-content-center ml-5 modal-body">
+                                <button type="button" class="mr-3 btn btn-outline-dark"
+                                    (click)="modal.close('Save click')">Cancelar</button>
+                                <button type="button" class="btn btn-outline-dark" (click)="update(pos.id)"
+                                    (click)="modal.close('Save click')">Guardar</button>
+                            </div>
+                        </ng-template>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="d-flex justify-content-end mt-4 ml-1">
+
+            <button (click)="Volver()" type="button" class=" btn btn-dark col-2">Volver</button>
+        </div>
+    </div>
+</div>

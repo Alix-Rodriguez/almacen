@@ -55,6 +55,9 @@ import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/
 import { FilterConfPipe } from './pipes/filter-conf.pipe';
 import { FilterUMPipe } from './pipes/filter-um.pipe';
 import { PipeCCPipe } from './pages/pipe-cc.pipe';
+import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
+import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
+import { FilterRPipe } from './pipes/filter-r.pipe';
 
 @NgModule({
   declarations: [
@@ -108,6 +111,9 @@ import { PipeCCPipe } from './pages/pipe-cc.pipe';
     FilterConfPipe,
     FilterUMPipe,
     PipeCCPipe,
+    RemitenteComponent,
+    ListarRemitenteComponent,
+    FilterRPipe,
   
   ],
   imports: [
