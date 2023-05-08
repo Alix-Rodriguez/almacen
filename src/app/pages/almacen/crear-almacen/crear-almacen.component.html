@@ -155,8 +155,9 @@
             <div class="col-3">
                 <label>Zona:</label>
                 <svg (click)="open(ZONA)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="svg bi bi-dash-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                    class="svg bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
                 <select class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
                     <option value="" disabled selected>Seleccione</option>
@@ -166,8 +167,9 @@
             <div class="col-3">
                 <label>Rack:</label>
                 <svg (click)="open(RACK)" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
-                    class="svg  bi bi-dash-circle-fill" viewBox="0 0 16 16">
-                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1h-7z" />
+                    class="svg  bi bi-plus-circle-fill" viewBox="0 0 16 16">
+                    <path
+                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
                 <select class="form-select" formControlName="usa_rack" name="usa_rack" id="usa_rack">
                     <option value="" disabled selected>Seleccione</option>
@@ -207,22 +209,18 @@
 
         <div class="mt-5 bg-light">
             <ul>
-                <li><i (click)="Onzona()" *ngIf="zonaB" class="btn btn-primary" data-toggle="collapse" href="#zona"
+                <li><i   class="btn btn-primary" data-toggle="collapse" href="#zona"
                         role="button" aria-expanded="false" aria-controls="collapseExample"
                         class="bi bi-plus-circle-fill"></i>
-                    <i *ngIf="!zonaB" (click)="Onzona()" class="btn btn-primary" type="button" data-toggle="collapse"
-                        data-target="#zona" aria-expanded="false" aria-controls="collapseExample"
-                        class="bi bi-dash-circle-fill"></i>
+                  
                     Layout
                 </li>
 
                 <ul class="collapse" id="zona">
-                    <li> <i (click)="Onrack()" *ngIf="rackB" class="btn btn-primary" data-toggle="collapse" href="#rack"
+                    <li> <i   class="btn btn-primary" data-toggle="collapse" href="#rack"
                             role="button" aria-expanded="false" aria-controls="collapseExample"
                             class="bi bi-plus-circle-fill"></i>
-                        <i *ngIf="!rackB" (click)="Onrack()" class="btn btn-primary" type="button"
-                            data-toggle="collapse" data-target="#rack" aria-expanded="false"
-                            aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                  
                         Zona
                     </li>
                     <li *ngFor="let li of zona" class="pl-5">
@@ -230,12 +228,10 @@
                     </li>
 
                     <ul class="collapse" id="rack">
-                        <li> <i (click)="Onnivel()" *ngIf="nivelB" class="btn btn-primary" data-toggle="collapse"
+                        <li> <i   class="btn btn-primary" data-toggle="collapse"
                                 href="#nivel" role="button" aria-expanded="false" aria-controls="collapseExample"
                                 class="bi bi-plus-circle-fill"></i>
-                            <i *ngIf="!nivelB" (click)="Onnivel()" class="btn btn-primary" type="button"
-                                data-toggle="collapse" data-target="#nivel" aria-expanded="false"
-                                aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                            
                             Rack
                         </li>
                         <li *ngFor="let li of rack" class="pl-5">
@@ -243,12 +239,10 @@
                         </li>
 
                         <ul class="collapse" id="nivel">
-                            <li> <i (click)="Onlocalidad()" *ngIf="localidadB" class="btn btn-primary"
+                            <li> <i   class="btn btn-primary"
                                     data-toggle="collapse" href="#localidad" role="button" aria-expanded="false"
                                     aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
-                                <i *ngIf="!localidadB" (click)="Onlocalidad()" class="btn btn-primary" type="button"
-                                    data-toggle="collapse" data-target="#localidad" aria-expanded="false"
-                                    aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                             
                                 Nivel
                             </li>
                             <li *ngFor="let li of nivel" class="pl-5">
@@ -256,12 +250,10 @@
                             </li>
 
                             <ul class="collapse" id="localidad">
-                                <li> <i (click)="Onlocal()" *ngIf="localB" class="btn btn-primary"
+                                <li> <i (click)="Onlocal()"  class="btn btn-primary"
                                         data-toggle="collapse" href="#local" role="button" aria-expanded="false"
                                         aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
-                                    <i *ngIf="!localB" (click)="Onlocal()" class="btn btn-primary" type="button"
-                                        data-toggle="collapse" data-target="#local" aria-expanded="false"
-                                        aria-controls="collapseExample" class="bi bi-dash-circle-fill"></i>
+                              
                                     Localidad
                                 </li>
                                 <ul class="collapse" id="local">

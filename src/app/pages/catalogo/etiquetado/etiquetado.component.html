@@ -3,18 +3,18 @@
     <!-- PARTE SUPERIOR -->
     <div class="d-flex flex-column">
         <div class="row">
-            <label  class="col-12 form-label">Nombre</label>
+            <label class="col-12 form-label">Nombre</label>
             <div class="col-3">
-                <input type="text" placeholder="Ingrese Nombre" class=" form-control">
+                <input type="text" placeholder="Ingrese Nombre" [(ngModel)]="Nombre_empresa" class=" form-control">
             </div>
         </div>
-        <div class="mt-3">
-            <label  class="col-3 form-label">Archivos de imagenes</label>
+        <div class="mt-5">
+            <label class="form-label">Archivos de imagenes</label>
             <div class="row">
-                <div class="mr-3 col-3">
-                    <input type="text" placeholder="Ingrese Archivos de imagenes" class="form-control">
+                <div class="mb-3 col-5">
+                    <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
                 </div>
-                <button type="button" class="col-2 mt-1 btn btn-dark">Guardar</button>
+                <!-- <button type="button" class="col-2 mt-1 btn btn-dark">Guardar</button> -->
             </div>
         </div>
         <div class="pl-2 row mt-5">
@@ -61,9 +61,13 @@
             </div>
         </div>
 
-        <!-- DIV 2 -->
-        <div class="col-6 bg-light-danger">
-            <h1>Vista previa de la etiqueta</h1>
+        <!-- DIV 2 *ngIf="previsualizacion" [src]="previsualizacion"-->
+        <div  class="col-6 bg-light">
+            <div class="pb-4 pt-4 mt-3">
+                <h4 class="text-center">{{Nombre_empresa}}</h4>
+                <!-- IMAGEN PREVIA -->
+                <img *ngIf="previsualizacion" height="200px" class="ml-5 w-75" [src]="previsualizacion"   alt="imagen de previsualizacion">
+            </div>
         </div>
     </div>
 
