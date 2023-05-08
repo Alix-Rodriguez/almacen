@@ -18,6 +18,7 @@ export class CrearAlmacenComponent implements OnInit {
   colonias: any;
   empresa: any;
   checkoutForm!: FormGroup;
+  checkoutFormRemitente!:FormGroup;
   formZona: FormGroup;
   formRack: FormGroup;
   formNivel: FormGroup;
@@ -42,7 +43,7 @@ export class CrearAlmacenComponent implements OnInit {
   nivelB: Boolean=true
   localidadB: Boolean=true
   localB: Boolean=true
-  
+  almacen:any
   Onzona(){
     this.zonaB= !this.zonaB;
   }
@@ -67,11 +68,21 @@ export class CrearAlmacenComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
+  Listaralmacen() {
+    this.dataService.ListarALmacen()
+      .subscribe(resp => {
+        this.almacen = resp['data'];
+        console.log(this.almacen)
+      })
+  }
+
   ngOnInit(): void {
+    this.Listaralmacen()
     this.getDelegacion();
     this.getListEmpresa();
     this.formZona = this.initFormZ();
     this.checkoutForm = this.initForm();
+    this.checkoutFormRemitente=this.initFormRemitente()
     this.formNivel=this.initFormN()
     this.formRack=this.initFormR()
     this.formLocalidad=this.initFormL()
@@ -83,6 +94,47 @@ export class CrearAlmacenComponent implements OnInit {
     this.Listlocalidad()
   }
 
+  // REMITENTEN
+  initFormRemitente(): FormGroup {
+    return this.fb.group({
+      calle: ["", [Validators.required]],
+      numero_interno: ["", [Validators.required]],
+      numero_externo: ["", [Validators.required]],
+      colonia: ["", [Validators.required]],
+      delegacion: ["", [Validators.required]],
+      codigo_postal: ["", [Validators.required]],
+      telefono: ["", [Validators.required]],
+      email: ["", [Validators.required]],
+      rfc: ["", [Validators.required]],
+      almacen: ["", [Validators.required]],
+      empresa: ["", [Validators.required]],
+    });
+  }
+
+  onSubmitRemitente() {
+    console.log(this.checkoutFormRemitente.value)
+    this.dataService.saveRemitente(this.checkoutFormRemitente.value)
+      .subscribe(resp => {
+        console.log(resp)
+        this.respuesta = resp;
+        this.type = "success";
+        this.changeSuccessMessage(this.respuesta.msn)
+        this.ngOnInit();
+
+      },
+        error => {
+          this.type = "danger";
+          this.changeSuccessMessage('Error no se ha guardado correctamente')
+        })
+
+    this._success.subscribe((message) => (this.successMessage = message));
+    this._success.pipe(debounceTime(5000)).subscribe(() => {
+      if (this.selfClosingAlert) {
+        this.selfClosingAlert.close();
+      }
+    });
+
+  }
   
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
 	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;

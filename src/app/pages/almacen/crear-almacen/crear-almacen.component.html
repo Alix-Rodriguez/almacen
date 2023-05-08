@@ -285,64 +285,111 @@
             <div class="modal-header">
                 <div class="column">
                     <h2 class="modal-title" id="modal-basic-title">Remitente De Almacen</h2>
-                    <h5 class="mt-4">Empresa:</h5>
-                    <h5 class="mt-4">Almacen:</h5>
+                   
                 </div>
             </div>
             <div class="modal-body column container-fluid">
-                <h3>Dirección Remitente</h3>
-                <div class="row">
-                    <label class="col-5 form-label">Calle:</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Numero Exterior:</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Numero Interno:</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Colonia:</label>
-                    <select class="col-6 form-select">
-                        <option value="" disabled selected>Make a selection</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Delegación:</label>
-                    <select class="col-6 form-select">
-                        <option value="" disabled selected>Make a selection</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
-                    </select>
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Codigo Postal</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Telefono</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">Email</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
-                <div class="row mt-1">
-                    <label class="col-5 form-label">RFC</label>
-                    <input type="text" class="col-6 form-control">
-                </div>
+             
+                <form [formGroup]='checkoutFormRemitente'>
+                    <div class="container">
+                        <div class="row mt-4 mb-5">
+                            <div class="col">
+                                <label class="d-block">Empresa</label>
+                                <select formControlName="empresa" name="empresa" id="empresa" class="col mt-2 pl-2 form-select">
+                                    <option value="" disabled selected>Seleccione</option>
+                                    <option *ngFor="let li of empresa">{{li.nombre_empresa}} </option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label class="d-block">Almacen</label>
+                                <select class="col form-select mt-2 pl-2" formControlName="almacen" name="almacen" id="almacen">
+                                    <option value="" disabled selected>Seleccione</option>
+                                    <option *ngFor="let li of almacen">{{li.nombre}} </option>
+                
+                                </select>
+                            </div>
+                        </div>
+                
+                        <div class="container mt-5">
+                            <h4 class="border-bottom border-dark  mb-5">Dirección Remitente</h4>
+                            <div class="row">
+                                <label class="col-2 text-end form-label">Calle:</label>
+                                <div class="col-4">
+                                    <input formControlName="calle" name="calle" id="calle" placeholder="Ingrese Calle" type="text"
+                                        class="form-control">
+                                </div>
+                                <label class="col-2  text-center form-label">Nro.E:</label>
+                                <div class="col-4">
+                                    <input id="numero_exterior" formControlName="numero_externo" name="numero_externo"
+                                        placeholder="Ingrese Nro.Exterior" type="text" class=" form-control">
+                                </div>
+                            </div>
+                
+                            <div class="row mt-3">
+                                <label class="col-2 text-end  form-label">Nro.I:</label>
+                                <div class="col-4">
+                                    <input id="numero_interno" formControlName="numero_interno" name="numero_interno"
+                                        placeholder="Ingrese Nro.Interno" type="text" class="form-control">
+                                </div>
+                                <label class="col-2 text-end form-label">Delegación:</label>
+                                <div class="col-4">
+                                    <select id="delegacion" (change)="onChange($event.target.value)" formControlName="delegacion"
+                                        name="delegacion" class="form-select">
+                                        <option value="" disabled selected>Seleccione</option>
+                                        <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}}
+                                        </option>
+                
+                                    </select>
+                                </div>
+                            </div>
+                
+                            <div class="row mt-3">
+                                <label class="col-2 text-center form-label">Colonia:</label>
+                                <div class="col-4">
+                                    <select formControlName="colonia" id="colonia" name="colonia" class="form-select">
+                                        <option value="" disabled selected>Seleccione</option>
+                                        <option *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                                    </select>
+                                </div>
+                                <label class="col-2 text-center form-label">C.P:</label>
+                                <div class="col-4">
+                                    <input formControlName="codigo_postal" id="codigo_postal" name="codigo_postal"
+                                        placeholder="Ingrese Codigo Postal" type="text" class=" form-control">
+                                </div>
+                            </div>
+                
+                
+                            <div class="row mt-3">
+                                <label class="col-2 text-end form-label">Telefono:</label>
+                                <div class="col-4">
+                                    <input formControlName="telefono" id="telefono" name="telefono placeholder="
+                                        placeholder="Ingrese Telefono" type="text" class="form-control">
+                                </div>
+                                <label class="col-2  text-center form-label">Email:</label>
+                                <div class="col-4">
+                                    <input formControlName="email" name="email" id="email" type="text" placeholder="Ingrese Email"
+                                        class=" form-control">
+                                </div>
+                            </div>
+                
+                            <div class="row mt-3">
+                                <label class="col-2  text-end  form-label">RFC</label>
+                                <div class="col-4">
+                                    <input formControlName="rfc" name="rfc" id="rfc" type="text" placeholder="Ingrese RFC"
+                                        class=" form-control">
+                                </div>
+                            </div>
+                
+                        </div>
+                    </div>
+                  
+                </form>
 
             </div>
             <div class="d-flex justify-content-end mt-4 ml-1 mr-2">
                 <button (click)="modal.close('Save click')" type="button"
                     class=" btn text-dark col-2 border-dark mr-2 ">Cancelar</button>
-                <button (click)="modal.close('Save click')" type="button" class="col btn btn-dark">Guardar</button>
+                <button (click)="modal.close('Save click')" (click)="onSubmitRemitente()" [disabled]="checkoutFormRemitente.invalid" type="button" class="col-2 btn btn-dark">Guardar</button>
             </div>
         </ng-template>
 
