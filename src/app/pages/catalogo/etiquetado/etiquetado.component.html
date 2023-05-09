@@ -1,18 +1,20 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
+<form [formGroup]='checkoutForm'>
 <div class="container-fluid">
     <!-- PARTE SUPERIOR -->
     <div class="d-flex flex-column">
         <div class="row">
             <label class="col-12 form-label">Nombre</label>
             <div class="col-3">
-                <input type="text" placeholder="Ingrese Nombre" [(ngModel)]="Nombre_empresa" class=" form-control">
+                <input  formControlName="nombre" id="nombre" name="nombre" type="text" placeholder="Ingrese Nombre" [(ngModel)]="Nombre_empresa" class=" form-control">
             </div>
         </div>
         <div class="mt-5">
             <label class="form-label">Archivos de imagenes</label>
             <div class="row">
                 <div class="mb-3 col-5">
-                    <input (change)="capturarFile($event)" class="form-control" type="file" id="formFile">
+                    <input formControlName="archivo_img" id="archivo_img"  name="archivo_img" (change)="capturarFile($event)" class="form-control" type="file" >
                 </div>
                 <!-- <button type="button" class="col-2 mt-1 btn btn-dark">Guardar</button> -->
             </div>
@@ -20,11 +22,11 @@
         <div class="pl-2 row mt-5">
             <label class="col-1 control-label">Status</label>
             <div class="col-3">
-                <select class="form-select ">
+                <select formControlName="status" name="status" id="status" class="form-select ">
                     <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="1">Activo</option>
+                    <option value="2">Inactivo</option>
+
                 </select>
             </div>
         </div>
@@ -35,17 +37,8 @@
         <div class="col-6">
             <h4 class="pl-3 border-bottom border-dark">Configuración</h4>
             <div class="pl-2 row mt-3">
-                <label class="col-3 control-label">Status</label>
-                <select class="form-select">
-                    <option value="" disabled selected>Make a selection</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-            </div>
-            <div class="pl-2 row mt-3">
                 <label class="col-3 control-label">Sistema</label>
-                <select class="form-select">
+                <select formControlName="sistema" name="sistema" id="sistema" class="form-select">
                     <option value="" disabled selected>Make a selection</option>
                     <option value="1">Option 1</option>
                     <option value="2">Option 2</option>
@@ -55,9 +48,9 @@
             <div class="row mt-4 ml-3">
                 <label class="col-3 contorl-label" for="radio">Impresión</label>
                 <div class="col-3">
-                    <input type="radio" id="radio">
+                    <input formControlName="impresion" name="impresion" id="impresion" type="radio" >
                 </div>
-                <button type="button" class="col-4 btn btn-dark">Guardar</button>
+                <button  type="button" (click)="onSubmit()" [disabled]="checkoutForm.invalid" class="col-4 btn btn-dark">Guardar</button>
             </div>
         </div>
 
@@ -100,8 +93,9 @@
             </tbody>
         </table>
     </div>
-    <div class="d-flex justify-content-end mt-5 ml-1">
+    <!-- <div class="d-flex justify-content-end mt-5 ml-1">
         <button type="button" class=" btn btn-dark col-2 mr-3">Agregar</button>
         <button type="button" class="btn border-bottom border-dark col-2 mr-2">Cancelar</button>
-    </div>
+    </div> -->
 </div>
+</form>

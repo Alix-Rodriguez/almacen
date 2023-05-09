@@ -212,60 +212,50 @@
                 <li><i   class="btn btn-primary" data-toggle="collapse" href="#zona"
                         role="button" aria-expanded="false" aria-controls="collapseExample"
                         class="bi bi-plus-circle-fill"></i>
-                  
                     Layout
                 </li>
 
-                <ul class="collapse" id="zona">
-                    <li> <i   class="btn btn-primary" data-toggle="collapse" href="#rack"
+                <ul class="collapse" id="zona" >
+                    <li  *ngFor="let li of zona" > <i class="btn btn-primary" data-toggle="collapse" href="#rack"  
                             role="button" aria-expanded="false" aria-controls="collapseExample"
                             class="bi bi-plus-circle-fill"></i>
-                  
-                        Zona
-                    </li>
-                    <li *ngFor="let li of zona" class="pl-5">
-                        {{li.descripcion}}
-                    </li>
-
-                    <ul class="collapse" id="rack">
-                        <li> <i   class="btn btn-primary" data-toggle="collapse"
-                                href="#nivel" role="button" aria-expanded="false" aria-controls="collapseExample"
-                                class="bi bi-plus-circle-fill"></i>
-                            
-                            Rack
-                        </li>
-                        <li *ngFor="let li of rack" class="pl-5">
                             {{li.descripcion}}
-                        </li>
-
-                        <ul class="collapse" id="nivel">
-                            <li> <i   class="btn btn-primary"
-                                    data-toggle="collapse" href="#localidad" role="button" aria-expanded="false"
-                                    aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
-                             
-                                Nivel
+                  
+                    
+                        <ul class="collapse" id="rack">
+                            <li *ngFor="let li of rack"> <i   class="btn btn-primary" data-toggle="collapse"
+                                    href="#nivel" role="button" aria-expanded="false" aria-controls="collapseExample"
+                                    class="bi bi-plus-circle-fill"></i>
+                                    {{li.descripcion}}
+                                
+                        
                             </li>
-                            <li *ngFor="let li of nivel" class="pl-5">
-                                {{li.descripcion}}
-                            </li>
-
-                            <ul class="collapse" id="localidad">
-                                <li> <i (click)="Onlocal()"  class="btn btn-primary"
-                                        data-toggle="collapse" href="#local" role="button" aria-expanded="false"
+                         
+    
+                            <ul class="collapse" id="nivel">
+                                <li *ngFor="let li of nivel"> <i   class="btn btn-primary"
+                                        data-toggle="collapse" href="#localidad" role="button" aria-expanded="false"
                                         aria-controls="collapseExample" class="bi bi-plus-circle-fill"></i>
-                              
-                                    Localidad
+                                 
+                             
+                                    {{li.descripcion}}
                                 </li>
-                                <ul class="collapse" id="local">
-                                    <li *ngFor="let li of localidad" class="pl-5">
-                                        {{li.descripcion}}
+                           
+    
+                                <ul class="collapse" id="localidad">
+                                    <li *ngFor="let li of localidad"> 
+                                    
+                                            {{li.descripcion}}
+                                       
                                     </li>
+                                   
+    
+    
                                 </ul>
-
-
                             </ul>
                         </ul>
-                    </ul>
+                    </li>
+
                 </ul>
             </ul>
         </div>

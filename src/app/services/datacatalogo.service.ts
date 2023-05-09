@@ -115,7 +115,6 @@ export class DataCatalogoService {
   }
 
   // PRODUCTO
-  // CONFIGURACION LOTE
 
   SaveProducto(value) {
     return this.http.post(this.url + "save-producto", value);
@@ -128,5 +127,21 @@ export class DataCatalogoService {
   }
   ActualizarProducto(id: string, value) {
     return this.http.put(this.url + "actualizar-producto/" + id, value);
+  }
+
+  
+  // PRODUCTO
+
+  SaveEtiquetado(value) {
+    return this.http.post(this.url + "save-etiquetado", value);
+  }
+  ListarEtiquetado() {
+    return this.http.get(this.url + "listar-Etiquetado");
+  }
+  EliminarEtiquetado(id: string) {
+    return this.http.delete(this.url + "delete-Etiquetado/" + id);
+  }
+  ActualizarEtiquetado(id: string, value) {
+    return this.http.put(this.url + "actualizar-Etiquetado/" + id, value);
   }
 }

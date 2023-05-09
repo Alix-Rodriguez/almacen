@@ -44,6 +44,7 @@ export class CrearAlmacenComponent implements OnInit {
   localidadB: Boolean=true
   localB: Boolean=true
   almacen:any
+  hola:any="#rack"
   Onzona(){
     this.zonaB= !this.zonaB;
   }
