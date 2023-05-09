@@ -26,11 +26,11 @@
                 </div>
                 <label class="col-3 form-label">Caducidad</label>
                 <div class="col-1">
-                    <input formControlName="caducidad" name="caducidad" id="caducidad" type="text"
-                        class=" mr-1 form-control">
+                    <input (click)="Dias()" formControlName="caducidad" name="caducidad" id="caducidad" type="checkbox"
+                        class="mr-1">
                 </div>
                 <div class="col-1">
-                    <input formControlName="caducidad1" name="caducidad1" id="caducidad1" type="text"
+                    <input #dias disabled formControlName="caducidad1" name="caducidad1" id="caducidad1" type="text"
                         class=" form-control">
                 </div>
                 <label class="col text-start form-label">Dias</label>
@@ -45,7 +45,7 @@
                 <label class="col-5 form-label">Requiere inspeccion de Calidad</label>
                 <div class="col-1">
                     <input formControlName="requiere_inspeccion_calidad" name="requiere_inspeccion_calidad"
-                        id="requiere_inspeccion_calidad" type="text" class=" form-control">
+                        id="requiere_inspeccion_calidad" type="checkbox" >
                 </div>
             </div>
             <div class="row mt-2">
@@ -57,7 +57,7 @@
                 <label class="col-5 form-label">Requiere fecha caducidad</label>
                 <div class="col-1">
                     <input formControlName="requiere_fecha_cadu" name="requiere_fecha_cadu" id="requiere_fecha_cadu"
-                        type="text" class=" form-control">
+                    type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
@@ -88,8 +88,7 @@
                 </div>
                 <label class="col-5 form-label">Requiere lote</label>
                 <div class="col-1">
-                    <input formControlName="requiere_lote" name="requiere_lote" id="requiere_lote" type="text"
-                        class=" form-control">
+                    <input formControlName="requiere_lote" name="requiere_lote" id="requiere_lote" type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
@@ -100,21 +99,20 @@
                 </div>
                 <label class="col-7 text-center   form-label">Lote Compuesto</label>
                 <div class="col-1">
-                    <input formControlName="lote_compuesto" name="lote_compuesto" id="lote_compuesto" type="text"
-                        class=" form-control">
+                    <input (click)="SELECT()" formControlName="lote_compuesto" name="lote_compuesto" id="lote_compuesto" type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Sobreo Bajo Surtimiento</label>
                 <div class="col-1">
-                    <input formControlName="sobresurtimiento" name="sobresurtimiento" id="sobresurtimiento" type="text"
+                    <input   formControlName="sobresurtimiento" name="sobresurtimiento" id="sobresurtimiento" type="text"
                         class=" form-control">
                 </div>
                 <label class="col-5 mt-2 text-end pr-5 form-label">Configuración lote</label>
                 <div class="col-3">
-                    <select formControlName="id_config_lote" name="id_config_lote" id="id_config_lote"
+                    <select #select disabled formControlName="id_config_lote" name="id_config_lote" id="id_config_lote"
                         class="form-select">
-                        <option value="" disabled selected>Seleccione</option>
+                        <option  value="" disabled selected>Seleccione</option>
                         <option *ngFor="let li of config" value={{li.id}}>{{li.descripcion}} </option>
                     </select>
                 </div>

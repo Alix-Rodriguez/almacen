@@ -1,10 +1,11 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { DataserviceService } from "../../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 import { ModalDismissReasons, NgbAlert, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
+import { style } from "@angular/animations";
 
 
 @Component({
@@ -25,18 +26,39 @@ export class CatalogoDeProductosComponent implements OnInit {
 	successMessage = '';
   type:any;
   respuesta:any;
-
+  lote: boolean = true
+  
+  
   constructor(
     private readonly fb: FormBuilder, 
     private dataService: DataserviceService,
     private DateCatalogo: DataCatalogoService,
-    private modalService: NgbModal
-  ) {}
-
-  @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
-	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
-
-
+    private modalService: NgbModal,
+    private render2 : Renderer2
+    ) {}
+    
+    @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
+    @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
+    @ViewChild('select') Select!: ElementRef;
+    @ViewChild('dias') dias!: ElementRef;
+    
+    Dias(){
+      const dia = this.dias.nativeElement
+      if(dia.disabled===false){
+        this.render2.setAttribute(dia,'disabled','') 
+      } else {
+        this.render2.removeAttribute(dia,'disabled','') 
+      }
+    }
+    SELECT(){
+      const select = this.Select.nativeElement
+      if(select.disabled===false){
+        this.render2.setAttribute(select,'disabled','') 
+      } else {
+        this.render2.removeAttribute(select,'disabled','') 
+      }
+      
+    }
  
   Listar(){
     this.dataService.getListEmpresa()
