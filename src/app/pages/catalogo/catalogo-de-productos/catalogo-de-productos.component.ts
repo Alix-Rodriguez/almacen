@@ -27,8 +27,12 @@ export class CatalogoDeProductosComponent implements OnInit {
   type:any;
   respuesta:any;
   lote: boolean = true
-  
-  
+  bg:boolean=false
+  catalogo:any
+
+  ColorS(){
+    this.bg= !this.bg
+  }
   constructor(
     private readonly fb: FormBuilder, 
     private dataService: DataserviceService,
@@ -77,6 +81,10 @@ export class CatalogoDeProductosComponent implements OnInit {
     this.dataService.ListarLineaP()
     .subscribe(resp =>{
       this.lineaP= resp['data']
+    })
+    this.DateCatalogo.ListarProducto().subscribe(resp=>{
+      this.catalogo=resp['data']
+      console.log(this.catalogo);
     })
     }
 

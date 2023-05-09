@@ -136,7 +136,7 @@ export class DataCatalogoService {
     return this.http.post(this.url + "save-etiquetado", value);
   }
   ListarEtiquetado() {
-    return this.http.get(this.url + "listar-Etiquetado");
+    return this.http.get(this.url + "listar-etiquetado");
   }
   EliminarEtiquetado(id: string) {
     return this.http.delete(this.url + "delete-Etiquetado/" + id);

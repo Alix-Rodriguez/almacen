@@ -54,15 +54,15 @@ export class EtiquetadoComponent implements OnInit {
   // FUNCIONES APIS
   onSubmit() {
     // this.checkoutForm.value.archivo_img=this.previsualizacion;
-    console.log(this.checkoutForm.value.archivo_img);
-    const formularioDeDatos = new FormData();
-    this.archivos.forEach(archivo => {
-      formularioDeDatos.append('archivo_img', archivo)
-      console.log(archivo);
-      
-    })
+    // const formularioDeDatos = new FormData();
+    // this.archivos.forEach(archivo => {
+    //   formularioDeDatos.append('archivo_img', archivo)
     
-    // console.log(this.checkoutForm.value.archivo_img);
+    // })
+    // console.log(this.previsualizacion);
+    console.log(this.archivos);
+    this.checkoutForm.value.archivo_img=this.previsualizacion
+    console.log("al back" , this.checkoutForm.value.archivo_img);
 
     this.dataCatalogo.SaveEtiquetado(this.checkoutForm.value).subscribe((resp) => {
         console.log(resp);
@@ -92,10 +92,12 @@ export class EtiquetadoComponent implements OnInit {
 // PREVISUALIZACION DE IMAGEN
   capturarFile(event): any {
     const archivoCapturado = event.target.files[0]
-    this.extraerBase64(archivoCapturado).then((imagen:any)=>{
-      this.previsualizacion = imagen.base;
-      console.log(imagen);
-    })
+    console.log(archivoCapturado);
+                 
+     this.extraerBase64(archivoCapturado).then((imagen:any)=>{
+       this.previsualizacion = imagen.base;
+       console.log(imagen);
+     })
     this.archivos.push(archivoCapturado)
   }
 

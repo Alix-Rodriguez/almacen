@@ -199,16 +199,18 @@
                         PROVEEDORES</button>
 
 
-                    <!-- sku COMPUESTO -->
+                    <!-- Kiting -->
                     <ng-template #mymodalCom let-modal>
                         <div class="modal-header">
-                            <h4 id="modal-basic-title">SKU COMPUESTO</h4>
+                            <h4 id="modal-basic-title">Kiting</h4>
                         </div>
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-4">
                                     <!-- <h1>hola</h1> -->
                                     <h6 class="text-center">Disponibles</h6>
+                                    <p  *ngFor="let li of catalogo" style="cursor: pointer;"  class="text-center" (click)="ColorS()"  [ngClass]="{'bg-danger':bg}" >
+                                        {{li.descripcion}} </p>
                                 </div>
                                 <div class="row  col-4">
                                     <button class="btn col-12 mt-4 border-dark b-1">Agregar</button>
