@@ -42,6 +42,7 @@ import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-al
 import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
 import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
 import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
+import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
 
 
 const routes: Routes = [
@@ -84,6 +85,7 @@ const routes: Routes = [
       { path: 'config-lote', component: ConfiguracionLoteComponent},
       { path: 'remitente', component: RemitenteComponent},
       { path: 'listar-remitente', component: ListarRemitenteComponent},
+      { path: 'generar-recepcion', component: GenerarRecepcionComponent},
 
 
 

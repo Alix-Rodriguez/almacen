@@ -58,6 +58,7 @@ import { PipeCCPipe } from './pages/pipe-cc.pipe';
 import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
 import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
 import { FilterRPipe } from './pipes/filter-r.pipe';
+import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +115,7 @@ import { FilterRPipe } from './pipes/filter-r.pipe';
     RemitenteComponent,
     ListarRemitenteComponent,
     FilterRPipe,
+    GenerarRecepcionComponent,
   
   ],
   imports: [
