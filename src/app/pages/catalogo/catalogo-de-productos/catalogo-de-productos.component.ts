@@ -5,6 +5,7 @@ import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 import { ModalDismissReasons, NgbAlert, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
+import { KitingProductoService } from "src/app/services/kiting-producto.service";
 
 
 @Component({
@@ -28,13 +29,15 @@ export class CatalogoDeProductosComponent implements OnInit {
   lote: boolean = true
   bg:boolean=false
   catalogo:any
- 
+  kitingBool:boolean=false
+  compuesto:any
   constructor(
     private readonly fb: FormBuilder, 
     private dataService: DataserviceService,
     private DateCatalogo: DataCatalogoService,
     private modalService: NgbModal,
-    private render2 : Renderer2
+    private render2 : Renderer2,
+    private kintingProducto: KitingProductoService
     ) {}
     
     @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
@@ -80,16 +83,24 @@ export class CatalogoDeProductosComponent implements OnInit {
     })
     this.DateCatalogo.ListarProducto().subscribe(resp=>{
       this.catalogo=resp['data']
-      console.log(this.catalogo[0].descripcion);
-      console.log(this.catalogo.length);
+      // console.log(this.catalogo[0].descripcion);
+      // console.log(this.catalogo.length);
      
      
     })
     }
 
+    kitingGuardar(){
+      this.kitingBool=true;
+    }
+
   ngOnInit(): void {
     this.Listar()
     this.checkoutForm = this.initForm();
+    this.kintingProducto.GuardarKiting.subscribe(data=>{
+      this.compuesto=data['data']
+      console.log(this.compuesto);
+    })
 
   }
   initForm(): FormGroup {
@@ -101,20 +112,21 @@ export class CatalogoDeProductosComponent implements OnInit {
       id_linea_producto:["", [Validators.required]],
       id_marca:["", [Validators.required]],
       serialisable:["", [Validators.required]],
-      caducidad:["", [Validators.required]],
+      caducidad:[""],
       sobresurtimiento:["", [Validators.required]],
       serialisable_surtir:["", [Validators.required]],
-      requiere_inspeccion_calidad:["", [Validators.required]],
-      requiere_fecha_cadu:["", [Validators.required]],
+      requiere_inspeccion_calidad:[""],
+      requiere_fecha_cadu:[""],
       numero_parte:["", [Validators.required]],
-      requiere_lote:["", [Validators.required]],
-      lote_compuesto:["", [Validators.required]],
-      id_config_lote:["", [Validators.required]],
+      requiere_lote:[""],
+      // lote_compuesto:["", [Validators.required]],
+      id_config_lote:[""],
       id_unidad_de_medida:["", [Validators.required]],
       peso:["", [Validators.required]],
       fecha_descontinuo:["", [Validators.required]],
       status:["", [Validators.required]],
-      caducidad1:["", [Validators.required]],
+      kitting:[""],
+  
     });
   }
 
@@ -127,11 +139,21 @@ export class CatalogoDeProductosComponent implements OnInit {
 
 
    onSubmit(){
+    if(this.kitingBool===true){
+      console.log("entro en el sumit",this.compuesto);
+      for(let i=0;i<this.compuesto.length;i++){
+        for(let j=0;j<this.catalogo.length;j++){
+          if(this.compuesto[i]===this.catalogo[j].descripcion){
+            console.log("guardooo",this.compuesto);
+          }
+        }
+      }
+    }
     let año= this.checkoutForm.value.fecha_descontinuo.year
     let dia=this.checkoutForm.value.fecha_descontinuo.day
      let mes=this.checkoutForm.value.fecha_descontinuo.month 
-      this.checkoutForm.value.fecha_descontinuo=`${dia} / ${mes} / ${año} `
-
+      this.checkoutForm.value.fecha_descontinuo=`${año}-${mes}-${dia}`
+    // this.onKiting()
     console.log(this.checkoutForm.value)
     console.log(this.checkoutForm.value.fecha_descontinuo)
     // this.checkoutForm.value.fecha_descontinuo=

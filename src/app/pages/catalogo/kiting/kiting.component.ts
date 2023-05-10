@@ -1,5 +1,8 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { DataCatalogoService } from 'src/app/services/datacatalogo.service';
+import { KitingProductoService } from 'src/app/services/kiting-producto.service';
 
 @Component({
   selector: 'app-kiting',
@@ -19,7 +22,9 @@ export class KitingComponent implements OnInit {
 
   constructor(
     private DateCatalogo: DataCatalogoService,
-    private render2: Renderer2
+    private render2: Renderer2,
+    private kintingProducto: KitingProductoService
+    
   ) { }
   colorS(iter: any, id) {
     //  const productos = this.pl.nativeElement
@@ -38,6 +43,7 @@ export class KitingComponent implements OnInit {
     // this.bg= !this.bg
   }
   agregarProduc() {
+    this.ngOnInit();
     // this.bool = true
     for (let i = 0; i < this.seleccion.length; i++) {
       this.kiting.push(this.seleccion[i])
@@ -50,12 +56,14 @@ export class KitingComponent implements OnInit {
     this.seleccion = []
   }
   agregarproducTodos() {
+    this.ngOnInit();
     for (let i = 0; i < this.catalogo.length; i++) {
       this.kiting.push(this.catalogo[i].descripcion)
     }
     // this.bool = true
   }
   remove(iter: any, id) {
+    
     // console.log(this.sl);
     if (this.sl.nativeElement.childNodes[iter].className === "text-center bg-light") {
       this.render2.removeClass(this.sl.nativeElement.children[iter], 'bg-light')
@@ -79,6 +87,7 @@ export class KitingComponent implements OnInit {
   }
 
   removeproduc(){
+    this.ngOnInit();
     for (let i = 0; i < this.kiting.length; i++) {
       // for (let j = 0; j < this.kiting.length; j++) {
         this.kiting = this.kiting.filter(elim => elim !== this.eliminar[i])
@@ -91,6 +100,7 @@ export class KitingComponent implements OnInit {
     this.eliminar=[]
   }
   removerproducTodos() {
+    this.ngOnInit();
     this.kiting = [""]
     // this.bool = false
     for (let i = 0; i < this.catalogo.length; i++) {
@@ -106,6 +116,16 @@ export class KitingComponent implements OnInit {
     this.DateCatalogo.ListarProducto().subscribe(resp => {
       this.catalogo = resp['data']
     })
+    this.kintingProducto.GuardarKiting.emit({
+      data:this.kiting
+      // 
+    })
   }
 
+  // onKiting(){
+  //   console.log("entro en kiting");
+  // }
+
+
+  
 }

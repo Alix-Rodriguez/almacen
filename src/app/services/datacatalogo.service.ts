@@ -144,4 +144,9 @@ export class DataCatalogoService {
   ActualizarEtiquetado(id: string, value) {
     return this.http.put(this.url + "actualizar-Etiquetado/" + id, value);
   }
+
+  // KINTING
+  saveKiting(value) {
+    return this.http.post(this.url + "save-etiquetado", value);
+  }
 }

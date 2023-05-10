@@ -26,11 +26,11 @@
                 </div>
                 <label class="col-3 form-label">Caducidad</label>
                 <div class="col-1">
-                    <input (click)="Dias()" formControlName="caducidad" name="caducidad" id="caducidad" type="checkbox"
+                    <input (click)="Dias()" type="checkbox"
                         class="mr-1">
                 </div>
                 <div class="col-1">
-                    <input #dias disabled formControlName="caducidad1" name="caducidad1" id="caducidad1" type="text"
+                    <input #dias disabled formControlName="caducidad" name="caducidad" id="caducidad" type="text"
                         class=" form-control">
                 </div>
                 <label class="col text-start form-label">Dias</label>
@@ -99,7 +99,7 @@
                 </div>
                 <label class="col-7 text-center   form-label">Lote Compuesto</label>
                 <div class="col-1">
-                    <input (click)="SELECT()" formControlName="lote_compuesto" name="lote_compuesto" id="lote_compuesto" type="checkbox">
+                    <input (click)="SELECT()"  type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
@@ -229,7 +229,7 @@
                         </div>
                         <div class="d-flex justify-content-end ml-5 modal-body">
                             <button type="button" class="mr-3 btn btn-outline-light btn-dark"
-                                (click)="modal.close('Save click')">Aceptar</button>
+                                (click)="kitingGuardar()" (click)="modal.close('Save click')">Aceptar</button>
                             <button type="button" class="btn btn-outline-light btn-dark"
                                 (click)="modal.close('Save click')">Cancelar</button>
                         </div>
