@@ -1,0 +1,24 @@
+
+<div class="row">
+    <div   class="col-4 " >
+        <h6  class="text-center">Disponibles</h6>
+        <div #Disponible class="overflow-auto" style="max-height: 248px;" >
+            <p  *ngFor="let li of catalogo ; index as i" style="cursor: pointer;"  class="text-center " (click)="colorS(i,li.id)"  >
+                {{li.descripcion}} </p> 
+        </div>
+    </div>
+    <div class="row  col-4">
+        <button (click)="agregarProduc()" class="btn col-12 mt-4 btn-outline-dark border-dark b-1">Agregar</button>
+        <button (click)="agregarproducTodos()" class="btn col-12 mt-4 btn-outline-dark border-dark b-1">Agregar Todo</button>
+        <button (click)="removeproduc()" class="btn col-12 mt-4 btn-outline-dark border-dark b-1">Remover</button>
+        <button (click)="removerproducTodos()" class="btn col-12 mt-4 btn-outline-dark border-dark b-1">Remover Todo</button>
+
+    </div>
+    <div class="col-4">
+        <h6 class="text-center">Seleccionados</h6>
+        <div #Kiting  #prueba class="overflow-auto" style="max-height: 248px;" >
+            <p  *ngFor="let li of kiting ; index as i" style="cursor: pointer;"  class="text-center " (click)="remove(i,li.id)"  >
+                {{li}} </p> 
+        </div>
+    </div>
+</div>

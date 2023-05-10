@@ -1,11 +1,10 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from "@angular/core";
+import { Component, ContentChild, ElementRef, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { DataserviceService } from "../../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 import { ModalDismissReasons, NgbAlert, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
-import { style } from "@angular/animations";
 
 
 @Component({
@@ -29,10 +28,7 @@ export class CatalogoDeProductosComponent implements OnInit {
   lote: boolean = true
   bg:boolean=false
   catalogo:any
-
-  ColorS(){
-    this.bg= !this.bg
-  }
+ 
   constructor(
     private readonly fb: FormBuilder, 
     private dataService: DataserviceService,
@@ -84,7 +80,10 @@ export class CatalogoDeProductosComponent implements OnInit {
     })
     this.DateCatalogo.ListarProducto().subscribe(resp=>{
       this.catalogo=resp['data']
-      console.log(this.catalogo);
+      console.log(this.catalogo[0].descripcion);
+      console.log(this.catalogo.length);
+     
+     
     })
     }
 

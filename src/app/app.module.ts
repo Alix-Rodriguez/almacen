@@ -29,7 +29,7 @@ import { ListarProveedorComponent } from './pages/catalogo/listar-proveedor/list
 import { ProveedorComponent } from './pages/catalogo/proveedor/proveedor.component';
 import { CatalogoDeProductosComponent } from './pages/catalogo/catalogo-de-productos/catalogo-de-productos.component';
 import { CatalogoDeRutasComponent } from './pages/catalogo/catalogo-de-rutas/catalogo-de-rutas.component';
-import { CatalogoProductoSigComponent } from './pages/catalogo/catalogo-producto-sig/catalogo-producto-sig.component';
+import { KitingComponent } from './pages/catalogo/kiting/kiting.component';
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
@@ -85,7 +85,7 @@ import { FilterRPipe } from './pipes/filter-r.pipe';
     ProveedorComponent,
     CatalogoDeProductosComponent,
     CatalogoDeRutasComponent,
-    CatalogoProductoSigComponent,
+    KitingComponent,
     CatalogoClienteComponent,
     CatalogoMarcaProductoComponent,
     CatalogoUnidadCargaComponent,
