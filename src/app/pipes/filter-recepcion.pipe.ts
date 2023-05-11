@@ -8,7 +8,7 @@ export class FilterRecepcionPipe implements PipeTransform {
   transform(recepcion: any, arg: any): any {
     const resultPost = [];
     for (const pos of recepcion) {
-      if (pos.empresa.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
+      if (pos.nombre_empresa.toLowerCase().indexOf(arg.toLowerCase()) > -1) {
         resultPost.push(pos);
       }
     }

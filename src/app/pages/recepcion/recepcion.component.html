@@ -1,21 +1,21 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
 <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
     successMessage}}</ngb-alert>
-<!-- <form [formGroup]='checkoutForm'> -->
+<form [formGroup]='checkoutForm'>
     <div class="container">
         <div class="row mt-4 mb-3">
             <div class="col">
                 <label class="d-block">Empresa</label>
-                <select class="col mt-2 pl-2 form-select">
-                    <!--  formControlName="empresa" name="empresa" id="empresa"  -->
+                <select formControlName="id_empresas" name="id_empresas" id="id_empresas"
+                    class="col mt-2 pl-2 form-select">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}} </option>
                 </select>
             </div>
             <div class="col">
                 <label class="d-block">Almacen</label>
-                <select class="col form-select mt-2 pl-2" >
-                    <!-- formControlName="almacen" name="almacen" id="almacen" -->
+                <select formControlName="id_almacen" name="id_almacen" id="id_almacen"
+                    class="col form-select mt-2 pl-2">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
 
@@ -23,83 +23,104 @@
             </div>
         </div>
         <div class="d-flex justify-content-end mt-4 ml-1">
-            <button (click)="onSubmit()"  type="button"
+            <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button"
                 class="col-2 btn border-dark border-2">Guardar</button>
         </div>
-
-        <div class="container-fluid">
-            <div class="d-sm-flex bd-highlight mb-5">
-                <input placeholder="Buscar" name="filterRecepcion" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
-                    [(ngModel)]="filterRecepcion">
-            </div>
-        
-                <table class="table table-bordered table-striped  table-hover ">
-                    <thead>
-                        <tr>
-                            <th scope="col">Folio</th>
-                            <th scope="col">Referencia</th>
-                            <th scope="col">Almacen</th>
-                            <th scope="col">Fecha de elaboracion</th>
-                            <th scope="col">Acciones</th>
-                           
-        
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!--  -->
-                        <tr *ngFor="let pos of recepcion | filterRecepcion:filterRecepcion">
-        
-                            <td>{{pos}}</td>
-                            <td>{{pos}}</td>
-                            <td>{{pos}} </td>
-                            <td>{{pos}} </td>
-                            <td>
-                            <button class=" btn btn-warning padding" (click)="ListarForm(pos.id)" (click)="open(mymodalMODI)"></button>
-                            <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
-        
-                            <ng-template #mymodal let-modal>
-                                <div style="margin:auto 12%;" class="modal-header">
-                                    <h4 class="modal-title" id="modal-basic-title">Seguro que desea
-                                        eliminar el cliente?</h4>
-                                </div>
-                                <div class="d-flex justify-content-center ml-5 modal-body">
-                                    <button type="button" class="mr-3 btn btn-outline-dark"
-                                        (click)="modal.close('Save click')">Cancelar</button>
-                                    <button type="button" class="btn btn-outline-dark" (click)="Eliminar(pos.id)"
-                                        (click)="modal.close('Save click')">Aceptar</button>
-                                </div>
-                            </ng-template>
-        
-                           
-                            <!--MODAL DE MODIFICAR -->
-                            <ng-template #mymodalMODI let-modal>
-                                <div class="modal-header">
-                                    <h4 id="modal-basic-title">Modificar Datos Clientes</h4>
-                                </div>
-                                <div class="container">
-                                        <form [formGroup]='checkoutForm'>
-                                            <div class="container-fluid">
-                                    
-                                                <!-- RECEPCION -->
-                                            
-                                           
-                                        </div>
-                                        </form> 
-                                    
-        
-                                </div>
-                                <div class="d-flex justify-content-center ml-5 modal-body">
-                                    <button type="button" class="mr-3 btn btn-outline-dark"
-                                        (click)="modal.close('Save click')">Cancelar</button>
-                                    <button type="button" class="btn btn-outline-dark" (click)="update(pos.id)"
-                                        (click)="modal.close('Save click')">Guardar</button>
-                                </div>
-                            </ng-template>
-        
-                        </td>
-                        </tr>
-                    </tbody>
-                </table>
     </div>
-<!-- </form> [disabled]="checkoutForm.invalid" -->
+</form>
+<div class="container-fluid">
+    <div class="d-sm-flex bd-highlight mb-5">
+        <input placeholder="Buscar" name="filterRecepcion" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+            [(ngModel)]="filterRecepcion">
+    </div>
 
+    <table class="table table-bordered table-striped  table-hover ">
+        <thead>
+            <tr>
+                <th scope="col">Folio</th>
+                <th scope="col">Referencia</th>
+                <th scope="col">Almacen</th>
+                <th scope="col">Fecha de elaboracion</th>
+                <th scope="col">Acciones</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <!--  -->
+            <tr *ngFor="let pos of recepcion | filterRecepcion:filterRecepcion">
+
+                <td>{{pos.nombre_empresa}}{{pos.fechaCreada_empresa}} </td>
+                <td>{{pos.id}}</td>
+                <td>{{pos.nombre_almacen}} </td>
+                <td>{{pos.creado}}</td>
+                <td>
+                    <button class=" btn btn-warning padding" (click)="ListarForm(pos.id)"
+                        (click)="open(mymodalMODI)"></button>
+                    <button class="btn btn-danger padding" (click)="open(mymodal)"></button>
+
+                    <ng-template #mymodal let-modal>
+                        <div style="margin:auto 12%;" class="modal-header">
+                            <h4 class="modal-title" id="modal-basic-title">Seguro que desea
+                                eliminar el cliente?</h4>
+                        </div>
+                        <div class="d-flex justify-content-center ml-5 modal-body">
+                            <button type="button" class="mr-3 btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Cancelar</button>
+                            <button type="button" class="btn btn-outline-dark" (click)="Eliminar(pos.id)"
+                                (click)="modal.close('Save click')">Aceptar</button>
+                        </div>
+                    </ng-template>
+
+
+                    <!--MODAL DE MODIFICAR -->
+                    <ng-template #mymodalMODI let-modal>
+                        <div class="modal-header">
+                            <h4 id="modal-basic-title">Modificar Datos Clientes</h4>
+                        </div>
+                        <div class="container">
+                            <form [formGroup]='checkoutForm'>
+                                <div class="container-fluid">
+                                    <div class="container">
+                                        <div class="row mt-4 mb-3">
+                                            <div class="col">
+                                                <label class="d-block">Empresa</label>
+                                                <select formControlName="id_empresas" name="id_empresas" id="id_empresas"
+                                                    class="col mt-2 pl-2 form-select">
+                                                    <option value="" disabled selected>Seleccione</option>
+                                                    <option *ngFor="let li of empresa" value={{li.id}}>
+                                                        {{li.nombre_empresa}} </option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <label class="d-block">Almacen</label>
+                                                <select formControlName="id_almacen" name="id_almacen"
+                                                    id="id_almacen" class="col form-select mt-2 pl-2">
+                                                    <option value="" disabled selected>Seleccione</option>
+                                                    <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}}
+                                                    </option>
+
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                            </form>
+
+
+                        </div>
+                        <div class="d-flex justify-content-center ml-5 modal-body">
+                            <button type="button" class="mr-3 btn btn-outline-dark"
+                                (click)="modal.close('Save click')">Cancelar</button>
+                            <button type="button" class="btn btn-outline-dark" (click)="update(pos.id)"
+                                (click)="modal.close('Save click')">Guardar</button>
+                        </div>
+                    </ng-template>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>

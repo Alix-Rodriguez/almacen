@@ -85,8 +85,8 @@ export class RecepcionComponent implements OnInit {
     for (let i = 0; i < this.recepcion.length; i++) {
       if (this.recepcion[i].id === id) {
         this.checkoutForm.setValue({
-          //  referencia: this.recepcion[i].referencia,
-
+            id_almacen: this.recepcion[i].id_almacen,
+            id_empresas: this.recepcion[i].empresas_id,
         });
       }
     }
@@ -94,8 +94,8 @@ export class RecepcionComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      referencia: [""],
-      id_proveedor: [""],
+      id_almacen: [""],
+      id_empresas: [""],
     });
   }
 

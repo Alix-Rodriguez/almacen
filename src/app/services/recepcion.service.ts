@@ -25,16 +25,16 @@ export class RecepcionService {
 
   // RECEPCION
   saveRecepcion(value) {
-    return this.http.post(this.url + "save-Recepcion", value);
+    return this.http.post(this.url + "save-recepcion", value);
   }
   listarRecepcion() {
-    return this.http.get(this.url + "listar-Recepcion");
+    return this.http.get(this.url + "listar-recepcion");
   }
   eliminarRecepcion(id: string) {
-    return this.http.delete(this.url + "delete-Recepcion/" + id);
+    return this.http.delete(this.url + "delete-recepcion/" + id);
   }
   actualizarRecepcion(id: string, value) {
-    return this.http.put(this.url + "actualizar-Recepcion/" + id, value);
+    return this.http.put(this.url + "actualizar-recepcion/" + id, value);
   }
 
   // PROCESAR RECEPCION
