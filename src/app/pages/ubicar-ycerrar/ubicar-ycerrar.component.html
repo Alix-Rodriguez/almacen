@@ -3,7 +3,8 @@
     successMessage}}</ngb-alert>
 <!-- <form [formGroup]='checkoutForm'> -->
     <div class="container">
-        <div class="row mt-4 mb-2">
+        <h6 class="border-bottom border-1 border-dark">Ubicacion de productos para la recepcion</h6>
+        <div class="row mt-4 mb-3">
             <div class="col">
                 <label class="d-block">Empresa</label>
                 <select class="col mt-2 pl-2 form-select">
@@ -18,18 +19,6 @@
                     <!-- formControlName="almacen" name="almacen" id="almacen" -->
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
-
-                </select>
-            </div>
-        </div>
-        <div class="row mt-4 mb-3">
-            <div class="col">
-                <label class="d-block">Status</label>
-                <select class="col-6 mt-2 pl-2 form-select">
-                    <!--  formControlName="empresa" name="empresa" id="empresa"  -->
-                    <option value="" disabled selected>Seleccione</option>
-                    <option >Recibido</option>
-                    <option >Pendiente</option>
 
                 </select>
             </div>
@@ -51,7 +40,6 @@
                             <th scope="col">Folio</th>
                             <th scope="col">Referencia</th>
                             <th scope="col">Almacen</th>
-                            <th scope="col">Status</th>
                             <th scope="col">Fecha de elaboracion</th>
                             <th scope="col">Acciones</th>
                            
@@ -63,8 +51,7 @@
                         <tr *ngFor="let pos of recepcion | filterRecepcion:filterRecepcion">
         
                             <td>{{pos}}</td>
-                            <td>{{pos}} </td>
-                            <td>{{pos}} </td>
+                            <td>{{pos}}</td>
                             <td>{{pos}} </td>
                             <td>{{pos}} </td>
                             <td>

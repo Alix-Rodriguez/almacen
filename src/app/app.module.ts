@@ -64,6 +64,7 @@ import { ListarOrdenCompraComponent } from './pages/generar-orden-compra/listar-
 import { FilterListarRecepcionPipe } from './pipes/filter-orden-compra.pipe';
 import { FilterRecepcionPipe } from './pipes/filter-recepcion.pipe';
 import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
+import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.component';
 
 @NgModule({
   declarations: [
@@ -126,6 +127,7 @@ import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-
     FilterListarRecepcionPipe,
     FilterRecepcionPipe,
     ProcesarRecepcionComponent,
+    UbicarYcerrarComponent,
   
   ],
   imports: [

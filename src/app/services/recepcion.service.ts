@@ -51,5 +51,19 @@ export class RecepcionService {
     return this.http.put(this.url + "actualizar-Procesar/" + id, value);
   }
 
+  // UBICAR Y CERRAR
+  saveubicarYcerrar(value) {
+    return this.http.post(this.url + "save-ubicarYcerrar", value);
+  }
+  listarubicarYcerrar() {
+    return this.http.get(this.url + "listar-ubicarYcerrar");
+  }
+  eliminarubicarYcerrar(id: string) {
+    return this.http.delete(this.url + "delete-ubicarYcerrar/" + id);
+  }
+  actualizarubicarYcerrar(id: string, value) {
+    return this.http.put(this.url + "actualizar-ubicarYcerrar/" + id, value);
+  }
+
 
 }

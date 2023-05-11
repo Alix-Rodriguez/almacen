@@ -45,6 +45,7 @@ import { RecepcionComponent } from './pages/recepcion/recepcion.component';
 import { GenerarOrdenCompraComponent } from './pages/generar-orden-compra/generar-orden-compra.component';
 import { ListarOrdenCompraComponent } from './pages/generar-orden-compra/listar-orden-compra/listar-orden-compra.component';
 import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
+import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.component';
 
 
 const routes: Routes = [
@@ -90,6 +91,7 @@ const routes: Routes = [
       { path: 'recepcion', component: RecepcionComponent},
       { path: 'listar-generar-recepcion', component: ListarOrdenCompraComponent},
       { path: 'procesar-recepcion', component: ProcesarRecepcionComponent},
+      { path: 'ubicar-cerrarar', component: UbicarYcerrarComponent},
 
 
 

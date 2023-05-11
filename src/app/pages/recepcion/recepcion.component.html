@@ -38,6 +38,7 @@
                         <tr>
                             <th scope="col">Folio</th>
                             <th scope="col">Referencia</th>
+                            <th scope="col">Almacen</th>
                             <th scope="col">Fecha de elaboracion</th>
                             <th scope="col">Acciones</th>
                            
@@ -48,6 +49,7 @@
                         <!--  -->
                         <tr *ngFor="let pos of recepcion | filterRecepcion:filterRecepcion">
         
+                            <td>{{pos}}</td>
                             <td>{{pos}}</td>
                             <td>{{pos}} </td>
                             <td>{{pos}} </td>
