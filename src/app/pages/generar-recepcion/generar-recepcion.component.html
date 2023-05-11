@@ -2,7 +2,7 @@
 <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage
 }}</ngb-alert>
 <div class="container">
-    <!-- <form [formGroup]='checkoutForm'> -->
+    <form [formGroup]='checkoutForm'>
         <div class="container-fluid">
 
             <!-- RECEPCION -->
@@ -10,25 +10,24 @@
         <div class="row">
             <label class="text-center col-3 form-label">Referencia</label>
             <div class="col-3">
-                <input type="text" class="form-control" name="" id="">
+                <input formControlName="referencia" name="referencia" id="referencia" placeholder="Ingrese Referencia" type="text" class="form-control" name="" id="">
             </div>
             <label class="text-center col-3 form-label">Proveedor</label>
             <div class="col-3">
-                <select  name="" id="" class="form-select">
+                <select  formControlName="id_proveedor" name="id_proveedor" id="id_proveedor" class="form-select">
                     <option value="" disabled selected>Seleccione</option>
-                    <option value="1">prueba</option>
-                    <option value="2">prueba</option>
+                    <option *ngFor="let li of provedores" value={{li.id}} >{{li.nombre_proveedor}} </option>
                 </select>
             </div>
         </div>
         <div class="row mt-4">
             <label class="text-center col-3 form-label">Fecha</label>
             <div class="col-3">
-                <input type="text" class="form-control" name="" id="">
+                <input  formControlName="fecha" name="fecha" id="fecha" placeholder="Ingrese Fecha" type="text" class="form-control" name="" id="">
             </div>
             <label class="text-center col-3 form-label">Tipo de Orden</label>
             <div class="col-3">
-                <select  name="" id="" class="form-select">
+                <select formControlName="tipo_de_orden" name="tipo_de_orden" id="tipo_de_orden"  name="" id="" class="form-select">
                     <option value="" disabled selected>Seleccione</option>
                     <option value="1">prueba</option>
                     <option value="2">prueba</option>
@@ -38,10 +37,10 @@
         <div class="row mt-4">
             <label class="text-center col-3 form-label">Centro de costo</label>
             <div class="col-3">
-                <select  name="" id="" class="form-select">
+                <select  formControlName="id_centro_costo" name="id_centro_costo" id="id_centro_costo" name="" id="" class="form-select">
                     <option value="" disabled selected>Seleccione</option>
-                    <option value="1">prueba</option>
-                    <option value="2">prueba</option>
+                    <option *ngFor="let li of CC" value={{li.id}} >{{li.descripcion}} </option>
+
                 </select>
             </div>
         </div>
@@ -51,7 +50,7 @@
         <div class="row">
             <label class="text-center col-3 form-label">Central</label>
             <div class="col">
-                <input type="text" class="form-control" name="" id="">
+                <input formControlName="central" name="central" id="central" placeholder="Ingrese Almacen" type="text" class="form-control" name="" id="">
             </div>
         </div>
 
@@ -60,19 +59,19 @@
         <div class="row">
             <label class="text-center col-3 form-label">Indicaciones</label>
             <div class="col-3">
-                <textarea name="" id="" cols="25" rows="3"></textarea>
+                <textarea formControlName="indicaciones" name="indicaciones" id="indicaciones"  placeholder="Ingrese Indicaciones" name="" id="" cols="25" rows="3"></textarea>
             </div>
             <label class="text-center col-3 form-label">Observaciones</label>
             <div class="col-3">
-                <textarea name="" id="" cols="25" rows="3"></textarea>
+                <textarea formControlName="observaciones" name="observaciones" id="observaciones"  placeholder="Ingrese Observaciones" name="" id="" cols="25" rows="3"></textarea>
             </div>
         </div>
         
         <div class="d-flex justify-content-end mt-4 ml-1">
-            <button (click)="onSubmit()" type="button"
+            <button [disabled]="checkoutForm.invalid" (click)="onSubmit()" type="button"
                 class=" btn btn-dark col-2">Guardar</button>
         </div>
     </div>
-    <!-- </form> [disabled]="checkoutForm.invalid" -->
+    </form> 
 
 </div>

@@ -228,8 +228,7 @@ export class CatalogoDeProductosComponent implements OnInit {
             this.DateCatalogo.ActualizarProducto(p, this.checkoutForm.value).subscribe(resp => {
               console.log(resp);
             })
-            // }
-            // }
+           
 
           }
         }
