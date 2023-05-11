@@ -10,7 +10,6 @@ import { NopagefoundComponent } from './pages/nopagefound/nopagefound.component'
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
-import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { CrearLayoutComponent } from './pages/almacen/crear-layout/crear-layout.component';
@@ -26,7 +25,7 @@ import { KitingComponent } from './pages/catalogo/kiting/kiting.component';
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
-import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
+import { CatalogCentroCostoComponent } from './pages/catalog-centro-costo/catalog-centro-costo.component';
 import { PagesComponent } from './pages/pages.component';
 import { ZonaComponent } from './pages/almacen/zona/zona.component';
 import { RackComponent } from './pages/almacen/rack/rack.component';
@@ -44,6 +43,7 @@ import { RemitenteComponent } from './pages/almacen/remitente/remitente.componen
 import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
 import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
 import { RecepcionComponent } from './pages/recepcion/recepcion.component';
+import { ListarGenerarRecepcionComponent } from './pages/generar-recepcion/listar-generar-recepcion/listar-generar-recepcion.component';
 
 
 const routes: Routes = [
@@ -55,7 +55,6 @@ const routes: Routes = [
       { path: 'progress', component: ProgressComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'crear-empresa', component: CrearEmpresaComponent },
-      { path: 'order-compra', component: OrdenCompraComponent },
       { path: 'crear-almacen', component: CrearAlmacenComponent },
       { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-layout', component: CrearLayoutComponent },
@@ -88,6 +87,7 @@ const routes: Routes = [
       { path: 'listar-remitente', component: ListarRemitenteComponent},
       { path: 'generar-recepcion', component: GenerarRecepcionComponent},
       { path: 'recepcion', component: RecepcionComponent},
+      { path: 'listar-generar-recepcion', component: ListarGenerarRecepcionComponent},
 
 
 

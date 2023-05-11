@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { DataserviceService } from "../../../services/dataservice.service";
+import { DataserviceService } from "../../services/dataservice.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 import { Subject } from "rxjs";

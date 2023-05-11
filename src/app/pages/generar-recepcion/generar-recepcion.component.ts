@@ -84,7 +84,7 @@ export class GenerarRecepcionComponent implements OnInit {
         central: ["", [Validators.required]],
         indicaciones: ["", [Validators.required]],
         observaciones: ["", [Validators.required]],
-        tipo_de_orden: ["", [Validators.required]],
+        id_tipo_orden: ["", [Validators.required]],
          
        });
    }

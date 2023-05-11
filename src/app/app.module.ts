@@ -15,7 +15,7 @@ import { PagesComponent } from './pages/pages.component';
 import { EmpresaComponent } from './pages/empresa/empresa.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { OrdenCompraComponent } from './pages/orden-compra/orden-compra.component';
+// import { OrdenCompraComponent } from './pages/';
 import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almacen.component';
 import { CrearEmpresaComponent } from './pages/empresa/crear-empresa/crear-empresa.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -33,7 +33,7 @@ import { KitingComponent } from './pages/catalogo/kiting/kiting.component';
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
 import { CatalogoMarcaProductoComponent } from './pages/catalogo/catalogo-marca-producto/catalogo-marca-producto.component';
 import { CatalogoUnidadCargaComponent } from './pages/catalogo/catalogo-unidad-carga/catalogo-unidad-carga.component';
-import { CatalogCentroCostoComponent } from './pages/orden-compra/catalog-centro-costo/catalog-centro-costo.component';
+import { CatalogCentroCostoComponent } from './pages/catalog-centro-costo/catalog-centro-costo.component';
 import { ZonaComponent } from './pages/almacen/zona/zona.component';
 import { RackComponent } from './pages/almacen/rack/rack.component';
 import { NivelComponent } from './pages/almacen/nivel/nivel.component';
@@ -60,6 +60,8 @@ import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/lista
 import { FilterRPipe } from './pipes/filter-r.pipe';
 import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
 import { RecepcionComponent } from './pages/recepcion/recepcion.component';
+import { ListarGenerarRecepcionComponent } from './pages/generar-recepcion/listar-generar-recepcion/listar-generar-recepcion.component';
+import { FilterListarRecepcionPipe } from './pipes/filter-listar-recepcion.pipe';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,7 @@ import { RecepcionComponent } from './pages/recepcion/recepcion.component';
     ProgressComponent,
     PagesComponent,
     EmpresaComponent,
-    OrdenCompraComponent,
+    // OrdenCompraComponent,
     CrearAlmacenComponent,
     CrearEmpresaComponent,
     ListarEmpresaComponent,
@@ -118,6 +120,8 @@ import { RecepcionComponent } from './pages/recepcion/recepcion.component';
     FilterRPipe,
     GenerarRecepcionComponent,
     RecepcionComponent,
+    ListarGenerarRecepcionComponent,
+    FilterListarRecepcionPipe,
   
   ],
   imports: [
