@@ -125,8 +125,8 @@ export class DataCatalogoService {
   EliminarProducto(id: string) {
     return this.http.delete(this.url + "delete-producto/" + id);
   }
-  ActualizarProducto(id: string, value) {
-    return this.http.put(this.url + "actualizar-producto/" + id, value);
+  ActualizarProducto(id:string, value) {
+    return this.http.put(this.url + "actualizar-producto/"+id, value);
   }
 
   
@@ -147,6 +147,6 @@ export class DataCatalogoService {
 
   // KINTING
   saveKiting(value) {
-    return this.http.post(this.url + "save-etiquetado", value);
+    return this.http.post(this.url + "save-kitting", value);
   }
 }
