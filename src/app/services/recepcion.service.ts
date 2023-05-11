@@ -65,18 +65,18 @@ export class RecepcionService {
     return this.http.put(this.url + "actualizar-recepcionUbicarcerrar/" + id, value);
   }
 
-  // UBICAR Y CERRAR
+  // ORDENES CERRADAS
   saveOrdenesCerradas(value) {
-    return this.http.post(this.url + "save-OrdenesCerradas", value);
+    return this.http.post(this.url + "save-recepcionOrdencerrada", value);
   }
   listarOrdenesCerradas() {
-    return this.http.get(this.url + "listar-OrdenesCerradas");
+    return this.http.get(this.url + "listar-recepcionOrdencerrada");
   }
   eliminarOrdenesCerradas(id: string) {
-    return this.http.delete(this.url + "delete-OrdenesCerradas/" + id);
+    return this.http.delete(this.url + "delete-recepcionOrdencerrada/" + id);
   }
   actualizarOrdenesCerradas(id: string, value) {
-    return this.http.put(this.url + "actualizar-OrdenesCerradas/" + id, value);
+    return this.http.put(this.url + "actualizar-recepcionOrdencerrada/" + id, value);
   }
 
   // NO CATALOGADO
