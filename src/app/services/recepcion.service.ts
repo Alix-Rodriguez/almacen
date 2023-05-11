@@ -78,4 +78,18 @@ export class RecepcionService {
   actualizarOrdenesCerradas(id: string, value) {
     return this.http.put(this.url + "actualizar-OrdenesCerradas/" + id, value);
   }
+
+  // NO CATALOGADO
+  saveNoCatalogado(value) {
+    return this.http.post(this.url + "save-OrdenesNoCatalogado", value);
+  }
+  listarNoCatalogado() {
+    return this.http.get(this.url + "listar-OrdenesNoCatalogado");
+  }
+  eliminarNoCatalogado(id: string) {
+    return this.http.delete(this.url + "delete-OrdenesNoCatalogado/" + id);
+  }
+  actualizarNoCatalogado(id: string, value) {
+    return this.http.put(this.url + "actualizar-OrdenesNoCatalogado/" + id, value);
+  }
 }

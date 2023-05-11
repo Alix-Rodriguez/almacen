@@ -47,6 +47,7 @@ import { ListarOrdenCompraComponent } from './pages/generar-orden-compra/listar-
 import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
 import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.component';
 import { OrdenesCerradasComponent } from './pages/ordenes-cerradas/ordenes-cerradas.component';
+import { NoCatalogadoComponent } from './pages/no-catalogado/no-catalogado.component';
 
 
 const routes: Routes = [
@@ -94,6 +95,7 @@ const routes: Routes = [
       { path: 'procesar-recepcion', component: ProcesarRecepcionComponent},
       { path: 'ubicar-cerrarar', component: UbicarYcerrarComponent},
       { path: 'ordenes-cerraradas', component: OrdenesCerradasComponent},
+      { path: 'no-catalogado', component: NoCatalogadoComponent},
 
 
 
