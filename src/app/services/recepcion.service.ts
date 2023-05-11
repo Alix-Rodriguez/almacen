@@ -65,5 +65,17 @@ export class RecepcionService {
     return this.http.put(this.url + "actualizar-ubicarYcerrar/" + id, value);
   }
 
-
+  // UBICAR Y CERRAR
+  saveOrdenesCerradas(value) {
+    return this.http.post(this.url + "save-OrdenesCerradas", value);
+  }
+  listarOrdenesCerradas() {
+    return this.http.get(this.url + "listar-OrdenesCerradas");
+  }
+  eliminarOrdenesCerradas(id: string) {
+    return this.http.delete(this.url + "delete-OrdenesCerradas/" + id);
+  }
+  actualizarOrdenesCerradas(id: string, value) {
+    return this.http.put(this.url + "actualizar-OrdenesCerradas/" + id, value);
+  }
 }

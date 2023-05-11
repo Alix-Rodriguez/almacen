@@ -65,6 +65,7 @@ import { FilterListarRecepcionPipe } from './pipes/filter-orden-compra.pipe';
 import { FilterRecepcionPipe } from './pipes/filter-recepcion.pipe';
 import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
 import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.component';
+import { OrdenesCerradasComponent } from './pages/ordenes-cerradas/ordenes-cerradas.component';
 
 @NgModule({
   declarations: [
@@ -128,6 +129,7 @@ import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.co
     FilterRecepcionPipe,
     ProcesarRecepcionComponent,
     UbicarYcerrarComponent,
+    OrdenesCerradasComponent,
   
   ],
   imports: [
