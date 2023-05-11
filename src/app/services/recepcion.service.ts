@@ -23,18 +23,33 @@ export class RecepcionService {
     return this.http.put(this.url + "actualizar-ordencompra/" + id, value);
   }
 
-// RECEPCION
-saveRecepcion(value) {
-  return this.http.post(this.url + "save-Recepcion", value);
-}
-listarRecepcion() {
-  return this.http.get(this.url + "listar-Recepcion");
-}
-eliminarRecepcion(id: string) {
-  return this.http.delete(this.url + "delete-Recepcion/" + id);
-}
-actualizarRecepcion(id: string, value) {
-  return this.http.put(this.url + "actualizar-Recepcion/" + id, value);
-}
+  // RECEPCION
+  saveRecepcion(value) {
+    return this.http.post(this.url + "save-Recepcion", value);
+  }
+  listarRecepcion() {
+    return this.http.get(this.url + "listar-Recepcion");
+  }
+  eliminarRecepcion(id: string) {
+    return this.http.delete(this.url + "delete-Recepcion/" + id);
+  }
+  actualizarRecepcion(id: string, value) {
+    return this.http.put(this.url + "actualizar-Recepcion/" + id, value);
+  }
+
+  // PROCESAR RECEPCION
+  saveProcesar(value) {
+    return this.http.post(this.url + "save-Procesar", value);
+  }
+  listarProcesar() {
+    return this.http.get(this.url + "listar-Procesar");
+  }
+  eliminarProcesar(id: string) {
+    return this.http.delete(this.url + "delete-Procesar/" + id);
+  }
+  actualizarProcesar(id: string, value) {
+    return this.http.put(this.url + "actualizar-Procesar/" + id, value);
+  }
+
 
 }
