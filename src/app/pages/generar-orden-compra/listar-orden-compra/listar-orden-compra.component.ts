@@ -8,11 +8,11 @@ import { RecepcionService } from 'src/app/services/recepcion.service';
 
 @Component({
   selector: 'app-listar-generar-recepcion',
-  templateUrl: './listar-generar-recepcion.component.html',
-  styleUrls: ['./listar-generar-recepcion.component.css']
+  templateUrl: './listar-orden-compra.component.html',
+  styleUrls: ['./listar-orden-compra.component.css']
 })
-export class ListarGenerarRecepcionComponent implements OnInit {
-  miga: any = "Recepcion";
+export class ListarOrdenCompraComponent implements OnInit {
+  miga: any = "Listar Orden de Compra";
   private _success = new Subject<string>();
   staticAlertClosed = false;
   successMessage = "";
@@ -20,8 +20,8 @@ export class ListarGenerarRecepcionComponent implements OnInit {
   type: any;
   show: boolean = false;
   checkoutForm!: FormGroup;
-  recepcion:any
-  filterRecepcion=""
+  OC:any
+  filterOC=""
   provedores:any
   CC:any
 
@@ -53,17 +53,17 @@ export class ListarGenerarRecepcionComponent implements OnInit {
   // propiedades del formulario
 
    ListarForm(id) {
-     for (let i = 0; i < this.recepcion.length; i++) {
-       if (this.recepcion[i].id === id) {
+     for (let i = 0; i < this.OC.length; i++) {
+       if (this.OC[i].id === id) {
          this.checkoutForm.setValue({
-          referencia: this.recepcion[i].referencia,
-         id_proveedor: this.recepcion[i].id_proveedor,
-         fecha: this.recepcion[i].fecha,
-         id_centro_costo: this.recepcion[i].id_centro_costo,
-         central: this.recepcion[i].central,
-         indicaciones: this.recepcion[i].indicaciones,
-         observaciones: this.recepcion[i].observaciones,
-         id_tipo_orden: this.recepcion[i].id_tipo_orden,
+          referencia: this.OC[i].referencia,
+         id_proveedor: this.OC[i].id_proveedor,
+         fecha: this.OC[i].fecha,
+         id_centro_costo: this.OC[i].id_centro_costo,
+         central: this.OC[i].central,
+         indicaciones: this.OC[i].indicaciones,
+         observaciones: this.OC[i].observaciones,
+         id_tipo_orden: this.OC[i].id_tipo_orden,
          });
        }
      }
@@ -85,7 +85,7 @@ export class ListarGenerarRecepcionComponent implements OnInit {
 
   Eliminar(id: string) {
     console.log(id);
-    this.dataRecepcion.eliminarRecepcion(id).subscribe(
+    this.dataRecepcion.eliminarOrdencompra(id).subscribe(
       (resp) => {
         console.log(resp);
         this.respuesta = resp;
@@ -108,7 +108,7 @@ export class ListarGenerarRecepcionComponent implements OnInit {
   
   update(id: string) {
     console.log(this.checkoutForm.value);
-    this.dataRecepcion.actualizarRecepcion(id, this.checkoutForm.value).subscribe(
+    this.dataRecepcion.actualizarOrdencompra(id, this.checkoutForm.value).subscribe(
       (resp) => {
         console.log(resp);
         this.respuesta = resp;
@@ -135,9 +135,9 @@ export class ListarGenerarRecepcionComponent implements OnInit {
   }
 
   listarRecepcion() {
-    this.dataRecepcion.listarRecepcion().subscribe((resp) => {
-      this.recepcion=resp['data']
-      console.log(this.recepcion);
+    this.dataRecepcion.listarOrdencompra().subscribe((resp) => {
+      this.OC=resp['data']
+      console.log(this.OC);
     });
   }
 

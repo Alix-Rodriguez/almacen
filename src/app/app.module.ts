@@ -12,7 +12,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { ProgressComponent } from './pages/progress/progress.component';
 import { PagesComponent } from './pages/pages.component';
-import { EmpresaComponent } from './pages/empresa/empresa.component';
+import { EmpresaComponent } from './pages/empresa/empresa.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 // import { OrdenCompraComponent } from './pages/';
@@ -58,10 +58,12 @@ import { PipeCCPipe } from './pages/pipe-cc.pipe';
 import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
 import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
 import { FilterRPipe } from './pipes/filter-r.pipe';
-import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
+import {  GenerarOrdenCompraComponent } from './pages/generar-orden-compra/generar-orden-compra.component';
 import { RecepcionComponent } from './pages/recepcion/recepcion.component';
-import { ListarGenerarRecepcionComponent } from './pages/generar-recepcion/listar-generar-recepcion/listar-generar-recepcion.component';
-import { FilterListarRecepcionPipe } from './pipes/filter-listar-recepcion.pipe';
+import { ListarOrdenCompraComponent } from './pages/generar-orden-compra/listar-orden-compra/listar-orden-compra.component';
+import { FilterListarRecepcionPipe } from './pipes/filter-orden-compra.pipe';
+import { FilterRecepcionPipe } from './pipes/filter-recepcion.pipe';
+import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
 
 @NgModule({
   declarations: [
@@ -118,10 +120,12 @@ import { FilterListarRecepcionPipe } from './pipes/filter-listar-recepcion.pipe'
     RemitenteComponent,
     ListarRemitenteComponent,
     FilterRPipe,
-    GenerarRecepcionComponent,
+    GenerarOrdenCompraComponent,
     RecepcionComponent,
-    ListarGenerarRecepcionComponent,
+    ListarOrdenCompraComponent,
     FilterListarRecepcionPipe,
+    FilterRecepcionPipe,
+    ProcesarRecepcionComponent,
   
   ],
   imports: [

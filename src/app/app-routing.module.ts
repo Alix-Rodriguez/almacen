@@ -41,9 +41,10 @@ import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-al
 import { ConfiguracionLoteComponent } from './pages/catalogo/configuracion-lote/configuracion-lote.component';
 import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
 import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
-import { GenerarRecepcionComponent } from './pages/generar-recepcion/generar-recepcion.component';
 import { RecepcionComponent } from './pages/recepcion/recepcion.component';
-import { ListarGenerarRecepcionComponent } from './pages/generar-recepcion/listar-generar-recepcion/listar-generar-recepcion.component';
+import { GenerarOrdenCompraComponent } from './pages/generar-orden-compra/generar-orden-compra.component';
+import { ListarOrdenCompraComponent } from './pages/generar-orden-compra/listar-orden-compra/listar-orden-compra.component';
+import { ProcesarRecepcionComponent } from './pages/procesar-recepcion/procesar-recepcion.component';
 
 
 const routes: Routes = [
@@ -85,9 +86,10 @@ const routes: Routes = [
       { path: 'config-lote', component: ConfiguracionLoteComponent},
       { path: 'remitente', component: RemitenteComponent},
       { path: 'listar-remitente', component: ListarRemitenteComponent},
-      { path: 'generar-recepcion', component: GenerarRecepcionComponent},
+      { path: 'generar-recepcion', component: GenerarOrdenCompraComponent},
       { path: 'recepcion', component: RecepcionComponent},
-      { path: 'listar-generar-recepcion', component: ListarGenerarRecepcionComponent},
+      { path: 'listar-generar-recepcion', component: ListarOrdenCompraComponent},
+      { path: 'procesar-recepcion', component: ProcesarRecepcionComponent},
 
 
 

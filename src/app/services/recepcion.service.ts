@@ -9,16 +9,32 @@ export class RecepcionService {
 
   constructor(private http: HttpClient) { }
 
-  saveRecepcion(value) {
+  // ORDEN DE COMPRA
+  saveOrdencompra(value) {
     return this.http.post(this.url + "save-ordencompra", value);
   }
-  listarRecepcion() {
+  listarOrdencompra() {
     return this.http.get(this.url + "listar-ordencompra");
   }
-  eliminarRecepcion(id: string) {
+  eliminarOrdencompra(id: string) {
     return this.http.delete(this.url + "delete-ordencompra/" + id);
   }
-  actualizarRecepcion(id: string, value) {
+  actualizarOrdencompra(id: string, value) {
     return this.http.put(this.url + "actualizar-ordencompra/" + id, value);
   }
+
+// RECEPCION
+saveRecepcion(value) {
+  return this.http.post(this.url + "save-Recepcion", value);
+}
+listarRecepcion() {
+  return this.http.get(this.url + "listar-Recepcion");
+}
+eliminarRecepcion(id: string) {
+  return this.http.delete(this.url + "delete-Recepcion/" + id);
+}
+actualizarRecepcion(id: string, value) {
+  return this.http.put(this.url + "actualizar-Recepcion/" + id, value);
+}
+
 }

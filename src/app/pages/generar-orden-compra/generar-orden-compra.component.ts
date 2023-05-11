@@ -8,10 +8,10 @@ import { RecepcionService } from 'src/app/services/recepcion.service';
 
 @Component({
   selector: 'app-generar-recepcion',
-  templateUrl: './generar-recepcion.component.html',
-  styleUrls: ['./generar-recepcion.component.css']
+  templateUrl: './generar-orden-compra.component.html',
+  styleUrls: ['./generar-orden-compra.component.css']
 })
-export class GenerarRecepcionComponent implements OnInit {
+export class GenerarOrdenCompraComponent implements OnInit {
   miga: any = 'Generar Orden de Compra';
   checkoutForm!: FormGroup;
   private _success = new Subject<string>();
@@ -50,7 +50,7 @@ export class GenerarRecepcionComponent implements OnInit {
 
   onSubmit(){
      console.log(this.checkoutForm.value)
-     this.recepcion.saveRecepcion(this.checkoutForm.value)
+     this.recepcion.saveOrdencompra(this.checkoutForm.value)
      .subscribe(resp=>{
        console.log(resp)
        this.respuesta = resp;

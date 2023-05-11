@@ -3,8 +3,8 @@
     }}</ngb-alert>
 <div class="container-fluid">
     <div class="d-sm-flex bd-highlight mb-5">
-        <input placeholder="Buscar" name="filterRecepcion" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
-            [(ngModel)]="filterRecepcion">
+        <input placeholder="Buscar" name="filterOC" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+            [(ngModel)]="filterOC">
     </div>
 
         <table class="table table-bordered table-striped  table-hover ">
@@ -24,7 +24,7 @@
             </thead>
             <tbody>
                 <!--  -->
-                <tr *ngFor="let pos of recepcion | filterListarRecepcion:filterRecepcion">
+                <tr *ngFor="let pos of OC | filterListarOrdenCompra:filterOC">
 
                     <td>{{pos.referencia}}</td>
                     <td>{{pos.nombre_proveedor}} </td>
