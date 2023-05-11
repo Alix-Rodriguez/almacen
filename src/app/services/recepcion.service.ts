@@ -39,16 +39,16 @@ export class RecepcionService {
 
   // PROCESAR RECEPCION
   saveProcesar(value) {
-    return this.http.post(this.url + "save-Procesar", value);
+    return this.http.post(this.url + "save-recepcionprocesar", value);
   }
   listarProcesar() {
-    return this.http.get(this.url + "listar-Procesar");
+    return this.http.get(this.url + "listar-recepcionprocesar");
   }
   eliminarProcesar(id: string) {
-    return this.http.delete(this.url + "delete-Procesar/" + id);
+    return this.http.delete(this.url + "delete-recepcionprocesar/" + id);
   }
   actualizarProcesar(id: string, value) {
-    return this.http.put(this.url + "actualizar-Procesar/" + id, value);
+    return this.http.put(this.url + "actualizar-recepcionprocesar/" + id, value);
   }
 
   // UBICAR Y CERRAR

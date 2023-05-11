@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -94,8 +94,8 @@ export class RecepcionComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      id_almacen: [""],
-      id_empresas: [""],
+      id_almacen: ['',[Validators.required]],
+      id_empresas: ['',[Validators.required]]
     });
   }
 
