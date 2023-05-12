@@ -81,15 +81,15 @@ export class RecepcionService {
 
   // NO CATALOGADO
   saveNoCatalogado(value) {
-    return this.http.post(this.url + "save-OrdenesNoCatalogado", value);
+    return this.http.post(this.url + "save-recepcionNocatalogado", value);
   }
   listarNoCatalogado() {
-    return this.http.get(this.url + "listar-OrdenesNoCatalogado");
+    return this.http.get(this.url + "listar-recepcionNocatalogado");
   }
   eliminarNoCatalogado(id: string) {
-    return this.http.delete(this.url + "delete-OrdenesNoCatalogado/" + id);
+    return this.http.delete(this.url + "delete-recepcionNocatalogado/" + id);
   }
   actualizarNoCatalogado(id: string, value) {
-    return this.http.put(this.url + "actualizar-OrdenesNoCatalogado/" + id, value);
+    return this.http.put(this.url + "actualizar-recepcionNocatalogado/" + id, value);
   }
 }

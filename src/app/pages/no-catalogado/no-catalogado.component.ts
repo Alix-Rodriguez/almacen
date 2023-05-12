@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -86,7 +86,8 @@ export class NoCatalogadoComponent implements OnInit {
     for (let i = 0; i < this.recepcion.length; i++) {
       if (this.recepcion[i].id === id) {
         this.checkoutForm.setValue({
-          //  referencia: this.recepcion[i].referencia,
+          id_almacen: this.recepcion[i].id_almacen,
+          id_empresas: this.recepcion[i].empresas_id,
 
         });
       }
@@ -95,8 +96,8 @@ export class NoCatalogadoComponent implements OnInit {
 
   initForm(): FormGroup {
     return this.fb.group({
-      referencia: [""],
-      id_proveedor: [""],
+      id_almacen: ['',[Validators.required]],
+      id_empresas: ['',[Validators.required]]
     });
   }
 
