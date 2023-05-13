@@ -17,11 +17,7 @@ export class ProgramacionAggProductoComponent implements OnInit {
   filterNP=""
   filterModelo=""
 
-  // onChange(event:any){
-  //   console.log(event);
-  //   this.filter[0]=event
-  //   console.log(this.filter);
-  // }
+ 
   constructor(
     private dataCatalogo: DataCatalogoService,
     private render2: Renderer2,
@@ -36,33 +32,35 @@ export class ProgramacionAggProductoComponent implements OnInit {
     this.dataCatalogo.ListarProducto().subscribe(resp =>{
       this.producto=resp['data']
     } )
-    this.kintingProducto.GuardarProducto.emit({
-      data:this.seleccion
-    })
+  
   }
 
   Select(iter: any, id) {
-       console.log(iter);
-       console.log(id);
-       console.log(this.pl.nativeElement.childNodes[iter]);
+      //  console.log(iter);
+      //  console.log(id);
+      //  console.log(this.pl.nativeElement.childNodes[iter]);
+      //  console.log(this.producto[iter]);
    
      if (this.pl.nativeElement.childNodes[iter].className === "bg-light") {
-      console.log("entro if");
+      // console.log("entro if");
        this.render2.removeClass(this.pl.nativeElement.children[iter], 'bg-light')
-       this.seleccion = this.seleccion.filter(select => select !== id)
+       this.seleccion = this.seleccion.filter(select => select !== this.producto[iter])
     
      } else {
-      console.log("entro else");
+      // console.log("entro else");
 
        this.render2.addClass(this.pl.nativeElement.children[iter], 'bg-light')
-       this.seleccion.push(id)
+       this.seleccion.push(this.producto[iter])
     
      }
-    console.log(this.seleccion);
+    // console.log(this.seleccion);
   }
 
   Enviar(){
    this.ngOnInit()
+   this.kintingProducto.GuardarProducto.emit({
+    data:this.seleccion
+  })
   }
 
 }

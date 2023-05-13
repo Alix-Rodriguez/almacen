@@ -19,16 +19,5 @@ export class FilterAggProductoPipe implements PipeTransform {
      }
      return resultPost;
    }
-  // transform(productos:Array=[filterProducto] filterProducto: string, filterSku: string): any {
-  //   const resultPost = [];
-  //   for (const pos of productos) {
-  //     if ((pos.sku.toLowerCase().indexOf(filterProducto.toLowerCase()) > -1) || 
-  //         (pos.descripcion.toLowerCase().indexOf(filterProducto.toLowerCase()) > -1) || 
-  //         (pos.numero_parte.toLowerCase().indexOf(filterProducto.toLowerCase()) > -1) || 
-  //         (pos.modelo.toLowerCase().indexOf(filterProducto.toLowerCase()) > -1)) {
-  //       resultPost.push(pos);
-  //     }
-  //   }
-  //   return resultPost;
-  // }
+ 
 }

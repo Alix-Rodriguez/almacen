@@ -92,4 +92,15 @@ export class RecepcionService {
   actualizarNoCatalogado(id: string, value) {
     return this.http.put(this.url + "actualizar-recepcionNocatalogado/" + id, value);
   }
+
+   // PROGRAMACION EN Detalle Y DETALLE
+   saveProceso(value) {
+    return this.http.post(this.url + "save-ProgramacionProgreso", value);
+  }
+  listarProceso() {
+    return this.http.get(this.url + "listar-ProgramacionProgreso");
+  }
+  saveDetalle(value) {
+    return this.http.post(this.url + "save-programacionDetalllada", value);
+  }
 }
