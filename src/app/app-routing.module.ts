@@ -49,6 +49,7 @@ import { UbicarYcerrarComponent } from './pages/ubicar-ycerrar/ubicar-ycerrar.co
 import { OrdenesCerradasComponent } from './pages/ordenes-cerradas/ordenes-cerradas.component';
 import { NoCatalogadoComponent } from './pages/no-catalogado/no-catalogado.component';
 import { ProgramacionComponent } from './pages/programacion/programacion.component';
+import { EntradaComponent } from './pages/entrada/entrada.component';
 
 
 const routes: Routes = [
@@ -98,6 +99,7 @@ const routes: Routes = [
       { path: 'ordenes-cerraradas', component: OrdenesCerradasComponent},
       { path: 'no-catalogado', component: NoCatalogadoComponent},
       { path: 'programacion', component: ProgramacionComponent},
+      { path: 'entrada', component: EntradaComponent},
 
 
 

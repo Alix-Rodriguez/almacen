@@ -70,6 +70,7 @@ import { NoCatalogadoComponent } from './pages/no-catalogado/no-catalogado.compo
 import { ProgramacionComponent } from './pages/programacion/programacion.component';
 import { ProgramacionAggProductoComponent } from './pages/programacion-agg-producto/programacion-agg-producto.component';
 import { FilterAggProductoPipe } from './pipes/filter-agg-producto.pipe';
+import { EntradaComponent } from './pages/entrada/entrada.component';
 
 @NgModule({
   declarations: [
@@ -138,6 +139,7 @@ import { FilterAggProductoPipe } from './pipes/filter-agg-producto.pipe';
     ProgramacionComponent,
     ProgramacionAggProductoComponent,
     FilterAggProductoPipe,
+    EntradaComponent,
   
   ],
   imports: [
