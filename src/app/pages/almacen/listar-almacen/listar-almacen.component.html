@@ -16,7 +16,6 @@
                     <th scope="col">Empresa</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Calle</th>
                     <th scope="col">Número Exterior</th>
                     <th scope="col">Número Interno</th>
                     <th scope="col">Delegación</th>
@@ -30,7 +29,6 @@
                     <td>{{pos.descuento_almacen}}</td>
                     <td>{{pos.nombre}} </td>
                     <td>{{pos.tipo}} </td>
-                    <td>{{pos.calle}} </td>
                     <td>{{pos.numero_exterior}} </td>
                     <td>{{pos.numero_interno}} </td>
                     <td>{{pos.delegacion_municipio}} </td>
@@ -55,12 +53,12 @@
                 <tr>
                     <th scope="col">Codigo Postal</th>
                     <th scope="col">Telefono</th>
-                    <th scope="col">Numero Interior</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Zona</th>
+                    <th scope="col">Calle</th>
+                    <!-- <th scope="col">Zona</th>
                     <th scope="col">Rack</th>
                     <th scope="col">Nivel</th>
-                    <th scope="col">Localidad</th>
+                    <th scope="col">Localidad</th> -->
                     <th scope="col">Acciones</th>
 
                 </tr>
@@ -69,12 +67,12 @@
                 <tr *ngFor="let pos of Almacen | filterAlmacen:filterAlmacen">
                     <td>{{pos.cp}} </td>
                     <td>{{pos.telefono}} </td>
-                    <td>{{pos.numero_interior}} </td>
                     <td>{{pos.email}} </td>
-                    <td>{{pos.usa_zona}} </td>
+                    <td>{{pos.calle}} </td>
+                    <!-- <td>{{pos.usa_zona}} </td>
                     <td>{{pos.usa_rack}}</td>
                     <td>{{pos.usa_nivel}} </td>
-                    <td>{{pos.usa_localidad}} </td>
+                    <td>{{pos.usa_localidad}} </td> -->
                     <td>
                         <button class=" btn btn-warning padding" (click)="ListarForm(pos.id)"
                             (click)="open(mymodalMODI)"></button>
@@ -143,8 +141,8 @@
                                         <div class="col-4">
                                             <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio"
                                                 class="form-select" (change)="onChange($event.target.value)">
-                                                <option value="" disabled selected>Selecciones</option>
-                                                <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones">
+                                                <option  disabled selected>Selecciones</option>
+                                                <option *ngFor="let dl of delegaciones" value={{dl.code_delegacion}} >
                                                     {{dl.descripcion}}
                                                 </option>
                                             </select>
@@ -153,8 +151,8 @@
                                             <div class="col-4">
                                                 <select formControlName="colonia" name="colonia" id="colonia"
                                                     class="form-select">
-                                                    <option value="" disabled selected>Selecciones</option>
-                                                    <option value={{cl.code_colonia}} *ngFor="let cl of colonias">
+                                                    <option disabled selected>Selecciones</option>
+                                                    <option *ngFor="let cl of colonias" value={{cl.code_colonia}} >
                                                         {{cl.descripcion}} </option>
                                                 </select>
                                             </div>
@@ -188,7 +186,7 @@
                                                 class="col form-control">
                                         </div>
                                     </div>
-                                    <div class="row mt-2">
+                                    <!-- <div class="row mt-2">
 
                                         <label class="col  text-end form-label">Zona</label>
                                         <div class="col-4">
@@ -200,8 +198,8 @@
                                             <input formControlName="usa_rack" name="usa_rack" id="usa_rack" type="text"
                                                 class="  form-control">
                                         </div>
-                                    </div>
-                                    <div class="row mt-2">
+                                    </div> -->
+                                    <!-- <div class="row mt-2">
 
                                         <label class="col  text-end form-label">Nivel</label>
                                         <div class="col-4">
@@ -212,7 +210,7 @@
                                             <input formControlName="usa_localidad" name="usa_localidad"
                                                 id="usa_localidad" type="text" class="  form-control">
                                         </div>
-                                    </div>
+                                    </div> -->
 
 
                                 </form>

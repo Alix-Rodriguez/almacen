@@ -30,6 +30,7 @@ export class ProgramacionComponent implements OnInit {
   producto: any;
   provedore: any
   PP: any
+  bool:boolean=false
   cantidad: any = []
 
   constructor(
@@ -45,6 +46,7 @@ export class ProgramacionComponent implements OnInit {
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
   @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
   @ViewChild('input') input!: ElementRef;
+
 
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
@@ -64,21 +66,23 @@ export class ProgramacionComponent implements OnInit {
       for (let i = 0; i < this.producto.length; i++) {
         this.cantidad.push("")
       }
-      // console.log(this.cantidad);
+       if(this.producto.length>=1){
+        this.bool=true
+       }
+      
     })
 
   }
 
   saveCantidad(value, index) {
-    // console.log(value);
-    // console.log(index);
     this.cantidad[index] = value
-    // console.log(this.cantidad);
   }
 
   activar() {
     const Input = this.input.nativeElement
-    this.render2.removeAttribute(Input, 'disabled', '')
+    console.log(Input);
+    this.render2.removeClass(Input, 'p')
+
   }
 
   ListarEmpresa() {
@@ -100,82 +104,77 @@ export class ProgramacionComponent implements OnInit {
     // console.log(index);
     this.producto = this.producto.filter(select => select !== this.producto[index])
     this.cantidad.splice(index)
+    if(this.producto.length<=0){
+      this.bool=false
+     }
+   
     // console.log(this.cantidad);
     this.ngOnInit()
   }
 
 
   onSubmit() {
-    console.log(this.checkoutForm.value)
-    this.dataRecepcion.saveProceso(this.checkoutForm.value)
-      .subscribe(resp => {
-        console.log(resp)
-        this.respuesta = resp;
-        this.type = "success";
-        this.changeSuccessMessage(this.respuesta.msn)
-        // this.ngOnInit();
-        this.dataRecepcion.listarProceso().subscribe(resp => {
-          this.PP = resp['data']
-     
-          for (let i = 0; i < this.producto.length; i++) {
+    if(this.bool===true){
+      let año = this.checkoutForm.value.fecha.year
+      let dia = this.checkoutForm.value.fecha.day
+      let mes = this.checkoutForm.value.fecha.month
+      this.checkoutForm.value.fecha = `${año}-${mes}-${dia}`
+      console.log(this.checkoutForm.value)
+      this.dataRecepcion.saveProceso(this.checkoutForm.value)
+        .subscribe(resp => {
+          console.log(resp)
+          this.respuesta = resp;
+          this.type = "success";
+          this.changeSuccessMessage(this.respuesta.msn)
 
-            this.checkoutFormDetalle.setValue({
-             // id_almacen: this.producto[i].id_almacen,
-             id_programacion_progreso: this.PP[this.PP.length-1].id ,
-             id_producto:this.producto[i].id ,
-             SKU:this.producto[i].sku ,
-             unidad_medida: this.producto[i].id_unidad_de_medida ,
-             cantidad:this.cantidad[i],
-             descripcion:this.producto[i].descripcion,
-           });
-           this.dataRecepcion.saveDetalle(this.checkoutFormDetalle.value).subscribe(resp=>{
-             console.log(resp);
-           })
+          // this.ngOnInit();
 
-         }
-        })
-        
-
-
-        // const counter=this.PP.length
-        // console.log(this.PP[this.PP.length].id);
-
-        // for (let i = 0; i < this.producto.length; i++) {
-        //   console.log("entroo");
-        //   this.checkoutFormDetalle.setValue({
-        //     // id_almacen: this.producto[i].id_almacen,
-        //     id_programacion_progreso: this.PP[this.PP.length-1].id ,
-        //     id_producto:this.producto[i].id ,
-        //     SKU:this.producto[i].sku ,
-        //     unidad_medida: this.producto[i].id_unidad_de_medida ,
-        //     cantidad:this.cantidad[i],
-        //     descripcion:this.producto[i].descripcion,
-        //   });
-        //   this.dataRecepcion.saveDetalle(this.checkoutFormDetalle.value).subscribe(resp=>{
-        //     console.log(resp);
-        //   })
-
-        // }
-
-      },
-        error => {
-          this.type = "danger";
-          this.changeSuccessMessage('Error no se ha guardado correctamente')
-        });
-
-
+          this.dataRecepcion.listarProceso().subscribe(resp => {
+            this.PP = resp['data']
+       
+            for (let i = 0; i < this.producto.length; i++) {
+  
+              this.checkoutFormDetalle.setValue({
+               // id_almacen: this.producto[i].id_almacen,
+               id_programacion_progreso: this.PP[this.PP.length-1].id ,
+               id_producto:this.producto[i].id ,
+               SKU:this.producto[i].sku ,
+               unidad_medida: this.producto[i].id_unidad_de_medida ,
+               cantidad:this.cantidad[i],
+               descripcion:this.producto[i].descripcion,
+             });
+             this.dataRecepcion.saveDetalle(this.checkoutFormDetalle.value).subscribe(resp=>{
+               console.log(resp);
+             })
+  
+           }
+          })
+          
+  
+        },
+          error => {
+            this.type = "danger";
+            this.changeSuccessMessage('Error no se ha guardado correctamente')
+          });
+  
+  
+    } else{
+      this.type = "danger";
+       this.changeSuccessMessage('Error no se ha ingresado ningun producto')
+      
+    } 
+    
     this._success.subscribe((message) => (this.successMessage = message));
-    this._success.pipe(debounceTime(5000)).subscribe(() => {
-      if (this.selfClosingAlert) {
-        this.selfClosingAlert.close();
-      }
-    });
-
+      this._success.pipe(debounceTime(5000)).subscribe(() => {
+        if (this.selfClosingAlert) {
+          this.selfClosingAlert.close();
+        }
+      });
 
   }
 
 
-  GuardarDetalleForm() {
+  GuardarDetalleForm(): void {
     for (let i = 0; i < this.producto.length; i++) {
       this.checkoutForm.setValue({
         id_almacen: this.producto[i].id_almacen,

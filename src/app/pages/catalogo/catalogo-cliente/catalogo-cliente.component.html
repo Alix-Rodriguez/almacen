@@ -1,5 +1,6 @@
 <app-breadcrumbs [miga]="miga"></app-breadcrumbs>
-<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage }}</ngb-alert>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{ successMessage
+    }}</ngb-alert>
 <form [formGroup]='checkoutForm'>
     <div class="container">
         <div class="mt-3 ml-5 d-flex align-items-center">
@@ -15,9 +16,9 @@
         <!-- GRID -->
         <div class=" container mt-4">
             <div class="row">
-                <label class="text-end col form-label">Clave Cliente</label>
-                <input placeholder="Ingrese Clave Cliente" formControlName="clave_cliente" name="clave_cliente" id="clave_cliente" type="text"
-                    class="col form-control">
+                <label class="text-end col form-label">Nombre de Cliente</label>
+                <input placeholder="Ingrese Nombre de Cliente" formControlName="nombre_cliente" name="nombre_cliente"
+                    id="nombre_cliente" type="text" class="col form-control">
                 <label class="col text-end form-label">Pais</label>
                 <select formControlName="pais" name="pais" id="pais" class="col form-select">
                     <option value="" disabled selected>Selecciones</option>
@@ -25,61 +26,64 @@
                 </select>
             </div>
             <div class="row mt-2">
-                <label class="text-end col form-label">Empresa</label>
-                <input formControlName="nombre" placeholder="Ingrese Empresa" name="nombre" id="nombre" type="text" class="col form-control">
                 <label class="text-end col form-label">Codigo Postal</label>
-                <input formControlName="codigoPostal" name="codigoPostal" placeholder="Ingrese Codigo Postal" id="codigoPostal" type="text"
-                    class="col form-control">
-            </div>
-            <div class="row mt-2">
+                <input formControlName="codigoPostal" name="codigoPostal" placeholder="Ingrese Codigo Postal"
+                    id="codigoPostal" type="text" class="col form-control">
                 <label class="col text-end form-label">RFN</label>
-                <input formControlName="nif" name="nif" id="nif" placeholder="Ingrese RFN" type="text" class="col form-control">
+                <input formControlName="nif" name="nif" id="nif" placeholder="Ingrese RFN" type="text"
+                    class="col form-control">
+            </div>
+            <div class="row mt-2">
                 <label class="col text-end form-label">Telefono 1</label>
-                <input formControlName="telefono" name="telefono" placeholder="Ingrese Primer Telefono" id="telefono" type="text" class="col form-control">
-            </div>
-            <div class="row mt-2">
+                <input formControlName="telefono" name="telefono" placeholder="Ingrese Primer Telefono" id="telefono"
+                    type="text" class="col form-control">
                 <label class="col text-end form-label">Calle</label>
-                <input formControlName="calle" name="calle" id="calle" placeholder="Ingrese La Calle" type="text" class="col form-control">
+                <input formControlName="calle" name="calle" id="calle" placeholder="Ingrese La Calle" type="text"
+                    class="col form-control">
+            </div>
+            <div class="row mt-2">
                 <label class="col text-end form-label">Telefono 2</label>
-                <input formControlName="telefono_opcional" name="telefono_opcional" placeholder="Ingrese Segundo Telefono" id="telefono_opcional" type="text"
-                    class="col form-control">
-            </div>
-            <div class="row mt-2">
+                <input formControlName="telefono_opcional" name="telefono_opcional"
+                    placeholder="Ingrese Segundo Telefono" id="telefono_opcional" type="text" class="col form-control">
                 <label class="col text-end form-label">Numero Exterior</label>
-                <input formControlName="numero_exterior" name="numero_exterior" placeholder="Ingrese Numero Exterior" id="numero_exterior" type="text"
-                    class="col  form-control">
+                <input formControlName="numero_exterior" name="numero_exterior" placeholder="Ingrese Numero Exterior"
+                    id="numero_exterior" type="text" class="col  form-control">
+            </div>
+            <div class="row mt-2">
                 <label class="col  text-end form-label">Telefono 3</label>
-                <input formControlName="telefono_opcional2" name="telefono_opcional2" placeholder="Ingrese Tercer Telefono" id="telefono_opcional2"
-                    type="text" class="col  form-control">
+                <input formControlName="telefono_opcional2" name="telefono_opcional2"
+                    placeholder="Ingrese Tercer Telefono" id="telefono_opcional2" type="text" class="col  form-control">
+                    <label class="col text-end form-label">Numero Interior</label>
+                    <input formControlName="numero_interior" name="numero_interior" placeholder="Ingrese Numero Interior"
+                        id="numero_interior" type="text" class="col form-control">
             </div>
             <div class="row mt-2">
-                <label class="col text-end form-label">Numero Interior</label>
-                <input formControlName="numero_interior" name="numero_interior" placeholder="Ingrese Numero Interior" id="numero_interior" type="text"
-                    class="col form-control">
                 <label class="col text-end form-label">Contacto</label>
-                <input formControlName="contacto" name="contacto" id="contacto" type="text" placeholder="Ingrese Contacto" class="col form-control">
+                <input formControlName="contacto" name="contacto" id="contacto" type="text"
+                    placeholder="Ingrese Contacto" class="col form-control">
+                    <label class="col-3 text-end form-label">Delegación</label>
+                    <div class="col-3">
+                        <select formControlName="delegacion" name="delegacion" id="delegacion" class=" form-select"
+                            (change)="onChange($event.target.value)">
+                            <option value="" disabled selected>Selecciones</option>
+                            <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}}
+                            </option>
+                        </select>
+                    </div>
             </div>
             <div class="row mt-2">
-                <label class="col-3 text-end form-label">Delegación</label>
-                <div class="col-3">
-                    <select formControlName="delegacion" name="delegacion" id="delegacion" class=" form-select" (change)="onChange($event.target.value)">
-                        <option value="" disabled selected>Selecciones</option>
-                        <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}}
-                        </option>
-                    </select>
-                </div>
                 <label class="col text-end form-label">Email</label>
-                <input formControlName="email" name="email" id="email" type="text" placeholder="Ingrese Email" class="col form-control">
+                <input formControlName="email" name="email" id="email" type="text" placeholder="Ingrese Email"
+                    class="col form-control">
+                    <label class="col text-end form-label">Colonia</label>
+                    <div class="col">
+                        <select formControlName="colonia" name="colonia" id="colonia" class="col form-select">
+                            <option value="" disabled selected>Selecciones</option>
+                            <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
+                        </select>
+                    </div>
             </div>
-            <div class="row mt-2">
-                <label class="col-3 text-end form-label">Colonia</label>
-                <div class="col-3">
-                    <select formControlName="colonia" name="colonia" id="colonia" class="col form-select">
-                        <option value="" disabled selected>Selecciones</option>
-                        <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
-                    </select>
-                </div>
-            </div>
+           
             <!-- <div class="row mt-2">
                 <label class="col-3 text-end form-label">Ubicaciones</label>
                 <button  type="button" class="col-1 btn btn-dark">Buscar</button>

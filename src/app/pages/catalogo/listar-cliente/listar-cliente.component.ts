@@ -51,8 +51,8 @@ export class ListarClienteComponent implements OnInit {
     for (let i = 0; i < this.Cliente.length; i++) {
       if (this.Cliente[i].id === id) {
         this.checkoutForm.setValue({
-          clave_cliente: this.Cliente[i].clave_cliente,
-          nombre: this.Cliente[i].nombre,
+          nombre_cliente: this.Cliente[i].nombre_cliente,
+          // nombre: this.Cliente[i].nombre,
           id_empresa: this.Cliente[i].id_empresa,
           codigoPostal: this.Cliente[i].codigoPostal,
           nif: this.Cliente[i].nif,
@@ -75,8 +75,8 @@ export class ListarClienteComponent implements OnInit {
   initForm(): FormGroup {
     return this.fb.group({
       id_empresa: [""],
-      clave_cliente: [""],
-      nombre: [""],
+      nombre_cliente: [""],
+      // nombre: [""],
       codigoPostal: [""],
       nif: [""],
       telefono: [""],

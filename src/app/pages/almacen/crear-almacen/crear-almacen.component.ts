@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
 import { DataLayoutService} from '../../../services/data-layout.service'
+import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 
 @Component({
   selector: "app-crear-almacen",
@@ -66,7 +67,7 @@ export class CrearAlmacenComponent implements OnInit {
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
     private dataLayout: DataLayoutService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
   ) {}
 
   Listaralmacen() {
@@ -93,6 +94,7 @@ export class CrearAlmacenComponent implements OnInit {
     this.Listzona()
     this.Listrack()
     this.Listlocalidad()
+
   }
 
   // REMITENTEN
@@ -179,6 +181,7 @@ export class CrearAlmacenComponent implements OnInit {
       this.localidad = resp["data"];
     });
   }
+ 
 
   initForm(): FormGroup {
     return this.fb.group({
@@ -194,12 +197,10 @@ export class CrearAlmacenComponent implements OnInit {
       telefono: ["", [Validators.required]],
       email: ["", [Validators.required, Validators.email]],
       picking: [""],
-      usa_zona: ["", [Validators.required]],
-      usa_rack: ["", [Validators.required]],
-      usa_nivel: ["", [Validators.required]],
-      usa_localidad: ["", [Validators.required]],
-      // frm_uso1:['',[Validators.required]],
-      // frm_uso2:['',[Validators.required]],
+       usa_zona: 0,
+       usa_rack: 0,
+       usa_nivel: 0,
+       usa_localidad: 0,
       contacto: "Daniel",
       etiqueta_entrada: 3,
       schedule: 1,

@@ -144,9 +144,7 @@
                     <select formControlName="id_unidad_de_medida" name="id_unidad_de_medida" id="id_unidad_de_medida"
                         class="form-select">
                         <option value="" disabled selected>Seleccione</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option  *ngFor="let li of UM" value={{li.id}} >{{li.descripcion}} </option>
                     </select>
                 </div>
             </div>

@@ -33,6 +33,8 @@ export class CatalogoDeProductosComponent implements OnInit {
   kitingBool: boolean = false
   compuesto: any
   skuGlobal: any
+  UM:any
+
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
@@ -64,7 +66,12 @@ export class CatalogoDeProductosComponent implements OnInit {
     }
 
   }
-
+  ListaUM(){
+    this.DateCatalogo.ListarUM()
+    .subscribe(resp=>{
+      this.UM = resp['data'];
+    })
+  }
   Listar() {
     this.dataService.getListEmpresa()
       .subscribe(resp => {
@@ -101,6 +108,7 @@ export class CatalogoDeProductosComponent implements OnInit {
       this.compuesto = data['data']
       console.log(this.compuesto);
     })
+    this.ListaUM()
   }
   initForm(): FormGroup {
     return this.fb.group({

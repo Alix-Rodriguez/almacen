@@ -8,7 +8,7 @@
                 <label class="form-label">Empresa:</label>
                 <select formControlName="descuento_almacen" name="descuento_almacen" id="descuento_almacen"
                     class="form-select">
-                    <option value="-">Seleccione</option>
+                    <option value="">Seleccione</option>
                     <option value={{emd.id}} *ngFor="let emd of empresa"> {{emd.nombre_empresa}} </option>
                 </select>
             </div>
@@ -20,7 +20,7 @@
             <div class="col">
                 <label>Tipo:</label>
                 <select formControlName="tipo" name="tipo" id="tipo" class="form-select">
-                    <option value="-" selected>Seleccione</option>
+                    <option value="" selected>Seleccione</option>
                     <option value="1">Virtual</option>
                     <option value="2">Física</option>
                 </select>
@@ -50,14 +50,14 @@
                 <label class="form-label">Delegación:</label>
                 <select formControlName="delegacion_municipio" name="delegacion_municipio" id="delegacion_municipio"
                     (change)="onChange($event.target.value)" class="form-select">
-                    <option value="." selected>Selecciones</option>
+                    <option value="" selected>Selecciones</option>
                     <option value={{dl.code_delegacion}} *ngFor="let dl of delegaciones"> {{dl.descripcion}} </option>
                 </select>
             </div>
             <div class="col">
                 <label class="form-label">Colonía:</label>
                 <select formControlName="colonia" name="colonia" id="colonia" class="form-select">
-                    <option value="-" selected>Selecciones</option>
+                    <option value="" selected>Selecciones</option>
                     <option value={{cl.code_colonia}} *ngFor="let cl of colonias"> {{cl.descripcion}} </option>
                 </select>
             </div>
@@ -67,7 +67,7 @@
                     class="form-control">
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <label class="form-label">Telefono:</label>
                 <input type="text" formControlName="telefono" name="telefono" placeholder="Ingrese Número Telefonico"
@@ -159,10 +159,10 @@
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
-                <select class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
+                <!-- <select class="form-select" formControlName="usa_zona" name="usa_zona" id="usa_zona">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of zona" value={{li.id}}>{{li.descripcion}} </option>
-                </select>
+                </select> -->
             </div>
             <div class="col-3">
                 <label>Rack:</label>
@@ -171,11 +171,11 @@
                     <path
                     d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
-                <select class="form-select" formControlName="usa_rack" name="usa_rack" id="usa_rack">
+                <!-- <select class="form-select" formControlName="usa_rack" name="usa_rack" id="usa_rack">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of rack" value={{li.id}}>{{li.descripcion}} </option>
 
-                </select>
+                </select> -->
             </div>
 
             <div class="col-3">
@@ -185,11 +185,11 @@
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
-                <select class="form-select" formControlName="usa_nivel" name="usa_nivel" id="usa_nivel">
+                <!-- <select class="form-select" formControlName="usa_nivel" name="usa_nivel" id="usa_nivel">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of nivel" value={{li.id}}>{{li.descripcion}} </option>
 
-                </select>
+                </select> -->
             </div>
             <div class="col-3">
                 <label>Localidad:</label>
@@ -198,11 +198,11 @@
                     <path
                         d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
                 </svg>
-                <select class="form-select" formControlName="usa_localidad" name="usa_localidad" id="usa_localidad">
+                <!-- <select class="form-select" formControlName="usa_localidad" name="usa_localidad" id="usa_localidad">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of localidad" value={{li.id}}>{{li.descripcion}} </option>
 
-                </select>
+                </select> -->
             </div>
         </div>
 

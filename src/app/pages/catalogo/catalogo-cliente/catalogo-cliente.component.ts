@@ -75,8 +75,8 @@ export class CatalogoClienteComponent implements OnInit {
   initForm(): FormGroup {
     return this.fb.group({
       id_empresa:['',[Validators.required]],
-      clave_cliente:['', [Validators.required]],
-      nombre:['', [Validators.required]],
+      nombre_cliente:['', [Validators.required]],
+      // nombre:['', [Validators.required]],
       codigoPostal:['', [Validators.required]],
       nif:['',[Validators.required]],
       telefono:['',[Validators.required]],
