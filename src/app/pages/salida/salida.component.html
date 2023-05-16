@@ -2,7 +2,7 @@
 <ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
     successMessage}}</ngb-alert>
 <form [formGroup]='checkoutForm'>
-    <h4 class="border-1 border-bottom border-dark">Etiqueta IN</h4>
+    <h4 class="border-1 border-bottom border-dark">Etiqueta Out PackList</h4>
     <div class="container">
         <div class="row mt-4 mb-2 mr-5">
             <label class="text-center col-2">Empresa</label>
@@ -24,8 +24,8 @@
         </div>
 
         <div class="row mt-4 mb-2 mr-5">
-            <label class="col-2 text-center">Fecha</label>
-            <div class="col">
+            <label class="col-2 text-center">Fecha de Packing</label>
+            <div class="col-4">
                 <!-- formControlName="fecha" name="fecha" id="fecha" -->
                 <div class="input-group">
                     <input  class="form-control" placeholder="yyyy-mm-dd"
@@ -39,10 +39,6 @@
                                 d="M6.5 7a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-9 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
                         </svg></button>
                 </div>
-            </div>
-            <label class="col-2 text-center">Referencia</label>
-            <div class="col">
-                <input type="text" class=" form-control" placeholder="Ingrese Referecia">
             </div>
         </div>
 
@@ -58,8 +54,7 @@
                 <tr>
                     <th scope="col">Empresa</th>
                     <th scope="col">Almacen</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Referencia</th>
+                    <th scope="col">Fecha de Packing</th>
                     <th scope="col">Acciones</th>
     
     
@@ -67,10 +62,9 @@
             </thead>
             <tbody>
                 <!--  -->
-                <tr *ngFor="let pos of entrada; index as i" >
+                <tr *ngFor="let pos of salida; index as i" >
                     <td>{{pos}}</td>
                     <td>{{pos}}</td>
-                    <td>{{pos}} </td>
                     <td>{{pos}} </td>
                      
                     <td>

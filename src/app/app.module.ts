@@ -71,6 +71,7 @@ import { ProgramacionComponent } from './pages/programacion/programacion.compone
 import { ProgramacionAggProductoComponent } from './pages/programacion-agg-producto/programacion-agg-producto.component';
 import { FilterAggProductoPipe } from './pipes/filter-agg-producto.pipe';
 import { EntradaComponent } from './pages/entrada/entrada.component';
+import { SalidaComponent } from './pages/salida/salida.component';
 
 @NgModule({
   declarations: [
@@ -140,6 +141,7 @@ import { EntradaComponent } from './pages/entrada/entrada.component';
     ProgramacionAggProductoComponent,
     FilterAggProductoPipe,
     EntradaComponent,
+    SalidaComponent,
   
   ],
   imports: [

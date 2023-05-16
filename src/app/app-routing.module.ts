@@ -50,6 +50,7 @@ import { OrdenesCerradasComponent } from './pages/ordenes-cerradas/ordenes-cerra
 import { NoCatalogadoComponent } from './pages/no-catalogado/no-catalogado.component';
 import { ProgramacionComponent } from './pages/programacion/programacion.component';
 import { EntradaComponent } from './pages/entrada/entrada.component';
+import { SalidaComponent } from './pages/salida/salida.component';
 
 
 const routes: Routes = [
@@ -100,6 +101,7 @@ const routes: Routes = [
       { path: 'no-catalogado', component: NoCatalogadoComponent},
       { path: 'programacion', component: ProgramacionComponent},
       { path: 'entrada', component: EntradaComponent},
+      { path: 'salida', component: SalidaComponent},
 
 
 
