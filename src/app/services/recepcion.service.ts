@@ -103,4 +103,12 @@ export class RecepcionService {
   saveDetalle(value) {
     return this.http.post(this.url + "save-programacionDetalllada", value);
   }
+
+  //ETIQUETA DE ENTRADA
+  saveEntrada(value) {
+    return this.http.post(this.url + "save-etiquetain", value);
+  }
+  listarEntrada() {
+    return this.http.get(this.url + "listar-etiquetain");
+  }
 }
