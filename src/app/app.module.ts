@@ -72,6 +72,7 @@ import { ProgramacionAggProductoComponent } from './pages/programacion-agg-produ
 import { FilterAggProductoPipe } from './pipes/filter-agg-producto.pipe';
 import { EntradaComponent } from './pages/entrada/entrada.component';
 import { SalidaComponent } from './pages/salida/salida.component';
+import { FilterEtiquetaInOutPipe } from './pipes/filter-etiqueta-in-out.pipe';
 
 @NgModule({
   declarations: [
@@ -142,6 +143,7 @@ import { SalidaComponent } from './pages/salida/salida.component';
     FilterAggProductoPipe,
     EntradaComponent,
     SalidaComponent,
+    FilterEtiquetaInOutPipe,
   
   ],
   imports: [

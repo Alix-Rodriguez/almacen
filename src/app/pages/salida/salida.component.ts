@@ -22,7 +22,8 @@ export class SalidaComponent implements OnInit {
   successMessage = '';
   type: any;
   respuesta: any;
-  salida:any
+  salida: any
+  filterEtiqueta = ""
 
 
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
@@ -33,19 +34,19 @@ export class SalidaComponent implements OnInit {
     private readonly fb: FormBuilder,
     private recepcion: RecepcionService,
     private dataService: DataserviceService
-    ) { }
+  ) { }
 
-    Listar(){
-      this.dataService.getListEmpresa().subscribe(resp=>{
-        this.empresa= resp['data']
-      })
-      this.dataService.ListarALmacen().subscribe(resp=>{
-        this.almacen=resp['data']
-      })
-      this.recepcion.listarSalida().subscribe(resp=>{
-        this.salida=resp['data']
-      })
-    }
+  Listar() {
+    this.dataService.getListEmpresa().subscribe(resp => {
+      this.empresa = resp['data']
+    })
+    this.dataService.ListarALmacen().subscribe(resp => {
+      this.almacen = resp['data']
+    })
+    this.recepcion.listarSalida().subscribe(resp => {
+      this.salida = resp['data']
+    })
+  }
 
   ngOnInit(): void {
     this.checkoutForm = this.initForm();
@@ -66,7 +67,7 @@ export class SalidaComponent implements OnInit {
     let dia = this.checkoutForm.value.fecha_picking.day
     let mes = this.checkoutForm.value.fecha_picking.month
     this.checkoutForm.value.fecha_picking = `${año}-${mes}-${dia}`
-    
+
     console.log(this.checkoutForm.value)
     this.recepcion.saveSalida(this.checkoutForm.value)
       .subscribe(resp => {

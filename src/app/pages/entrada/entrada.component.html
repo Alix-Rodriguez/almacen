@@ -25,7 +25,7 @@
             <label class="col-2 text-center">Fecha</label>
             <div class="col">
                 <div class="input-group">
-                    <input formControlName="fecha" name="fecha" id="fecha"  class="form-control" placeholder="yyyy-mm-dd"
+                    <input formControlName="fecha" name="fecha" id="fecha" class="form-control" placeholder="yyyy-mm-dd"
                         ngbDatepicker #d="ngbDatepicker" />
                     <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -39,47 +39,48 @@
             </div>
             <label class="col-2 text-center">Referencia</label>
             <div class="col">
-                <input formControlName="referencia" name="referencia" id="referencia" type="text" class=" form-control" placeholder="Ingrese Referecia">
+                <input formControlName="referencia" name="referencia" id="referencia" type="text" class=" form-control"
+                    placeholder="Ingrese Referecia">
             </div>
         </div>
 
         <div class="d-flex align-items-end flex-column mr-5 mt-5 mb-4 ">
-            <button type="button" (click)="onSubmit()" [disabled]="checkoutForm.invalid" class="mb-1 col-2 btn border-dark border-1">Guardar</button>
-            <button type="button"  class="col-2 btn border-dark border-1">Imprimir Todo</button>
+            <button type="button" (click)="onSubmit()" [disabled]="checkoutForm.invalid"
+                class="mb-1 col-2 btn border-dark border-1">Guardar</button>
+            <button type="button" class="col-2 btn border-dark border-1">Imprimir Todo</button>
 
         </div>
-
-
-        <table class="table table-bordered table-striped  table-hover ">
-            <thead>
-                <tr>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Almacen</th>
-                    <th scope="col">Fecha</th>
-                    <th scope="col">Referencia</th>
-                    <th scope="col">Acciones</th>
-    
-    
-                </tr>
-            </thead>
-            <tbody>
-                <!--  -->
-                <tr *ngFor="let pos of entrada" >
-                    <td>{{pos.nombre_empresa}}</td>
-                    <td>{{pos.nombre_almacen}}</td>
-                    <td>{{pos.fecha}} </td>
-                    <td>{{pos.referencia}} </td>
-                     
-                    <td>
-                        <button  class="btn btn-info padding" ></button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 
-
-
-
-
 </form>
+
+<div class="d-sm-flex bd-highlight mb-5">
+    <input placeholder="Buscar" name="filterEtiqueta" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+        [(ngModel)]="filterEtiqueta">
+</div>
+<table class="table table-bordered table-striped  table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Empresa</th>
+            <th scope="col">Almacen</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Referencia</th>
+            <th scope="col">Acciones</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of entrada | filterEtiquetaInOut:filterEtiqueta">
+            <td>{{pos.nombre_empresa}}</td>
+            <td>{{pos.nombre_almacen}}</td>
+            <td>{{pos.fecha}} </td>
+            <td>{{pos.referencia}} </td>
+
+            <td>
+                <button class="btn btn-info padding"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
