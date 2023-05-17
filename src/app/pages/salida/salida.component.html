@@ -7,28 +7,28 @@
         <div class="row mt-4 mb-2 mr-5">
             <label class="text-center col-2">Empresa</label>
             <div class="col">
-                <select class="form-select">
+                <select formControlName="id_empresa" name="id_empresa" id="id_empresa" class="form-select">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}} </option>
                 </select>
             </div>
-            <!-- formControlName="id_empresa" name="id_empresa" id="id_empresa" -->
+
             <label class="text-center col-2">Almacen</label>
             <div class="col">
-                <select class="form-select">
+                <select formControlName="id_almacen" name="id_almacen" id="id_almacen" class="form-select">
                     <option value="" disabled selected>Seleccione</option>
                     <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
                 </select>
             </div>
-            <!-- formControlName="id_almacen" name="id_almacen" id="id_almacen" -->
+          
         </div>
 
         <div class="row mt-4 mb-2 mr-5">
             <label class="col-2 text-center">Fecha de Packing</label>
             <div class="col-4">
-                <!-- formControlName="fecha" name="fecha" id="fecha" -->
+
                 <div class="input-group">
-                    <input  class="form-control" placeholder="yyyy-mm-dd"
+                    <input  formControlName="fecha_picking" name="fecha_picking" id="fecha_picking"  class="form-control" placeholder="yyyy-mm-dd"
                         ngbDatepicker #d="ngbDatepicker" />
                     <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg
                             xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -43,7 +43,7 @@
         </div>
 
         <div class="d-flex align-items-end flex-column mr-5 mt-5 mb-4 ">
-            <button type="button"  class="mb-1 col-2 btn border-dark border-1">Buscar</button>
+            <button type="button" (click)="onSubmit()" [disabled]="checkoutForm.invalid" class="mb-1 col-2 btn border-dark border-1">Guardar</button>
             <button type="button"  class="col-2 btn border-dark border-1">Imprimir Todo</button>
 
         </div>
@@ -61,14 +61,13 @@
                 </tr>
             </thead>
             <tbody>
-                <!--  -->
                 <tr *ngFor="let pos of salida; index as i" >
-                    <td>{{pos}}</td>
-                    <td>{{pos}}</td>
-                    <td>{{pos}} </td>
+                    <td>{{pos.nombre_empresa}}</td>
+                    <td>{{pos.nombre_almacen}}</td>
+                    <td>{{pos.fecha}} </td>
                      
                     <td>
-                        <button  class="btn btn-danger padding" ></button>
+                        <button  class="btn btn-info padding" ></button>
                     </td>
                 </tr>
             </tbody>
