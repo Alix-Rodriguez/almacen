@@ -9,7 +9,7 @@
             <div class="col-3">
                 <select formControlName="id_empresa" name="id_empresa" id="id_empresa" class=" form-select">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let id of empresa">{{id.nombre_empresa}} </option>
+                    <option *ngFor="let id of empresa" value={{id.id}} >{{id.nombre_empresa}} </option>
                 </select>
             </div>
 

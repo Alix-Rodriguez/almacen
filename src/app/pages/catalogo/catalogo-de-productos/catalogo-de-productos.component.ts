@@ -17,7 +17,7 @@ export class CatalogoDeProductosComponent implements OnInit {
   miga: any = "Catalogo De Producto";
   siguiente: boolean = true;
   checkoutForm!: FormGroup;
-  // checkoutForm!: FormGroup
+  checkoutFormP!: FormGroup;
   empresa: any;
   config: any
   marca: any
@@ -92,8 +92,7 @@ export class CatalogoDeProductosComponent implements OnInit {
     this.DateCatalogo.ListarProducto().subscribe(resp => {
       this.catalogo = resp['data']
    
-
-
+  
     })
   }
 
@@ -104,11 +103,15 @@ export class CatalogoDeProductosComponent implements OnInit {
   ngOnInit(): void {
     this.Listar()
     this.checkoutForm = this.initForm();
+    this.checkoutFormP = this.initFormP();
+
     this.kintingProducto.GuardarKiting.subscribe(data => {
       this.compuesto = data['data']
       console.log(this.compuesto);
     })
     this.ListaUM()
+    console.log("entreee");
+
   }
   initForm(): FormGroup {
     return this.fb.group({
@@ -132,7 +135,12 @@ export class CatalogoDeProductosComponent implements OnInit {
       fecha_descontinuo: ["", [Validators.required]],
       status: ["", [Validators.required]],
       kitting: [""],
-
+    });
+  }
+  initFormP(): FormGroup {
+    return this.fb.group({
+      id_producto: ["", [Validators.required]],
+      
     });
   }
 
@@ -155,8 +163,8 @@ export class CatalogoDeProductosComponent implements OnInit {
     let dia = this.checkoutForm.value.fecha_descontinuo.day
     let mes = this.checkoutForm.value.fecha_descontinuo.month
     this.checkoutForm.value.fecha_descontinuo = `${año}-${mes}-${dia}`
-    console.log(this.checkoutForm.value)
-    console.log(this.checkoutForm.value.fecha_descontinuo)
+     console.log(this.checkoutForm.value)
+    // console.log(this.checkoutForm.value.fecha_descontinuo)
 
 
 
@@ -168,21 +176,21 @@ export class CatalogoDeProductosComponent implements OnInit {
         this.changeSuccessMessage(this.respuesta.msn)
         this.ngOnInit();
 
-
-        this.DateCatalogo.saveKiting(this.catalogo[this.catalogo.length].id).subscribe(resp => {
-          this.respuesta = resp;
-          this.type = "success";
-          this.changeSuccessMessage(this.respuesta.msn)
-          console.log("entroo en kinting");
-          this.ngOnInit();
-
-        }, error => {
-          this.type = "danger";
-          this.changeSuccessMessage('Error no se ha guardado correctamente')
-        })
+        if (this.kitingBool === true) {
+        this.checkoutFormP.value.id_producto=this.catalogo[this.catalogo.length-1].id+1
+        console.log( this.checkoutFormP.value.id_producto);
+          this.DateCatalogo.saveKiting(this.checkoutFormP.value).subscribe(resp => {
+            console.log(resp);
+           
+            console.log("entroo en kinting");
+            this.ngOnInit()
+          }, error => {
+         
+            console.log("error no se guardo conrectamente");
+          })
 
         console.log(this.kitingBool);
-
+      }
       },
         error => {
           this.type = "danger";
