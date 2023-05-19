@@ -130,7 +130,7 @@ export class DataCatalogoService {
   }
 
   
-  // PRODUCTO
+  // ETIQUETADO
 
   SaveEtiquetado(value) {
     return this.http.post(this.url + "save-etiquetado", value);
@@ -149,4 +149,19 @@ export class DataCatalogoService {
   saveKiting(value) {
     return this.http.post(this.url + "save-kitting", value);
   }
+
+  // BUSCAR
+
+  SaveBuscar(value) {
+    return this.http.post(this.url + "save-busquedaProducto", value);
+  }
+  ListarBuscar() {
+    return this.http.get(this.url + "listar-busquedaProducto");
+  }
+   EliminarBuscar(id: string) {
+     return this.http.delete(this.url + "delete-busquedaProducto/" + id);
+   }
+  // ActualizarBuscar(id: string, value) {
+  //   return this.http.put(this.url + "actualizar-Buscar/" + id, value);
+  // }
 }

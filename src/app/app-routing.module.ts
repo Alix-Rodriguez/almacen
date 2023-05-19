@@ -51,6 +51,7 @@ import { NoCatalogadoComponent } from './pages/no-catalogado/no-catalogado.compo
 import { ProgramacionComponent } from './pages/programacion/programacion.component';
 import { EntradaComponent } from './pages/entrada/entrada.component';
 import { SalidaComponent } from './pages/salida/salida.component';
+import { BuscarComponent } from './pages/buscar/buscar.component';
 
 
 const routes: Routes = [
@@ -102,6 +103,7 @@ const routes: Routes = [
       { path: 'programacion', component: ProgramacionComponent},
       { path: 'entrada', component: EntradaComponent},
       { path: 'salida', component: SalidaComponent},
+      { path: 'buscar', component: BuscarComponent},
 
 
 
