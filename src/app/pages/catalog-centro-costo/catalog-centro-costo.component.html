@@ -17,7 +17,7 @@
                 <select formControlName="id_cliente" name="id_cliente" id="id_cliente"
                     class="col mt-2 pl-2 form-select">
                     <option value="" disabled selected>Selecciones</option>
-                    <option *ngFor="let li of cliente" value={{li.id}}>{{ li.clave_cliente }}</option>
+                    <option *ngFor="let li of cliente" value={{li.id}}>{{ li.nombre_cliente }}</option>
                 </select>
             </div>
         </div>
@@ -83,11 +83,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let li of CC  | pipeCC:filterCC">
+                        
+                        <tr *ngFor="let li of CC  | pipeCC:filterCC ">
                             <td>{{li.id}} </td>
-                            <td>{{li.id_empresa}} </td>
-                            <td>{{li.id_cliente}} </td>
-                            <td>{{li.id_marca}} </td>
+                            <td>{{li.nombre_empresa}} </td>
+                            <td>{{li.nombre_cliente}} </td>
+                            <td>{{li.marca}} </td>
                             <td>{{li.id_ubicacion_elsea}} </td>
                             <td>{{li.descripcion}} </td>
                             <td>

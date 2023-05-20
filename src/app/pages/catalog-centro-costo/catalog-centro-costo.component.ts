@@ -73,6 +73,7 @@ export class CatalogCentroCostoComponent implements OnInit {
   ListaCC() {
     this.dataCatalogo.ListarCentroCosto().subscribe((resp) => {
       this.CC = resp["data"];
+      console.log(this.CC[0]);
     });
   }
 
