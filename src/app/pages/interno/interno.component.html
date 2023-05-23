@@ -1,0 +1,131 @@
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
+    successMessage}}</ngb-alert>
+<form [formGroup]='checkoutForm'>
+    <h4 class="border-1 border-bottom border-dark">Movimiento interno de producto</h4>
+    <div class="container">
+        <div class="row mt-4 mb-2 mr-5">
+            <label class="text-center col-2">Empresa</label>
+            <div class="col">
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}} </option>
+                </select>
+            </div>
+            <!-- formControlName="id_empresa" name="id_empresa" id="id_empresa" -->
+            <label class="text-center col-2">Almacen</label>
+            <div class="col">
+                <select class="form-select">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
+                </select>
+            </div>
+        </div>
+        <!-- formControlName="id_almacen" name="id_almacen" id="id_almacen" -->
+
+    </div>
+</form>
+
+<!-- <div class="d-sm-flex bd-highlight mb-2">
+    <input placeholder="Buscar" name="filterEtiqueta" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+    [(ngModel)]="filterEtiqueta">
+</div> -->
+<div class="d-flex justify-content-between align-items-end  mr-5 mt-5 mb-2 ">
+    <h5>Producto a mover</h5>
+    <button type="button" class="mb-1 col-2 btn border-dark border-1">Buscar producto</button>
+    <!-- (click)="onSubmit()" [disabled]="checkoutForm.invalid" -->
+</div>
+<table class="table table-bordered table-striped  table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Sku</th>
+            <th scope="col">Producto</th>
+            <th scope="col">U.M.</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Numero de lote</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of producto">
+            <td>{{pos}}</td>
+            <td>{{pos}}</td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>
+                <button class="btn btn-info padding"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="d-flex justify-content-between align-items-end  mr-5 mt-5 mb-2 ">
+    <h5>Ubicacion origen</h5>
+    <button type="button" class="mb-1 col-2 btn border-dark border-1">Agregar Layout</button>
+    <!-- (click)="onSubmit()" [disabled]="checkoutForm.invalid" -->
+</div>
+<table class="table table-bordered table-striped  table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Zona</th>
+            <th scope="col">Rack</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of producto">
+            <td>{{pos}}</td>
+            <td>{{pos}}</td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>
+                <button class="btn btn-info padding"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="d-flex justify-content-between align-items-end  mr-5 mt-5 mb-2 ">
+    <h5>Ubicacion destino</h5>
+    <button type="button" class="mb-1 col-2 btn border-dark border-1">Agregar Layout</button>
+    <!-- (click)="onSubmit()" [disabled]="checkoutForm.invalid" -->
+</div>
+<table class="table table-bordered table-striped  table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Zona</th>
+            <th scope="col">Rack</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Localidad</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of producto">
+            <td>{{pos}}</td>
+            <td>{{pos}}</td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>{{pos}} </td>
+            <td>
+                <button class="btn btn-info padding"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="d-flex  justify-content-end align-items-end  mr-5 mt-5 mb-2 ">
+    <button type="button" class="mb-1 col-2 btn border-dark btn-dark btn-outline-light border-1">Guardar</button>
+    <!-- (click)="onSubmit()" [disabled]="checkoutForm.invalid" -->
+</div>

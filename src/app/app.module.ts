@@ -74,6 +74,7 @@ import { EntradaComponent } from './pages/entrada/entrada.component';
 import { SalidaComponent } from './pages/salida/salida.component';
 import { FilterEtiquetaInOutPipe } from './pipes/filter-etiqueta-in-out.pipe';
 import { BuscarComponent } from './pages/buscar/buscar.component';
+import { InternoComponent } from './pages/interno/interno.component';
 
 @NgModule({
   declarations: [
@@ -146,6 +147,7 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
     SalidaComponent,
     FilterEtiquetaInOutPipe,
     BuscarComponent,
+    InternoComponent,
   
   ],
   imports: [
