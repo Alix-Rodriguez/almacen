@@ -9,7 +9,7 @@
             <div class="col-3">
                 <select formControlName="id_empresa" name="id_empresa" id="id_empresa" class=" form-select">
                     <option value="" disabled selected>Seleccione</option>
-                    <option *ngFor="let id of empresa" value={{id.id}} >{{id.nombre_empresa}} </option>
+                    <option *ngFor="let id of empresa" value={{id.id}}>{{id.nombre_empresa}} </option>
                 </select>
             </div>
 
@@ -26,8 +26,7 @@
                 </div>
                 <label class="col-3 form-label">Caducidad</label>
                 <div class="col-1">
-                    <input (click)="Dias()" type="checkbox"
-                        class="mr-1">
+                    <input (click)="Dias()" type="checkbox" class="mr-1">
                 </div>
                 <div class="col-1">
                     <input #dias disabled formControlName="caducidad" name="caducidad" id="caducidad" type="text"
@@ -45,7 +44,7 @@
                 <label class="col-5 form-label">Requiere inspeccion de Calidad</label>
                 <div class="col-1">
                     <input formControlName="requiere_inspeccion_calidad" name="requiere_inspeccion_calidad"
-                        id="requiere_inspeccion_calidad" type="checkbox" >
+                        id="requiere_inspeccion_calidad" type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
@@ -57,7 +56,7 @@
                 <label class="col-5 form-label">Requiere fecha caducidad</label>
                 <div class="col-1">
                     <input formControlName="requiere_fecha_cadu" name="requiere_fecha_cadu" id="requiere_fecha_cadu"
-                    type="checkbox">
+                        type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
@@ -99,20 +98,20 @@
                 </div>
                 <label class="col-7 text-center   form-label">Lote Compuesto</label>
                 <div class="col-1">
-                    <input (click)="SELECT()"  type="checkbox">
+                    <input (click)="SELECT()" type="checkbox">
                 </div>
             </div>
             <div class="row mt-2">
                 <label class="col-2 form-label">Sobreo Bajo Surtimiento</label>
                 <div class="col-1">
-                    <input   formControlName="sobresurtimiento" name="sobresurtimiento" id="sobresurtimiento" type="text"
+                    <input formControlName="sobresurtimiento" name="sobresurtimiento" id="sobresurtimiento" type="text"
                         class=" form-control">
                 </div>
                 <label class="col-5 mt-2 text-end pr-5 form-label">Configuración lote</label>
                 <div class="col-3">
                     <select #select disabled formControlName="id_config_lote" name="id_config_lote" id="id_config_lote"
                         class="form-select">
-                        <option  value="" disabled selected>Seleccione</option>
+                        <option value="" disabled selected>Seleccione</option>
                         <option *ngFor="let li of config" value={{li.id}}>{{li.descripcion}} </option>
                     </select>
                 </div>
@@ -123,7 +122,29 @@
                     <input formControlName="serialisable_surtir" name="serialisable_surtir" id="serialisable_surtir"
                         type="text" class=" form-control">
                 </div>
+                <div class="d-flex justify-content-end  col-8 h-25">
+                    <button (click)="open(mymodalLayout)" type="button" class=" btn border-1 border-dark btn-outline-dark">Crea Layout</button>
+                    
+                    <ng-template #mymodalLayout let-modal>
+                        <div class="modal-header">
+                            <h4 id="modal-basic-title">Seleccione Layout</h4>
+                        </div>
+                        <div class="container-fluid">
+                            <app-layout-producto (layoutId)="idLayout($event)" ></app-layout-producto>
+
+                           
+                        </div>
+                        <div class="d-flex justify-content-end ml-5 modal-body">
+                            <button type="button" class="mr-3 btn btn-outline-light btn-dark" 
+                                (click)="modal.close('Save click')">Aceptar</button>
+                            <button type="button" class="btn btn-outline-light btn-dark"
+                                (click)="modal.close('Save click')">Cancelar</button>
+                        </div>
+                    </ng-template>
+                </div>
+
             </div>
+
             <div class="d-flex justify-content-end mt-4 ml-1">
                 <button (click)="siguientePagina()" type="button" class=" col-2 btn btn-dark">Siguiente</button>
             </div>
@@ -144,7 +165,7 @@
                     <select formControlName="id_unidad_de_medida" name="id_unidad_de_medida" id="id_unidad_de_medida"
                         class="form-select">
                         <option value="" disabled selected>Seleccione</option>
-                        <option  *ngFor="let li of UM" value={{li.id}} >{{li.descripcion}} </option>
+                        <option *ngFor="let li of UM" value={{li.id}}>{{li.descripcion}} </option>
                     </select>
                 </div>
             </div>
@@ -189,7 +210,7 @@
             <div class="row mt-2">
                 <label class="col-2">SKU Compuesto</label>
                 <div class="col-1 text-end">
-                    <input  class="form-check-input" type="checkbox" id="flexCheckDefault">
+                    <input class="form-check-input" type="checkbox" id="flexCheckDefault">
                 </div>
                 <div class="col-6">
                     <button type="button" (click)="open(mymodalCom)" class="d-block  btn btn-dark">Kiting</button>
@@ -203,7 +224,7 @@
                             <h4 id="modal-basic-title">Kiting</h4>
                         </div>
                         <div class="container-fluid">
-                             <app-kiting></app-kiting> 
+                            <app-kiting></app-kiting>
                             <!-- <div class="row">
                                 <div  #prueba class="col-4">
                                     <h6  class="text-center">Disponibles</h6>
@@ -226,8 +247,8 @@
 
                         </div>
                         <div class="d-flex justify-content-end ml-5 modal-body">
-                            <button type="button" class="mr-3 btn btn-outline-light btn-dark"
-                                (click)="kitingGuardar()" (click)="modal.close('Save click')">Aceptar</button>
+                            <button type="button" class="mr-3 btn btn-outline-light btn-dark" (click)="kitingGuardar()"
+                                (click)="modal.close('Save click')">Aceptar</button>
                             <button type="button" class="btn btn-outline-light btn-dark"
                                 (click)="modal.close('Save click')">Cancelar</button>
                         </div>

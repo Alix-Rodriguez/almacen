@@ -29,8 +29,10 @@ export class ProgramacionAggProductoComponent implements OnInit {
     
 
   ngOnInit(): void {
+    console.log("entro");
     this.dataCatalogo.ListarProducto().subscribe(resp =>{
       this.producto=resp['data']
+      console.log(this.producto);
     } )
   
   }

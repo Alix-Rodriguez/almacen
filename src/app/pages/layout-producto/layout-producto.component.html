@@ -1,0 +1,18 @@
+<table class="table  mt-1">
+  <thead>
+    <tr>
+      <th scope="col">Zona</th>
+      <th scope="col">Rack</th>
+      <th scope="col">Nivel</th>
+      <th scope="col">Localidad</th>
+    </tr>
+  </thead>
+  <tbody #layout>
+    <tr (click)="clickLayout(i,li.id)" *ngFor="let li of listarLayout ; index as i">
+      <td> {{li.descripcion_zona}} </td>
+      <td> {{li.descripcion_racks}} </td>
+      <td>{{li.descripcion_nivels}} </td>
+      <td>{{li.descripcion_localidads}}</td>
+    </tr>
+  </tbody>
+</table>

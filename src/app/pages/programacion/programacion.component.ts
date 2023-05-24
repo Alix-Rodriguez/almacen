@@ -76,6 +76,7 @@ export class ProgramacionComponent implements OnInit {
 
   saveCantidad(value, index) {
     this.cantidad[index] = value
+    console.log(this.cantidad);
   }
 
   activar() {

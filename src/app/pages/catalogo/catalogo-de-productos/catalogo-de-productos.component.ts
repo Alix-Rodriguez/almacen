@@ -6,6 +6,7 @@ import { ModalDismissReasons, NgbAlert, NgbModal } from "@ng-bootstrap/ng-bootst
 import { Subject } from "rxjs";
 import { debounceTime } from "rxjs/operators";
 import { KitingProductoService } from "src/app/services/kiting-producto.service";
+import { DataLayoutService } from "src/app/services/data-layout.service";
 
 
 @Component({
@@ -33,21 +34,25 @@ export class CatalogoDeProductosComponent implements OnInit {
   kitingBool: boolean = false
   compuesto: any
   skuGlobal: any
-  UM:any
+  UM: any
+  layout: number
+
 
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
     private DateCatalogo: DataCatalogoService,
     private modalService: NgbModal,
-    private render2: Renderer2,
     private kintingProducto: KitingProductoService,
+    private render2: Renderer2,
+    private dataLayout: DataLayoutService,
   ) { }
 
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
   @ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
   @ViewChild('select') Select!: ElementRef;
   @ViewChild('dias') dias!: ElementRef;
+
 
   Dias() {
     const dia = this.dias.nativeElement
@@ -66,11 +71,11 @@ export class CatalogoDeProductosComponent implements OnInit {
     }
 
   }
-  ListaUM(){
+  ListaUM() {
     this.DateCatalogo.ListarUM()
-    .subscribe(resp=>{
-      this.UM = resp['data'];
-    })
+      .subscribe(resp => {
+        this.UM = resp['data'];
+      })
   }
   Listar() {
     this.dataService.getListEmpresa()
@@ -89,13 +94,18 @@ export class CatalogoDeProductosComponent implements OnInit {
       .subscribe(resp => {
         this.lineaP = resp['data']
       })
+
     this.DateCatalogo.ListarProducto().subscribe(resp => {
       this.catalogo = resp['data']
-   
-  
     })
+
   }
 
+  idLayout(value) {
+    console.log(value);
+    this.layout = value;
+    
+  }
   kitingGuardar() {
     this.kitingBool = true;
   }
@@ -135,12 +145,13 @@ export class CatalogoDeProductosComponent implements OnInit {
       fecha_descontinuo: ["", [Validators.required]],
       status: ["", [Validators.required]],
       kitting: [""],
+      id_layout: [],
     });
   }
   initFormP(): FormGroup {
     return this.fb.group({
       id_producto: ["", [Validators.required]],
-      
+
     });
   }
 
@@ -163,11 +174,10 @@ export class CatalogoDeProductosComponent implements OnInit {
     let dia = this.checkoutForm.value.fecha_descontinuo.day
     let mes = this.checkoutForm.value.fecha_descontinuo.month
     this.checkoutForm.value.fecha_descontinuo = `${año}-${mes}-${dia}`
-     console.log(this.checkoutForm.value)
-    // console.log(this.checkoutForm.value.fecha_descontinuo)
 
-
-
+    this.checkoutForm.value.id_layout = this.layout
+    
+    console.log(this.checkoutForm.value)
     this.DateCatalogo.SaveProducto(this.checkoutForm.value)
       .subscribe(resp => {
         console.log(resp)
@@ -177,20 +187,20 @@ export class CatalogoDeProductosComponent implements OnInit {
         this.ngOnInit();
 
         if (this.kitingBool === true) {
-        this.checkoutFormP.value.id_producto=this.catalogo[this.catalogo.length-1].id+1
-        console.log( this.checkoutFormP.value.id_producto);
+          this.checkoutFormP.value.id_producto = this.catalogo[this.catalogo.length - 1].id + 1
+          console.log(this.checkoutFormP.value.id_producto);
           this.DateCatalogo.saveKiting(this.checkoutFormP.value).subscribe(resp => {
             console.log(resp);
-           
+
             console.log("entroo en kinting");
             this.ngOnInit()
           }, error => {
-         
+
             console.log("error no se guardo conrectamente");
           })
 
-        console.log(this.kitingBool);
-      }
+          console.log(this.kitingBool);
+        }
       },
         error => {
           this.type = "danger";
@@ -206,15 +216,15 @@ export class CatalogoDeProductosComponent implements OnInit {
 
     // GUARDAR KITIN EN HIJOS
     if (this.kitingBool === true) {
-     
+
       console.log("entro en el sumit", this.compuesto);
       for (let i = 0; i < this.compuesto.length; i++) {
 
         for (let j = 0; j < this.catalogo.length; j++) {
 
           if (this.compuesto[i] === this.catalogo[j].descripcion) {
-           
-            
+
+
             this.checkoutForm.setValue({
               id_empresa: this.catalogo[j].id_empresa,
               sku: this.catalogo[j].sku,
@@ -237,14 +247,14 @@ export class CatalogoDeProductosComponent implements OnInit {
               status: this.catalogo[j].status,
               kitting: this.skuGlobal
             });
-           
+
 
             let p = this.catalogo[j].id.toString();
             console.log(p);
             this.DateCatalogo.ActualizarProducto(p, this.checkoutForm.value).subscribe(resp => {
               console.log(resp);
             })
-           
+
 
           }
         }

@@ -1,0 +1,46 @@
+<div class="mt-3">
+    <h6 class="modal-title border-1 border-dark border-bottom" id="modal-basic-title">Filtrar</h6>
+</div>
+<div class="p-2 row mt-3">
+    <div class="col">
+        <label class="form-label d-block">SKU</label>
+        <input placeholder="Ingrese SKU" type="text" name="filterSku" [(ngModel)]="filterSku" class="form-control">
+    </div>
+
+    <div class="col">
+        <label class="form-label d-block">Numero de parte</label>
+        <input placeholder="Ingrese Numero de parte"  name="filterNP" [(ngModel)]="filterNP" type="text" class="form-control">
+    </div>
+
+    <div class="col">
+        <label class="form-label d-block">Modelo</label>
+        <input placeholder="Ingrese Modelo" name="filterModelo" [(ngModel)]="filterModelo" type="text" class="form-control">
+    </div>
+
+    <div class="col">
+        <label class="form-label d-block">Producto</label>
+        <input  placeholder="Ingrese Producto" type="text" name="filterProducto" [(ngModel)]="filterProducto" class="form-control">
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">SKU</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Nro.Partes</th>
+            <th scope="col">Uni.Medidas</th>
+
+        </tr>
+    </thead>
+    <tbody #Seleccion>
+        <tr   *ngFor="let pos of (producto | filterAggProducto:filterProducto:filterSku:filterNP:filterModelo); index as i" (click)="Select(i,pos.id)">
+            <td>{{pos.sku}} </td>
+            <td>{{pos.descripcion}}</td>
+            <td>{{pos.modelo}} </td>
+            <td>{{pos.numero_parte}}</td>
+            <td>{{pos.id_unidad_de_medida}}</td>
+        </tr>
+    </tbody>
+</table>

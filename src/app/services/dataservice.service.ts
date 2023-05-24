@@ -153,5 +153,8 @@ export class DataserviceService {
   }
 
 
+  saveMovientoInterno(value){
+    return this.http.post(this.url + 'save-movimientointerno', value)
+  }
 
 }

@@ -75,6 +75,8 @@ import { SalidaComponent } from './pages/salida/salida.component';
 import { FilterEtiquetaInOutPipe } from './pipes/filter-etiqueta-in-out.pipe';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { InternoComponent } from './pages/interno/interno.component';
+import { LayoutProductoComponent } from './pages/layout-producto/layout-producto.component';
+import { MoverProductoComponent } from './pages/mover-producto/mover-producto.component';
 
 @NgModule({
   declarations: [
@@ -148,6 +150,8 @@ import { InternoComponent } from './pages/interno/interno.component';
     FilterEtiquetaInOutPipe,
     BuscarComponent,
     InternoComponent,
+    LayoutProductoComponent,
+    MoverProductoComponent,
   
   ],
   imports: [
