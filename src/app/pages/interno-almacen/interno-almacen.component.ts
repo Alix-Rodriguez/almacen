@@ -1,4 +1,3 @@
-import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDismissReasons, NgbAlert, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -10,11 +9,11 @@ import { DataserviceService } from 'src/app/services/dataservice.service';
 import { RecepcionService } from 'src/app/services/recepcion.service';
 
 @Component({
-  selector: 'app-interno',
-  templateUrl: './interno.component.html',
-  styleUrls: ['./interno.component.css']
+  selector: 'app-interno-almacen',
+  templateUrl: './interno-almacen.component.html',
+  styleUrls: ['./interno-almacen.component.css']
 })
-export class InternoComponent implements OnInit {
+export class InternoAlmacenComponent implements OnInit {
 
   miga: any = 'Interno';
   checkoutForm!: FormGroup;
@@ -28,7 +27,6 @@ export class InternoComponent implements OnInit {
   producto: any = []
   idP: number
   idL: number
-  layout: any = []
   cantidad: any = []
 
 
@@ -81,35 +79,18 @@ export class InternoComponent implements OnInit {
     this.producto = this.producto.filter(select => select !== this.producto[iter])
   }
 
-  aggLayout(value) {
-    this.idL = value
-    console.log(this.idL);
-  }
+ 
 
-  listarLayout() {
-    this.dataLayout.listLayout().subscribe(resp => {
-      console.log(this.idL);
-      console.log(resp['data']);
-      for (let i = 0; i < resp['data'].length; i++) {
-        if (resp['data'][i].id === this.idL) {
-          this.layout.push(resp['data'][i])
-          console.log(this.layout);
-        }
-      }
-    })
-  }
 
-  eliminarL(iter) {
-    this.layout = this.layout.filter(select => select !== this.layout[iter])
 
-  }
+  
   initForm(): FormGroup {
     return this.fb.group({
+      id_almacen_origen: ['', [Validators.required]],
+      id_almacen_destino: ['', [Validators.required]],
       id_empresa: ['', [Validators.required]],
-      id_almacen: ['', [Validators.required]],
       id_producto: [],
       cantidad: [''],
-      id_layout: [],
 
     });
   }
@@ -126,14 +107,7 @@ export class InternoComponent implements OnInit {
       return 1;
     }
 
-    if (this.layout.length === 0) {
-      this.type = "danger";
-      this.successMessage = 'Error - no se ha agg ningun layout'
-      console.log(this.successMessage);
-      console.log("siii");
-      console.dir(this.cantidad);
-      return 1;
-    }
+    
     if (this.cantidad.length === 0) {
       this.type = "danger";
       this.successMessage = 'Error - no se ha agg la cantida del producto'
@@ -150,10 +124,9 @@ export class InternoComponent implements OnInit {
     for (let i = 0; i < this.producto.length; i++) {
       this.checkoutForm.value.cantidad = this.cantidad[i];
       this.checkoutForm.value.id_producto = this.producto[i].id;
-      this.checkoutForm.value.id_layout = this.layout[i].id;
 
       console.log(this.checkoutForm.value)
-      this.dataService.saveMovientoInterno(this.checkoutForm.value)
+      this.dataService.saveMovientoAlmacen(this.checkoutForm.value)
         .subscribe(resp => {
           console.log(resp)
           this.respuesta = resp;
@@ -211,4 +184,5 @@ export class InternoComponent implements OnInit {
       return `with: ${reason}`;
     }
   }
+
 }

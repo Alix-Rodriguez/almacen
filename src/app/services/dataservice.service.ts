@@ -152,9 +152,13 @@ export class DataserviceService {
     return this.http.put(this.url + 'actualizar-localidad/'+id,value)
   }
 
-
+  // MOVIMIENTO INTERNO DE PRODUCTO
   saveMovientoInterno(value){
     return this.http.post(this.url + 'save-movimientointerno', value)
   }
 
+  // MOVIMIENTO INTERNO DE ALMACEN
+  saveMovientoAlmacen(value){
+    return this.http.post(this.url + 'save-movimientoentrealmacen', value)
+  }
 }

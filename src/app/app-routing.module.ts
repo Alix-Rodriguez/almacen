@@ -53,6 +53,7 @@ import { EntradaComponent } from './pages/entrada/entrada.component';
 import { SalidaComponent } from './pages/salida/salida.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { InternoComponent } from './pages/interno/interno.component';
+import { InternoAlmacenComponent } from './pages/interno-almacen/interno-almacen.component';
 
 
 const routes: Routes = [
@@ -106,6 +107,7 @@ const routes: Routes = [
       { path: 'salida', component: SalidaComponent},
       { path: 'buscar', component: BuscarComponent},
       { path: 'interno', component: InternoComponent},
+      { path: 'interno-almacen', component: InternoAlmacenComponent},
 
 
 

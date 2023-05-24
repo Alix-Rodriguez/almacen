@@ -77,6 +77,7 @@ import { BuscarComponent } from './pages/buscar/buscar.component';
 import { InternoComponent } from './pages/interno/interno.component';
 import { LayoutProductoComponent } from './pages/layout-producto/layout-producto.component';
 import { MoverProductoComponent } from './pages/mover-producto/mover-producto.component';
+import { InternoAlmacenComponent } from './pages/interno-almacen/interno-almacen.component';
 
 @NgModule({
   declarations: [
@@ -152,6 +153,7 @@ import { MoverProductoComponent } from './pages/mover-producto/mover-producto.co
     InternoComponent,
     LayoutProductoComponent,
     MoverProductoComponent,
+    InternoAlmacenComponent,
   
   ],
   imports: [

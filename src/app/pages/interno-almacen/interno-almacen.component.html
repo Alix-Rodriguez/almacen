@@ -1,0 +1,116 @@
+<app-breadcrumbs [miga]="miga"></app-breadcrumbs>
+<ngb-alert #selfClosingAlert *ngIf="successMessage" type={{type}} (closed)="successMessage = ''">{{
+    successMessage}}</ngb-alert>
+<form [formGroup]='checkoutForm'>
+    <h4 class="border-1 border-bottom border-dark">Movimiento entre almacenes</h4>
+    <div >
+        <div class="row mt-4 mb-2 mr-5">
+            <div class="col-12">
+                <label class="col-2">Empresa</label>
+                <div class="col-4">
+                    <select formControlName="id_empresa" name="id_empresa" id="id_empresa" class="form-select">
+                        <option value="" disabled selected>Seleccione</option>
+                        <option *ngFor="let li of empresa" value={{li.id}}>{{li.nombre_empresa}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-2 col-12">
+                <label class=" col-8">Almacen origen</label>
+                <div class="col-4">
+                    <select formControlName="id_almacen_origen" name="id_almacen_origen" id="id_almacen_origen" class="form-select">
+                        <option value="" disabled selected>Seleccione</option>
+                        <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-2 col-12">
+                <label class=" col-8">Almacen destino</label>
+                <div class="col-4">
+                    <select formControlName="id_almacen_destino" name="id_almacen_destino" id="id_almacen_destino" class="form-select">
+                        <option value="" disabled selected>Seleccione</option>
+                        <option *ngFor="let li of almacen" value={{li.id}}>{{li.nombre}} </option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+
+<!-- <div class="d-sm-flex bd-highlight mb-2">
+    <input placeholder="Buscar" name="filterEtiqueta" class="col-4 form-control mr-2 p-2 bd-highlight" type="text"
+    [(ngModel)]="filterEtiqueta">
+</div> -->
+<div class="d-flex justify-content-between align-items-end  mr-5 mt-5 mb-2 ">
+    <h5>Producto a mover</h5>
+    <button (click)="open(mymodalProducto)" type="button" class="mb-1 col-2 btn border-dark border-1">Buscar
+        producto</button>
+
+    <ng-template #mymodalProducto let-modal>
+        <app-mover-producto (ProductoId)="aggProducto($event)"></app-mover-producto>
+
+        <div class="d-flex justify-content-start ml-1 modal-body">
+            <button type="button" class="col-4 btn btn-outline-dark" (click)="listarProducto()"
+                (click)="modal.close('Save click')">Aceptar</button>
+        </div>
+
+    </ng-template>
+
+</div>
+<table class="table table-bordered   table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Sku</th>
+            <th scope="col">Producto</th>
+            <th scope="col">U.M.</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Nro.Partes</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of producto; index as i">
+            <td>{{pos.sku}}</td>
+            <td>{{pos.descripcion}}</td>
+            <td>{{pos.id_unidad_de_medida}} </td>
+            <input (input)="saveCantidad($event.target.value,i)" placeholder="Ingrese Cantidad" type="text" class="form-control">
+            <td>{{pos.numero_parte}} </td>
+            <td>{{pos.modelo}} </td>
+            <td>
+                <button (click)="eliminar(i)" class="btn btn-danger padding"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<div class="d-flex justify-content-between align-items-end  mr-5 mt-5 mb-2 ">
+    <h5>Ubicacion origen</h5>
+</div>
+<table class="table table-bordered  table-hover ">
+    <thead>
+        <tr>
+            <th scope="col">Zona</th>
+            <th scope="col">Rack</th>
+            <th scope="col">Nivel</th>
+            <th scope="col">Localidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--  -->
+        <tr *ngFor="let pos of producto">
+            <td>{{pos.id_zona}}</td>
+            <td>{{pos.id_rack}}</td>
+            <td>{{pos.id_nivel}} </td>
+            <td>{{pos.id_localidad}} </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+<div class="d-flex  justify-content-end align-items-end  mr-5 mt-5 mb-2 ">
+    <button (click)="onSubmit()" [disabled]="checkoutForm.invalid" type="button" class="mb-1 col-2 btn border-dark btn-dark  border-1">Guardar</button>
+</div>
