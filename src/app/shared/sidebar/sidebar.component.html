@@ -1,7 +1,13 @@
+<style>
+.scroll::-webkit-scrollbar{
+    width: 0px;
+}
+</style>
+
 <aside class="left-sidebar">
     <div class="scroll-sidebar">
         <nav class="sidebar-nav">
-            <ul id="sidebarnav">
+            <ul class="scroll" style="overflow: auto; max-height: 40rem;" id="sidebarnav">
                 <li class="user-profile">
                     <!-- iconos http://www.rotobaisa.com/mdi-icons.html -->
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img
