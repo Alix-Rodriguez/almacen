@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DataserviceService } from 'src/app/services/dataservice.service';
 
 @Component({
   selector: 'app-header',
@@ -6,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent  {
 
-  constructor() { }
+  constructor(
+    private dataService : DataserviceService,
+    private router:Router
 
-  ngOnInit(): void {
+  ) { }
+
+  Cerrar(){
+    this.dataService.Logout()
+    this.router.navigate(['login'])
   }
-
 }

@@ -180,14 +180,6 @@ export class DataserviceService {
     })
     .pipe(
       map(resp => true)
-      // map((resp:any) =>{
-      //   console.log(resp);
-      //   if(resp.status){
-      //     return true
-      //   } else{
-      //     return false
-      //   }
-      // })
     )
   }
 
@@ -200,6 +192,20 @@ export class DataserviceService {
         console.log(resp);
       } )
     )
+  }
+
+  Logout(){
+    const token = sessionStorage.getItem('token') || '';
+       this.http.get(this.url + 'auth/logout-usuario',{
+      headers:{
+         'Authorization': 'bearer '+token
+      },
+      
+    }).subscribe(resp=>{
+      
+    })
+    
+    sessionStorage.removeItem('token')
   }
 
 }
