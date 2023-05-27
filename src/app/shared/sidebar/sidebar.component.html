@@ -13,61 +13,60 @@
                     </ul>
                     
                 </li>
-                
+               
                 <li class="nav-devider"></li>
                 <!-- <li class="nav-small-cap">PERSONAL</li> -->
                 <li> <a class=" waves-effect waves-dark" href="#" aria-expanded="false"><i
                             class="mdi mdi-gauge"></i>Dashboard</a></li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                <li> <a data-toggle="collapse" href="#Catalogo" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-rocket"></i><span class="hide-menu">Catalogo <span
                                 class="label label-rouded label-themecolor pull-right">11</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
+                    <ul id="Catalogo" aria-expanded="false" class="collapse">
                        
-                        
                         <!-- ALMACEN -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Almacen" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-store mr-1"></i><span class="hide-menu">Almacen<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Almacen" aria-expanded="false" class="collapse">
                                 <li><a class="link" [routerLink]="['/crear-almacen']">Crear Almacen</a></li>
                                 <li><a class="link" [routerLink]="['/listar-almacen']">Listar almacen </a></li>
                             </ul>
                         </li>
 
                         <!-- REMITENTE -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Remitente" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-contact-mail mr-1"></i><span class="hide-menu">Remitente<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Remitente" aria-expanded="false" class="collapse">
                                 <li><a class="link" [routerLink]="['/remitente']">Crear Remitente</a></li>
                                 <li><a class="link" [routerLink]="['/listar-remitente']">Listar Remitente</a></li>
                             </ul>
                         </li>   
 
                           <!-- Empresa -->
-                          <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                          <li> <a data-toggle="collapse" href="#Empresa" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="bi bi-buildings-fill mr-1"></i><span class="hide-menu">Empresa<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
+                            <ul id="Empresa" aria-expanded="false" class="collapse">
                                 <li><a class="link" [routerLink]="['/crear-empresa']">Crear Empresa </a></li>
                                 <li><a class="link" [routerLink]="['/listar-empresa']">Listar Empresa </a></li>
                             </ul>
                         </li>
 
                         <!-- Cliente -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Cliente" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="bi bi-person-fill mr-1"></i><span class="hide-menu">Cliente<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Cliente" aria-expanded="false" class="collapse">
                                     <li><a class="link" [routerLink]="['/catalogo-cliente']">Clientes</a></li>
                                     <li><a class="link" [routerLink]="['/listar-cliente']">Listar clientes</a></li>
                                 </ul>
                         </li>
                         <!-- layout -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Layout" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                                     class="bi bi-grid-3x3-gap-fill mr-1"></i><span class="hide-menu">Layout<span
                                         class="label label-rouded label-themecolor pull-right">5</span></span></a>
-                            <ul aria-expanded="false" class="collapse">
+                            <ul id="Layout" aria-expanded="false" class="collapse">
                                 <li><a class="link" [routerLink]="['/crear-layout']">Crear Layout</a></li>
                                 <li><a class="link" [routerLink]="['/zona']">Zona</a></li>
                                 <li><a class="link" [routerLink]="['/rack']">Rack</a></li>
@@ -75,11 +74,11 @@
                                 <li><a class="link" [routerLink]="['/localidad']">Localidad</a></li>
                             </ul>
                         </li>
-                        <!-- layout -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <!-- layout QA -->
+                        <li> <a data-toggle="collapse" href="#LayoutQA" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="bi bi-grid-1x2-fill mr-1"></i><span class="hide-menu">Layout QA<span
                                 class="label label-rouded label-themecolor pull-right">5</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="LayoutQA" aria-expanded="false" class="collapse">
                                     <li><a class="link" [routerLink]="['/crear-layout-qa']">Crear Layout QA</a></li>
                                     <li><a class="link" [routerLink]="['/zonaQA']">Zona QA</a></li>
                                     <li><a class="link" [routerLink]="['/rackQA']">Rack QA</a></li>
@@ -88,30 +87,30 @@
                                 </ul>
                             </li>
                         <!-- Proveedores -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Proveedores" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-truck mr-1"></i><span class="hide-menu">Proveedores<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Proveedores" aria-expanded="false" class="collapse">
                                     <li><a class="link" [routerLink]="['/proveedor']">Crear Proveedores</a></li>
                             <li><a class="link" [routerLink]="['/listar-prov']">Listar Proveedores</a></li>
                             </ul>
                         </li>
 
                         <!-- Medida -->
-                        <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                        <li> <a data-toggle="collapse" href="#Medida" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-ruler mr-1"></i><span class="hide-menu">Medidas<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Medida" aria-expanded="false" class="collapse">
                                     <li><a class="link" [routerLink]="['/ca-uni-carga']">Unidad de Carga</a></li>
                                     <li><a class="link" [routerLink]="['/CatalogoUniMed']">Unidad Medida</a></li>
                                 </ul>
                         </li>
 
                          <!-- producto -->
-                         <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                         <li> <a data-toggle="collapse" href="#Producto" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-cart mr-1"></i><span class="hide-menu">Producto<span
                                 class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul aria-expanded="false" class="collapse">
+                                <ul id="Producto" aria-expanded="false" class="collapse">
                                     <li><a class="link" [routerLink]="['/catalogo-productos']">Productos</a></li>
                                     <li><a class="link" [routerLink]="['/linea-producto']">Linea de Producto</a></li>
                                     <li><a class="link" [routerLink]="['/cata-marca-prod']">Marca De Productos </a></li>
@@ -130,10 +129,10 @@
                 </li>
 
                 <!-- MODULO DE RECEPCION -->
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                <li> <a data-toggle="collapse" href="#Recepcion" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-basket-fill"></i><span class="hide-menu">Recepcion <span
                                 class="label label-rouded label-themecolor pull-right">8</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
+                    <ul id="Recepcion" aria-expanded="false" class="collapse">
                         <li><a class="link" [routerLink]="['/generar-recepcion']">Generar Orden de Compra</a></li>
                         <li><a class="link" [routerLink]="['/listar-generar-recepcion']">Listar Orden de Compra</a></li>
                         <li><a class="link" [routerLink]="['/recepcion']">Recepcion</a></li>
@@ -145,10 +144,10 @@
                         
                     </ul>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
+                <li> <a data-toggle="collapse"  href="#Movimiento"  class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                     class="mdi mdi-shopping"></i><span class="hide-menu">Movimientos<span
                         class="label label-rouded label-themecolor pull-right">3</span></span></a>
-                        <ul aria-expanded="false" class="collapse">
+                        <ul id="Movimiento" aria-expanded="false" class="collapse">
                             <li><a class="link" [routerLink]="['/entrada']">Entrada</a></li>
                             <li><a class="link" [routerLink]="['/salida']">Salida</a></li>
                             <li><a class="link" [routerLink]="['/buscar']">Buscar</a></li>

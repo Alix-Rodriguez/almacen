@@ -54,21 +54,27 @@ import { SalidaComponent } from './pages/salida/salida.component';
 import { BuscarComponent } from './pages/buscar/buscar.component';
 import { InternoComponent } from './pages/interno/interno.component';
 import { InternoAlmacenComponent } from './pages/interno-almacen/interno-almacen.component';
+import { ProtegerRutasGuard } from './proteger-rutas.guard';
 
 
 const routes: Routes = [
-  { 
-    path: '', 
+  
+  
+  
+  
+   { 
+     path: '', 
     component: PagesComponent,
+      canActivateChild:[ProtegerRutasGuard],
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'progress', component: ProgressComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-      { path: 'crear-empresa', component: CrearEmpresaComponent },
       { path: 'crear-almacen', component: CrearAlmacenComponent },
       { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-layout', component: CrearLayoutComponent },
       { path: 'crear-layout-qa', component: CrearLayoutQAComponent },
+      { path: 'crear-empresa', component: CrearEmpresaComponent },
       // { path: 'catalogo', component: CatalogoComponent },
       { path: 'etiquetado', component: EtiquetadoComponent },
       { path: 'CatalogoUniMed', component: CatalogoUnidadMedidaComponent },
@@ -108,17 +114,11 @@ const routes: Routes = [
       { path: 'buscar', component: BuscarComponent},
       { path: 'interno', component: InternoComponent},
       { path: 'interno-almacen', component: InternoAlmacenComponent},
-
-
-
-      
-    ]
+    ],
   },
-
   
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-
   { path: '**', component: NopagefoundComponent },
 ];
 

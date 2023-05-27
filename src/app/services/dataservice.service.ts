@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { map, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 
 
@@ -161,4 +162,44 @@ export class DataserviceService {
   saveMovientoAlmacen(value){
     return this.http.post(this.url + 'save-movimientoentrealmacen', value)
   }
+
+
+   // Registrar Usuarios
+   saveRegistro(value){
+    return this.http.post(this.url + 'auth/registro-usuario', value)
+  }
+
+  validacionUsuario(){
+    const token = sessionStorage.getItem('token') || '';
+
+    return this.http.get(this.url + 'auth/profile-usuario',{
+      headers:{
+         'Authorization': 'bearer '+token
+      },
+      
+    })
+    .pipe(
+      map(resp => true)
+      // map((resp:any) =>{
+      //   console.log(resp);
+      //   if(resp.status){
+      //     return true
+      //   } else{
+      //     return false
+      //   }
+      // })
+    )
+  }
+
+  // Login Usuarios
+  saveLogin(value){
+    return this.http.post(this.url + 'auth/login-usuario', value)
+    .pipe(
+      tap( (resp:any) => {
+        sessionStorage.setItem('token',resp.token_access)
+        console.log(resp);
+      } )
+    )
+  }
+
 }
