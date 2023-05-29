@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
           this.ngOnInit();
         }, error => {
           this.type = "danger";
-          this.changeSuccessMessage('Error - no se ha guardado correctamente')
+          this.changeSuccessMessage('Error  al iniciar sección - Datos incorrectos')
         });
 
       this._success.subscribe((message) => (this.successMessage = message));
