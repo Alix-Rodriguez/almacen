@@ -29,11 +29,12 @@ export class ProtegerRutasGuard implements CanActivateChild {
       
     
 
-    return this.dataService.validacionUsuario().pipe(
-        catchError(error => {
-          this.router.navigate(['login'])
-          return throwError('Ocurrió un error');
-        }))
+    return true 
+    // this.dataService.validacionUsuario().pipe(
+    //     catchError(error => {
+    //       this.router.navigate(['login'])
+    //       return throwError('Ocurrió un error');
+    //     }))
   }
   
 }
