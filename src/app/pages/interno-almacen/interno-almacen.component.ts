@@ -98,7 +98,6 @@ export class InternoAlmacenComponent implements OnInit {
 
   onSubmit() {
 
-
     if (this.producto.length === 0) {
       this.type = "danger";
       this.successMessage = 'Error no se ha agg ningun producto'
