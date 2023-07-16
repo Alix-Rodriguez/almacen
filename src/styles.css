@@ -11,9 +11,23 @@
 }
 
 a.link {
-    color: #d8d8d8 !important;
+    color: #000000b2 !important;
 }
 
 .col-md-5.align-self-center {
     padding-left: 33px;
+}
+
+.card-no-border .left-sidebar, .card-no-border .sidebar-nav {
+    background: aliceblue !important;
+}
+
+.sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
+    color: rgba(90, 78, 78, 0.582) !important;
+}
+
+nav ul li a:hover i {
+    color: rgba(90, 78, 78, 0.582) !important;
+
+
 }

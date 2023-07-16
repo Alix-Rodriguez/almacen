@@ -62,7 +62,7 @@ Global Styles
   outline: none; }
 
 body {
-  background: #fff;
+  background: aliceblue;
   font-family: "Montserrat", sans-serif;
   margin: 0;
   overflow-x: hidden;
@@ -72,7 +72,7 @@ body {
 html {
   position: relative;
   min-height: 100%;
-  background: #ffffff;
+  background: alicebluefff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
@@ -718,7 +718,7 @@ Layouts
 .card-outline-warning,
 .card-outline-success,
 .card-outline-primary {
-  background: #ffffff; }
+  background: alicebluefff; }
 
 .card-fullscreen {
   position: fixed;
@@ -759,7 +759,7 @@ Main sidebar
   top: 0px;
   z-index: 20;
   padding-top: 70px;
-  background: #fff;
+  background: aliceblue;
   -webkit-box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
   box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08); }
 
@@ -793,7 +793,7 @@ sidebar navigation
   display: block !important}
 
 .sidebar-nav {
-  background: #fff;
+  background: aliceblue;
   padding: 15px 0 0 0px; }
   .sidebar-nav ul {
     margin: 0px;
@@ -841,7 +841,7 @@ sidebar navigation
     margin-top: 6px; }
   .sidebar-nav > ul > li > a.active {
     font-weight: 400;
-    background: #ffffff;
+    background: alicebluefff;
     color: #26c6da; }
   .sidebar-nav > ul > li {
     margin-bottom: 5px; }
@@ -1142,7 +1142,7 @@ File: scss
     position: absolute;
     top: 23px;
     cursor: pointer;
-    background: #ffffff;
+    background: alicebluefff;
     width: 15px;
     height: 15px;
     right: 20px;
@@ -1234,7 +1234,7 @@ Notify
  Horizontal-navabar
 *******************/
 .hdr-nav-bar .navbar {
-  background: #ffffff;
+  background: alicebluefff;
   border-top: 1px solid rgba(120, 130, 140, 0.13);
   padding: 0 15px; }
   .hdr-nav-bar .navbar .navbar-nav > li {
@@ -1361,7 +1361,7 @@ Notify
   width: 240px;
   display: none;
   z-index: 1100;
-  background: #ffffff;
+  background: alicebluefff;
   top: 0px;
   padding-bottom: 20px;
   height: 100%;
@@ -1551,7 +1551,7 @@ ul#themecolors {
   position: absolute;
   right: 0;
   border-top: 1px solid rgba(120, 130, 140, 0.13);
-  background: #ffffff; }
+  background: alicebluefff; }
 
 /*******************
  scrollbar
@@ -1578,7 +1578,7 @@ Megamenu
   .mega-dropdown .nav-accordion .card {
     margin-bottom: 1px; }
   .mega-dropdown .nav-accordion .card-header {
-    background: #ffffff; }
+    background: alicebluefff; }
     .mega-dropdown .nav-accordion .card-header h5 {
       margin: 0px; }
       .mega-dropdown .nav-accordion .card-header h5 a {
@@ -4149,9 +4149,9 @@ Table- editable table
 
 .paging_simple_numbers .pagination .paginate_button {
   padding: 0px;
-  background: #ffffff; }
+  background: alicebluefff; }
   .paging_simple_numbers .pagination .paginate_button:hover {
-    background: #ffffff; }
+    background: alicebluefff; }
   .paging_simple_numbers .pagination .paginate_button a {
     padding: 3px 10px;
     border: 0px; }
@@ -4643,7 +4643,7 @@ File: scss
     text-transform: uppercase; }
 
 .fc-day {
-  background: #ffffff; }
+  background: alicebluefff; }
 
 .fc-toolbar .fc-state-active,
 .fc-toolbar .ui-state-active,
@@ -4685,7 +4685,7 @@ File: scss
   padding: 24px 0px; }
 
 .fc-button {
-  background: #ffffff;
+  background: alicebluefff;
   border: 1px solid rgba(120, 130, 140, 0.13);
   color: #67757c;
   text-transform: capitalize; }
@@ -4711,7 +4711,7 @@ File: scss
   background: #f0f0f0; }
 
 .fc-unthemed .fc-today {
-  background: #ffffff; }
+  background: aliceblueebluefff; }
 
 .fc-event {
   border-radius: 0px;
@@ -5038,7 +5038,7 @@ File: scss
   margin-bottom: 20px; }
 
 .msg-body {
-  background: #ffffff;
+  background: alicebluefff;
   padding: 15px;
   font-size: 14px;
   position: relative; }

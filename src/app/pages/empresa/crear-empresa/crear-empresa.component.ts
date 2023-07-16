@@ -65,7 +65,6 @@ export class CrearEmpresaComponent implements OnInit {
       nombre_empresa:['',[Validators.required]],
       direccion_empresa:['', [Validators.required]],
       centro_costo:['', [Validators.required]],
-      logo_empresa:['', [Validators.required]],
       nif_empresa:['',[Validators.required]],
 
     })

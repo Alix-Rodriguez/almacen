@@ -20,4 +20,34 @@ export class HeaderComponent  {
     this.dataService.Logout()
     this.router.navigate(['login'])
   }
+
+
+  Despliegue(){
+        var body = document.querySelector('body');
+        if (body.classList.contains('mini-sidebar')) {
+          body.classList.remove('mini-sidebar');
+        } else {
+          body.classList.add('mini-sidebar');
+        }
+  }
+
+  DespliegueMS(){
+     var body = document.querySelector('body');
+     if (body.classList.contains('show-sidebar')) {
+       body.classList.remove('show-sidebar');
+     } else {
+       body.classList.add('show-sidebar');
+     }
+    var menu = document.querySelector('li.mini a i');
+    if(menu.classList.contains('ti-menu')){
+        menu.classList.add('ti-close');
+        menu.classList.remove('ti-menu')
+    } else{
+      menu.classList.remove('ti-close');
+      menu.classList.add('ti-menu');
+
+    }
+
+  }
+
 }

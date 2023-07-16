@@ -5,7 +5,6 @@ import { DataserviceService } from "src/app/services/dataservice.service";
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap';
-import { DataLayoutService} from '../../../services/data-layout.service'
 import { DataCatalogoService } from "src/app/services/datacatalogo.service";
 
 @Component({
@@ -19,12 +18,6 @@ export class CrearAlmacenComponent implements OnInit {
   colonias: any;
   empresa: any;
   checkoutForm!: FormGroup;
-  checkoutFormRemitente!:FormGroup;
-  formZona: FormGroup;
-  formRack: FormGroup;
-  formNivel: FormGroup;
-  formLocalidad: FormGroup;
-  FormLayout:FormGroup;
   siguiente: boolean = true;
   closeResult: string = "";
   bool: boolean = true;
@@ -39,34 +32,12 @@ export class CrearAlmacenComponent implements OnInit {
   respuesta:any;
   type:any;
   show:boolean = false;
-  zonaB: Boolean=true
-  rackB: Boolean=true
-  nivelB: Boolean=true
-  localidadB: Boolean=true
-  localB: Boolean=true
   almacen:any
-  hola:any="#rack"
-  Onzona(){
-    this.zonaB= !this.zonaB;
-  }
-  Onrack(){
-    this.rackB= !this.rackB;
-  }
-  Onnivel(){
-    this.nivelB= !this.nivelB;
-  }
-  Onlocalidad(){
-    this.localidadB= !this.localidadB;
-  }
-  Onlocal(){
-    this.localB= !this.localB;
-  }
 
 
   constructor(
     private readonly fb: FormBuilder,
     private dataService: DataserviceService,
-    private dataLayout: DataLayoutService,
     private modalService: NgbModal,
   ) {}
 
@@ -82,62 +53,12 @@ export class CrearAlmacenComponent implements OnInit {
     this.Listaralmacen()
     this.getDelegacion();
     this.getListEmpresa();
-    this.formZona = this.initFormZ();
     this.checkoutForm = this.initForm();
-    this.checkoutFormRemitente=this.initFormRemitente()
-    this.formNivel=this.initFormN()
-    this.formRack=this.initFormR()
-    this.formLocalidad=this.initFormL()
-    this.FormLayout=this.initFormLayout()
     console.log(this.checkoutForm.value);
-    this.Listnivel()
-    this.Listzona()
-    this.Listrack()
-    this.Listlocalidad()
 
   }
 
-  // REMITENTEN
-  initFormRemitente(): FormGroup {
-    return this.fb.group({
-      calle: ["", [Validators.required]],
-      numero_interno: ["", [Validators.required]],
-      numero_externo: ["", [Validators.required]],
-      colonia: ["", [Validators.required]],
-      delegacion: ["", [Validators.required]],
-      codigo_postal: ["", [Validators.required]],
-      telefono: ["", [Validators.required]],
-      email: ["", [Validators.required]],
-      rfc: ["", [Validators.required]],
-      almacen: ["", [Validators.required]],
-      empresa: ["", [Validators.required]],
-    });
-  }
-
-  onSubmitRemitente() {
-    console.log(this.checkoutFormRemitente.value)
-    this.dataService.saveRemitente(this.checkoutFormRemitente.value)
-      .subscribe(resp => {
-        console.log(resp)
-        this.respuesta = resp;
-        this.type = "success";
-        this.changeSuccessMessage(this.respuesta.msn)
-        this.ngOnInit();
-
-      },
-        error => {
-          this.type = "danger";
-          this.changeSuccessMessage('Error no se ha guardado correctamente')
-        })
-
-    this._success.subscribe((message) => (this.successMessage = message));
-    this._success.pipe(debounceTime(5000)).subscribe(() => {
-      if (this.selfClosingAlert) {
-        this.selfClosingAlert.close();
-      }
-    });
-
-  }
+  
   
   @ViewChild('staticAlert', { static: false }) staticAlert: NgbAlert;
 	@ViewChild('selfClosingAlert', { static: false }) selfClosingAlert: NgbAlert;
@@ -160,28 +81,6 @@ export class CrearAlmacenComponent implements OnInit {
     });
   }
   
-  Listzona() {
-    this.dataService.ListarZona().subscribe((resp) => {
-      this.zona = resp["data"];
-    });
-  }
-  
-  Listrack() {
-    this.dataService.ListarRack().subscribe((resp) => {
-      this.rack = resp["data"];
-    });
-  }
-  Listnivel() {
-    this.dataService.ListarNivel().subscribe((resp) => {
-      this.nivel = resp["data"];
-    });
-  }
-  Listlocalidad() {
-    this.dataService.ListarLocalidad().subscribe((resp) => {
-      this.localidad = resp["data"];
-    });
-  }
- 
 
   initForm(): FormGroup {
     return this.fb.group({
@@ -213,185 +112,18 @@ export class CrearAlmacenComponent implements OnInit {
       nivel_qa: 1,
       localidad_qa: 1,
     });
-    // "descuento_almacen":"34", LISTO
-    // "tipo":1,LISTO
-    // "calle":"Calle 67 #77-79", LISTO
-    // "numero_exterior":"+583943234", LISTO
-    // "numero_interno":"3004515218", LISTO
-    // "delegacion_municipio":"Ciudad de Mexico", LISTO
-    // "colonia":"Mexicali",  LISTA
-    // "cp":"33445", LISTO
-    // "telefono":"3343453453", LISTO
-    // "email":"hola@gmail.com", LISTO
-    // "picking":12, LISTO
-    // "usa_zona":1,LISTO
-    // "usa_rack":1, LISTO
-    // "usa_nivel":1, LISTO
-    // "usa_localidad":1, LISTA
-
-    // "contacto":"Daniel", MEDIO
-    // "etiqueta_entrada":3, MEDIO
-    // "schedule":1, MEDIO
-    // "status":1, MEDIO
-    // "usar_ubicacion":1, MEDIO
-    // "folio_ubicacion":1, MEDIO
-    // "zona_qa":1, MEDIO
-    // "rack_qa":1, MEDIO
-    // "nivel_qa":1, MEDIO
-    // "localidad_qa":1 MEDIO
+    
   }
 
-   onSubmitZ(){
-    console.log(this.formZona.value)
-    this.dataService.SaveZona(this.formZona.value)
-    .subscribe(resp=>{
-      console.log(resp)
-      this.respuesta = resp;
-      this.type = "success";
-      this.changeSuccessMessage(this.respuesta.msn)
-     this.ngOnInit();
-      
-    },
-    error => {
-      this.type = "danger";
-      this.changeSuccessMessage('Error no se ha guardado correctamente')
-    })
+ 
 
-     this._success.subscribe((message) => (this.successMessage = message));
-     this._success.pipe(debounceTime(5000)).subscribe(() => {
-			if (this.selfClosingAlert) {
-				this.selfClosingAlert.close();
-			}
-		});
-   } 
-  initFormZ(): FormGroup {
-    return this.fb.group({
-      descripcion: ["", [Validators.required]],
-    });
+ 
+
+ 
+
   
-  }
-
-  onSubmitR(){
-    console.log(this.formZona.value)
-    this.dataService.SaveRack(this.formRack.value)
-    .subscribe(resp=>{
-      console.log(resp)
-      this.respuesta = resp;
-      this.type = "success";
-      this.changeSuccessMessage(this.respuesta.msn)
-     this.ngOnInit();
-      
-    },
-    error => {
-      this.type = "danger";
-      this.changeSuccessMessage('Error no se ha guardado correctamente')
-    })
-
-     this._success.subscribe((message) => (this.successMessage = message));
-     this._success.pipe(debounceTime(5000)).subscribe(() => {
-			if (this.selfClosingAlert) {
-				this.selfClosingAlert.close();
-			}
-		});
-   } 
-  initFormR(): FormGroup {
-    return this.fb.group({
-      descripcion: ["", [Validators.required]],
-    });
-  
-  }
-
-  onSubmitN(){
-    console.log(this.formZona.value)
-    this.dataService.SaveNivel(this.formNivel.value)
-    .subscribe(resp=>{
-      console.log(resp)
-      this.respuesta = resp;
-      this.type = "success";
-      this.changeSuccessMessage(this.respuesta.msn)
-     this.ngOnInit();
-      
-    },
-    error => {
-      this.type = "danger";
-      this.changeSuccessMessage('Error no se ha guardado correctamente')
-    })
-
-     this._success.subscribe((message) => (this.successMessage = message));
-     this._success.pipe(debounceTime(5000)).subscribe(() => {
-			if (this.selfClosingAlert) {
-				this.selfClosingAlert.close();
-			}
-		});
-   } 
-  initFormN(): FormGroup {
-    return this.fb.group({
-      descripcion: ["", [Validators.required]],
-    });
-  
-  }
-
-  onSubmitL(){
-    console.log(this.formZona.value)
-    this.dataService.SaveLocalidad(this.formLocalidad.value)
-    .subscribe(resp=>{
-      console.log(resp)
-      this.respuesta = resp;
-      this.type = "success";
-      this.changeSuccessMessage(this.respuesta.msn)
-     this.ngOnInit();
-      
-    },
-    error => {
-      this.type = "danger";
-      this.changeSuccessMessage('Error no se ha guardado correctamente')
-    })
-
-     this._success.subscribe((message) => (this.successMessage = message));
-     this._success.pipe(debounceTime(5000)).subscribe(() => {
-			if (this.selfClosingAlert) {
-				this.selfClosingAlert.close();
-			}
-		});
-   } 
-  initFormL(): FormGroup {
-    return this.fb.group({
-      descripcion: ["", [Validators.required]],
-    });
-  
-  }
 
 
-  initFormLayout(): FormGroup {
-    return this.fb.group({
-      id_zona:['',[Validators.required]],
-      id_rack:['', [Validators.required]],
-      id_nivel:['', [Validators.required]],
-      id_localidad:['',[Validators.required]],
-    })
- }
-  onSubmitLayout(){
-    console.log(this.checkoutForm.value)
-    this.dataLayout.saveLayout(this.FormLayout.value)
-    .subscribe(resp=>{
-      console.log(resp)
-      this.respuesta = resp;
-      this.type = "success";
-      this.changeSuccessMessage(this.respuesta.msn)
-      this.ngOnInit();
-    },
-    error => {
-      this.type = "danger";
-      this.changeSuccessMessage('Error no se ha guardado correctamente')
-    })
-
-		this._success.subscribe((message) => (this.successMessage = message));
-		this._success.pipe(debounceTime(5000)).subscribe(() => {
-  			if (this.selfClosingAlert) {
-				this.selfClosingAlert.close();
-			}
-		});
-  }
   
   onSubmit(){
     console.log(this.checkoutForm.value)

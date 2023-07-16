@@ -11,8 +11,7 @@
                 <li class="user-profile">
                     <!-- iconos http://www.rotobaisa.com/mdi-icons.html -->
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img
-                            src="./assets/images/users/1.jpg" alt="user" /><span class="hide-menu">Daniel
-                            Mejía</span></a>
+                            src="./assets/images/users/1.jpg" alt="user" /><span class="hide-menu">Alix Rodriguez</span></a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="javascript:void()">Mi perfil </a></li>
                         <li><a href="javascript:void()">Logout</a></li>
@@ -29,6 +28,17 @@
                                 class="label label-rouded label-themecolor pull-right">11</span></span></a>
                     <ul id="Catalogo" aria-expanded="false" class="collapse">
                        
+                        
+                          <!-- Empresa -->
+                          <li> <a data-toggle="collapse" href="#Empresa" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
+                            class="bi bi-buildings-fill mr-1"></i><span class="hide-menu">Empresa<span
+                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
+                            <ul id="Empresa" aria-expanded="false" class="collapse">
+                                <li><a class="link" [routerLink]="['/crear-empresa']">Crear Empresa </a></li>
+                                <li><a class="link" [routerLink]="['/listar-empresa']">Listar Empresa </a></li>
+                            </ul>
+                        </li>
+
                         <!-- ALMACEN -->
                         <li> <a data-toggle="collapse" href="#Almacen" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
                             class="mdi mdi-store mr-1"></i><span class="hide-menu">Almacen<span
@@ -49,15 +59,6 @@
                             </ul>
                         </li>   
 
-                          <!-- Empresa -->
-                          <li> <a data-toggle="collapse" href="#Empresa" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="bi bi-buildings-fill mr-1"></i><span class="hide-menu">Empresa<span
-                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                            <ul id="Empresa" aria-expanded="false" class="collapse">
-                                <li><a class="link" [routerLink]="['/crear-empresa']">Crear Empresa </a></li>
-                                <li><a class="link" [routerLink]="['/listar-empresa']">Listar Empresa </a></li>
-                            </ul>
-                        </li>
 
                         <!-- Cliente -->
                         <li> <a data-toggle="collapse" href="#Cliente" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
@@ -68,122 +69,9 @@
                                     <li><a class="link" [routerLink]="['/listar-cliente']">Listar clientes</a></li>
                                 </ul>
                         </li>
-                        <!-- layout -->
-                        <li> <a data-toggle="collapse" href="#Layout" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                                    class="bi bi-grid-3x3-gap-fill mr-1"></i><span class="hide-menu">Layout<span
-                                        class="label label-rouded label-themecolor pull-right">5</span></span></a>
-                            <ul id="Layout" aria-expanded="false" class="collapse">
-                                <li><a class="link" [routerLink]="['/crear-layout']">Crear Layout</a></li>
-                                <li><a class="link" [routerLink]="['/zona']">Zona</a></li>
-                                <li><a class="link" [routerLink]="['/rack']">Rack</a></li>
-                                <li><a class="link" [routerLink]="['/nivel']">Nivel</a></li>
-                                <li><a class="link" [routerLink]="['/localidad']">Localidad</a></li>
-                            </ul>
-                        </li>
-                        <!-- layout QA -->
-                        <li> <a data-toggle="collapse" href="#LayoutQA" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="bi bi-grid-1x2-fill mr-1"></i><span class="hide-menu">Layout QA<span
-                                class="label label-rouded label-themecolor pull-right">5</span></span></a>
-                                <ul id="LayoutQA" aria-expanded="false" class="collapse">
-                                    <li><a class="link" [routerLink]="['/crear-layout-qa']">Crear Layout QA</a></li>
-                                    <li><a class="link" [routerLink]="['/zonaQA']">Zona QA</a></li>
-                                    <li><a class="link" [routerLink]="['/rackQA']">Rack QA</a></li>
-                                    <li><a class="link" [routerLink]="['/nivelQA']">Nivel QA</a></li>
-                                    <li><a class="link" [routerLink]="['/LocalidadQA']">Localidad QA</a></li>
-                                </ul>
-                            </li>
-                        <!-- Proveedores -->
-                        <li> <a data-toggle="collapse" href="#Proveedores" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="mdi mdi-truck mr-1"></i><span class="hide-menu">Proveedores<span
-                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul id="Proveedores" aria-expanded="false" class="collapse">
-                                    <li><a class="link" [routerLink]="['/proveedor']">Crear Proveedores</a></li>
-                            <li><a class="link" [routerLink]="['/listar-prov']">Listar Proveedores</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Medida -->
-                        <li> <a data-toggle="collapse" href="#Medida" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="mdi mdi-ruler mr-1"></i><span class="hide-menu">Medidas<span
-                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul id="Medida" aria-expanded="false" class="collapse">
-                                    <li><a class="link" [routerLink]="['/ca-uni-carga']">Unidad de Carga</a></li>
-                                    <li><a class="link" [routerLink]="['/CatalogoUniMed']">Unidad Medida</a></li>
-                                </ul>
-                        </li>
-
-                         <!-- producto -->
-                         <li> <a data-toggle="collapse" href="#Producto" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="mdi mdi-cart mr-1"></i><span class="hide-menu">Producto<span
-                                class="label label-rouded label-themecolor pull-right">2</span></span></a>
-                                <ul id="Producto" aria-expanded="false" class="collapse">
-                                    <li><a class="link" [routerLink]="['/catalogo-productos']">Productos</a></li>
-                                    <li><a class="link" [routerLink]="['/linea-producto']">Linea de Producto</a></li>
-                                    <li><a class="link" [routerLink]="['/cata-marca-prod']">Marca De Productos </a></li>
-                                    <li><a class="link" [routerLink]="['/config-lote']">Configuración Lote </a></li>
-                                </ul>
-                        </li>
-
-                         
-                    
-                        <li><a class="link" [routerLink]="['/ca-centro-costo']">Centro De Costo</a></li>
-                        <li><a class="link" [routerLink]="['/catalogo-rutas']">Rutas</a></li>
-                        <li><a class="link" [routerLink]="['/etiquetado']">Etiquetado</a></li>
-                        <!-- <li><a class="link" [routerLink]="['/catalogo']" >Catalogo</a></li> -->
-
                     </ul>
                 </li>
 
-                <!-- MODULO DE RECEPCION -->
-                <li> <a data-toggle="collapse" href="#Recepcion" class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                            class="mdi mdi-basket-fill"></i><span class="hide-menu">Recepcion <span
-                                class="label label-rouded label-themecolor pull-right">8</span></span></a>
-                    <ul id="Recepcion" aria-expanded="false" class="collapse">
-                        <li><a class="link" [routerLink]="['/generar-recepcion']">Generar Orden de Compra</a></li>
-                        <li><a class="link" [routerLink]="['/listar-generar-recepcion']">Listar Orden de Compra</a></li>
-                        <li><a class="link" [routerLink]="['/recepcion']">Recepcion</a></li>
-                        <li><a class="link" [routerLink]="['/procesar-recepcion']">Procesar</a></li>
-                        <li><a class="link" [routerLink]="['/ubicar-cerrarar']">Ubicar y Cerrar</a></li>
-                        <li><a class="link" [routerLink]="['/ordenes-cerraradas']">Ordenes Cerradas</a></li>
-                        <li><a class="link" [routerLink]="['/no-catalogado']">No Catalogado</a></li>
-                        <li><a class="link" [routerLink]="['/programacion']">Programacion</a></li>
-                        
-                    </ul>
-                </li>
-                <li> <a data-toggle="collapse"  href="#Movimiento"  class="has-arrow waves-effect waves-dark"  aria-expanded="false"><i
-                    class="mdi mdi-shopping"></i><span class="hide-menu">Movimientos<span
-                        class="label label-rouded label-themecolor pull-right">3</span></span></a>
-                        <ul id="Movimiento" aria-expanded="false" class="collapse">
-                            <li><a class="link" [routerLink]="['/entrada']">Entrada</a></li>
-                            <li><a class="link" [routerLink]="['/salida']">Salida</a></li>
-                            <li><a class="link" [routerLink]="['/buscar']">Buscar</a></li>
-                            <li><a class="link" [routerLink]="['/interno']">Interno</a></li>
-                            <li><a class="link" [routerLink]="['/interno-almacen']">Interno Almacen</a></li>
-                            
-                    </ul>
-                </li>
-            
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Reporte <span
-                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
-
-                    </ul>
-                </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Salida <span
-                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
-
-                    </ul>
-                </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i
-                            class="mdi mdi-clipboard-outline"></i><span class="hide-menu">Inventario <span
-                                class="label label-rouded label-themecolor pull-right">0</span></span></a>
-                    <ul aria-expanded="false" class="collapse">
-
-                    </ul>
-                </li>
             </ul>
         </nav>
     </div>
