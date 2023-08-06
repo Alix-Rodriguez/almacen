@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
         });
 
       this._success.subscribe((message) => (this.successMessage = message));
-      this._success.pipe(debounceTime(4000)).subscribe(() => {
+      this._success.pipe(debounceTime(2000)).subscribe(() => {
         if (this.selfClosingAlert) {
           this.selfClosingAlert.close();
           if(bool){

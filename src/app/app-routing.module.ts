@@ -13,6 +13,10 @@ import { CrearAlmacenComponent } from './pages/almacen/crear-almacen/crear-almac
 import { ListarEmpresaComponent } from './pages/empresa/listar-empresa/listar-empresa.component';
 import { ProtegerRutasGuard } from './proteger-rutas.guard';
 import { CatalogoClienteComponent } from './pages/catalogo/catalogo-cliente/catalogo-cliente.component';
+import { ListarAlmacenComponent } from './pages/almacen/listar-almacen/listar-almacen.component';
+import { RemitenteComponent } from './pages/almacen/remitente/remitente.component';
+import { ListarRemitenteComponent } from './pages/almacen/listar-remitente/listar-remitente.component';
+import { ListarClienteComponent } from './pages/catalogo/listar-cliente/listar-cliente.component';
 
 
 const routes: Routes = [
@@ -28,9 +32,13 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       { path: 'crear-almacen', component: CrearAlmacenComponent },
+      { path: 'listar-almacen', component: ListarAlmacenComponent },
       { path: 'listar-empresa', component: ListarEmpresaComponent },
       { path: 'crear-empresa', component: CrearEmpresaComponent },
       { path: 'catalogo-cliente', component: CatalogoClienteComponent },
+      { path: 'remitente', component: RemitenteComponent },
+      { path: 'listar-remitente', component: ListarRemitenteComponent },
+      { path: 'listar-cliente', component: ListarClienteComponent },
       // { path: 'catalogo', component: CatalogoComponent },
     ],
   },
